@@ -38,7 +38,7 @@ end supermartingale_convergence
 
 section invariant_measure
 
-open measure_theory.measure_theory probability_theory
+open measure_theory measure_theory.probability_theory
 
 variables {X : Type*} [topological_space X] (P : X → measure X)
 
