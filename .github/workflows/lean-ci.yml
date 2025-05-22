@@ -1,4 +1,4 @@
-name: Lean Build
+name: Lean Build (Diagnostics)
 
 on:
   push:
@@ -9,26 +9,61 @@ jobs:
   build-lean:
     runs-on: ubuntu-latest
     steps:
-      # 1. Check out your code
+      # 1. Check out the code
       - uses: actions/checkout@v3
 
-      # 2. Install Elan & Lean 4 (using the correct install.sh on `main`)
+      # 2. Fetch the install script and show its first lines
+      - name: Check elan install script
+        run: |
+          echo "=== Downloading install.sh ==="
+          curl -sSf https://raw.githubusercontent.com/leanprover-community/elan/main/install.sh \
+            | head -n 10
+          echo "=== End preview ==="
+
+      # 3. Install Elan & Lean 4
       - name: Install Elan & Lean
         run: |
+          set -euxo pipefail
           curl -sSf https://raw.githubusercontent.com/leanprover-community/elan/main/install.sh \
             | sh -s -- --default-toolchain stable --force
-          echo "$HOME/.elan/bin" >> $GITHUB_PATH
 
-      # 3. Fetch Mathlib4 & generate lake-manifest.json
+      # 4. List contents of ~/.elan/bin
+      - name: List ~/.elan/bin directory
+        run: |
+          echo "=== elan bin contents ==="
+          ls -alh $HOME/.elan/bin || echo "elan bin not found"
+          echo "=== done listing ==="
+
+      # 5. Export Elan’s bin to PATH and echo PATH
+      - name: Export Elan bin and show PATH
+        run: |
+          echo "$HOME/.elan/bin" >> $GITHUB_PATH
+          echo "=== PATH now ==="
+          echo $PATH
+          echo "=== which lean/lake ==="
+          which lean || echo "lean not on PATH"
+          which lake || echo "lake not on PATH"
+
+      # 6. (Optional) Source elan env and retry which
+      - name: Source elan env and re-check
+        run: |
+          if [ -f "$HOME/.elan/env" ]; then
+            source "$HOME/.elan/env"
+            echo "sourced $HOME/.elan/env"
+          fi
+          which lean || echo "lean still not on PATH"
+          which lake || echo "lake still not on PATH"
+
+      # 7. Fetch Mathlib4 (generate lake-manifest.json)
       - name: lake update
         run: lake update
 
-      # 4. Verify lean & lake versions
-      - name: Verify Versions
+      # 8. Verify tool versions
+      - name: Verify lean & lake versions
         run: |
           lean --version
           lake --version
 
-      # 5. Build all proofs
+      # 9. Build with Lake
       - name: Build with Lake
         run: lake build
