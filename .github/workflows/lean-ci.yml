@@ -8,26 +8,16 @@ on:
 jobs:
   build-lean:
     runs-on: ubuntu-latest
+    # Use the official Lean 4 container
+    container:
+      image: leanprover/lean4:latest
     steps:
-      # 1. Check out your code
       - uses: actions/checkout@v3
-
-      # 2. Install Elan (Lean toolchain manager) and the stable toolchain
-      - name: Install Elan & Lean 4
-        uses: leanprover/elan-action@v1
-        with:
-          version: stable
-
-      # 3. Fetch Mathlib4 & generate lake-manifest.json
-      - name: lake update
+      - name: Fetch Mathlib4
         run: lake update
-
-      # 4. Verify lean & lake
-      - name: Verify Versions
+      - name: Verify versions
         run: |
           lean --version
           lake --version
-
-      # 5. Build all proofs
-      - name: lake build
+      - name: Build with Lake
         run: lake build
