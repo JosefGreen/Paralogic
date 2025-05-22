@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Lean & Lake via Elan
-        uses: leanprover/elan-action@v2
+
+      - name: Setup Lean & Lake
+        uses: leanprover/lean-action@v1
         with:
-          version: stable
-      - name: Verify lean & lake versions
+          auto-config: true   # detect lakefile.toml and run lake build
+
+      - name: Verify versions
         run: |
           lean --version
           lake --version
-      - name: Build with Lake
-        run: lake build
