@@ -1,0 +1,17 @@
+name: Lean Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build-lean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Elan & Lean
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover-community/elan/master/install.sh | sh -s -- --default-toolchain stable
+      - name: Build with Lake
+        run: lake build
