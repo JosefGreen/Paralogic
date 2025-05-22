@@ -10,8 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Elan & Lean
+      - name: Setup Lean & Lake via Elan
+        uses: leanprover/elan-action@v1
+        with:
+          version: stable
+      - name: Verify lean & lake versions
         run: |
-          curl -sSf https://raw.githubusercontent.com/leanprover-community/elan/master/install.sh | sh -s -- --default-toolchain stable
+          lean --version
+          lake --version
       - name: Build with Lake
         run: lake build
