@@ -9,14 +9,25 @@ jobs:
   build-lean:
     runs-on: ubuntu-latest
     steps:
+      # 1. Check out your code
       - uses: actions/checkout@v3
 
-      - name: Setup Lean & Lake
-        uses: leanprover/lean-action@v1
+      # 2. Install Elan (Lean toolchain manager) and the stable toolchain
+      - name: Install Elan & Lean 4
+        uses: leanprover/elan-action@v1
         with:
-          auto-config: true   # detect lakefile.toml and run lake build
+          version: stable
 
-      - name: Verify versions
+      # 3. Fetch Mathlib4 & generate lake-manifest.json
+      - name: lake update
+        run: lake update
+
+      # 4. Verify lean & lake
+      - name: Verify Versions
         run: |
           lean --version
           lake --version
+
+      # 5. Build all proofs
+      - name: lake build
+        run: lake build
