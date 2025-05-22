@@ -12,26 +12,23 @@ jobs:
       # 1. Check out your code
       - uses: actions/checkout@v3
 
-      # 2. Install Elan & Lean 4
+      # 2. Install Elan & Lean 4 (using the correct install.sh on `main`)
       - name: Install Elan & Lean
         run: |
-          curl -sSf https://raw.githubusercontent.com/leanprover-community/elan/master/install.sh \
+          curl -sSf https://raw.githubusercontent.com/leanprover-community/elan/main/install.sh \
             | sh -s -- --default-toolchain stable --force
+          echo "$HOME/.elan/bin" >> $GITHUB_PATH
 
-      # 3. Add elan’s bin to PATH
-      - name: Export Elan bin to PATH
-        run: echo "$HOME/.elan/bin" >> $GITHUB_PATH
-
-      # 4. Fetch Mathlib4 (generate lake-manifest.json)
+      # 3. Fetch Mathlib4 & generate lake-manifest.json
       - name: lake update
         run: lake update
 
-      # 5. Verify versions
-      - name: Verify lean & lake versions
+      # 4. Verify lean & lake versions
+      - name: Verify Versions
         run: |
           lean --version
           lake --version
 
-      # 6. Build your proofs
+      # 5. Build all proofs
       - name: Build with Lake
         run: lake build
