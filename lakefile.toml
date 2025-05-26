@@ -1,0 +1,18 @@
+name = "paralogic"
+version = "0.1.0"
+defaultTargets = ["paralogic"]
+
+# Search your own sources under src/ and the vendored Mathlib4 clone
+lean_src_dirs = ["src", "vendor/mathlib4"]
+
+[[lean_lib]]
+name = "Paralogic"
+path = "src/Paralogic"
+
+[[lean_exe]]
+name = "paralogic"
+root = "src/Main"
+
+[dependencies]
+# Point at the local Mathlib4 clone
+mathlib = { path = "vendor/mathlib4" }
