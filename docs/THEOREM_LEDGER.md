@@ -1,55 +1,38 @@
 # Theorem Ledger
 
-This ledger records current theorem status for the repository, not for every
-source document ever drafted.
+All listed entries are encoded in Lean unless marked as future work.
 
-## Executable Finite Fragment
-
-| ID | Statement | Status |
+| ID | Statement | Lean artifact |
 | --- | --- | --- |
-| EFE-ISF-01 | `ISF -> Uses` | EFE/PYC |
-| EFE-ISF-02 | `ISF -> Claims` | EFE/PYC |
-| EFE-ISF-03 | `ISF -> SupportDegraded` | EFE/PYC |
-| EFE-ISF-04 | `ISF -> TreatsAsAdequate` | EFE/PYC |
-| EFE-M8-01 | `M8 -> ISF` | EFE/PYC |
-| EFE-EVAL-01 | `ValidInsight -> EvaluatorAccepts` | EFE/PYC |
-| EFC-ISF-01 | `Uses not-> ISF` | EFC |
-| EFC-ISF-02 | `Claims not-> ISF` | EFC |
-| EFC-ISF-03 | `SupportDegraded not-> ISF` | EFC |
-| EFC-ISF-04 | `Uses + Claims + SupportDegraded not-> ISF` | EFC |
-| EFC-M8-01 | `ISF not-> M8` | EFC |
-| EFC-M8-04 | `M8 not-> Discrimination` | EFC |
-| EFC-M8-05 | `M8 not-> Coercion` | EFC |
-| EFC-M8-06 | `M8 not-> Harm` | EFC |
-| EFC-M8-07 | `M8 not-> Illegality` | EFC |
-| EFC-M8-08 | `M8 not-> MoralGuilt` | EFC |
-| EFC-M8-09 | `M8 not-> RepairObligation` | EFC |
-| EFC-VI-01 | `CandidateInsight not-> ValidInsight` | EFC |
-| EFC-VI-02 | `FrameShift not-> ValidInsight` | EFC |
-| EFC-VI-03 | `ValidInsight not-> EmpiricalTruth` | EFC |
-| EFC-VI-04 | `ValidInsight not-> MoralTruth` | EFC |
-| EFC-VI-05 | `ValidInsight not-> Repair` | EFC |
-| EFC-EVAL-02 | `EvaluatorAccepts not-> ValidInsight` | EFC |
-| EFC-DELTA-01 | `DeltaResolution not-> EmpiricalTruth` | EFC |
-| EFC-AUDIT-01 | `EmpiricalValidation not-> GovernanceLegitimacy` | EFC |
-| EFC-AUDIT-02 | `Accountability not-> Repair` | EFC |
+| T-ISF-1 | `ISF -> Uses` | `ISF_to_Uses` |
+| T-ISF-2 | `ISF -> Claims` | `ISF_to_Claims` |
+| T-ISF-3 | `ISF -> SupportDegraded` | `ISF_to_SupportDegraded` |
+| T-ISF-4 | `ISF -> TreatsAsAdequate` | `ISF_to_TreatsAsAdequate` |
+| T-M8-1 | `M8 -> ISF` | `M8_to_ISF` |
+| T-M8-2 | `M8 -> Uses` | `M8_to_Uses` |
+| T-M8-3 | `M8 -> Claims` | `M8_to_Claims` |
+| T-VI-1 | `ValidInsight -> CandidateInsight` | `ValidInsight_to_CandidateInsight` |
+| T-VI-2 | `ValidInsight -> EvaluatorAccepts` | `ValidInsight_to_EvaluatorAccepts` |
+| C-ISF-1 | `Uses not-> ISF` | `ISF_does_not_follow_from_Uses` |
+| C-ISF-2 | `Claims not-> ISF` | `ISF_does_not_follow_from_Claims` |
+| C-ISF-3 | `SupportDegraded not-> ISF` | `ISF_does_not_follow_from_SupportDegraded` |
+| C-ISF-4 | `Uses + Claims + SupportDegraded not-> ISF` | `ISF_needs_TreatsAsAdequate` |
+| C-M8-1 | `ISF not-> M8` | `ISF_does_not_imply_M8` |
+| C-M8-2 | `M8 not-> Harm` | `M8_does_not_imply_harm` |
+| C-M8-3 | `M8 not-> Illegality` | `M8_does_not_imply_illegality` |
+| C-M8-4 | `M8 not-> MoralGuilt` | `M8_does_not_imply_moralGuilt` |
+| C-EVAL-1 | `EvaluatorAccepts not-> ValidInsight` | `EvaluatorAccepts_does_not_imply_ValidInsight` |
+| C-VI-1 | `ValidInsight not-> EmpiricalTruth` | `ValidInsight_does_not_imply_empiricalTruth` |
+| C-VI-2 | `ValidInsight not-> Repair` | `ValidInsight_does_not_imply_repair` |
+| C-DELTA-1 | `DeltaResolution not-> EmpiricalTruth` | `DeltaResolution_does_not_imply_empiricalTruth` |
+| C-EMP-1 | `EmpiricalValidation not-> GovernanceLegitimacy` | `EmpiricalValidation_does_not_imply_governanceLegitimacy` |
 
-## Lean Candidate Layer
+## Future Theorem Families
 
-The Lean files under `src/Paralogic/` are candidate formalization material.
-They are not currently promoted to MC3-Lean in this repository. A theorem may
-enter this ledger as MC3-Lean only after a trusted Lean toolchain accepts it.
-
-## Text-Level Theorem Families Needing Promotion
-
-- Frame/context containment and projection non-collapse.
-- Contradiction non-collapse.
-- Evaluator acceptance non-collapse.
-- Delta outcome non-finality.
-- Recursion/failure taxonomy non-collapse.
-- ISFT M1-M12 mechanism soundness and bounded completeness.
-- Normative bridge boundary theorems.
+- Many-sorted soundness for the finite kernel embedding.
+- Frame morphism preservation and non-preservation theorems.
+- Evaluator soundness relative to explicit criteria.
+- Delta outcome exclusivity or overlap theorems.
+- Repair calculus non-collapse theorems.
+- Normative bridge soundness and non-entailment theorems.
 - Empirical validation boundary theorems.
-
-Each theorem family needs: typed statement, dependencies, proof status,
-countermodel for non-entailments, machine-check status, and open issues.

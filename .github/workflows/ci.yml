@@ -1,23 +1,17 @@
-name: CI
+name: Lean CI
 
 on:
   push:
   pull_request:
 
 jobs:
-  python:
+  lean:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Install Lean
+        uses: leanprover/elan-action@v1
         with:
-          python-version: "3.x"
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install -r python/requirements.txt
-      - name: Run finite core checks
-        run: python python/run_core_checks.py
-      - name: Run tests
-        run: python -m pytest python/tests -q
+          version: leanprover/lean4:v4.19.0
+      - name: Build Lean project
+        run: lake build

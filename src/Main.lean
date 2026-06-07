@@ -1,8 +1,4 @@
-﻿/-!
-  src/Main.lean
-
-  Entry point for building the Paralogic executable.
--/
 import Paralogic
 
-#eval \"\"  -- or use #print Paralogic or a simple sanity check
+def main : IO Unit :=
+  IO.println "Paralogic formal core loaded. Run `lake build` to check all Lean modules."
