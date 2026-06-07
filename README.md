@@ -8,9 +8,9 @@ This repository has been rebuilt from scratch as a mathematical workbench.
 The current target is rigor, not rhetoric: every major claim must become a
 typed definition, theorem, countermodel, proof obligation, or validation gap.
 
-## What Is Checked Now
+## What Is Encoded Now
 
-The current Lean kernel checks a finite one-object semantic fragment:
+The current Lean kernel encodes a finite one-object semantic fragment:
 
 - `ISF -> Uses`
 - `ISF -> Claims`
@@ -25,9 +25,10 @@ The current Lean kernel checks a finite one-object semantic fragment:
 - countermodels for `ValidInsight not-> EmpiricalTruth / Repair`
 - countermodels for `EmpiricalValidation not-> GovernanceLegitimacy`
 
-Those are Lean-encoded theorems over a deliberately small kernel. They are not
-empirical validation and they are not a complete formalization of all
-Paralogic.
+Those are Lean theorem statements over a deliberately small kernel. They are
+not empirical validation and they are not a complete formalization of all
+Paralogic. They should be labeled MC3-Lean only after `lake build` has
+actually run and accepted the repository in a trusted environment.
 
 ## Build
 
@@ -48,7 +49,7 @@ small, auditable, and easy to build.
 - `src/Paralogic/Countermodels.lean` - finite witness models.
 - `src/Paralogic/Theorems.lean` - theorem ledger encoded in Lean.
 - `src/Paralogic/TestSuite.lean` - Lean examples that act as regression tests.
-- `docs/` - formal specification, theorem ledger, gap ledger, and roadmap.
+- `docs/` - formal specification, theorem ledger, gap ledger, audit, and roadmap.
 
 ## Non-Negotiable Claim Discipline
 
@@ -62,10 +63,15 @@ Do not claim:
 - ValidInsight proves empirical truth, moral truth, or repair.
 - Evaluator acceptance proves truth.
 
-Permitted current claim:
+Permitted current claim before a recorded successful build:
 
-The repository contains a Lean-checked finite kernel with typed definitions,
+The repository contains Lean source for a finite kernel with typed definitions,
 core implications, and explicit countermodels for selected non-entailments.
+
+Permitted current claim after a recorded successful `lake build`:
+
+The repository contains a Lean-checked finite kernel for selected definitions,
+implications, and non-entailment witnesses.
 
 ## Next Mathematical Bottlenecks
 

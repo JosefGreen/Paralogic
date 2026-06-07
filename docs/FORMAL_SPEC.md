@@ -1,6 +1,11 @@
 # Formal Specification v0.2
 
-Status: Lean-checked finite kernel, not complete Paralogic.
+Status: Lean-source finite kernel, not complete Paralogic.
+
+Machine-check status: MC2 until `lake build` is actually executed and recorded
+as successful. Any successful build may promote the checked files to MC3-Lean
+for exactly those encoded statements, not for the larger Paralogic / ISFT
+program.
 
 ## Objective
 
@@ -108,7 +113,8 @@ The kernel explicitly separates:
 
 ## Verification Status
 
-Lean theorem status: checked when `lake build` succeeds.
+Lean theorem status: MC2 in this ledger until `lake build` succeeds and the
+build result is recorded.
 
 Empirical status: EMP0.
 

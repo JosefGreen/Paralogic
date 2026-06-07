@@ -14,6 +14,18 @@
 8. Normative bridges are not defined.
 9. Empirical validation remains outside the formal kernel.
 10. No external review has occurred.
+11. There is no explicit carrier family for the complete `Sigma_Paralogic`.
+12. Function symbols and predicate symbols are counted but not named,
+    interpreted, or arity-checked.
+13. Frame, context, contradiction, evaluator, normative bridge, and empirical
+    validation semantics are placeholders rather than full model components.
+14. There is no syntactic formula language separating derivability from
+    semantic consequence.
+15. There is no exhaustive finite model enumerator or machine-readable witness
+    ledger in the repository.
+16. There is no custom proof checker for Horn-like definitional implications.
+17. The current theorem families are mostly definitional projections and named
+    witnesses; they are useful guards, not deep theory.
 
 ## Reward-Hacking Risks
 
