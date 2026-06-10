@@ -1,0 +1,23 @@
+{
+  "description": "ISF does not entail M8.",
+  "id": "EFC-M8-ISF-NOT-M8",
+  "status": "EFC-bounded-witness",
+  "valuation": {
+    "claims": true,
+    "powerOmitted": false,
+    "powerRelevant": false,
+    "powerValidityDependence": false,
+    "supportDegraded": true,
+    "treatsAsAdequate": true,
+    "uses": true
+  },
+  "valuation_scope": [
+    "uses",
+    "claims",
+    "supportDegraded",
+    "treatsAsAdequate",
+    "powerRelevant",
+    "powerValidityDependence",
+    "powerOmitted"
+  ]
+}

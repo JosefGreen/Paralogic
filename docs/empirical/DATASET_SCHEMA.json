@@ -1,0 +1,36 @@
+{
+  "status": "EMP0-schema-only",
+  "case_table": {
+    "case_id": "string",
+    "institution_id": "string",
+    "symbolic_output_id": "string",
+    "claim_id": "string",
+    "context_id": "string",
+    "source_uri": "string",
+    "collection_date": "YYYY-MM-DD"
+  },
+  "coding_table": {
+    "case_id": "string",
+    "coder_id": "string",
+    "code_name": "string",
+    "code_value": ["yes", "no", "uncertain", "not_applicable"],
+    "rationale": "string",
+    "source_span": "string",
+    "coded_at": "ISO-8601 datetime"
+  },
+  "adjudication_table": {
+    "case_id": "string",
+    "code_name": "string",
+    "coder_values": "array",
+    "adjudicated_value": ["yes", "no", "uncertain", "not_applicable"],
+    "adjudication_reason": "string",
+    "rule_revision_needed": "boolean"
+  },
+  "validation_table": {
+    "case_id": "string",
+    "construct_boundary_declared": "boolean",
+    "reliability_tested": "boolean",
+    "external_replication_available": "boolean",
+    "limitations_declared": "boolean"
+  }
+}

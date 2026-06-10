@@ -1,0 +1,25 @@
+{
+  "actual": false,
+  "conclusion": {
+    "var": "Q"
+  },
+  "expected": false,
+  "id": "PPC-REJECT-DISJUNCTIVE-AFFIRMATION",
+  "lean_artifact": "no Lean derivation claimed",
+  "passed": true,
+  "premises": [
+    {
+      "disj": [
+        {
+          "var": "P"
+        },
+        {
+          "var": "Q"
+        }
+      ]
+    },
+    {
+      "var": "P"
+    }
+  ]
+}

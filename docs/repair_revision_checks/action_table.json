@@ -1,0 +1,34 @@
+[
+  {
+    "action": "noAction",
+    "conservative": true,
+    "minimal": false,
+    "result": "unrepaired",
+    "revision_postulates": false,
+    "success": false
+  },
+  {
+    "action": "partialAction",
+    "conservative": true,
+    "minimal": false,
+    "result": "underRepaired",
+    "revision_postulates": false,
+    "success": false
+  },
+  {
+    "action": "targetedAction",
+    "conservative": true,
+    "minimal": true,
+    "result": "adequate",
+    "revision_postulates": true,
+    "success": true
+  },
+  {
+    "action": "excessiveAction",
+    "conservative": false,
+    "minimal": false,
+    "result": "overRepaired",
+    "revision_postulates": false,
+    "success": true
+  }
+]

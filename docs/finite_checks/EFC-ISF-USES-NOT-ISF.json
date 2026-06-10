@@ -1,0 +1,17 @@
+{
+  "description": "Uses does not entail ISF.",
+  "id": "EFC-ISF-USES-NOT-ISF",
+  "status": "EFC-bounded-witness",
+  "valuation": {
+    "claims": false,
+    "supportDegraded": false,
+    "treatsAsAdequate": false,
+    "uses": true
+  },
+  "valuation_scope": [
+    "uses",
+    "claims",
+    "supportDegraded",
+    "treatsAsAdequate"
+  ]
+}

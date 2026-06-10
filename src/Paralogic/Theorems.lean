@@ -1,8 +1,8 @@
+import Paralogic.Countermodels
+
 /-!
 Core theorem ledger encoded in Lean.
 -/
-
-import Paralogic.Countermodels
 
 namespace Paralogic
 

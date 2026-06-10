@@ -1,10 +1,26 @@
+import Paralogic.Theorems
+import Paralogic.ProofTheory
+import Paralogic.FrameContext
+import Paralogic.NonPreservation
+import Paralogic.ContextualObstruction
+import Paralogic.DeltaDynamics
+import Paralogic.MinimalRepair
+import Paralogic.Argumentation
+import Paralogic.NontrivialFiniteModels
+import Paralogic.RoughEvidence
+import Paralogic.RoughAdequacyBridge
+import Paralogic.EvidenceGranularity
+import Paralogic.EvaluatorCalibration
+import Paralogic.EvaluatorArgumentation
+import Paralogic.InstitutionFragment
+import Paralogic.FormalConcept
+import Paralogic.ConceptualEssentialization
+
 /-!
 Lean examples that serve as regression tests.
 
 If any example fails, `lake build` fails.
 -/
-
-import Paralogic.Theorems
 
 namespace Paralogic
 
@@ -32,5 +48,485 @@ example :
     empiricalValidationNoLegitimacyWorld.empiricalValidation ∧
     ¬ empiricalValidationNoLegitimacyWorld.governanceLegitimacy :=
   EmpiricalValidation_does_not_imply_governanceLegitimacy
+
+example (left right : Formula) :
+    SemanticallyEntails [Formula.conj left right] left :=
+  derives_conj_left_example_sound left right
+
+example (left right : Formula) :
+    SemanticallyEntails [Formula.impl left right, left] right :=
+  derives_modus_ponens_example_sound left right
+
+example (left right : Formula) :
+    SemanticallyEntails [right] (Formula.impl left right) :=
+  derives_implication_intro_example_sound left right
+
+example (formula : Formula) :
+    SemanticallyEntails [Formula.falsity] formula :=
+  derives_falsity_elim_example_sound formula
+
+example (left right conclusion : Formula) :
+    SemanticallyEntails
+      [Formula.disj left right,
+        Formula.impl left conclusion,
+        Formula.impl right conclusion]
+      conclusion :=
+  derives_disj_elim_example_sound left right conclusion
+
+example (premises extra : List Formula) (conclusion : Formula)
+    (h : Derives premises conclusion) :
+    SemanticallyEntails (premises ++ extra) conclusion :=
+  derives_append_monotone_right_sound (extra := extra) h
+
+example (s : SortTag) (idx : Nat) (body : Formula) :
+    SemanticallyEntails [Formula.forallVar s idx body] body :=
+  semantically_entails_forall_current s idx body
+
+example (s : SortTag) (idx : Nat) (body : Formula) :
+    SemanticallyEntails [body] (Formula.existsVar s idx body) :=
+  semantically_entails_exists_current s idx body
+
+example (left right : Bool) :
+    HasGlobalExtension (boolPairFamily left right) :=
+  boolPairFamily_has_global_extension left right
+
+example {M N P Q : SigmaModel}
+    (h : ModelHom P Q) (g : ModelHom N P) (f : ModelHom M N)
+    (s : SortTag) (x : M.Carrier s) :
+    (composeModelHom h (composeModelHom g f)).map s x =
+      (composeModelHom (composeModelHom h g) f).map s x :=
+  composeModelHom_assoc_map h g f s x
+
+example {M N : SigmaModel} (h : ModelHom M N) (rho : Assignment M)
+    (formula : Formula)
+    (hPositive : PositiveQuantifierFreeFormula formula)
+    (hs : SatisfiesFormula rho formula) :
+    SatisfiesFormula (ModelHom.mapAssignment h rho) formula :=
+  ModelHom_preserves_positive_quantifier_free_satisfaction h rho formula
+    hPositive hs
+
+example (M : SigmaModel) :
+    ModelIso M M :=
+  identityModelIso M
+
+example {M N P : SigmaModel}
+    (second : ModelIso N P) (first : ModelIso M N)
+    (s : SortTag) (x : M.Carrier s) :
+    (composeModelIso second first).forward.map s x =
+      second.forward.map s (first.forward.map s x) :=
+  composeModelIso_forward_map second first s x
+
+example {M N : SigmaModel}
+    (iso : ModelIso M N)
+    (predicate : PredicateSymbol)
+    (args : Args M.Carrier ((predicateArity predicate).domain))
+    (hTarget :
+      N.interpPredicate predicate
+        (Args.map (fun {s} x => iso.forward.map s x) args)) :
+    M.interpPredicate predicate args :=
+  ModelIso_reflectsPredicate iso predicate args hTarget
+
+example {M N : SigmaModel} (iso : ModelIso M N) (rho : Assignment M)
+    (formula : Formula)
+    (hPositive : PositiveQuantifierFreeFormula formula) :
+    Iff (SatisfiesFormula rho formula)
+      (SatisfiesFormula (ModelHom.mapAssignment iso.forward rho) formula) :=
+  ModelIso_positive_quantifier_free_satisfaction_iff iso rho formula
+    hPositive
+
+example {M N : SigmaModel} (iso : ModelIso M N) (rho : Assignment M)
+    (formula : Formula) :
+    Iff (SatisfiesFormula rho formula)
+      (SatisfiesFormula (ModelHom.mapAssignment iso.forward rho) formula) :=
+  ModelIso_full_formula_satisfaction_iff iso rho formula
+
+example {M N : SigmaModel} (iso : ModelIso M N) (rho : Assignment M)
+    (s : SortTag) (idx : Nat) (value : N.Carrier s) :
+    updateAssignment (ModelHom.mapAssignment iso.forward rho) s idx value =
+      ModelHom.mapAssignment iso.forward
+        (updateAssignment rho s idx (iso.backward.map s value)) :=
+  ModelIso_forward_updateAssignment iso rho s idx value
+
+example (M : SigmaModel) (formula : Formula) :
+    (identityFormulaTranslation M).translateFormula formula = formula :=
+  identityFormulaTranslation_apply M formula
+
+example {M N P : SigmaModel}
+    (second : FormulaTranslation N P)
+    (first : FormulaTranslation M N)
+    (formula : Formula) :
+    (composeFormulaTranslation second first).translateFormula formula =
+      second.translateFormula (first.translateFormula formula) :=
+  composeFormulaTranslation_apply second first formula
+
+example {M N : SigmaModel}
+    (translation : FormulaTranslation M N)
+    (rho : Assignment M)
+    (premises : List Formula)
+    (hAll : SatisfiesAll rho premises) :
+    SatisfiesAll (translation.translateAssignment rho)
+      (translation.translatePremises premises) :=
+  FormulaTranslation_preserves_satisfies_all translation rho premises hAll
+
+example {M N : SigmaModel}
+    (translation : FormulaTranslation M N)
+    (premises : List Formula)
+    (conclusion : Formula)
+    (hEntails : SemanticallyEntails premises conclusion)
+    (rho : Assignment M)
+    (hAll : SatisfiesAll rho premises) :
+    And
+      (SatisfiesAll (translation.translateAssignment rho)
+        (translation.translatePremises premises))
+      (SatisfiesFormula (translation.translateAssignment rho)
+        (translation.translateFormula conclusion)) :=
+  FormulaTranslation_transports_semantic_entailment_instance
+    translation hEntails rho hAll
+
+example :
+    And
+      (SatisfiesFormula emptySemanticAssignment negUsesAtomFormula)
+      (Not (SatisfiesFormula
+        (ModelHom.mapAssignment emptyToUsesModelHom emptySemanticAssignment)
+        negUsesAtomFormula)) :=
+  model_hom_not_preserve_negation_counterexample
+
+example :
+    And
+      (SatisfiesFormula emptySemanticAssignment usesImpliesFalsityFormula)
+      (Not (SatisfiesFormula
+        (ModelHom.mapAssignment emptyToUsesModelHom emptySemanticAssignment)
+        usesImpliesFalsityFormula)) :=
+  model_hom_not_preserve_implication_counterexample
+
+example :
+    And
+      (SatisfiesFormula unitUsesOnlyAssignment forallInstitutionUsesFormula)
+      (Not (SatisfiesFormula
+        (ModelHom.mapAssignment unitToBoolTrueHom unitUsesOnlyAssignment)
+        forallInstitutionUsesFormula)) :=
+  model_hom_not_preserve_universal_counterexample
+
+example : ContextualObstruction noGlobalFamily :=
+  noGlobalFamily_obstructed
+
+example (system : DeltaTransitionSystem) :
+    DeltaClosed system (DeltaReachable system) :=
+  delta_reachable_closed system
+
+example : EventuallyResolution twoDeltaSystem :=
+  twoDelta_eventually_resolution
+
+example :
+    DeltaClosed twoDeltaSystem twoDeltaAllStates :=
+  twoDelta_all_states_closed
+
+example :
+    Not (DeltaClosed twoDeltaSystem twoDeltaStartOnly) :=
+  twoDelta_start_only_not_closed
+
+example (candidate : TwoDeltaState -> Prop)
+    (hClosed : DeltaClosed twoDeltaSystem candidate) :
+    candidate TwoDeltaState.repaired :=
+  twoDelta_repaired_in_every_closed candidate hClosed
+
+example :
+    And (EventuallyResolution twoDeltaSystem)
+      (Not (DeltaGlobalFinality twoDeltaSystem)) :=
+  eventual_resolution_not_global_finality
+
+example :
+    And
+      (DeltaEventually twoDeltaSystem (IsResolutionState twoDeltaSystem))
+      (Not (DeltaAlways twoDeltaSystem
+        (IsResolutionState twoDeltaSystem))) :=
+  eventual_not_always_resolution_modal
+
+example :
+    EventuallyStableResolution twoDeltaSystem :=
+  twoDelta_eventually_stable_resolution
+
+example :
+    And (EventuallyStableResolution twoDeltaSystem)
+      (Not (DeltaGlobalFinality twoDeltaSystem)) :=
+  stable_resolution_not_global_finality
+
+example : Not (EventuallyResolution loopDeltaSystem) :=
+  loopDelta_not_eventually_resolution
+
+example :
+    And (EventuallyStable loopDeltaSystem)
+      (Not (EventuallyResolution loopDeltaSystem)) :=
+  eventual_stability_not_eventual_resolution
+
+example :
+    And
+      (DeltaEventually loopDeltaSystem (IsStableState loopDeltaSystem))
+      (Not (DeltaEventually loopDeltaSystem
+        (IsResolutionState loopDeltaSystem))) :=
+  eventual_stability_not_eventual_resolution_modal
+
+example : HasMinimalRepair twoRepairFrame :=
+  twoRepair_has_minimal
+
+example : Not (HasUniqueMinimalRepair twoRepairFrame) :=
+  twoRepair_not_unique_minimal
+
+example : HasMinimalRepair rankedRepairFrame :=
+  rankedRepair_has_minimal
+
+example : HasUniqueMinimalRepair rankedRepairFrame :=
+  rankedRepair_has_unique_minimal
+
+example : HasUniqueMinimalRepair rankedRepairFrame :=
+  rankedRepair_unique_minimal_from_best
+
+example :
+    RepairRevisionPostulates RepairRevisionAction.targetedAction :=
+  targetedRepair_satisfies_revision_postulates
+
+example :
+    Not (RepairActionSuccessful RepairRevisionAction.partialAction) :=
+  partialRepair_not_successful
+
+example :
+    And (RepairActionSuccessful RepairRevisionAction.excessiveAction)
+      (Not (RepairActionMinimal RepairRevisionAction.excessiveAction)) :=
+  excessiveRepair_successful_not_minimal
+
+example :
+    Not (RepairRevisionPostulates RepairRevisionAction.excessiveAction) :=
+  excessiveRepair_not_revision_postulates
+
+example :
+    RepairObligationBridgeSem (M := repairBridgeOnlyModel) Unit.unit
+      Unit.unit Unit.unit :=
+  repairBridgeOnlyTargetedRevision_warrants_obligation
+
+example :
+    RepairPostulateIndependencePackage
+      RepairPostulateAction.adequateAction :=
+  adequateAction_satisfies_independence_package
+
+example :
+    And (RepairPostulateActionSuccessful
+        RepairPostulateAction.redundantAction)
+      (And (RepairPostulateActionConservative
+          RepairPostulateAction.redundantAction)
+        (Not (RepairPostulateActionMinimal
+          RepairPostulateAction.redundantAction))) :=
+  redundantAction_success_conservative_not_minimal
+
+example :
+    And (RepairPostulateActionSuccessful
+        RepairPostulateAction.overreachAction)
+      (And (RepairPostulateActionMinimal
+          RepairPostulateAction.overreachAction)
+        (Not (RepairPostulateActionConservative
+          RepairPostulateAction.overreachAction))) :=
+  overreachAction_success_minimal_not_conservative
+
+example :
+    And (RepairPostulateActionConservative
+        RepairPostulateAction.failedAction)
+      (Not (RepairPostulateActionSuccessful
+        RepairPostulateAction.failedAction)) :=
+  failedAction_conservative_not_successful
+
+example : ConflictFree twoArgumentFramework targetOnlySelection :=
+  targetOnly_conflict_free
+
+example : Not (Admissible twoArgumentFramework targetOnlySelection) :=
+  targetOnly_not_admissible
+
+example : UsesSem (M := twoUsesOnlyModel) true false :=
+  twoUsesOnly_has_UsesSem
+
+example : Not (ISFSem twoUsesOnlyModel true false true false true) :=
+  twoUsesOnly_not_ISFSem
+
+example : ISFSem twoISFNotM8Model true false true false true :=
+  twoISFNotM8_is_ISFSem
+
+example : Not (M8Sem twoISFNotM8Model true false true false true false true) :=
+  twoISFNotM8_not_M8Sem
+
+example : BoundaryRegion twoEvidenceSpace TwoEvidence.favorable :=
+  twoEvidence_favorable_boundary
+
+example : BoundaryRegion twoEvidenceSpace TwoEvidence.unfavorable :=
+  twoEvidence_unfavorable_boundary
+
+example :
+    Not (RoughAdequacyEligible twoEvidenceSpace TwoEvidence.favorable) :=
+  boundary_blocks_rough_adequacy twoEvidenceSpace TwoEvidence.favorable
+    twoEvidence_favorable_boundary
+
+example :
+    And (UpperApprox twoEvidenceSpace TwoEvidence.favorable)
+      (Not (RoughAdequacyEligible twoEvidenceSpace TwoEvidence.favorable)) :=
+  upper_not_necessarily_rough_adequacy
+
+example :
+    AdequacyProfileBlocked roughBoundaryAdequacyProfile :=
+  roughBoundaryAdequacyProfile_blocked
+
+example :
+    Not (AdequacyProfileSatisfied roughBoundaryAdequacyProfile) :=
+  roughBoundaryAdequacyProfile_not_satisfied
+
+example :
+    RoughAdequacyEligible fineTwoEvidenceSpace TwoEvidence.favorable :=
+  fineTwoEvidence_favorable_eligible
+
+example :
+    Not (BoundaryRegion fineTwoEvidenceSpace TwoEvidence.favorable) :=
+  fineTwoEvidence_favorable_not_boundary
+
+example :
+    And
+      (Not (RoughAdequacyEligible twoEvidenceSpace TwoEvidence.favorable))
+      (RoughAdequacyEligible fineTwoEvidenceSpace TwoEvidence.favorable) :=
+  granularity_changes_favorable_adequacy
+
+example (item : TwoEvidence)
+    (hLower : LowerApprox twoEvidenceSpace item) :
+    LowerApprox fineTwoEvidenceSpace item :=
+  twoEvidence_coarse_lower_implies_fine_lower item hLower
+
+example :
+    And
+      (LowerApprox fineTwoEvidenceSpace TwoEvidence.favorable)
+      (Not (LowerApprox twoEvidenceSpace TwoEvidence.favorable)) :=
+  fine_lower_does_not_imply_coarse_lower
+
+example :
+    BoundaryRegion coarseThreeEvidenceSpace ThreeEvidence.favorable :=
+  coarseThreeEvidence_favorable_boundary
+
+example (item : ThreeEvidence)
+    (hLower : LowerApprox coarseThreeEvidenceSpace item) :
+    LowerApprox fineThreeEvidenceSpace item :=
+  threeEvidence_coarse_lower_implies_fine_lower item hLower
+
+example :
+    And
+      (LowerApprox fineThreeEvidenceSpace ThreeEvidence.favorable)
+      (Not (LowerApprox coarseThreeEvidenceSpace ThreeEvidence.favorable)) :=
+  threeEvidence_favorable_converse_failure
+
+example :
+    And
+      (LowerApprox fineThreeEvidenceSpace ThreeEvidence.corroborating)
+      (Not (LowerApprox coarseThreeEvidenceSpace
+        ThreeEvidence.corroborating)) :=
+  threeEvidence_corroborating_converse_failure
+
+example :
+    allThreeGranularityMasks.length = 64 :=
+  allThreeGranularityMasks_length
+
+example :
+    ThreeGranularityMask.Refines identityThreeGranularityMask
+      allTrueThreeGranularityMask :=
+  identityThreeGranularityMask_refines_all_true
+
+example :
+    And
+      (LowerApprox identityThreeGranularityMask.space
+        ThreeEvidence.favorable)
+      (Not (LowerApprox allTrueThreeGranularityMask.space
+        ThreeEvidence.favorable)) :=
+  mask_payload_converse_failure
+
+example :
+    AdequacyProfileSatisfied fineAdequacyProfile :=
+  fineAdequacyProfile_satisfied
+
+example :
+    And
+      (EvaluatorAcceptsSem
+        evaluatorAcceptedButUndefendedSelection.evaluator
+        evaluatorAcceptedButUndefendedSelection.insight)
+      (Not (DefendedEvaluatorAcceptance
+        evaluatorAcceptedButUndefendedSelection)) :=
+  evaluator_acceptance_not_necessarily_defended
+
+example : ScoreAccepts ScoreLevel.high :=
+  high_score_accepts
+
+example : Not (ScoreAccepts ScoreLevel.low) :=
+  low_score_not_accepts
+
+example :
+    ScoreDisagreement ScoreLevel.high ScoreLevel.low :=
+  high_low_scores_disagree
+
+example :
+    majorityDecision
+      { first := ScoreLevel.high
+        second := ScoreLevel.high
+        third := ScoreLevel.low } = EvaluationValue.accepts :=
+  two_high_one_low_majority_accepts
+
+example :
+    majorityDecision
+      { first := ScoreLevel.high
+        second := ScoreLevel.low
+        third := ScoreLevel.low } = EvaluationValue.rejects :=
+  one_high_two_low_majority_rejects
+
+example :
+    majorityDecision
+      { first := ScoreLevel.high
+        second := ScoreLevel.medium
+        third := ScoreLevel.medium } = EvaluationValue.abstains :=
+  one_high_two_medium_majority_abstains
+
+example :
+    AtLeastTwoAccept
+      { first := ScoreLevel.high
+        second := ScoreLevel.high
+        third := ScoreLevel.low } :=
+  atLeastTwoAccept_two_high_one_low
+
+example :
+    Not (AtLeastTwoAccept
+      { first := ScoreLevel.high
+        second := ScoreLevel.medium
+        third := ScoreLevel.medium }) :=
+  not_atLeastTwoAccept_one_high_two_medium
+
+example :
+    Not (SatisfactionCondition unitSyntaxTranslation) :=
+  unitSyntaxTranslation_not_satisfaction_preserving
+
+example (fragment : LogicFragment) :
+    SatisfactionCondition (identityFragmentTranslation fragment) :=
+  identityFragmentTranslation_satisfies_condition fragment
+
+example :
+    documentedEvidenceConcept.extent EvidenceObject.recordA :=
+  documentedEvidenceConcept_extent_contains_recordA
+
+example :
+    documentedEvidenceConcept.intent EvidenceAttribute.documented :=
+  documentedEvidenceConcept_intent_has_documented
+
+example :
+    Not (documentedEvidenceConcept.intent EvidenceAttribute.contested) :=
+  documentedEvidenceConcept_intent_not_contested
+
+example :
+    ConceptAttributionBlocked contestedDocumentedConceptProfile :=
+  contestedDocumentedConceptProfile_blocked
+
+example :
+    Not (ConceptAttributionSatisfied contestedDocumentedConceptProfile) :=
+  contestedDocumentedConceptProfile_not_satisfied
+
+example :
+    ConceptAttributionSatisfied documentedDocumentedConceptProfile :=
+  documentedDocumentedConceptProfile_satisfied
 
 end Paralogic

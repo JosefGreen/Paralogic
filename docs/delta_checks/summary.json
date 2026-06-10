@@ -1,0 +1,11 @@
+{
+  "closure_record_count": 3,
+  "lean_named_witness_count": 6,
+  "missing_lean_named_witnesses": [],
+  "status": "DLC-pass",
+  "system_count": 2,
+  "three_state_sweep_status": "DLC-three-state-pass",
+  "three_state_sweep_system_count": 4096,
+  "two_state_sweep_status": "DLC-two-state-pass",
+  "two_state_sweep_system_count": 64
+}

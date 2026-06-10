@@ -1,0 +1,61 @@
+[
+  {
+    "coarse_lower": false,
+    "coarse_relation": [
+      [
+        "corroborating",
+        "corroborating"
+      ],
+      [
+        "corroborating",
+        "favorable"
+      ],
+      [
+        "corroborating",
+        "unfavorable"
+      ],
+      [
+        "favorable",
+        "corroborating"
+      ],
+      [
+        "favorable",
+        "favorable"
+      ],
+      [
+        "favorable",
+        "unfavorable"
+      ],
+      [
+        "unfavorable",
+        "corroborating"
+      ],
+      [
+        "unfavorable",
+        "favorable"
+      ],
+      [
+        "unfavorable",
+        "unfavorable"
+      ]
+    ],
+    "fine_lower": true,
+    "fine_relation": [
+      [
+        "corroborating",
+        "corroborating"
+      ],
+      [
+        "favorable",
+        "favorable"
+      ],
+      [
+        "unfavorable",
+        "unfavorable"
+      ]
+    ],
+    "item": "favorable",
+    "lean_artifact": "mask_payload_converse_failure",
+    "status": "GRC-lean-named-witness"
+  }
+]

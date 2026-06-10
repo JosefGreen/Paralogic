@@ -1,0 +1,27 @@
+{
+  "description": "ValidInsight does not entail repair.",
+  "id": "EFC-VALID-INSIGHT-NOT-REPAIR",
+  "status": "EFC-bounded-witness",
+  "valuation": {
+    "candidateInsight": true,
+    "contradictionAddressed": true,
+    "directionalNonEquivalence": true,
+    "evaluatorAccepts": true,
+    "generativityMinimal": true,
+    "licensedTransition": true,
+    "noHigherOrderDefeater": true,
+    "nonTrivialTransformation": true,
+    "repair": false
+  },
+  "valuation_scope": [
+    "candidateInsight",
+    "evaluatorAccepts",
+    "licensedTransition",
+    "nonTrivialTransformation",
+    "contradictionAddressed",
+    "noHigherOrderDefeater",
+    "generativityMinimal",
+    "directionalNonEquivalence",
+    "repair"
+  ]
+}

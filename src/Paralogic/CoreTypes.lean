@@ -88,8 +88,14 @@ structure Signature where
   deriving DecidableEq, Repr
 
 def SigmaParalogicCore : Signature :=
-  { sortCount := 13, functionSymbolCount := 7, predicateSymbolCount := 32 }
+  { sortCount := 13, functionSymbolCount := 7, predicateSymbolCount := 29 }
 
 theorem sigma_core_has_sorts : SigmaParalogicCore.sortCount = 13 := rfl
+
+theorem sigma_core_has_function_symbols :
+    SigmaParalogicCore.functionSymbolCount = 7 := rfl
+
+theorem sigma_core_has_predicate_symbols :
+    SigmaParalogicCore.predicateSymbolCount = 29 := rfl
 
 end Paralogic

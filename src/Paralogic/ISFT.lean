@@ -1,8 +1,8 @@
+import Paralogic.Semantics
+
 /-!
 ISFT kernel and M8 power-erasure fragment.
 -/
-
-import Paralogic.Semantics
 
 namespace Paralogic
 

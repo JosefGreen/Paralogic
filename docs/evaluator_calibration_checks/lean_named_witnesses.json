@@ -1,0 +1,50 @@
+[
+  {
+    "lean_artifact": "high_score_accepts",
+    "supported": true
+  },
+  {
+    "lean_artifact": "medium_score_abstains",
+    "supported": true
+  },
+  {
+    "lean_artifact": "low_score_rejects",
+    "supported": true
+  },
+  {
+    "lean_artifact": "low_score_not_accepts",
+    "supported": true
+  },
+  {
+    "lean_artifact": "medium_score_not_accepts",
+    "supported": true
+  },
+  {
+    "lean_artifact": "high_low_scores_disagree",
+    "supported": true
+  },
+  {
+    "lean_artifact": "high_medium_scores_disagree",
+    "supported": true
+  },
+  {
+    "lean_artifact": "two_high_one_low_majority_accepts",
+    "supported": true
+  },
+  {
+    "lean_artifact": "one_high_two_low_majority_rejects",
+    "supported": true
+  },
+  {
+    "lean_artifact": "one_high_two_medium_majority_abstains",
+    "supported": true
+  },
+  {
+    "lean_artifact": "atLeastTwoAccept_two_high_one_low",
+    "supported": true
+  },
+  {
+    "lean_artifact": "not_atLeastTwoAccept_one_high_two_medium",
+    "supported": true
+  }
+]

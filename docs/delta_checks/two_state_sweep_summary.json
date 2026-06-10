@@ -1,0 +1,9 @@
+{
+  "always_implies_eventually_failures": [],
+  "eventual_resolution_not_global_finality_count": 16,
+  "eventual_stability_not_eventual_resolution_count": 20,
+  "reachable_not_closed": [],
+  "stable_resolution_not_global_finality_count": 4,
+  "status": "DLC-two-state-pass",
+  "system_count": 64
+}

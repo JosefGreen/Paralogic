@@ -1,0 +1,35 @@
+{
+  "result": {
+    "derived": [
+      "ISF"
+    ],
+    "diagnostics": [
+      "step 1: rule M8_to_Uses missing premises ['M8']"
+    ],
+    "expected": "PYC-reject",
+    "id": "PYC-REJECT-MISSING-M8-PREMISE",
+    "passed": true,
+    "status": "PYC-reject"
+  },
+  "trace": {
+    "expected": "reject",
+    "id": "PYC-REJECT-MISSING-M8-PREMISE",
+    "premises": [
+      "ISF"
+    ],
+    "steps": [
+      {
+        "atom": "ISF",
+        "kind": "premise"
+      },
+      {
+        "atom": "Uses",
+        "kind": "rule",
+        "refs": [
+          0
+        ],
+        "rule": "M8_to_Uses"
+      }
+    ]
+  }
+}

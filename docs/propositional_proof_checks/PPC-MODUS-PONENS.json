@@ -1,0 +1,25 @@
+{
+  "actual": true,
+  "conclusion": {
+    "var": "Q"
+  },
+  "expected": true,
+  "id": "PPC-MODUS-PONENS",
+  "lean_artifact": "derives_modus_ponens_example_sound",
+  "passed": true,
+  "premises": [
+    {
+      "impl": [
+        {
+          "var": "P"
+        },
+        {
+          "var": "Q"
+        }
+      ]
+    },
+    {
+      "var": "P"
+    }
+  ]
+}

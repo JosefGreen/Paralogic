@@ -1,0 +1,35 @@
+{
+  "result": {
+    "derived": [
+      "EvaluatorAccepts"
+    ],
+    "diagnostics": [
+      "step 1: rule ValidInsight_to_EvaluatorAccepts concludes EvaluatorAccepts, not ValidInsight"
+    ],
+    "expected": "PYC-reject",
+    "id": "PYC-REJECT-EVAL-TO-VALID-INSIGHT",
+    "passed": true,
+    "status": "PYC-reject"
+  },
+  "trace": {
+    "expected": "reject",
+    "id": "PYC-REJECT-EVAL-TO-VALID-INSIGHT",
+    "premises": [
+      "EvaluatorAccepts"
+    ],
+    "steps": [
+      {
+        "atom": "EvaluatorAccepts",
+        "kind": "premise"
+      },
+      {
+        "atom": "ValidInsight",
+        "kind": "rule",
+        "refs": [
+          0
+        ],
+        "rule": "ValidInsight_to_EvaluatorAccepts"
+      }
+    ]
+  }
+}

@@ -1,0 +1,188 @@
+[
+  {
+    "counterexample_found": true,
+    "description": "Uses does not entail ISF.",
+    "expects_counterexample": true,
+    "id": "EFC-ISF-USES-NOT-ISF",
+    "status": "EFC-bounded-pass",
+    "valuation_count": 16,
+    "valuation_scope": [
+      "uses",
+      "claims",
+      "supportDegraded",
+      "treatsAsAdequate"
+    ],
+    "valuations_checked_until_witness_or_exhaustion": 9,
+    "witness_file": "EFC-ISF-USES-NOT-ISF.json"
+  },
+  {
+    "counterexample_found": false,
+    "description": "ISF entails Uses.",
+    "expects_counterexample": false,
+    "id": "EFC-ISF-IMPLIES-USES",
+    "status": "EFC-bounded-pass",
+    "valuation_count": 16,
+    "valuation_scope": [
+      "uses",
+      "claims",
+      "supportDegraded",
+      "treatsAsAdequate"
+    ],
+    "valuations_checked_until_witness_or_exhaustion": 16,
+    "witness_file": null
+  },
+  {
+    "counterexample_found": true,
+    "description": "ISF does not entail M8.",
+    "expects_counterexample": true,
+    "id": "EFC-M8-ISF-NOT-M8",
+    "status": "EFC-bounded-pass",
+    "valuation_count": 128,
+    "valuation_scope": [
+      "uses",
+      "claims",
+      "supportDegraded",
+      "treatsAsAdequate",
+      "powerRelevant",
+      "powerValidityDependence",
+      "powerOmitted"
+    ],
+    "valuations_checked_until_witness_or_exhaustion": 121,
+    "witness_file": "EFC-M8-ISF-NOT-M8.json"
+  },
+  {
+    "counterexample_found": false,
+    "description": "M8 entails ISF.",
+    "expects_counterexample": false,
+    "id": "EFC-M8-IMPLIES-ISF",
+    "status": "EFC-bounded-pass",
+    "valuation_count": 128,
+    "valuation_scope": [
+      "uses",
+      "claims",
+      "supportDegraded",
+      "treatsAsAdequate",
+      "powerRelevant",
+      "powerValidityDependence",
+      "powerOmitted"
+    ],
+    "valuations_checked_until_witness_or_exhaustion": 128,
+    "witness_file": null
+  },
+  {
+    "counterexample_found": true,
+    "description": "M8 does not entail harm.",
+    "expects_counterexample": true,
+    "id": "EFC-M8-NOT-HARM",
+    "status": "EFC-bounded-pass",
+    "valuation_count": 256,
+    "valuation_scope": [
+      "uses",
+      "claims",
+      "supportDegraded",
+      "treatsAsAdequate",
+      "powerRelevant",
+      "powerValidityDependence",
+      "powerOmitted",
+      "harm"
+    ],
+    "valuations_checked_until_witness_or_exhaustion": 255,
+    "witness_file": "EFC-M8-NOT-HARM.json"
+  },
+  {
+    "counterexample_found": true,
+    "description": "Evaluator acceptance does not entail ValidInsight.",
+    "expects_counterexample": true,
+    "id": "EFC-EVAL-NOT-VALID-INSIGHT",
+    "status": "EFC-bounded-pass",
+    "valuation_count": 256,
+    "valuation_scope": [
+      "candidateInsight",
+      "evaluatorAccepts",
+      "licensedTransition",
+      "nonTrivialTransformation",
+      "contradictionAddressed",
+      "noHigherOrderDefeater",
+      "generativityMinimal",
+      "directionalNonEquivalence"
+    ],
+    "valuations_checked_until_witness_or_exhaustion": 65,
+    "witness_file": "EFC-EVAL-NOT-VALID-INSIGHT.json"
+  },
+  {
+    "counterexample_found": false,
+    "description": "ValidInsight entails evaluator acceptance.",
+    "expects_counterexample": false,
+    "id": "EFC-VALID-INSIGHT-IMPLIES-EVAL",
+    "status": "EFC-bounded-pass",
+    "valuation_count": 256,
+    "valuation_scope": [
+      "candidateInsight",
+      "evaluatorAccepts",
+      "licensedTransition",
+      "nonTrivialTransformation",
+      "contradictionAddressed",
+      "noHigherOrderDefeater",
+      "generativityMinimal",
+      "directionalNonEquivalence"
+    ],
+    "valuations_checked_until_witness_or_exhaustion": 256,
+    "witness_file": null
+  },
+  {
+    "counterexample_found": true,
+    "description": "ValidInsight does not entail empirical truth.",
+    "expects_counterexample": true,
+    "id": "EFC-VALID-INSIGHT-NOT-EMPIRICAL-TRUTH",
+    "status": "EFC-bounded-pass",
+    "valuation_count": 512,
+    "valuation_scope": [
+      "candidateInsight",
+      "evaluatorAccepts",
+      "licensedTransition",
+      "nonTrivialTransformation",
+      "contradictionAddressed",
+      "noHigherOrderDefeater",
+      "generativityMinimal",
+      "directionalNonEquivalence",
+      "empiricalTruth"
+    ],
+    "valuations_checked_until_witness_or_exhaustion": 511,
+    "witness_file": "EFC-VALID-INSIGHT-NOT-EMPIRICAL-TRUTH.json"
+  },
+  {
+    "counterexample_found": true,
+    "description": "ValidInsight does not entail repair.",
+    "expects_counterexample": true,
+    "id": "EFC-VALID-INSIGHT-NOT-REPAIR",
+    "status": "EFC-bounded-pass",
+    "valuation_count": 512,
+    "valuation_scope": [
+      "candidateInsight",
+      "evaluatorAccepts",
+      "licensedTransition",
+      "nonTrivialTransformation",
+      "contradictionAddressed",
+      "noHigherOrderDefeater",
+      "generativityMinimal",
+      "directionalNonEquivalence",
+      "repair"
+    ],
+    "valuations_checked_until_witness_or_exhaustion": 511,
+    "witness_file": "EFC-VALID-INSIGHT-NOT-REPAIR.json"
+  },
+  {
+    "counterexample_found": true,
+    "description": "Empirical validation does not entail governance legitimacy.",
+    "expects_counterexample": true,
+    "id": "EFC-EMPIRICAL-VALIDATION-NOT-GOVERNANCE",
+    "status": "EFC-bounded-pass",
+    "valuation_count": 4,
+    "valuation_scope": [
+      "empiricalValidation",
+      "governanceLegitimacy"
+    ],
+    "valuations_checked_until_witness_or_exhaustion": 3,
+    "witness_file": "EFC-EMPIRICAL-VALIDATION-NOT-GOVERNANCE.json"
+  }
+]

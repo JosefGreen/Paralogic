@@ -1,0 +1,34 @@
+[
+  {
+    "action": "failedAction",
+    "conservative": true,
+    "minimal": false,
+    "postulate_package": false,
+    "result": "failed",
+    "success": false
+  },
+  {
+    "action": "adequateAction",
+    "conservative": true,
+    "minimal": true,
+    "postulate_package": true,
+    "result": "adequate",
+    "success": true
+  },
+  {
+    "action": "redundantAction",
+    "conservative": true,
+    "minimal": false,
+    "postulate_package": false,
+    "result": "redundant",
+    "success": true
+  },
+  {
+    "action": "overreachAction",
+    "conservative": false,
+    "minimal": true,
+    "postulate_package": false,
+    "result": "overreach",
+    "success": true
+  }
+]

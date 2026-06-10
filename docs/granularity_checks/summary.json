@@ -1,0 +1,10 @@
+{
+  "converse_failure_count": 486,
+  "failed": [],
+  "item_count": 3,
+  "lean_named_witness_count": 1,
+  "missing_lean_named_witnesses": [],
+  "refinement_case_count": 2187,
+  "relation_count": 64,
+  "status": "GRC-pass"
+}

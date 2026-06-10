@@ -1,0 +1,14 @@
+{
+  "action_count": 4,
+  "action_evaluation_count": 1024,
+  "action_map_count": 256,
+  "minimal_states": [
+    "adequate"
+  ],
+  "overrepair_success_not_postulate_count": 256,
+  "postulate_action_count": 256,
+  "postulate_equivalence_failures": [],
+  "state_count": 4,
+  "status": "RRC-pass",
+  "successful_but_not_postulate_count": 256
+}

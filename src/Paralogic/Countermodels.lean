@@ -1,3 +1,6 @@
+import Paralogic.ISFT
+import Paralogic.Insight
+
 /-!
 Executable finite countermodel witnesses.
 
@@ -5,9 +8,6 @@ Every theorem here is a witness that a tempting implication fails. These are
 not sociological, moral, legal, or empirical findings; they are finite semantic
 models inside the one-object kernel.
 -/
-
-import Paralogic.ISFT
-import Paralogic.Insight
 
 namespace Paralogic
 

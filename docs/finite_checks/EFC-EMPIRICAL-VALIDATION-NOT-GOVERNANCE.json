@@ -1,0 +1,13 @@
+{
+  "description": "Empirical validation does not entail governance legitimacy.",
+  "id": "EFC-EMPIRICAL-VALIDATION-NOT-GOVERNANCE",
+  "status": "EFC-bounded-witness",
+  "valuation": {
+    "empiricalValidation": true,
+    "governanceLegitimacy": false
+  },
+  "valuation_scope": [
+    "empiricalValidation",
+    "governanceLegitimacy"
+  ]
+}

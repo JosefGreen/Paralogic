@@ -1,0 +1,28 @@
+[
+  {
+    "candidate": [
+      "repaired",
+      "start"
+    ],
+    "closed": true,
+    "id": "twoDeltaAllStates",
+    "system": "twoDeltaSystem"
+  },
+  {
+    "candidate": [
+      "start"
+    ],
+    "closed": false,
+    "id": "twoDeltaStartOnly",
+    "system": "twoDeltaSystem"
+  },
+  {
+    "candidate": [
+      "repaired",
+      "start"
+    ],
+    "closed": true,
+    "id": "twoDeltaReachable",
+    "system": "twoDeltaSystem"
+  }
+]

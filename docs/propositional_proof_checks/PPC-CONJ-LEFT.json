@@ -1,0 +1,22 @@
+{
+  "actual": true,
+  "conclusion": {
+    "var": "P"
+  },
+  "expected": true,
+  "id": "PPC-CONJ-LEFT",
+  "lean_artifact": "derives_conj_left_example_sound",
+  "passed": true,
+  "premises": [
+    {
+      "conj": [
+        {
+          "var": "P"
+        },
+        {
+          "var": "Q"
+        }
+      ]
+    }
+  ]
+}

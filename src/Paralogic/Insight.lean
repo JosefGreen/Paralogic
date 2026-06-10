@@ -1,8 +1,8 @@
+import Paralogic.Semantics
+
 /-!
 Evaluator-gated insight fragment.
 -/
-
-import Paralogic.Semantics
 
 namespace Paralogic
 

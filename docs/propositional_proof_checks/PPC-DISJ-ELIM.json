@@ -1,0 +1,42 @@
+{
+  "actual": true,
+  "conclusion": {
+    "var": "R"
+  },
+  "expected": true,
+  "id": "PPC-DISJ-ELIM",
+  "lean_artifact": "derives_disj_elim_example_sound",
+  "passed": true,
+  "premises": [
+    {
+      "disj": [
+        {
+          "var": "P"
+        },
+        {
+          "var": "Q"
+        }
+      ]
+    },
+    {
+      "impl": [
+        {
+          "var": "P"
+        },
+        {
+          "var": "R"
+        }
+      ]
+    },
+    {
+      "impl": [
+        {
+          "var": "Q"
+        },
+        {
+          "var": "R"
+        }
+      ]
+    }
+  ]
+}

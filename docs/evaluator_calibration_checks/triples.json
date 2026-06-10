@@ -1,0 +1,407 @@
+[
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": true,
+    "majority_decision": "rejects",
+    "score_decisions": [
+      "rejects",
+      "rejects",
+      "rejects"
+    ],
+    "scores": [
+      "low",
+      "low",
+      "low"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": true,
+    "majority_decision": "rejects",
+    "score_decisions": [
+      "rejects",
+      "rejects",
+      "abstains"
+    ],
+    "scores": [
+      "low",
+      "low",
+      "medium"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": true,
+    "majority_decision": "rejects",
+    "score_decisions": [
+      "rejects",
+      "rejects",
+      "accepts"
+    ],
+    "scores": [
+      "low",
+      "low",
+      "high"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": true,
+    "majority_decision": "rejects",
+    "score_decisions": [
+      "rejects",
+      "abstains",
+      "rejects"
+    ],
+    "scores": [
+      "low",
+      "medium",
+      "low"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "rejects",
+      "abstains",
+      "abstains"
+    ],
+    "scores": [
+      "low",
+      "medium",
+      "medium"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "rejects",
+      "abstains",
+      "accepts"
+    ],
+    "scores": [
+      "low",
+      "medium",
+      "high"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": true,
+    "majority_decision": "rejects",
+    "score_decisions": [
+      "rejects",
+      "accepts",
+      "rejects"
+    ],
+    "scores": [
+      "low",
+      "high",
+      "low"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "rejects",
+      "accepts",
+      "abstains"
+    ],
+    "scores": [
+      "low",
+      "high",
+      "medium"
+    ]
+  },
+  {
+    "at_least_two_accept": true,
+    "at_least_two_reject": false,
+    "majority_decision": "accepts",
+    "score_decisions": [
+      "rejects",
+      "accepts",
+      "accepts"
+    ],
+    "scores": [
+      "low",
+      "high",
+      "high"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": true,
+    "majority_decision": "rejects",
+    "score_decisions": [
+      "abstains",
+      "rejects",
+      "rejects"
+    ],
+    "scores": [
+      "medium",
+      "low",
+      "low"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "abstains",
+      "rejects",
+      "abstains"
+    ],
+    "scores": [
+      "medium",
+      "low",
+      "medium"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "abstains",
+      "rejects",
+      "accepts"
+    ],
+    "scores": [
+      "medium",
+      "low",
+      "high"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "abstains",
+      "abstains",
+      "rejects"
+    ],
+    "scores": [
+      "medium",
+      "medium",
+      "low"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "abstains",
+      "abstains",
+      "abstains"
+    ],
+    "scores": [
+      "medium",
+      "medium",
+      "medium"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "abstains",
+      "abstains",
+      "accepts"
+    ],
+    "scores": [
+      "medium",
+      "medium",
+      "high"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "abstains",
+      "accepts",
+      "rejects"
+    ],
+    "scores": [
+      "medium",
+      "high",
+      "low"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "abstains",
+      "accepts",
+      "abstains"
+    ],
+    "scores": [
+      "medium",
+      "high",
+      "medium"
+    ]
+  },
+  {
+    "at_least_two_accept": true,
+    "at_least_two_reject": false,
+    "majority_decision": "accepts",
+    "score_decisions": [
+      "abstains",
+      "accepts",
+      "accepts"
+    ],
+    "scores": [
+      "medium",
+      "high",
+      "high"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": true,
+    "majority_decision": "rejects",
+    "score_decisions": [
+      "accepts",
+      "rejects",
+      "rejects"
+    ],
+    "scores": [
+      "high",
+      "low",
+      "low"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "accepts",
+      "rejects",
+      "abstains"
+    ],
+    "scores": [
+      "high",
+      "low",
+      "medium"
+    ]
+  },
+  {
+    "at_least_two_accept": true,
+    "at_least_two_reject": false,
+    "majority_decision": "accepts",
+    "score_decisions": [
+      "accepts",
+      "rejects",
+      "accepts"
+    ],
+    "scores": [
+      "high",
+      "low",
+      "high"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "accepts",
+      "abstains",
+      "rejects"
+    ],
+    "scores": [
+      "high",
+      "medium",
+      "low"
+    ]
+  },
+  {
+    "at_least_two_accept": false,
+    "at_least_two_reject": false,
+    "majority_decision": "abstains",
+    "score_decisions": [
+      "accepts",
+      "abstains",
+      "abstains"
+    ],
+    "scores": [
+      "high",
+      "medium",
+      "medium"
+    ]
+  },
+  {
+    "at_least_two_accept": true,
+    "at_least_two_reject": false,
+    "majority_decision": "accepts",
+    "score_decisions": [
+      "accepts",
+      "abstains",
+      "accepts"
+    ],
+    "scores": [
+      "high",
+      "medium",
+      "high"
+    ]
+  },
+  {
+    "at_least_two_accept": true,
+    "at_least_two_reject": false,
+    "majority_decision": "accepts",
+    "score_decisions": [
+      "accepts",
+      "accepts",
+      "rejects"
+    ],
+    "scores": [
+      "high",
+      "high",
+      "low"
+    ]
+  },
+  {
+    "at_least_two_accept": true,
+    "at_least_two_reject": false,
+    "majority_decision": "accepts",
+    "score_decisions": [
+      "accepts",
+      "accepts",
+      "abstains"
+    ],
+    "scores": [
+      "high",
+      "high",
+      "medium"
+    ]
+  },
+  {
+    "at_least_two_accept": true,
+    "at_least_two_reject": false,
+    "majority_decision": "accepts",
+    "score_decisions": [
+      "accepts",
+      "accepts",
+      "accepts"
+    ],
+    "scores": [
+      "high",
+      "high",
+      "high"
+    ]
+  }
+]

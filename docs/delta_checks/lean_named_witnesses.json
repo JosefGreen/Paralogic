@@ -1,0 +1,41 @@
+[
+  {
+    "eventually_resolution": true,
+    "global_finality": false,
+    "lean_artifact": "eventual_resolution_not_global_finality",
+    "status": "DLC-lean-named-witness",
+    "system": "twoDeltaSystem"
+  },
+  {
+    "eventually_stable_resolution": true,
+    "global_finality": false,
+    "lean_artifact": "stable_resolution_not_global_finality",
+    "status": "DLC-lean-named-witness",
+    "system": "twoDeltaSystem"
+  },
+  {
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "lean_artifact": "eventual_stability_not_eventual_resolution",
+    "status": "DLC-lean-named-witness",
+    "system": "loopDeltaSystem"
+  },
+  {
+    "closed": true,
+    "lean_artifact": "twoDelta_all_states_closed",
+    "record": "twoDeltaAllStates",
+    "status": "DLC-lean-named-closure-witness"
+  },
+  {
+    "closed": false,
+    "lean_artifact": "twoDelta_start_only_not_closed",
+    "record": "twoDeltaStartOnly",
+    "status": "DLC-lean-named-closure-witness"
+  },
+  {
+    "closed": true,
+    "lean_artifact": "delta_reachable_closed",
+    "record": "twoDeltaReachable",
+    "status": "DLC-lean-named-closure-witness"
+  }
+]

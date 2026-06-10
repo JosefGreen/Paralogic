@@ -1,0 +1,25 @@
+{
+  "actual": false,
+  "conclusion": {
+    "var": "P"
+  },
+  "expected": false,
+  "id": "PPC-REJECT-AFFIRMING-CONSEQUENT",
+  "lean_artifact": "no Lean derivation claimed",
+  "passed": true,
+  "premises": [
+    {
+      "impl": [
+        {
+          "var": "P"
+        },
+        {
+          "var": "Q"
+        }
+      ]
+    },
+    {
+      "var": "Q"
+    }
+  ]
+}

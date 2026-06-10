@@ -1,0 +1,34 @@
+{
+  "result": {
+    "derived": [
+      "ISF",
+      "Uses"
+    ],
+    "diagnostics": [],
+    "expected": "PYC-accept",
+    "id": "PYC-ISF-USES",
+    "passed": true,
+    "status": "PYC-accept"
+  },
+  "trace": {
+    "expected": "accept",
+    "id": "PYC-ISF-USES",
+    "premises": [
+      "ISF"
+    ],
+    "steps": [
+      {
+        "atom": "ISF",
+        "kind": "premise"
+      },
+      {
+        "atom": "Uses",
+        "kind": "rule",
+        "refs": [
+          0
+        ],
+        "rule": "ISF_to_Uses"
+      }
+    ]
+  }
+}

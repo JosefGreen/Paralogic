@@ -1,0 +1,57 @@
+[
+  {
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": false,
+    "id": "twoDeltaSystem",
+    "initial": "start",
+    "outcomes": {
+      "repaired": "resolution",
+      "start": "iterative"
+    },
+    "reachable": [
+      "repaired",
+      "start"
+    ],
+    "stable_states": [
+      "repaired"
+    ],
+    "states": [
+      "start",
+      "repaired"
+    ],
+    "steps": [
+      [
+        "start",
+        "repaired"
+      ]
+    ]
+  },
+  {
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "loopDeltaSystem",
+    "initial": "loop",
+    "outcomes": {
+      "loop": "iterative"
+    },
+    "reachable": [
+      "loop"
+    ],
+    "stable_states": [
+      "loop"
+    ],
+    "states": [
+      "loop"
+    ],
+    "steps": [
+      [
+        "loop",
+        "loop"
+      ]
+    ]
+  }
+]

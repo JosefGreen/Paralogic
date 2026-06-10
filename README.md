@@ -8,6 +8,9 @@ This repository has been rebuilt from scratch as a mathematical workbench.
 The current target is rigor, not rhetoric: every major claim must become a
 typed definition, theorem, countermodel, proof obligation, or validation gap.
 
+Current status: incomplete.  See `docs/CURRENT_STATUS.md` and
+`docs/FULL_SYSTEM_AUDIT_2026-06-08.md`.
+
 ## What Is Encoded Now
 
 The current Lean kernel encodes a finite one-object semantic fragment:
@@ -43,12 +46,28 @@ small, auditable, and easy to build.
 
 - `src/Paralogic/Status.lean` - status labels and anti-overclaim machinery.
 - `src/Paralogic/CoreTypes.lean` - typed vocabulary and signature skeleton.
+- `src/Paralogic/ModelSemantics.lean` - many-sorted model semantics.
+- `src/Paralogic/FrameContext.lean` - model/frame/context morphisms.
+- `src/Paralogic/NormativeBridge.lean` - explicit normative bridge schemas.
+- `src/Paralogic/Repair.lean` - staged repair calculus and bridge independence.
+- `src/Paralogic/EmpiricalValidation.lean` - empirical validation protocols.
+- `src/Paralogic/FiniteModels.lean` - finite Boolean valuation models.
+- `src/Paralogic/Adequacy.lean` - domain-relative adequacy profiles.
+- `src/Paralogic/Evaluator.lean` - evaluator criteria and relative soundness.
+- `src/Paralogic/M8Power.lean` - M8 power-erasure condition schemas.
+- `src/Paralogic/ISFTMechanisms.lean` - M1-M12 mechanism scaffold.
 - `src/Paralogic/Semantics.lean` - finite semantic world.
 - `src/Paralogic/ISFT.lean` - ISF and M8 definitions.
 - `src/Paralogic/Insight.lean` - ValidInsight definition.
 - `src/Paralogic/Countermodels.lean` - finite witness models.
 - `src/Paralogic/Theorems.lean` - theorem ledger encoded in Lean.
 - `src/Paralogic/TestSuite.lean` - Lean examples that act as regression tests.
+- `python/finite_check.py` - bounded executable finite checker.
+- `python/proof_check.py` - scoped Horn-like proof checker.
+- `docs/finite_checks/` - EFC-bounded coverage and witness artifacts.
+- `docs/proof_checks/` - PYC proof traces and rejection artifacts.
+- `docs/empirical/` - EMP0 empirical protocol artifacts.
+- `docs/academic/` - internal related-work, reducibility, and review packet.
 - `docs/` - formal specification, theorem ledger, gap ledger, audit, and roadmap.
 
 ## Non-Negotiable Claim Discipline
@@ -70,19 +89,15 @@ core implications, and explicit countermodels for selected non-entailments.
 
 Permitted current claim after a recorded successful `lake build`:
 
-The repository contains a Lean-checked finite kernel for selected definitions,
-implications, and non-entailment witnesses.
+The repository contains Lean-checked finite and many-sorted kernel fragments
+for selected definitions, implications, non-entailment witnesses, and
+condition-gated semantic schemas.
 
 ## Next Mathematical Bottlenecks
 
-1. Replace the one-object world with a many-sorted first-order model class.
-2. Add typed frame/context morphisms and preservation profiles.
-3. Add evaluator criteria, soundness-relative-to-criteria, and incompleteness.
-4. Expand M8 with typed power conditions and bridge predicates.
-5. Build a normative bridge library without smuggling moral/legal conclusions.
-6. Add finite model enumeration and countermodel search inside Lean or an
-   audited companion checker.
-7. Develop `Adeq` by domain with empirical coding protocols.
-8. Formalize delta outcome classification.
-9. Formalize repair calculus.
-10. Add empirical validation artifacts only after operationalization.
+1. Prove substitution and satisfaction lemmas for the many-sorted formula layer.
+2. Strengthen frame/context morphisms with projection and translation laws.
+3. Obtain external expert review.
+4. Run pilot empirical work only after protocol review.
+5. Develop validation claims only after reliability, validity, and replication
+   evidence exists.

@@ -1,0 +1,25 @@
+{
+  "description": "M8 does not entail harm.",
+  "id": "EFC-M8-NOT-HARM",
+  "status": "EFC-bounded-witness",
+  "valuation": {
+    "claims": true,
+    "harm": false,
+    "powerOmitted": true,
+    "powerRelevant": true,
+    "powerValidityDependence": true,
+    "supportDegraded": true,
+    "treatsAsAdequate": true,
+    "uses": true
+  },
+  "valuation_scope": [
+    "uses",
+    "claims",
+    "supportDegraded",
+    "treatsAsAdequate",
+    "powerRelevant",
+    "powerValidityDependence",
+    "powerOmitted",
+    "harm"
+  ]
+}

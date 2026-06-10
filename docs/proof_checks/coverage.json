@@ -1,0 +1,75 @@
+{
+  "results": [
+    {
+      "derived": [
+        "ISF",
+        "Uses"
+      ],
+      "diagnostics": [],
+      "expected": "PYC-accept",
+      "id": "PYC-ISF-USES",
+      "passed": true,
+      "status": "PYC-accept"
+    },
+    {
+      "derived": [
+        "M8",
+        "ISF"
+      ],
+      "diagnostics": [],
+      "expected": "PYC-accept",
+      "id": "PYC-M8-ISF",
+      "passed": true,
+      "status": "PYC-accept"
+    },
+    {
+      "derived": [
+        "M8",
+        "Uses"
+      ],
+      "diagnostics": [],
+      "expected": "PYC-accept",
+      "id": "PYC-M8-USES",
+      "passed": true,
+      "status": "PYC-accept"
+    },
+    {
+      "derived": [
+        "ValidInsight",
+        "EvaluatorAccepts"
+      ],
+      "diagnostics": [],
+      "expected": "PYC-accept",
+      "id": "PYC-VALID-INSIGHT-EVAL",
+      "passed": true,
+      "status": "PYC-accept"
+    },
+    {
+      "derived": [
+        "EvaluatorAccepts"
+      ],
+      "diagnostics": [
+        "step 1: rule ValidInsight_to_EvaluatorAccepts concludes EvaluatorAccepts, not ValidInsight"
+      ],
+      "expected": "PYC-reject",
+      "id": "PYC-REJECT-EVAL-TO-VALID-INSIGHT",
+      "passed": true,
+      "status": "PYC-reject"
+    },
+    {
+      "derived": [
+        "ISF"
+      ],
+      "diagnostics": [
+        "step 1: rule M8_to_Uses missing premises ['M8']"
+      ],
+      "expected": "PYC-reject",
+      "id": "PYC-REJECT-MISSING-M8-PREMISE",
+      "passed": true,
+      "status": "PYC-reject"
+    }
+  ],
+  "rule_count": 8,
+  "status": "PYC-pass",
+  "trace_count": 6
+}

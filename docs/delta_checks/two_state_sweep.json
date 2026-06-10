@@ -1,0 +1,2302 @@
+[
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0000-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": []
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0000-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": []
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-0000-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": []
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-0000-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": []
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0001-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0001-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-0001-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-0001-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0010-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0010-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-0010-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-0010-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0011-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0011-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-0011-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-0011-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0100-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": false,
+    "id": "twoState-0100-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": true,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0100-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-0100-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0101-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": false,
+    "id": "twoState-0101-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": true,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0101-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-0101-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": false,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0110-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0110-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0110-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": true,
+    "id": "twoState-0110-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": false,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0111-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0111-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-0111-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": true,
+    "id": "twoState-0111-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1000-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1000-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-1000-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-1000-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1001-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1001-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-1001-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-1001-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1010-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1010-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-1010-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-1010-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1011-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1011-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-1011-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-1011-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "a"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1100-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": false,
+    "id": "twoState-1100-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": true,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1100-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-1100-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": true,
+    "eventually_resolution": false,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1101-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": false,
+    "id": "twoState-1101-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": true,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1101-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": true,
+    "eventually_stable_resolution": true,
+    "global_finality": true,
+    "id": "twoState-1101-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [
+      "b"
+    ],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": false,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1110-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1110-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1110-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": true,
+    "id": "twoState-1110-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": false,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1111-II",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1111-IR",
+    "initial": "a",
+    "outcomes": {
+      "a": "iterative",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": true,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": false,
+    "id": "twoState-1111-RI",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "iterative"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  },
+  {
+    "eventual_resolution_not_global_finality": false,
+    "eventual_stability_not_eventual_resolution": false,
+    "eventually_resolution": true,
+    "eventually_stable": false,
+    "eventually_stable_resolution": false,
+    "global_finality": true,
+    "id": "twoState-1111-RR",
+    "initial": "a",
+    "outcomes": {
+      "a": "resolution",
+      "b": "resolution"
+    },
+    "reachable": [
+      "a",
+      "b"
+    ],
+    "reachable_closed": true,
+    "stable_resolution_not_global_finality": false,
+    "stable_states": [],
+    "states": [
+      "a",
+      "b"
+    ],
+    "steps": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "b",
+        "b"
+      ]
+    ]
+  }
+]

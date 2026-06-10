@@ -1,0 +1,159 @@
+[
+  {
+    "description": "Uses does not entail ISF.",
+    "id": "EFC-ISF-USES-NOT-ISF",
+    "status": "EFC-bounded-witness",
+    "valuation": {
+      "claims": false,
+      "supportDegraded": false,
+      "treatsAsAdequate": false,
+      "uses": true
+    },
+    "valuation_scope": [
+      "uses",
+      "claims",
+      "supportDegraded",
+      "treatsAsAdequate"
+    ]
+  },
+  {
+    "description": "ISF does not entail M8.",
+    "id": "EFC-M8-ISF-NOT-M8",
+    "status": "EFC-bounded-witness",
+    "valuation": {
+      "claims": true,
+      "powerOmitted": false,
+      "powerRelevant": false,
+      "powerValidityDependence": false,
+      "supportDegraded": true,
+      "treatsAsAdequate": true,
+      "uses": true
+    },
+    "valuation_scope": [
+      "uses",
+      "claims",
+      "supportDegraded",
+      "treatsAsAdequate",
+      "powerRelevant",
+      "powerValidityDependence",
+      "powerOmitted"
+    ]
+  },
+  {
+    "description": "M8 does not entail harm.",
+    "id": "EFC-M8-NOT-HARM",
+    "status": "EFC-bounded-witness",
+    "valuation": {
+      "claims": true,
+      "harm": false,
+      "powerOmitted": true,
+      "powerRelevant": true,
+      "powerValidityDependence": true,
+      "supportDegraded": true,
+      "treatsAsAdequate": true,
+      "uses": true
+    },
+    "valuation_scope": [
+      "uses",
+      "claims",
+      "supportDegraded",
+      "treatsAsAdequate",
+      "powerRelevant",
+      "powerValidityDependence",
+      "powerOmitted",
+      "harm"
+    ]
+  },
+  {
+    "description": "Evaluator acceptance does not entail ValidInsight.",
+    "id": "EFC-EVAL-NOT-VALID-INSIGHT",
+    "status": "EFC-bounded-witness",
+    "valuation": {
+      "candidateInsight": false,
+      "contradictionAddressed": false,
+      "directionalNonEquivalence": false,
+      "evaluatorAccepts": true,
+      "generativityMinimal": false,
+      "licensedTransition": false,
+      "noHigherOrderDefeater": false,
+      "nonTrivialTransformation": false
+    },
+    "valuation_scope": [
+      "candidateInsight",
+      "evaluatorAccepts",
+      "licensedTransition",
+      "nonTrivialTransformation",
+      "contradictionAddressed",
+      "noHigherOrderDefeater",
+      "generativityMinimal",
+      "directionalNonEquivalence"
+    ]
+  },
+  {
+    "description": "ValidInsight does not entail empirical truth.",
+    "id": "EFC-VALID-INSIGHT-NOT-EMPIRICAL-TRUTH",
+    "status": "EFC-bounded-witness",
+    "valuation": {
+      "candidateInsight": true,
+      "contradictionAddressed": true,
+      "directionalNonEquivalence": true,
+      "empiricalTruth": false,
+      "evaluatorAccepts": true,
+      "generativityMinimal": true,
+      "licensedTransition": true,
+      "noHigherOrderDefeater": true,
+      "nonTrivialTransformation": true
+    },
+    "valuation_scope": [
+      "candidateInsight",
+      "evaluatorAccepts",
+      "licensedTransition",
+      "nonTrivialTransformation",
+      "contradictionAddressed",
+      "noHigherOrderDefeater",
+      "generativityMinimal",
+      "directionalNonEquivalence",
+      "empiricalTruth"
+    ]
+  },
+  {
+    "description": "ValidInsight does not entail repair.",
+    "id": "EFC-VALID-INSIGHT-NOT-REPAIR",
+    "status": "EFC-bounded-witness",
+    "valuation": {
+      "candidateInsight": true,
+      "contradictionAddressed": true,
+      "directionalNonEquivalence": true,
+      "evaluatorAccepts": true,
+      "generativityMinimal": true,
+      "licensedTransition": true,
+      "noHigherOrderDefeater": true,
+      "nonTrivialTransformation": true,
+      "repair": false
+    },
+    "valuation_scope": [
+      "candidateInsight",
+      "evaluatorAccepts",
+      "licensedTransition",
+      "nonTrivialTransformation",
+      "contradictionAddressed",
+      "noHigherOrderDefeater",
+      "generativityMinimal",
+      "directionalNonEquivalence",
+      "repair"
+    ]
+  },
+  {
+    "description": "Empirical validation does not entail governance legitimacy.",
+    "id": "EFC-EMPIRICAL-VALIDATION-NOT-GOVERNANCE",
+    "status": "EFC-bounded-witness",
+    "valuation": {
+      "empiricalValidation": true,
+      "governanceLegitimacy": false
+    },
+    "valuation_scope": [
+      "empiricalValidation",
+      "governanceLegitimacy"
+    ]
+  }
+]

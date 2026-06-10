@@ -1,0 +1,34 @@
+{
+  "result": {
+    "derived": [
+      "M8",
+      "Uses"
+    ],
+    "diagnostics": [],
+    "expected": "PYC-accept",
+    "id": "PYC-M8-USES",
+    "passed": true,
+    "status": "PYC-accept"
+  },
+  "trace": {
+    "expected": "accept",
+    "id": "PYC-M8-USES",
+    "premises": [
+      "M8"
+    ],
+    "steps": [
+      {
+        "atom": "M8",
+        "kind": "premise"
+      },
+      {
+        "atom": "Uses",
+        "kind": "rule",
+        "refs": [
+          0
+        ],
+        "rule": "M8_to_Uses"
+      }
+    ]
+  }
+}

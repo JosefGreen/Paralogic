@@ -1,0 +1,25 @@
+{
+  "description": "Evaluator acceptance does not entail ValidInsight.",
+  "id": "EFC-EVAL-NOT-VALID-INSIGHT",
+  "status": "EFC-bounded-witness",
+  "valuation": {
+    "candidateInsight": false,
+    "contradictionAddressed": false,
+    "directionalNonEquivalence": false,
+    "evaluatorAccepts": true,
+    "generativityMinimal": false,
+    "licensedTransition": false,
+    "noHigherOrderDefeater": false,
+    "nonTrivialTransformation": false
+  },
+  "valuation_scope": [
+    "candidateInsight",
+    "evaluatorAccepts",
+    "licensedTransition",
+    "nonTrivialTransformation",
+    "contradictionAddressed",
+    "noHigherOrderDefeater",
+    "generativityMinimal",
+    "directionalNonEquivalence"
+  ]
+}

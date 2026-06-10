@@ -1,0 +1,13 @@
+{
+  "actual": true,
+  "conclusion": {
+    "var": "P"
+  },
+  "expected": true,
+  "id": "PPC-FALSITY-ELIM",
+  "lean_artifact": "derives_falsity_elim_example_sound",
+  "passed": true,
+  "premises": [
+    "falsity"
+  ]
+}

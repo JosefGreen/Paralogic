@@ -1,0 +1,20 @@
+{
+  "actions": [
+    "failedAction",
+    "adequateAction",
+    "redundantAction",
+    "overreachAction"
+  ],
+  "failures": [],
+  "minimal_states": [
+    "adequate",
+    "overreach"
+  ],
+  "states": [
+    "failed",
+    "adequate",
+    "redundant",
+    "overreach"
+  ],
+  "status": "RRC-independence-pass"
+}

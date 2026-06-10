@@ -1,0 +1,70 @@
+[
+  {
+    "lean_artifact": "rankedRepair_adequate_minimal",
+    "supported": true
+  },
+  {
+    "lean_artifact": "rankedRepair_over_not_minimal",
+    "supported": true
+  },
+  {
+    "lean_artifact": "rankedRepair_has_unique_minimal",
+    "supported": true
+  },
+  {
+    "lean_artifact": "rankedRepair_unique_minimal_from_best",
+    "supported": true
+  },
+  {
+    "lean_artifact": "targetedRepair_satisfies_revision_postulates",
+    "supported": true
+  },
+  {
+    "lean_artifact": "partialRepair_not_successful",
+    "supported": true
+  },
+  {
+    "lean_artifact": "doNothingRepair_not_successful",
+    "supported": true
+  },
+  {
+    "lean_artifact": "excessiveRepair_successful_not_minimal",
+    "supported": true
+  },
+  {
+    "lean_artifact": "excessiveRepair_not_conservative",
+    "supported": true
+  },
+  {
+    "lean_artifact": "excessiveRepair_not_revision_postulates",
+    "supported": true
+  },
+  {
+    "lean_artifact": "repairBridgeOnlyTargetedRevision_warrants_obligation",
+    "supported": true
+  },
+  {
+    "lean_artifact": "adequateAction_satisfies_independence_package",
+    "supported": true
+  },
+  {
+    "lean_artifact": "redundantAction_success_conservative_not_minimal",
+    "supported": true
+  },
+  {
+    "lean_artifact": "overreachAction_success_minimal_not_conservative",
+    "supported": true
+  },
+  {
+    "lean_artifact": "failedAction_conservative_not_successful",
+    "supported": true
+  },
+  {
+    "lean_artifact": "repair revision exhaustive action sweep",
+    "supported": true
+  },
+  {
+    "lean_artifact": "repair postulate independence table",
+    "supported": true
+  }
+]

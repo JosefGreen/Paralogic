@@ -1,0 +1,22 @@
+{
+  "actual": true,
+  "conclusion": {
+    "impl": [
+      {
+        "var": "P"
+      },
+      {
+        "var": "Q"
+      }
+    ]
+  },
+  "expected": true,
+  "id": "PPC-IMPL-INTRO",
+  "lean_artifact": "derives_implication_intro_example_sound",
+  "passed": true,
+  "premises": [
+    {
+      "var": "Q"
+    }
+  ]
+}

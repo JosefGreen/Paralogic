@@ -1,3 +1,5 @@
+import Paralogic.CoreTypes
+
 /-!
 Finite semantic kernel.
 
@@ -6,8 +8,6 @@ proposition. Defined predicates in other modules are conjunctions over these
 primitive fields. This model is deliberately modest, but it is enough to prove
 core implications and non-entailments inside Lean.
 -/
-
-import Paralogic.CoreTypes
 
 namespace Paralogic
 
