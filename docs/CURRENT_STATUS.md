@@ -44,9 +44,20 @@ The repository currently contains:
 - A new MC3-Lean finite Delta-dynamics layer with reachability and a checked
   non-resolution loop counterexample.
 - A strengthened MC3-Lean proof-theory layer with soundness for implication
-  introduction, falsity elimination, and disjunction elimination examples.
-- Scoped MC3-Lean quantified semantic entailment laws for universal
-  current-value elimination and existential current-value introduction.
+  introduction, falsity elimination, disjunction elimination, and scoped
+  current-value quantifier derivation examples.
+- Scoped MC3-Lean quantified semantic entailment laws and derivability rules
+  for universal current-value elimination, existential current-value
+  introduction, and universal introduction under semantic premise-stability.
+- Direct MC3-Lean semantic universal-introduction theorems under premise
+  stability and under syntactic no-free-variable freshness.
+- MC3-Lean syntactic freshness lemmas that turn no-free-variable premise facts
+  into assignment-update stability for universal introduction, with the older
+  quantifier-free bridge retained as a bounded subcase.
+- An MC3-Lean countermodel showing that unrestricted universal introduction
+  from a premise with the quantified variable free is not semantically valid.
+- A GitHub Actions workflow updated to use the supported Lean action and run
+  the Python regression/checker suite plus an active Lean-hole scan.
 - A new MC3-Lean Delta finality separation showing eventual resolution does
   not imply every reachable state is resolved.
 - A new MC3-Lean Delta terminal-stability separation showing stable behavior
@@ -81,7 +92,8 @@ The repository does not yet contain:
 
 - a complete Paralogic or ISFT mathematical theory;
 - source-backed semantics for all M1-M12 mechanisms;
-- a mature proof theory with full quantified rules and completeness results;
+- a mature proof theory with full syntactic freshness/eigenvariable rules for
+  quantified formulas, alpha-equivalence, and completeness results;
 - global finite-model search;
 - empirical data, reliability statistics, construct validation, or replication;
 - external peer review.

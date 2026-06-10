@@ -123,9 +123,17 @@ notes as well as open gaps.
 39a. Lane B proof theory now has a stronger MC3-Lean propositional derivability
     fragment with implication introduction, falsity elimination, disjunction
     elimination, right weakening, and PPC-bounded truth-table checks for seven
-    positive/negative propositional targets. Scoped semantic laws now cover
-    universal current-value elimination and existential current-value
-    introduction. Full quantified derivability and completeness remain open.
+    positive/negative propositional targets. Scoped derivability rules and
+    semantic laws now cover universal current-value elimination and
+    existential current-value introduction, plus universal introduction under
+    semantic premise-stability. Full syntactic no-free-variable freshness now
+    discharges stability side conditions for universal introduction, including
+    binder-shadowing cases. Direct semantic universal-introduction theorems now
+    cover stability and no-free-variable freshness variants. A formal
+    countermodel now shows unrestricted universal introduction from a premise
+    with the generalized variable free is not semantically valid. Full
+    quantified derivability with alpha-equivalence, eigenvariable discipline,
+    and completeness remain open.
 39b. Lane C model theory now has MC3-Lean pointwise model-hom composition laws,
     term/argument evaluation preservation, and positive quantifier-free formula
     satisfaction preservation. Formal counterexamples now show that ordinary

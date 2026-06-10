@@ -162,13 +162,29 @@ Required repair:
 - Prove formula translation preservation conditions beyond records.
 
 Partial repair applied: `ProofTheory.lean` now has soundness for a larger
-propositional natural-deduction fragment, including implication introduction,
-falsity elimination, and disjunction elimination.  `python/propositional_proof_check.py`
+natural-deduction fragment, including implication introduction, falsity
+elimination, disjunction elimination, universal current-value elimination, and
+existential current-value introduction.  It also includes universal
+introduction under semantic premise-stability, with stability-aware
+derivation weakening.  Quantifier-free syntactic freshness now implies
+assignment-update stability, allowing a bounded class of universal-introduction
+side conditions to be discharged from no-free-variable facts.
+Additional repair applied: full syntactic no-free-variable freshness now
+implies assignment-update stability, including quantified binder-shadowing
+cases, so universal-introduction side conditions can be discharged for a
+larger formula class than the quantifier-free fragment.
+Additional repair applied: direct semantic universal-introduction theorems now
+match the derivability rule under premise stability, quantifier-free freshness,
+and full no-free-variable freshness.
+Boundary repair applied: `NonPreservation.lean` now contains a semantic
+countermodel showing that unrestricted universal introduction from a premise
+with the generalized variable free is not valid.  This confirms that the
+freshness/stability side condition is a live mathematical constraint, not a
+cosmetic guard.
+`python/propositional_proof_check.py`
 truth-table checks seven positive and negative propositional targets.  Full
-quantified proof theory and completeness remain open.  Additional semantic
-entailment laws now cover universal current-value elimination and existential
-current-value introduction, but these are not yet encoded as full quantified
-derivation rules.
+quantified proof theory with syntactic freshness/eigenvariable conditions and
+completeness remains open.
 
 ### F7 - Delta And Insight Are Taxonomic, Not Operational
 

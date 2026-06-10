@@ -52,10 +52,29 @@ representation theorems.
 `derives_sound` is a structural soundness theorem for the encoded derivability
 calculus.  The new implication-introduction, falsity-elimination, and
 disjunction-elimination examples are soundness witnesses inside that calculus.
-`semantically_entails_forall_current` and
-`semantically_entails_exists_current` are semantic entailment laws for the
-current-value reading of quantified variables, not full quantified derivation
-rules.
+`derives_forall_current_example_sound` and
+`derives_exists_current_example_sound` are scoped quantified derivability
+witnesses for the current-value reading of quantified variables.  They are not
+full natural-deduction quantifier rules with freshness/eigenvariable
+conditions and they do not establish completeness.
+`derives_forall_truth_example_sound` and the `PremisesStableUnderUpdate`
+lemmas add a sound universal-introduction pattern under semantic
+premise-stability.  This is stronger than the previous current-value-only
+fragment, but it is still not a syntactic freshness/eigenvariable calculus.
+`semantically_entails_forall_intro_of_stable` and its freshness variants are
+structural semantic-consequence theorems matching that side condition directly,
+without routing through derivability.
+`satisfaction_stable_update_of_not_free` and
+`derives_forall_intro_of_fresh_sound` bridge syntactic no-free-variable facts
+to universal-introduction stability, including quantified formulas where
+binder shadowing makes the updated variable not free.  This is a genuine
+freshness result, but it is still not a full alpha-equivalence or
+eigenvariable-completeness theory.
+`universal_intro_without_freshness_countermodel` and
+`universal_intro_without_freshness_not_semantically_valid` are countermodel
+artifacts for the proof theory itself: they show that the calculus would be
+unsound if universal introduction were allowed from premises containing the
+generalized variable free.
 The `PPC` artifacts are bounded propositional truth-table checks; they support
 the examples and negative controls, but they are not a completeness theorem for
 the many-sorted language.

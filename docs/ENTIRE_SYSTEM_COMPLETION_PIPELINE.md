@@ -41,7 +41,9 @@ warrants are audited.
 5. CI-style checks: Lean build, Python checkers, pytest, overclaim scan.
 
 Current status: MC3/PYC/EFC scaffold complete for local status infrastructure;
-still open for stale-document pruning and continuous enforcement.
+GitHub Actions workflow wiring now uses the supported Lean action and runs the
+Python checker suite plus an active Lean-hole scan.  Still open for
+stale-document pruning and continuous enforcement across all future artifacts.
 
 ## Lane B - Formal Core And Proof Theory
 
@@ -60,10 +62,21 @@ Current status: MC3-Lean plus PPC-bounded executable checking for a scoped
 propositional fragment.  The derivability calculus now has soundness for
 premise use, truth introduction, falsity elimination, conjunction rules,
 disjunction introduction/elimination, and implication introduction/elimination.
-Scoped semantic entailment laws now cover universal current-value elimination
-and existential current-value introduction.
+Scoped derivability rules and semantic entailment laws now cover universal
+current-value elimination, existential current-value introduction, and
+universal introduction under semantic premise-stability.  Syntactic
+no-free-variable freshness now implies assignment-update stability for
+premises, including binder-shadowing cases; the earlier quantifier-free bridge
+remains as a bounded subcase.  The semantic consequence layer also has direct
+universal-introduction theorems under stability and no-free-variable freshness,
+matching the derivability rule's side condition.  A formal semantic
+countermodel now blocks the
+unsound shortcut from a premise with a free variable to its universal closure,
+so the universal-introduction side condition is an active mathematical
+restriction rather than documentation language.
 `python/propositional_proof_check.py` truth-table checks seven positive and
-negative targets.  Alpha-equivalence, full quantified rules, and completeness
+negative targets.  Alpha-equivalence, syntactic freshness/eigenvariable
+machinery for quantified formulas, full quantified rules, and completeness
 remain open.
 
 ## Lane C - Model Theory

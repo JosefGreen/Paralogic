@@ -3,15 +3,57 @@ name: Lean CI
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
-  lean:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Lean
-        uses: leanprover/elan-action@v1
-        with:
-          version: leanprover/lean4:v4.19.0
+
       - name: Build Lean project
-        run: lake build
+        uses: leanprover/lean-action@v1
+        with:
+          build: true
+          test: false
+          lint: false
+          use-mathlib-cache: false
+
+      - name: Check for active Lean holes
+        run: |
+          if grep -RInE '\b(sorry|admit|unsafe|axiom)\b' src --include='*.lean'; then
+            echo "Active Lean hole or unsound declaration marker found."
+            exit 1
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python test runner
+        run: python -m pip install --upgrade pytest
+
+      - name: Run Python regression tests
+        run: python -m pytest -q
+
+      - name: Run finite model checker
+        run: python python/finite_check.py
+
+      - name: Run proof checker
+        run: python python/proof_check.py
+
+      - name: Run propositional proof checker
+        run: python python/propositional_proof_check.py
+
+      - name: Run evidence granularity checker
+        run: python python/granularity_check.py
+
+      - name: Run delta dynamics checker
+        run: python python/delta_check.py
+
+      - name: Run repair revision checker
+        run: python python/repair_revision_check.py
+
+      - name: Run evaluator calibration checker
+        run: python python/evaluator_calibration_check.py

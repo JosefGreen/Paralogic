@@ -149,4 +149,34 @@ theorem model_hom_not_preserve_universal_counterexample :
       have hAtFalse := hForall false
       exact Bool.noConfusion hAtFalse.left)
 
+def boolUsesTrueAssignment : Assignment boolUsesTrueArgsModel :=
+  fun _ _ => true
+
+theorem boolUsesTrueAssignment_satisfies_usesAtom :
+    SatisfiesFormula boolUsesTrueAssignment usesAtomFormula := by
+  exact And.intro rfl rfl
+
+theorem boolUsesTrueAssignment_not_forallInstitutionUses :
+    Not (SatisfiesFormula boolUsesTrueAssignment forallInstitutionUsesFormula) := by
+  intro hForall
+  have hAtFalse := hForall false
+  exact Bool.noConfusion hAtFalse.left
+
+def universal_intro_without_freshness_countermodel :
+    SemanticCountermodel [usesAtomFormula] forallInstitutionUsesFormula :=
+  { M := boolUsesTrueArgsModel
+    rho := boolUsesTrueAssignment
+    premisesTrue :=
+      And.intro boolUsesTrueAssignment_satisfies_usesAtom True.intro
+    conclusionFalse := boolUsesTrueAssignment_not_forallInstitutionUses }
+
+theorem universal_intro_without_freshness_not_semantically_valid :
+    Not (SemanticallyEntails [usesAtomFormula] forallInstitutionUsesFormula) := by
+  intro hEntails
+  exact universal_intro_without_freshness_countermodel.conclusionFalse
+    (hEntails
+      universal_intro_without_freshness_countermodel.M
+      universal_intro_without_freshness_countermodel.rho
+      universal_intro_without_freshness_countermodel.premisesTrue)
+
 end Paralogic

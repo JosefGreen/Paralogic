@@ -173,8 +173,25 @@ and not a full quantified natural-deduction system.
 | G1B-DER-10 | disjunction-elimination derivation example is sound | `derives_disj_elim_example_sound` |
 | G1B-DER-11 | derivability is monotone under appending extra premises on the right | `derives_append_monotone_right` |
 | G1B-DER-12 | right-weakened derivations are semantically sound | `derives_append_monotone_right_sound` |
+| G1B-DER-Q1 | universal current-value elimination is derivable and sound | `derives_forall_current_example`, `derives_forall_current_example_sound` |
+| G1B-DER-Q2 | existential current-value introduction is derivable and sound | `derives_exists_current_example`, `derives_exists_current_example_sound` |
+| G1B-DER-Q3 | empty premise lists are stable under assignment updates | `premises_stable_nil` |
+| G1B-DER-Q4 | stable formula and rest imply stable cons premise list | `premises_stable_cons` |
+| G1B-DER-Q5 | stable premise lists append to a stable premise list | `premises_stable_append` |
+| G1B-DER-Q6 | universal introduction under semantic premise-stability is derivable and sound for truth | `derives_forall_truth_example`, `derives_forall_truth_example_sound` |
+| G1B-DER-Q7 | quantifier-free no-free-variable facts imply assignment-update agreement | `term_agrees_update_of_not_free`, `args_agrees_update_of_not_free`, `quantifier_free_formula_agrees_update_of_not_free` |
+| G1B-DER-Q8 | quantifier-free no-free-variable facts imply satisfaction is stable under assignment update | `quantifier_free_satisfaction_stable_update_of_not_free` |
+| G1B-DER-Q9 | quantifier-free fresh premises discharge universal-introduction stability | `premises_stable_of_quantifier_free_fresh`, `derives_forall_intro_of_quantifier_free_fresh`, `derives_forall_intro_of_quantifier_free_fresh_sound` |
+| G1B-DER-Q10 | repeated assignment updates shadow and commute when their variable slots differ | `updateAssignment_shadow_same`, `updateAssignment_commute_of_ne` |
+| G1B-DER-Q11 | no-free-variable facts imply full-formula assignment-update agreement and satisfaction stability | `assignments_agree_formula_refl`, `formula_agrees_update_of_not_free`, `satisfaction_stable_update_of_not_free` |
+| G1B-DER-Q12 | syntactically fresh premises discharge universal-introduction stability | `PremisesFreshForUpdate`, `premises_stable_of_fresh`, `derives_forall_intro_of_fresh`, `derives_forall_intro_of_fresh_sound` |
+| G1B-DER-Q13 | a premise may hold at the current value while its universal closure fails | `boolUsesTrueAssignment_satisfies_usesAtom`, `boolUsesTrueAssignment_not_forallInstitutionUses` |
+| G1B-DER-Q14 | unrestricted universal introduction from a premise with the generalized variable free is not semantically valid | `universal_intro_without_freshness_countermodel`, `universal_intro_without_freshness_not_semantically_valid` |
 | G1B-SEM-Q1 | universal current-value elimination is semantically valid | `semantically_entails_forall_current` |
 | G1B-SEM-Q2 | existential current-value introduction is semantically valid | `semantically_entails_exists_current` |
+| G1B-SEM-Q3 | universal introduction is semantically valid under premise stability | `semantically_entails_forall_intro_of_stable` |
+| G1B-SEM-Q4 | quantifier-free fresh premises support semantic universal introduction | `semantically_entails_forall_intro_of_quantifier_free_fresh` |
+| G1B-SEM-Q5 | no-free-variable fresh premises support semantic universal introduction | `semantically_entails_forall_intro_of_fresh` |
 
 ## Gate K Contextual Obstruction Semantics
 

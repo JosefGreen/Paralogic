@@ -82,6 +82,57 @@ theorem updateAssignment_current {M : SigmaModel} (rho : Assignment M)
     · simp [updateAssignment, hn]
   · simp [updateAssignment, hs]
 
+theorem updateAssignment_shadow_same {M : SigmaModel} (rho : Assignment M)
+    (target : SortTag) (idx : Nat)
+    (first second : M.Carrier target) :
+    updateAssignment (updateAssignment rho target idx first) target idx
+      second =
+        updateAssignment rho target idx second := by
+  funext s n
+  by_cases hs : s = target
+  · subst hs
+    by_cases hn : n = idx
+    · subst hn
+      simp [updateAssignment]
+    · simp [updateAssignment, hn]
+  · simp [updateAssignment, hs]
+
+theorem updateAssignment_commute_of_ne {M : SigmaModel} (rho : Assignment M)
+    {left right : SortTag} {leftIdx rightIdx : Nat}
+    (leftValue : M.Carrier left) (rightValue : M.Carrier right)
+    (hNe : Not (And (left = right) (leftIdx = rightIdx))) :
+    updateAssignment (updateAssignment rho left leftIdx leftValue)
+        right rightIdx rightValue =
+      updateAssignment (updateAssignment rho right rightIdx rightValue)
+        left leftIdx leftValue := by
+  by_cases hSort : left = right
+  · subst hSort
+    have hIdxNe : leftIdx ≠ rightIdx := by
+      intro hIdx
+      exact hNe (And.intro rfl hIdx)
+    funext s n
+    by_cases hs : s = left
+    · subst hs
+      by_cases hnLeft : n = leftIdx
+      · subst hnLeft
+        simp [updateAssignment, hIdxNe]
+      · by_cases hnRight : n = rightIdx
+        · subst hnRight
+          simp [updateAssignment, hIdxNe, hnLeft]
+        · simp [updateAssignment, hnLeft, hnRight]
+    · simp [updateAssignment, hs]
+  · have hRightLeft : right ≠ left := by
+      intro h
+      exact hSort h.symm
+    funext s n
+    by_cases hsLeft : s = left
+    · subst hsLeft
+      simp [updateAssignment, hSort]
+    · by_cases hsRight : s = right
+      · subst hsRight
+        simp [updateAssignment, hRightLeft]
+      · simp [updateAssignment, hsLeft, hsRight]
+
 mutual
 
 def AssignmentsAgreeOnTerm {M : SigmaModel}
@@ -231,6 +282,55 @@ def AssignmentsAgreeOnFormula {M : SigmaModel}
           (updateAssignment sigma s idx value)
           body
 
+mutual
+
+theorem assignments_agree_term_refl {M : SigmaModel}
+    (rho : Assignment M) :
+    {s : SortTag} -> (term : Term s) ->
+      AssignmentsAgreeOnTerm rho rho term
+  | _, Term.var _ => rfl
+  | _, Term.app _ args => assignments_agree_args_refl rho args
+
+theorem assignments_agree_args_refl {M : SigmaModel}
+    (rho : Assignment M) :
+    {signature : List SortTag} -> (args : Args Term signature) ->
+      AssignmentsAgreeOnArgs rho rho args
+  | [], Args.nil => True.intro
+  | _ :: _, Args.cons term rest =>
+      And.intro
+        (assignments_agree_term_refl rho term)
+        (assignments_agree_args_refl rho rest)
+
+end
+
+theorem assignments_agree_formula_refl {M : SigmaModel}
+    (rho : Assignment M) :
+    (formula : Formula) -> AssignmentsAgreeOnFormula rho rho formula
+  | Formula.truth => True.intro
+  | Formula.falsity => True.intro
+  | Formula.atom _ args => assignments_agree_args_refl rho args
+  | Formula.conj left right =>
+      And.intro
+        (assignments_agree_formula_refl rho left)
+        (assignments_agree_formula_refl rho right)
+  | Formula.disj left right =>
+      And.intro
+        (assignments_agree_formula_refl rho left)
+        (assignments_agree_formula_refl rho right)
+  | Formula.impl left right =>
+      And.intro
+        (assignments_agree_formula_refl rho left)
+        (assignments_agree_formula_refl rho right)
+  | Formula.neg body => assignments_agree_formula_refl rho body
+  | Formula.forallVar s idx body =>
+      fun value =>
+        assignments_agree_formula_refl
+          (updateAssignment rho s idx value) body
+  | Formula.existsVar s idx body =>
+      fun value =>
+        assignments_agree_formula_refl
+          (updateAssignment rho s idx value) body
+
 theorem satisfiesFormula_iff_of_agree {M : SigmaModel}
     {rho sigma : Assignment M} :
     (formula : Formula) ->
@@ -285,6 +385,197 @@ theorem satisfiesFormula_iff_of_agree {M : SigmaModel}
             (fun value hbody =>
               Exists.intro value
                 ((satisfiesFormula_iff_of_agree body (h value)).mpr hbody)))
+
+mutual
+
+theorem term_agrees_update_of_not_free {M : SigmaModel}
+    (rho : Assignment M) (target : SortTag) (idx : Nat)
+    (value : M.Carrier target) :
+    {s : SortTag} -> (term : Term s) ->
+      Not (TermHasVar target idx term) ->
+        AssignmentsAgreeOnTerm rho
+          (updateAssignment rho target idx value) term
+  | s, Term.var n, hNot => by
+      by_cases hs : s = target
+      · subst hs
+        by_cases hn : n = idx
+        · subst hn
+          exact False.elim (hNot (And.intro rfl rfl))
+        · simp [AssignmentsAgreeOnTerm, TermHasVar, updateAssignment, hn]
+      · simp [AssignmentsAgreeOnTerm, TermHasVar, updateAssignment, hs]
+  | _, Term.app _ args, hNot =>
+      args_agrees_update_of_not_free rho target idx value args hNot
+
+theorem args_agrees_update_of_not_free {M : SigmaModel}
+    (rho : Assignment M) (target : SortTag) (idx : Nat)
+    (value : M.Carrier target) :
+    {signature : List SortTag} -> (args : Args Term signature) ->
+      Not (ArgsHaveVar target idx args) ->
+        AssignmentsAgreeOnArgs rho
+          (updateAssignment rho target idx value) args
+  | [], Args.nil, _ => True.intro
+  | _ :: _, Args.cons term rest, hNot =>
+      And.intro
+        (term_agrees_update_of_not_free rho target idx value term
+          (fun hTerm => hNot (Or.inl hTerm)))
+        (args_agrees_update_of_not_free rho target idx value rest
+          (fun hRest => hNot (Or.inr hRest)))
+
+end
+
+theorem quantifier_free_formula_agrees_update_of_not_free {M : SigmaModel}
+    (rho : Assignment M) (target : SortTag) (idx : Nat)
+    (value : M.Carrier target) :
+    (formula : Formula) ->
+      QuantifierFree formula ->
+        Not (FormulaHasFreeVar target idx formula) ->
+          AssignmentsAgreeOnFormula rho
+            (updateAssignment rho target idx value) formula
+  | Formula.truth, _, _ => True.intro
+  | Formula.falsity, _, _ => True.intro
+  | Formula.atom _ args, _, hNot =>
+      args_agrees_update_of_not_free rho target idx value args hNot
+  | Formula.conj left right, hQf, hNot =>
+      And.intro
+        (quantifier_free_formula_agrees_update_of_not_free rho target idx
+          value left hQf.left (fun hLeft => hNot (Or.inl hLeft)))
+        (quantifier_free_formula_agrees_update_of_not_free rho target idx
+          value right hQf.right (fun hRight => hNot (Or.inr hRight)))
+  | Formula.disj left right, hQf, hNot =>
+      And.intro
+        (quantifier_free_formula_agrees_update_of_not_free rho target idx
+          value left hQf.left (fun hLeft => hNot (Or.inl hLeft)))
+        (quantifier_free_formula_agrees_update_of_not_free rho target idx
+          value right hQf.right (fun hRight => hNot (Or.inr hRight)))
+  | Formula.impl left right, hQf, hNot =>
+      And.intro
+        (quantifier_free_formula_agrees_update_of_not_free rho target idx
+          value left hQf.left (fun hLeft => hNot (Or.inl hLeft)))
+        (quantifier_free_formula_agrees_update_of_not_free rho target idx
+          value right hQf.right (fun hRight => hNot (Or.inr hRight)))
+  | Formula.neg body, hQf, hNot =>
+      quantifier_free_formula_agrees_update_of_not_free rho target idx value
+        body hQf hNot
+  | Formula.forallVar _ _ _, hQf, _ => False.elim hQf
+  | Formula.existsVar _ _ _, hQf, _ => False.elim hQf
+
+theorem quantifier_free_satisfaction_stable_update_of_not_free
+    {M : SigmaModel} (rho : Assignment M) (target : SortTag) (idx : Nat)
+    (value : M.Carrier target) (formula : Formula)
+    (hQf : QuantifierFree formula)
+    (hNotFree : Not (FormulaHasFreeVar target idx formula)) :
+    Iff (SatisfiesFormula rho formula)
+      (SatisfiesFormula (updateAssignment rho target idx value) formula) :=
+  satisfiesFormula_iff_of_agree formula
+    (quantifier_free_formula_agrees_update_of_not_free rho target idx value
+      formula hQf hNotFree)
+
+theorem formula_agrees_update_of_not_free {M : SigmaModel}
+    (rho : Assignment M) (target : SortTag) (idx : Nat)
+    (value : M.Carrier target) :
+    (formula : Formula) ->
+      Not (FormulaHasFreeVar target idx formula) ->
+        AssignmentsAgreeOnFormula rho
+          (updateAssignment rho target idx value) formula
+  | Formula.truth, _ => True.intro
+  | Formula.falsity, _ => True.intro
+  | Formula.atom _ args, hNot =>
+      args_agrees_update_of_not_free rho target idx value args hNot
+  | Formula.conj left right, hNot =>
+      And.intro
+        (formula_agrees_update_of_not_free rho target idx value left
+          (fun hLeft => hNot (Or.inl hLeft)))
+        (formula_agrees_update_of_not_free rho target idx value right
+          (fun hRight => hNot (Or.inr hRight)))
+  | Formula.disj left right, hNot =>
+      And.intro
+        (formula_agrees_update_of_not_free rho target idx value left
+          (fun hLeft => hNot (Or.inl hLeft)))
+        (formula_agrees_update_of_not_free rho target idx value right
+          (fun hRight => hNot (Or.inr hRight)))
+  | Formula.impl left right, hNot =>
+      And.intro
+        (formula_agrees_update_of_not_free rho target idx value left
+          (fun hLeft => hNot (Or.inl hLeft)))
+        (formula_agrees_update_of_not_free rho target idx value right
+          (fun hRight => hNot (Or.inr hRight)))
+  | Formula.neg body, hNot =>
+      formula_agrees_update_of_not_free rho target idx value body hNot
+  | Formula.forallVar s binderIdx body, hNot =>
+      fun binderValue => by
+        by_cases hSame : And (s = target) (binderIdx = idx)
+        · rcases hSame with ⟨hs, hidx⟩
+          subst hs
+          subst hidx
+          have hEq :
+              updateAssignment
+                  (updateAssignment rho s binderIdx value) s binderIdx
+                    binderValue =
+                updateAssignment rho s binderIdx binderValue :=
+            updateAssignment_shadow_same rho s binderIdx value binderValue
+          rw [hEq]
+          exact assignments_agree_formula_refl
+            (updateAssignment rho s binderIdx binderValue) body
+        · have hBodyNot : Not (FormulaHasFreeVar target idx body) := by
+            intro hBody
+            apply hNot
+            simp [FormulaHasFreeVar, hSame, hBody]
+          have hAgree :=
+            formula_agrees_update_of_not_free
+              (updateAssignment rho s binderIdx binderValue) target idx value
+              body hBodyNot
+          have hComm :
+              updateAssignment
+                  (updateAssignment rho s binderIdx binderValue) target idx
+                    value =
+                updateAssignment
+                  (updateAssignment rho target idx value) s binderIdx
+                    binderValue :=
+            updateAssignment_commute_of_ne rho binderValue value hSame
+          rw [hComm] at hAgree
+          exact hAgree
+  | Formula.existsVar s binderIdx body, hNot =>
+      fun binderValue => by
+        by_cases hSame : And (s = target) (binderIdx = idx)
+        · rcases hSame with ⟨hs, hidx⟩
+          subst hs
+          subst hidx
+          have hEq :
+              updateAssignment
+                  (updateAssignment rho s binderIdx value) s binderIdx
+                    binderValue =
+                updateAssignment rho s binderIdx binderValue :=
+            updateAssignment_shadow_same rho s binderIdx value binderValue
+          rw [hEq]
+          exact assignments_agree_formula_refl
+            (updateAssignment rho s binderIdx binderValue) body
+        · have hBodyNot : Not (FormulaHasFreeVar target idx body) := by
+            intro hBody
+            apply hNot
+            simp [FormulaHasFreeVar, hSame, hBody]
+          have hAgree :=
+            formula_agrees_update_of_not_free
+              (updateAssignment rho s binderIdx binderValue) target idx value
+              body hBodyNot
+          have hComm :
+              updateAssignment
+                  (updateAssignment rho s binderIdx binderValue) target idx
+                    value =
+                updateAssignment
+                  (updateAssignment rho target idx value) s binderIdx
+                    binderValue :=
+            updateAssignment_commute_of_ne rho binderValue value hSame
+          rw [hComm] at hAgree
+          exact hAgree
+
+theorem satisfaction_stable_update_of_not_free
+    {M : SigmaModel} (rho : Assignment M) (target : SortTag) (idx : Nat)
+    (value : M.Carrier target) (formula : Formula)
+    (hNotFree : Not (FormulaHasFreeVar target idx formula)) :
+    Iff (SatisfiesFormula rho formula)
+      (SatisfiesFormula (updateAssignment rho target idx value) formula) :=
+  satisfiesFormula_iff_of_agree formula
+    (formula_agrees_update_of_not_free rho target idx value formula hNotFree)
 
 theorem satisfies_truth {M : SigmaModel} (rho : Assignment M) :
     SatisfiesFormula rho Formula.truth :=

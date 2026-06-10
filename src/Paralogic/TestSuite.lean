@@ -86,6 +86,123 @@ example (s : SortTag) (idx : Nat) (body : Formula) :
     SemanticallyEntails [body] (Formula.existsVar s idx body) :=
   semantically_entails_exists_current s idx body
 
+example (s : SortTag) (idx : Nat) :
+    SemanticallyEntails [] (Formula.forallVar s idx Formula.truth) :=
+  semantically_entails_forall_intro_of_stable
+    (premises_stable_nil s idx)
+    (semantically_entails_truth [])
+
+example (s : SortTag) (idx : Nat) :
+    SemanticallyEntails [] (Formula.forallVar s idx Formula.truth) :=
+  semantically_entails_forall_intro_of_quantifier_free_fresh
+    (by
+      intro _ hMem
+      cases hMem)
+    (semantically_entails_truth [])
+
+example (s : SortTag) (idx : Nat) :
+    SemanticallyEntails [] (Formula.forallVar s idx Formula.truth) :=
+  semantically_entails_forall_intro_of_fresh
+    (by
+      intro _ hMem
+      cases hMem)
+    (semantically_entails_truth [])
+
+example (s : SortTag) (idx : Nat) (body : Formula) :
+    Derives [Formula.forallVar s idx body] body :=
+  derives_forall_current_example s idx body
+
+example (s : SortTag) (idx : Nat) (body : Formula) :
+    SemanticallyEntails [Formula.forallVar s idx body] body :=
+  derives_forall_current_example_sound s idx body
+
+example (s : SortTag) (idx : Nat) (body : Formula) :
+    Derives [body] (Formula.existsVar s idx body) :=
+  derives_exists_current_example s idx body
+
+example (s : SortTag) (idx : Nat) (body : Formula) :
+    SemanticallyEntails [body] (Formula.existsVar s idx body) :=
+  derives_exists_current_example_sound s idx body
+
+example (s : SortTag) (idx : Nat) :
+    PremisesStableUnderUpdate s idx [] :=
+  premises_stable_nil s idx
+
+example (s : SortTag) (idx : Nat) :
+    PremisesQuantifierFreeFreshForUpdate s idx [] := by
+  intro _ hMem
+  cases hMem
+
+example (s : SortTag) (idx : Nat) :
+    PremisesFreshForUpdate s idx [] := by
+  intro _ hMem
+  cases hMem
+
+example (s : SortTag) (idx : Nat) :
+    PremisesStableUnderUpdate s idx [] :=
+  premises_stable_of_quantifier_free_fresh s idx []
+    (by
+      intro _ hMem
+      cases hMem)
+
+example (s : SortTag) (idx : Nat) :
+    PremisesStableUnderUpdate s idx [] :=
+  premises_stable_of_fresh s idx []
+    (by
+      intro _ hMem
+      cases hMem)
+
+example {M : SigmaModel} (rho : Assignment M)
+    (s : SortTag) (idx : Nat) (value : M.Carrier s)
+    (body : Formula) :
+    Iff
+      (SatisfiesFormula rho (Formula.forallVar s idx body))
+      (SatisfiesFormula (updateAssignment rho s idx value)
+        (Formula.forallVar s idx body)) :=
+  satisfaction_stable_update_of_not_free rho s idx value
+    (Formula.forallVar s idx body)
+    (quantified_variable_not_free_forall s idx body)
+
+example (s : SortTag) (idx : Nat) :
+    Derives [] (Formula.forallVar s idx Formula.truth) :=
+  derives_forall_truth_example s idx
+
+example (s : SortTag) (idx : Nat) :
+    Derives [] (Formula.forallVar s idx Formula.truth) :=
+  derives_forall_intro_of_quantifier_free_fresh
+    (by
+      intro _ hMem
+      cases hMem)
+    Derives.truth
+
+example (s : SortTag) (idx : Nat) :
+    Derives [] (Formula.forallVar s idx Formula.truth) :=
+  derives_forall_intro_of_fresh
+    (by
+      intro _ hMem
+      cases hMem)
+    Derives.truth
+
+example (s : SortTag) (idx : Nat) :
+    SemanticallyEntails [] (Formula.forallVar s idx Formula.truth) :=
+  derives_forall_truth_example_sound s idx
+
+example (s : SortTag) (idx : Nat) :
+    SemanticallyEntails [] (Formula.forallVar s idx Formula.truth) :=
+  derives_forall_intro_of_quantifier_free_fresh_sound
+    (by
+      intro _ hMem
+      cases hMem)
+    Derives.truth
+
+example (s : SortTag) (idx : Nat) :
+    SemanticallyEntails [] (Formula.forallVar s idx Formula.truth) :=
+  derives_forall_intro_of_fresh_sound
+    (by
+      intro _ hMem
+      cases hMem)
+    Derives.truth
+
 example (left right : Bool) :
     HasGlobalExtension (boolPairFamily left right) :=
   boolPairFamily_has_global_extension left right
@@ -206,6 +323,22 @@ example :
         (ModelHom.mapAssignment unitToBoolTrueHom unitUsesOnlyAssignment)
         forallInstitutionUsesFormula)) :=
   model_hom_not_preserve_universal_counterexample
+
+example :
+    SatisfiesFormula boolUsesTrueAssignment usesAtomFormula :=
+  boolUsesTrueAssignment_satisfies_usesAtom
+
+example :
+    Not (SatisfiesFormula boolUsesTrueAssignment forallInstitutionUsesFormula) :=
+  boolUsesTrueAssignment_not_forallInstitutionUses
+
+example :
+    SemanticCountermodel [usesAtomFormula] forallInstitutionUsesFormula :=
+  universal_intro_without_freshness_countermodel
+
+example :
+    Not (SemanticallyEntails [usesAtomFormula] forallInstitutionUsesFormula) :=
+  universal_intro_without_freshness_not_semantically_valid
 
 example : ContextualObstruction noGlobalFamily :=
   noGlobalFamily_obstructed
