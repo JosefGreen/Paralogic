@@ -39,8 +39,9 @@ notes as well as open gaps.
     fragment:
     identity substitution, satisfaction, semantic entailment, assignment
     agreement, binder non-freeness, quantifier-free substitution/satisfaction,
-    and premise monotonicity. Broader quantified substitution theory remains a
-    later extension, not a blocker for Gate 2.
+    free-variable agreement, closed-formula assignment invariance, and premise
+    monotonicity. Broader quantified substitution theory remains a later
+    extension, not a blocker for Gate 2.
 19. Normative bridge schemas exist, but no domain-specific bridge has been
     justified by external legal, moral, institutional, or empirical standards.
 20. The new many-sorted countermodel is a named witness, not an exhaustive

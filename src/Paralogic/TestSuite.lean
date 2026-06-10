@@ -163,6 +163,40 @@ example {M : SigmaModel} (rho : Assignment M)
     (Formula.forallVar s idx body)
     (quantified_variable_not_free_forall s idx body)
 
+example {M : SigmaModel} (rho sigma : Assignment M) :
+    AssignmentsAgreeOnFormula rho sigma Formula.truth :=
+  closed_formula_assignments_agree rho sigma Formula.truth
+    (by
+      intro _ _ hFree
+      cases hFree)
+
+example {M : SigmaModel} (rho sigma : Assignment M) :
+    Iff (SatisfiesFormula rho Formula.truth)
+      (SatisfiesFormula sigma Formula.truth) :=
+  closed_formula_satisfaction_invariant rho sigma Formula.truth
+    (by
+      intro _ _ hFree
+      cases hFree)
+
+example (s : SortTag) (idx : Nat) :
+    FormulaClosed (Formula.forallVar s idx Formula.truth) := by
+  intro target targetIdx hFree
+  by_cases hBinder : And (s = target) (idx = targetIdx)
+  · simp [FormulaHasFreeVar, hBinder] at hFree
+  · simp [FormulaHasFreeVar, hBinder] at hFree
+
+example {M : SigmaModel} (rho sigma : Assignment M)
+    (s : SortTag) (idx : Nat) :
+    Iff (SatisfiesFormula rho (Formula.forallVar s idx Formula.truth))
+      (SatisfiesFormula sigma (Formula.forallVar s idx Formula.truth)) :=
+  closed_formula_satisfaction_invariant rho sigma
+    (Formula.forallVar s idx Formula.truth)
+    (by
+      intro target targetIdx hFree
+      by_cases hBinder : And (s = target) (idx = targetIdx)
+      · simp [FormulaHasFreeVar, hBinder] at hFree
+      · simp [FormulaHasFreeVar, hBinder] at hFree)
+
 example (s : SortTag) (idx : Nat) :
     Derives [] (Formula.forallVar s idx Formula.truth) :=
   derives_forall_truth_example s idx

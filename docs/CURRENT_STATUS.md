@@ -51,13 +51,17 @@ The repository currently contains:
   introduction, and universal introduction under semantic premise-stability.
 - Direct MC3-Lean semantic universal-introduction theorems under premise
   stability and under syntactic no-free-variable freshness.
+- MC3-Lean free-variable agreement lemmas showing that formula satisfaction
+  depends only on free variables, plus assignment-invariance for closed
+  formulas.
 - MC3-Lean syntactic freshness lemmas that turn no-free-variable premise facts
   into assignment-update stability for universal introduction, with the older
   quantifier-free bridge retained as a bounded subcase.
 - An MC3-Lean countermodel showing that unrestricted universal introduction
   from a premise with the quantified variable free is not semantically valid.
-- A GitHub Actions workflow updated to use the supported Lean action and run
-  the Python regression/checker suite plus an active Lean-hole scan.
+- A GitHub Actions workflow updated to use the supported Lean action, opt into
+  Node 24 JavaScript actions, and run the Python regression/checker suite plus
+  an active Lean-hole scan.
 - A new MC3-Lean Delta finality separation showing eventual resolution does
   not imply every reachable state is resolved.
 - A new MC3-Lean Delta terminal-stability separation showing stable behavior

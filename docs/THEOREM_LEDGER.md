@@ -140,6 +140,9 @@ Status: MC3-Lean after successful local build.
 | G1-AGR-1 | assignment agreement on a term preserves term evaluation | `evalTerm_eq_of_agree` |
 | G1-AGR-2 | assignment agreement on typed arguments preserves argument evaluation | `evalArgs_eq_of_agree` |
 | G1-AGR-3 | assignment agreement on a formula preserves satisfaction | `satisfiesFormula_iff_of_agree` |
+| G1-AGR-4 | agreement on all free variables implies term and argument agreement | `term_agrees_of_free_var_agreement`, `args_agrees_of_free_var_agreement` |
+| G1-AGR-5 | agreement on all formula free variables implies formula agreement | `FormulaFreeVariablesAgree`, `formula_agrees_of_free_var_agreement` |
+| G1-AGR-6 | closed formulas are assignment-invariant | `FormulaClosed`, `closed_formula_assignments_agree`, `closed_formula_satisfaction_invariant` |
 | G1-CAP-1 | masking identity substitution leaves identity substitution unchanged | `maskSubstitution_identity` |
 | G1-CAP-2 | a universal binder binds its own variable | `quantified_variable_not_free_forall` |
 | G1-CAP-3 | an existential binder binds its own variable | `quantified_variable_not_free_exists` |

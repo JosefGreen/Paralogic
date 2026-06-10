@@ -161,6 +161,11 @@ Required repair:
 - Complete model-hom identity/associativity laws at the structure level.
 - Prove formula translation preservation conditions beyond records.
 
+Additional foundation repair applied: `FoundationLemmas.lean` now proves that
+agreement on all free variables induces formula agreement, and that closed
+formulas are invariant under arbitrary assignment changes.  This tightens the
+semantic hygiene needed before alpha-equivalence and eigenvariable machinery.
+
 Partial repair applied: `ProofTheory.lean` now has soundness for a larger
 natural-deduction fragment, including implication introduction, falsity
 elimination, disjunction elimination, universal current-value elimination, and

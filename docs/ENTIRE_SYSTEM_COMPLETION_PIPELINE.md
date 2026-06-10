@@ -41,9 +41,10 @@ warrants are audited.
 5. CI-style checks: Lean build, Python checkers, pytest, overclaim scan.
 
 Current status: MC3/PYC/EFC scaffold complete for local status infrastructure;
-GitHub Actions workflow wiring now uses the supported Lean action and runs the
-Python checker suite plus an active Lean-hole scan.  Still open for
-stale-document pruning and continuous enforcement across all future artifacts.
+GitHub Actions workflow wiring now uses the supported Lean action, opts into
+Node 24 JavaScript actions, and runs the Python checker suite plus an active
+Lean-hole scan.  Still open for stale-document pruning and continuous
+enforcement across all future artifacts.
 
 ## Lane B - Formal Core And Proof Theory
 
@@ -62,6 +63,9 @@ Current status: MC3-Lean plus PPC-bounded executable checking for a scoped
 propositional fragment.  The derivability calculus now has soundness for
 premise use, truth introduction, falsity elimination, conjunction rules,
 disjunction introduction/elimination, and implication introduction/elimination.
+The foundation layer now proves that formula satisfaction depends only on free
+variables and that closed formulas are invariant under arbitrary assignment
+changes.
 Scoped derivability rules and semantic entailment laws now cover universal
 current-value elimination, existential current-value introduction, and
 universal introduction under semantic premise-stability.  Syntactic

@@ -331,6 +331,122 @@ theorem assignments_agree_formula_refl {M : SigmaModel}
         assignments_agree_formula_refl
           (updateAssignment rho s idx value) body
 
+mutual
+
+theorem term_agrees_of_free_var_agreement {M : SigmaModel}
+    {rho sigma : Assignment M} :
+    {s : SortTag} -> (term : Term s) ->
+      (forall target idx, TermHasVar target idx term ->
+        rho target idx = sigma target idx) ->
+        AssignmentsAgreeOnTerm rho sigma term
+  | s, Term.var idx, hAgree =>
+      hAgree s idx (And.intro rfl rfl)
+  | _, Term.app _ args, hAgree =>
+      args_agrees_of_free_var_agreement args hAgree
+
+theorem args_agrees_of_free_var_agreement {M : SigmaModel}
+    {rho sigma : Assignment M} :
+    {signature : List SortTag} -> (args : Args Term signature) ->
+      (forall target idx, ArgsHaveVar target idx args ->
+        rho target idx = sigma target idx) ->
+        AssignmentsAgreeOnArgs rho sigma args
+  | [], Args.nil, _ => True.intro
+  | _ :: _, Args.cons term rest, hAgree =>
+      And.intro
+        (term_agrees_of_free_var_agreement term
+          (fun target idx hVar => hAgree target idx (Or.inl hVar)))
+        (args_agrees_of_free_var_agreement rest
+          (fun target idx hVar => hAgree target idx (Or.inr hVar)))
+
+end
+
+def FormulaFreeVariablesAgree {M : SigmaModel}
+    (rho sigma : Assignment M) (formula : Formula) : Prop :=
+  forall target idx, FormulaHasFreeVar target idx formula ->
+    rho target idx = sigma target idx
+
+def FormulaClosed (formula : Formula) : Prop :=
+  forall target idx, Not (FormulaHasFreeVar target idx formula)
+
+theorem formula_agrees_of_free_var_agreement {M : SigmaModel}
+    {rho sigma : Assignment M} :
+    (formula : Formula) ->
+      FormulaFreeVariablesAgree rho sigma formula ->
+        AssignmentsAgreeOnFormula rho sigma formula
+  | Formula.truth, _ => True.intro
+  | Formula.falsity, _ => True.intro
+  | Formula.atom _ args, hAgree =>
+      args_agrees_of_free_var_agreement args hAgree
+  | Formula.conj left right, hAgree =>
+      And.intro
+        (formula_agrees_of_free_var_agreement left
+          (fun target idx hVar => hAgree target idx (Or.inl hVar)))
+        (formula_agrees_of_free_var_agreement right
+          (fun target idx hVar => hAgree target idx (Or.inr hVar)))
+  | Formula.disj left right, hAgree =>
+      And.intro
+        (formula_agrees_of_free_var_agreement left
+          (fun target idx hVar => hAgree target idx (Or.inl hVar)))
+        (formula_agrees_of_free_var_agreement right
+          (fun target idx hVar => hAgree target idx (Or.inr hVar)))
+  | Formula.impl left right, hAgree =>
+      And.intro
+        (formula_agrees_of_free_var_agreement left
+          (fun target idx hVar => hAgree target idx (Or.inl hVar)))
+        (formula_agrees_of_free_var_agreement right
+          (fun target idx hVar => hAgree target idx (Or.inr hVar)))
+  | Formula.neg body, hAgree =>
+      formula_agrees_of_free_var_agreement body hAgree
+  | Formula.forallVar s binderIdx body, hAgree =>
+      fun value =>
+        formula_agrees_of_free_var_agreement body
+          (fun target idx hVar => by
+            by_cases hBinder : And (s = target) (binderIdx = idx)
+            · rcases hBinder with ⟨hs, hidx⟩
+              subst hs
+              subst hidx
+              simp [updateAssignment]
+            · have hBase : rho target idx = sigma target idx :=
+                hAgree target idx
+                  (by
+                    simp [FormulaHasFreeVar, hBinder, hVar])
+              by_cases hs : target = s
+              · subst hs
+                have hIdxNe : idx ≠ binderIdx := by
+                  intro hIdx
+                  apply hBinder
+                  exact And.intro rfl hIdx.symm
+                simp [updateAssignment, hIdxNe, hBase]
+              · simp [updateAssignment, hs, hBase])
+  | Formula.existsVar s binderIdx body, hAgree =>
+      fun value =>
+        formula_agrees_of_free_var_agreement body
+          (fun target idx hVar => by
+            by_cases hBinder : And (s = target) (binderIdx = idx)
+            · rcases hBinder with ⟨hs, hidx⟩
+              subst hs
+              subst hidx
+              simp [updateAssignment]
+            · have hBase : rho target idx = sigma target idx :=
+                hAgree target idx
+                  (by
+                    simp [FormulaHasFreeVar, hBinder, hVar])
+              by_cases hs : target = s
+              · subst hs
+                have hIdxNe : idx ≠ binderIdx := by
+                  intro hIdx
+                  apply hBinder
+                  exact And.intro rfl hIdx.symm
+                simp [updateAssignment, hIdxNe, hBase]
+              · simp [updateAssignment, hs, hBase])
+
+theorem closed_formula_assignments_agree {M : SigmaModel}
+    (rho sigma : Assignment M) (formula : Formula)
+    (hClosed : FormulaClosed formula) :
+    AssignmentsAgreeOnFormula rho sigma formula :=
+  formula_agrees_of_free_var_agreement formula
+    (fun target idx hVar => False.elim (hClosed target idx hVar))
+
 theorem satisfiesFormula_iff_of_agree {M : SigmaModel}
     {rho sigma : Assignment M} :
     (formula : Formula) ->
@@ -385,6 +501,13 @@ theorem satisfiesFormula_iff_of_agree {M : SigmaModel}
             (fun value hbody =>
               Exists.intro value
                 ((satisfiesFormula_iff_of_agree body (h value)).mpr hbody)))
+
+theorem closed_formula_satisfaction_invariant {M : SigmaModel}
+    (rho sigma : Assignment M) (formula : Formula)
+    (hClosed : FormulaClosed formula) :
+    Iff (SatisfiesFormula rho formula) (SatisfiesFormula sigma formula) :=
+  satisfiesFormula_iff_of_agree formula
+    (closed_formula_assignments_agree rho sigma formula hClosed)
 
 mutual
 
