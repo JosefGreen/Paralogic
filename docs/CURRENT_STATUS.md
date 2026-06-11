@@ -37,6 +37,10 @@ The repository currently contains:
 - A warrant-coverage checker that parses the Lean warrant obligation
   enumeration and confirms every current obligation is covered by the
   operational core status plus universal guard theorems.
+- A mechanism-coverage checker that parses the Lean M1-M12 mechanism layer and
+  confirms all twelve mechanisms are listed, uniquely covered by the main
+  mappings, candidate-defined, and guarded against source-backed or empirical
+  overpromotion.
 - A bounded propositional proof checker covering seven positive and negative
   truth-table targets for the strengthened derivability fragment.
 - A tiny PYC proof checker for a Horn-like fragment, with regression tests and
@@ -96,6 +100,10 @@ The repository currently contains:
   each mechanism with an academic lens, failure axis, maturity status,
   operational trigger, boundary guard, empirical coding plan, and non-collapse
   guard before any source-backed or empirical promotion is allowed.
+- A universal MC3-Lean candidate-mechanism coverage theorem proving that all
+  twelve mechanisms are listed without duplicates, have bounded positive
+  indices, preserve their assigned lens/failure axis/profile label, satisfy
+  the candidate surface, and remain below source-backed or empirical status.
 - A new MC3-Lean warrant-discharge scaffold that enumerates current
   warrant-like assumptions, proves they are not yet source-backed or
   empirically validated, and gives all-false-model countermodels against raw

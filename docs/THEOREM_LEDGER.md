@@ -505,6 +505,11 @@ Status: MC3-Lean after successful local build.
 | G6-SYN-4 | candidate mechanism definitions require maturity, source trace, lens fit, trigger, failure contrast, boundary guard, empirical plan, and non-collapse guard | `CandidateMechanismDefinition`, `CandidateMechanismDefinitionSatisfied` |
 | G6-SYN-5 | satisfied candidate definitions induce satisfied generic mechanism profiles | `CandidateMechanismDefinition.toMechanismProfile`, `candidate_satisfied_to_mechanism_profile_satisfied` |
 | G6-SYN-6 | candidate-synthesized definitions are not source-backed or empirically validated | `candidate_synthesized_not_source_backed`, `candidate_synthesized_not_empirically_validated` |
+| G6-SYN-7 | all twelve mechanisms are listed exactly once in the candidate coverage list | `allISFTMechanisms`, `allISFTMechanisms_length`, `allISFTMechanisms_covers`, `allISFTMechanisms_no_duplicates` |
+| G6-SYN-8 | every candidate mechanism has a positive index bounded by twelve | `mechanismIndex_positive`, `mechanismIndex_le_twelve` |
+| G6-SYN-9 | every unit candidate preserves its label, lens, and failure-axis mapping | `CandidateMechanismMappingCertified`, `unit_candidate_mapping_certified` |
+| G6-SYN-10 | every unit candidate satisfies the candidate surface and is not promoted to source-backed or empirical status | `CandidateMechanismSurfaceCertified`, `unit_candidate_surface_certified`, `all_candidate_mechanisms_not_source_backed`, `all_candidate_mechanisms_not_empirically_validated` |
+| G6-SYN-11 | candidate mechanism coverage is complete over all M1-M12 mechanisms | `CandidateMechanismCoverageComplete`, `candidate_mechanism_coverage_complete` |
 | G6-PROF-1 | satisfied mechanism profile yields mechanism case data | `ISFTMechanismProfile.toCase` |
 | G6-PROF-BLOCK-1 | missing mechanism domain blocks profile | `missing_mechanism_domain_blocks_profile` |
 | G6-PROF-BLOCK-2 | missing mechanism trigger blocks profile | `missing_mechanism_trigger_blocks_profile` |

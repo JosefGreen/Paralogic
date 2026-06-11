@@ -132,6 +132,12 @@ notes as well as open gaps.
     status, and proves candidate-synthesized status is not source-backed or
     empirically validated. This is the new priority path for building missing
     definitions without pretending they are already externally grounded.
+36a.1. Gate 6 now has formal and executable candidate-mechanism coverage:
+    Lean proves `CandidateMechanismCoverageComplete`, and
+    `python/mechanism_coverage_check.py` confirms all twelve mechanisms are
+    listed, uniquely covered by index/name/lens/failure-axis mappings, and
+    tied to the required candidate fields. This closes the coverage bookkeeping
+    gap for the candidate layer, not the source-backed semantics gap.
 36b. M8 power-condition warrant discharge now has a scoped operational model
     for relevance, validity dependence, and omission, with negative controls
     for unaffected group, immaterial condition, and ordinary output.  Remaining

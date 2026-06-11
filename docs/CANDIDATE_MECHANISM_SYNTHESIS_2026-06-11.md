@@ -78,6 +78,27 @@ use requires primary-source verification and external review.
 - `candidate_satisfied_to_mechanism_profile_satisfied`
 - `candidate_synthesized_not_source_backed`
 - `candidate_synthesized_not_empirically_validated`
+- `allISFTMechanisms`
+- `allISFTMechanisms_length`
+- `allISFTMechanisms_covers`
+- `allISFTMechanisms_no_duplicates`
+- `CandidateMechanismMappingCertified`
+- `unit_candidate_mapping_certified`
+- `CandidateMechanismSurfaceCertified`
+- `unit_candidate_surface_certified`
+- `CandidateMechanismCoverageComplete`
+- `candidate_mechanism_coverage_complete`
+
+## Coverage Gate
+
+The candidate layer now has a dedicated coverage gate:
+
+- Lean proves every M1-M12 mechanism is listed, uniquely covered, positively
+  indexed, bounded by 12, and mapped into a satisfied candidate surface.
+- `python/mechanism_coverage_check.py` independently parses the source and
+  persists the result in `docs/mechanism_coverage_checks/`.
+- `docs/MECHANISM_COVERAGE_CHECK_REPORT_2026-06-11.md` records the audit
+  boundary: this is candidate coverage, not external validation.
 
 ## Pipeline Consequence
 
@@ -91,4 +112,3 @@ Lane D should now proceed by filling each mechanism with:
 6. positive Lean projection theorems;
 7. negative Lean countermodels;
 8. promotion criteria from candidate to source-backed or empirical status.
-

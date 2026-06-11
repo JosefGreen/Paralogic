@@ -36,6 +36,9 @@ propositional_proof_check = load_module(
 warrant_coverage_check = load_module(
     "warrant_coverage_check", "python/warrant_coverage_check.py"
 )
+mechanism_coverage_check = load_module(
+    "mechanism_coverage_check", "python/mechanism_coverage_check.py"
+)
 
 
 def test_finite_checker_all_targets_match_expectation():
@@ -404,3 +407,38 @@ def test_warrant_coverage_checker_persisted_obligations_match_runtime():
     path = ROOT / "docs" / "warrant_coverage_checks" / "obligations.json"
     persisted = json.loads(path.read_text(encoding="utf-8"))
     assert persisted == warrant_coverage_check.warrant_obligations()
+
+
+def test_mechanism_coverage_checker_proves_all_current_mechanisms_covered():
+    coverage = mechanism_coverage_check.coverage()
+    assert coverage["status"] == "MCC-pass"
+    assert coverage["mechanism_count"] == 12
+    assert coverage["listed_mechanism_count"] == coverage["mechanism_count"]
+    assert coverage["duplicate_declared_mechanisms"] == []
+    assert coverage["duplicate_listed_mechanisms"] == []
+    assert coverage["listed_missing_mechanisms"] == []
+    assert coverage["listed_extra_mechanisms"] == []
+    assert coverage["mapping_failures"] == {}
+    assert coverage["missing_theorems"] == []
+    assert coverage["missing_unit_candidate_fields"] == []
+
+
+def test_mechanism_coverage_checker_mapping_counts_are_exhaustive():
+    coverage = mechanism_coverage_check.coverage()
+    for row in coverage["mapping_coverage"].values():
+        assert row["case_count"] == coverage["mechanism_count"]
+        assert row["missing_cases"] == []
+        assert row["extra_cases"] == []
+        assert row["duplicate_cases"] == []
+
+
+def test_mechanism_coverage_checker_persisted_coverage_matches_runtime():
+    path = ROOT / "docs" / "mechanism_coverage_checks" / "coverage.json"
+    persisted = json.loads(path.read_text(encoding="utf-8"))
+    assert persisted == mechanism_coverage_check.coverage()
+
+
+def test_mechanism_coverage_checker_persisted_mechanisms_match_runtime():
+    path = ROOT / "docs" / "mechanism_coverage_checks" / "mechanisms.json"
+    persisted = json.loads(path.read_text(encoding="utf-8"))
+    assert persisted == mechanism_coverage_check.mechanisms()

@@ -63,3 +63,6 @@ jobs:
 
       - name: Run warrant coverage checker
         run: python python/warrant_coverage_check.py
+
+      - name: Run mechanism coverage checker
+        run: python python/mechanism_coverage_check.py

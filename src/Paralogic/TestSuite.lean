@@ -426,6 +426,32 @@ example :
     rfl
 
 example :
+    allISFTMechanisms.length = 12 :=
+  allISFTMechanisms_length
+
+example (mechanism : ISFTMechanism) :
+    mechanism ∈ allISFTMechanisms :=
+  allISFTMechanisms_covers mechanism
+
+example (mechanism : ISFTMechanism) :
+    CandidateMechanismMappingCertified mechanism :=
+  unit_candidate_mapping_certified mechanism
+
+example (mechanism : ISFTMechanism) :
+    CandidateMechanismSurfaceCertified mechanism :=
+  unit_candidate_surface_certified mechanism
+
+example :
+    CandidateMechanismCoverageComplete :=
+  candidate_mechanism_coverage_complete
+
+example (mechanism : ISFTMechanism) :
+    Not
+      ((unitCandidateDefinition mechanism).maturity =
+        MechanismSemanticMaturity.empiricallyValidated) :=
+  all_candidate_mechanisms_not_empirically_validated mechanism
+
+example :
     warrantResolutionStatus WarrantObligation.adequacy =
       WarrantResolutionStatus.countermodelGuarded :=
   rfl

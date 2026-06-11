@@ -1,0 +1,145 @@
+{
+  "duplicate_declared_mechanisms": [],
+  "duplicate_listed_mechanisms": [],
+  "listed_extra_mechanisms": [],
+  "listed_mechanism_count": 12,
+  "listed_mechanisms": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "M7",
+    "M8",
+    "M9",
+    "M10",
+    "M11",
+    "M12"
+  ],
+  "listed_missing_mechanisms": [],
+  "mapping_coverage": {
+    "mechanismFailureAxis": {
+      "case_count": 12,
+      "cases": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "M9",
+        "M10",
+        "M11",
+        "M12"
+      ],
+      "duplicate_cases": [],
+      "extra_cases": [],
+      "missing_cases": []
+    },
+    "mechanismIndex": {
+      "case_count": 12,
+      "cases": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "M9",
+        "M10",
+        "M11",
+        "M12"
+      ],
+      "duplicate_cases": [],
+      "extra_cases": [],
+      "missing_cases": []
+    },
+    "mechanismLens": {
+      "case_count": 12,
+      "cases": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "M9",
+        "M10",
+        "M11",
+        "M12"
+      ],
+      "duplicate_cases": [],
+      "extra_cases": [],
+      "missing_cases": []
+    },
+    "mechanismName": {
+      "case_count": 12,
+      "cases": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "M9",
+        "M10",
+        "M11",
+        "M12"
+      ],
+      "duplicate_cases": [],
+      "extra_cases": [],
+      "missing_cases": []
+    }
+  },
+  "mapping_failures": {},
+  "mechanism_count": 12,
+  "mechanisms": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "M7",
+    "M8",
+    "M9",
+    "M10",
+    "M11",
+    "M12"
+  ],
+  "missing_theorems": [],
+  "missing_unit_candidate_fields": [],
+  "required_theorems": {
+    "CandidateMechanismCoverageComplete": true,
+    "allISFTMechanisms_covers": true,
+    "allISFTMechanisms_length": true,
+    "allISFTMechanisms_no_duplicates": true,
+    "all_candidate_mechanisms_not_empirically_validated": true,
+    "all_candidate_mechanisms_not_source_backed": true,
+    "candidate_mechanism_coverage_complete": true,
+    "unit_candidate_mapping_certified": true,
+    "unit_candidate_surface_certified": true
+  },
+  "status": "MCC-pass",
+  "unit_candidate_required_fields": {
+    "boundaryGuardDeclared := True": true,
+    "empiricalCodingPlanDeclared := True": true,
+    "failureAxis := mechanismFailureAxis mechanism": true,
+    "failureContrastDeclared := True": true,
+    "lens := mechanismLens mechanism": true,
+    "lensFitDeclared := True": true,
+    "maturity := MechanismSemanticMaturity.candidateSynthesized": true,
+    "nonCollapseGuardDeclared := True": true,
+    "operationalTriggerDeclared := True": true,
+    "sourceTraceDeclared := True": true
+  }
+}

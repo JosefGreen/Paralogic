@@ -141,6 +141,12 @@ candidate definitions from being counted as source-backed or empirical
 validation.  Lane D should now develop candidate definitions first, then
 promote only those that receive source trace, operational trigger, boundary
 guard, empirical coding plan, and non-collapse support.
+Coverage update: `CandidateMechanismCoverageComplete` now proves that every
+M1-M12 mechanism is listed, bounded, candidate-satisfied, label/lens/failure
+axis preserving, and not promoted to source-backed or empirical status.
+`python/mechanism_coverage_check.py` independently checks the source mappings
+and persisted artifacts.  The next Lane D work should deepen mechanism-specific
+semantics rather than rechecking basic coverage.
 
 ## Lane E - Contradiction, Insight, And Delta Dynamics
 

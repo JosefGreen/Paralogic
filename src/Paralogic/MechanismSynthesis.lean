@@ -237,4 +237,108 @@ theorem unit_candidate_profile_satisfied (mechanism : ISFTMechanism) :
     (unitCandidateDefinition mechanism)
     (unit_candidate_definition_satisfied mechanism)
 
+def allISFTMechanisms : List ISFTMechanism :=
+  [ISFTMechanism.M1, ISFTMechanism.M2, ISFTMechanism.M3,
+    ISFTMechanism.M4, ISFTMechanism.M5, ISFTMechanism.M6,
+    ISFTMechanism.M7, ISFTMechanism.M8, ISFTMechanism.M9,
+    ISFTMechanism.M10, ISFTMechanism.M11, ISFTMechanism.M12]
+
+theorem allISFTMechanisms_length :
+    allISFTMechanisms.length = 12 := rfl
+
+theorem allISFTMechanisms_covers (mechanism : ISFTMechanism) :
+    mechanism ∈ allISFTMechanisms := by
+  cases mechanism <;> simp [allISFTMechanisms]
+
+theorem allISFTMechanisms_no_duplicates :
+    allISFTMechanisms.Nodup := by
+  decide
+
+theorem mechanismIndex_positive (mechanism : ISFTMechanism) :
+    0 < mechanismIndex mechanism := by
+  cases mechanism <;> decide
+
+theorem mechanismIndex_le_twelve (mechanism : ISFTMechanism) :
+    mechanismIndex mechanism <= 12 := by
+  cases mechanism <;> decide
+
+structure CandidateMechanismMappingCertified
+    (mechanism : ISFTMechanism) : Prop where
+  listed : mechanism ∈ allISFTMechanisms
+  indexPositive : 0 < mechanismIndex mechanism
+  indexBounded : mechanismIndex mechanism <= 12
+  lensAssigned :
+    (unitCandidateDefinition mechanism).lens = mechanismLens mechanism
+  failureAxisAssigned :
+    (unitCandidateDefinition mechanism).failureAxis =
+      mechanismFailureAxis mechanism
+  labelPreserved :
+    ((unitCandidateDefinition mechanism).toMechanismProfile).mechanism =
+      mechanism
+
+theorem unit_candidate_mapping_certified (mechanism : ISFTMechanism) :
+    CandidateMechanismMappingCertified mechanism :=
+  { listed := allISFTMechanisms_covers mechanism
+    indexPositive := mechanismIndex_positive mechanism
+    indexBounded := mechanismIndex_le_twelve mechanism
+    lensAssigned := rfl
+    failureAxisAssigned := rfl
+    labelPreserved := rfl }
+
+theorem all_candidate_mechanisms_not_source_backed
+    (mechanism : ISFTMechanism) :
+    Not
+      ((unitCandidateDefinition mechanism).maturity =
+        MechanismSemanticMaturity.sourceBacked) :=
+  candidate_synthesized_not_source_backed
+    (unitCandidateDefinition mechanism)
+    rfl
+
+theorem all_candidate_mechanisms_not_empirically_validated
+    (mechanism : ISFTMechanism) :
+    Not
+      ((unitCandidateDefinition mechanism).maturity =
+        MechanismSemanticMaturity.empiricallyValidated) :=
+  candidate_synthesized_not_empirically_validated
+    (unitCandidateDefinition mechanism)
+    rfl
+
+structure CandidateMechanismSurfaceCertified
+    (mechanism : ISFTMechanism) : Prop where
+  definitionSatisfied :
+    CandidateMechanismDefinitionSatisfied
+      (unitCandidateDefinition mechanism)
+  profileSatisfied :
+    ISFTMechanismProfileSatisfied
+      (unitCandidateDefinition mechanism).toMechanismProfile
+  notSourceBacked :
+    Not
+      ((unitCandidateDefinition mechanism).maturity =
+        MechanismSemanticMaturity.sourceBacked)
+  notEmpiricallyValidated :
+    Not
+      ((unitCandidateDefinition mechanism).maturity =
+        MechanismSemanticMaturity.empiricallyValidated)
+
+theorem unit_candidate_surface_certified (mechanism : ISFTMechanism) :
+    CandidateMechanismSurfaceCertified mechanism :=
+  { definitionSatisfied := unit_candidate_definition_satisfied mechanism
+    profileSatisfied := unit_candidate_profile_satisfied mechanism
+    notSourceBacked :=
+      all_candidate_mechanisms_not_source_backed mechanism
+    notEmpiricallyValidated :=
+      all_candidate_mechanisms_not_empirically_validated mechanism }
+
+def CandidateMechanismCoverageComplete : Prop :=
+  forall mechanism : ISFTMechanism,
+    And (CandidateMechanismMappingCertified mechanism)
+      (CandidateMechanismSurfaceCertified mechanism)
+
+theorem candidate_mechanism_coverage_complete :
+    CandidateMechanismCoverageComplete := by
+  intro mechanism
+  exact And.intro
+    (unit_candidate_mapping_certified mechanism)
+    (unit_candidate_surface_certified mechanism)
+
 end Paralogic
