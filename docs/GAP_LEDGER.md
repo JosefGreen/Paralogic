@@ -153,6 +153,12 @@ notes as well as open gaps.
     negative controls for ordinary bridge, other institution, and other group.
     Remaining repair work is external legal, moral, governance, and empirical
     grounding where those claims are made.
+37b. Full empirical-validation warrant discharge now has a protocol-level
+    operational model requiring validation, construct-validity, reliability,
+    and replication predicates, with negative controls for nominal validation,
+    unvalidated objects, and other claims.  Real empirical data, reliability
+    statistics, construct-validation study, and replication remain open at
+    EMP0.
 38. Gate 8 has EFC artifacts for the scoped executable finite-checking fragment:
     `python/finite_check.py` produced EFC-bounded coverage and machine-readable
     witness artifacts for 10 target implications/non-entailments. This remains

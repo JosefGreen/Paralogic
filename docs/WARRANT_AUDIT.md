@@ -88,6 +88,15 @@ bridge, other institution, and other group.  This remains a local operational
 repair rule, not an external legal, moral, governance, or empirical
 justification.
 
+Additional discharge progress: full empirical validation now has a
+protocol-level operational discharge in `operationalEmpiricalModel`.  In that
+model, a validated object and target claim satisfy empirical validation,
+construct validity, reliability testing, and external replication predicates.
+Lean also checks that nominal validation, unvalidated objects, and other claims
+do not count as full validation.  This remains a formal protocol rule; it does
+not assert that real data, reliability statistics, construct validation, or
+replication have been obtained.
+
 `repairBridgeOnlyTargetedRevision_warrants_obligation` is therefore a
 conditional bridge theorem.  The targeted repair action satisfies the local
 finite revision postulates, but the repair-obligation conclusion still depends

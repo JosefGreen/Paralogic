@@ -216,6 +216,9 @@ output.  Suppression support-degradation now has a scoped operational model
 with negative controls for unsupported evidence, mismatched context, and
 ordinary claim.  Repair obligation now has a scoped operational model with
 negative controls for ordinary bridge, other institution, and other group.
+Full empirical validation now has a protocol-level operational model requiring
+validation, construct-validity, reliability, and replication predicates, while
+nominal validation alone is rejected.
 Lane G is not complete until each obligation is promoted by operational rules,
 source-backed rules, empirical validation, or lower-level derivation.
 

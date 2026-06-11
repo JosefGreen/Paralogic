@@ -117,6 +117,10 @@ The repository currently contains:
 - A scoped operational repair-obligation model where repair-need bridge,
   responsible institution, and affected group compute repair obligation, with
   negative controls for ordinary bridge, other institution, and other group.
+- A protocol-level operational empirical-validation model where full
+  validation requires empirical validation, construct validity, reliability
+  testing, and external replication predicates, with negative controls for
+  nominal validation, unvalidated objects, and other claims.
 - EMP0 empirical protocol artifacts.
 - Internal academic-audit artifacts.
 

@@ -119,6 +119,12 @@ Additional repair applied: repair obligation now has a scoped operational
 discharge model with negative controls for ordinary bridge, other institution,
 and other group. This is still not external legal, moral, governance, or
 empirical justification.
+Additional repair applied: full empirical validation now has a protocol-level
+operational discharge model requiring validation, construct-validity,
+reliability, and replication predicates, with negative controls for nominal
+validation, unvalidated objects, and other claims. This is still not real
+empirical data, computed reliability, construct-validation study, or
+replication.
 
 ### F4 - One-Element Witnesses Are Useful But Too Weak
 

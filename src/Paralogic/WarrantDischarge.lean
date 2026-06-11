@@ -97,6 +97,8 @@ def warrantResolutionStatusWithOperationalCore :
       WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.powerOmitted =>
       WarrantResolutionStatus.operationallyDischarged
+  | WarrantObligation.empiricalFullValidation =>
+      WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.suppressionSupportDegraded =>
       WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.repairObligation =>
@@ -593,6 +595,114 @@ theorem warrant_false_model_not_full_empirical_validation :
   intro h
   exact h.validation
 
+inductive OperationalEmpiricalToken where
+  | validatedObject
+  | nominalObject
+  | unvalidatedObject
+  | targetClaim
+  | otherClaim
+  | ordinary
+  deriving DecidableEq, Repr
+
+def operationalEmpiricalCarrier (_ : SortTag) : Type :=
+  OperationalEmpiricalToken
+
+def operationalEmpiricalFunctionInterp (_f : FunctionSymbol)
+    (_args : Args operationalEmpiricalCarrier ((functionArity _f).domain)) :
+    operationalEmpiricalCarrier ((functionArity _f).codomain) :=
+  OperationalEmpiricalToken.ordinary
+
+def operationalEmpiricalPredicateInterp :
+    (p : PredicateSymbol) ->
+      Args operationalEmpiricalCarrier ((predicateArity p).domain) -> Prop
+  | PredicateSymbol.empiricalValidation,
+      Args.cons OperationalEmpiricalToken.validatedObject
+        (Args.cons OperationalEmpiricalToken.targetClaim Args.nil) =>
+      True
+  | PredicateSymbol.empiricalValidation,
+      Args.cons OperationalEmpiricalToken.nominalObject
+        (Args.cons OperationalEmpiricalToken.targetClaim Args.nil) =>
+      True
+  | PredicateSymbol.constructValid,
+      Args.cons OperationalEmpiricalToken.validatedObject Args.nil =>
+      True
+  | PredicateSymbol.reliabilityTested,
+      Args.cons OperationalEmpiricalToken.validatedObject Args.nil =>
+      True
+  | PredicateSymbol.externallyReplicated,
+      Args.cons OperationalEmpiricalToken.validatedObject Args.nil =>
+      True
+  | PredicateSymbol.empiricalValidation, _ => False
+  | PredicateSymbol.constructValid, _ => False
+  | PredicateSymbol.reliabilityTested, _ => False
+  | PredicateSymbol.externallyReplicated, _ => False
+  | _, _ => False
+
+def operationalEmpiricalModel : SigmaModel :=
+  { Carrier := operationalEmpiricalCarrier
+    interpFunction := operationalEmpiricalFunctionInterp
+    interpPredicate := operationalEmpiricalPredicateInterp }
+
+theorem operational_empirical_full_validation :
+    FullEmpiricalValidationSem operationalEmpiricalModel
+      OperationalEmpiricalToken.validatedObject
+      OperationalEmpiricalToken.targetClaim :=
+  { validation := True.intro
+    constructValid := True.intro
+    reliabilityTested := True.intro
+    externallyReplicated := True.intro }
+
+theorem operational_empirical_nominal_not_full :
+    Not (FullEmpiricalValidationSem operationalEmpiricalModel
+      OperationalEmpiricalToken.nominalObject
+      OperationalEmpiricalToken.targetClaim) := by
+  intro h
+  exact h.constructValid
+
+theorem operational_empirical_unvalidated_not_full :
+    Not (FullEmpiricalValidationSem operationalEmpiricalModel
+      OperationalEmpiricalToken.unvalidatedObject
+      OperationalEmpiricalToken.targetClaim) := by
+  intro h
+  exact h.validation
+
+theorem operational_empirical_other_claim_not_full :
+    Not (FullEmpiricalValidationSem operationalEmpiricalModel
+      OperationalEmpiricalToken.validatedObject
+      OperationalEmpiricalToken.otherClaim) := by
+  intro h
+  exact h.validation
+
+def operationalEmpiricalProtocol :
+    EmpiricalValidationProtocol operationalEmpiricalModel :=
+  { validationObject := OperationalEmpiricalToken.validatedObject
+    targetClaim := OperationalEmpiricalToken.targetClaim
+    operationalized := True
+    constructBoundaryDeclared := True
+    constructValid := True
+    reliabilityTested := True
+    externalReplicationAvailable := True
+    domainScopeDeclared := True
+    limitationsDeclared := True
+    warrant := fun _ _ _ _ _ _ _ =>
+      operational_empirical_full_validation }
+
+theorem operationalEmpiricalProtocol_applies :
+    EmpiricalProtocolApplies operationalEmpiricalProtocol :=
+  And.intro True.intro
+    (And.intro True.intro
+      (And.intro True.intro
+        (And.intro True.intro
+          (And.intro True.intro
+            (And.intro True.intro True.intro)))))
+
+theorem operationalEmpiricalProtocol_to_full_validation :
+    FullEmpiricalValidationSem operationalEmpiricalModel
+      operationalEmpiricalProtocol.validationObject
+      operationalEmpiricalProtocol.targetClaim :=
+  EmpiricalValidationProtocol_to_full_validation operationalEmpiricalProtocol
+    operationalEmpiricalProtocol_applies
+
 theorem warrant_false_model_not_support_degraded :
     Not (SupportDegradedSem (M := warrantFalseModel)
       Unit.unit Unit.unit Unit.unit) := by
@@ -993,6 +1103,27 @@ theorem power_validity_dependence_is_operationally_discharged_in_scoped_model :
 theorem power_omitted_is_operationally_discharged_in_scoped_model :
     warrantResolutionStatusWithOperationalCore WarrantObligation.powerOmitted =
       WarrantResolutionStatus.operationallyDischarged := rfl
+
+theorem empirical_full_validation_is_operationally_discharged_in_scoped_model :
+    warrantResolutionStatusWithOperationalCore
+      WarrantObligation.empiricalFullValidation =
+      WarrantResolutionStatus.operationallyDischarged := rfl
+
+theorem operational_empirical_not_source_backed :
+    Not
+      (warrantResolutionStatusWithOperationalCore
+        WarrantObligation.empiricalFullValidation =
+        WarrantResolutionStatus.sourceBacked) := by
+  intro h
+  cases h
+
+theorem operational_empirical_not_empirically_validated :
+    Not
+      (warrantResolutionStatusWithOperationalCore
+        WarrantObligation.empiricalFullValidation =
+        WarrantResolutionStatus.empiricallyValidated) := by
+  intro h
+  cases h
 
 theorem operational_power_not_source_backed
     (obligation : WarrantObligation)

@@ -724,6 +724,46 @@ example :
   repair_obligation_is_operationally_discharged_in_scoped_model
 
 example :
+    FullEmpiricalValidationSem operationalEmpiricalModel
+      OperationalEmpiricalToken.validatedObject
+      OperationalEmpiricalToken.targetClaim :=
+  operational_empirical_full_validation
+
+example :
+    Not (FullEmpiricalValidationSem operationalEmpiricalModel
+      OperationalEmpiricalToken.nominalObject
+      OperationalEmpiricalToken.targetClaim) :=
+  operational_empirical_nominal_not_full
+
+example :
+    Not (FullEmpiricalValidationSem operationalEmpiricalModel
+      OperationalEmpiricalToken.unvalidatedObject
+      OperationalEmpiricalToken.targetClaim) :=
+  operational_empirical_unvalidated_not_full
+
+example :
+    Not (FullEmpiricalValidationSem operationalEmpiricalModel
+      OperationalEmpiricalToken.validatedObject
+      OperationalEmpiricalToken.otherClaim) :=
+  operational_empirical_other_claim_not_full
+
+example :
+    EmpiricalProtocolApplies operationalEmpiricalProtocol :=
+  operationalEmpiricalProtocol_applies
+
+example :
+    FullEmpiricalValidationSem operationalEmpiricalModel
+      operationalEmpiricalProtocol.validationObject
+      operationalEmpiricalProtocol.targetClaim :=
+  operationalEmpiricalProtocol_to_full_validation
+
+example :
+    warrantResolutionStatusWithOperationalCore
+      WarrantObligation.empiricalFullValidation =
+      WarrantResolutionStatus.operationallyDischarged :=
+  empirical_full_validation_is_operationally_discharged_in_scoped_model
+
+example :
     adequacy_warrant_countermodel.warrantedConclusionFails :=
   adequacy_warrant_countermodel_blocks_raw_shortcut
 
