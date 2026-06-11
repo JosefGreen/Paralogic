@@ -24,6 +24,7 @@ import Paralogic.RepairFailure
 import Paralogic.TranslationFailure
 import Paralogic.VetoSuppression
 import Paralogic.FrameDrift
+import Paralogic.SymbolicOverload
 import Paralogic.WarrantDischarge
 
 /-!
@@ -845,6 +846,67 @@ example :
 example :
     FrameDriftProfileBlocked frameDriftBoundaryPresentProfile :=
   frameDriftBoundaryPresentProfile_blocked
+
+example :
+    SymbolicOverloadProfileSatisfied symbolicOverloadOnlyProfile :=
+  symbolicOverloadOnlyProfile_satisfied
+
+example :
+    SupportDegradedSem (M := symbolicOverloadOnlyModel) Unit.unit Unit.unit
+      Unit.unit :=
+  symbolicOverloadOnly_supportDegraded
+
+example :
+    ISFSem symbolicOverloadOnlyModel Unit.unit Unit.unit Unit.unit Unit.unit
+      Unit.unit :=
+  symbolicOverloadOnly_to_ISFSem
+
+example :
+    ISFTMechanismProfileSatisfied
+      symbolicOverloadOnlyProfile.toMechanismProfile :=
+  symbolicOverloadOnly_mechanism_profile_satisfied
+
+example :
+    (symbolicOverloadOnlyProfile.toMechanismProfile).mechanism =
+      ISFTMechanism.M11 :=
+  SymbolicOverloadProfile_mechanism_label symbolicOverloadOnlyProfile
+
+example :
+    SymbolicOverloadProfileBlocked symbolicOverloadNoSymbolProfile :=
+  symbolicOverloadNoSymbolProfile_blocked
+
+example :
+    SymbolicOverloadProfileBlocked symbolicOverloadSingleMeaningProfile :=
+  symbolicOverloadSingleMeaningProfile_blocked
+
+example :
+    SymbolicOverloadProfileBlocked symbolicOverloadCompatibleProfile :=
+  symbolicOverloadCompatibleProfile_blocked
+
+example :
+    SymbolicOverloadProfileBlocked
+      symbolicOverloadImmaterialUptakeProfile :=
+  symbolicOverloadImmaterialUptakeProfile_blocked
+
+example :
+    SymbolicOverloadProfileBlocked
+      symbolicOverloadIndependentClaimProfile :=
+  symbolicOverloadIndependentClaimProfile_blocked
+
+example :
+    SymbolicOverloadProfileBlocked
+      symbolicOverloadDisambiguatedProfile :=
+  symbolicOverloadDisambiguatedProfile_blocked
+
+example :
+    SymbolicOverloadProfileBlocked
+      symbolicOverloadEvaluatorResolvedProfile :=
+  symbolicOverloadEvaluatorResolvedProfile_blocked
+
+example :
+    SymbolicOverloadProfileBlocked
+      symbolicOverloadBoundaryPresentProfile :=
+  symbolicOverloadBoundaryPresentProfile_blocked
 
 example :
     MetricProxyProfileSatisfied metricProxyOnlyProfile :=

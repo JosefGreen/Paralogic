@@ -155,6 +155,13 @@ cross-frame claim carryover, changed context conditions, material drift, absent
 continuity guard, and absent boundary guard.  Its checker persists results in
 `docs/frame_drift_checks/`.
 
+M11 now has the parallel formal module,
+`src/Paralogic/SymbolicOverload.lean`.  It models symbolic overload through
+declared symbol, multiple interpretations, interpretive conflict, material
+audience uptake, claim-dependence on the overloaded symbol, absent
+disambiguation, absent evaluator resolution, and absent boundary guard.  Its
+checker persists results in `docs/symbolic_overload_checks/`.
+
 ## Pipeline Consequence
 
 Lane D should now proceed by filling each mechanism with:

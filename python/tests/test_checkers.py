@@ -63,6 +63,9 @@ veto_suppression_check = load_module(
 frame_drift_check = load_module(
     "frame_drift_check", "python/frame_drift_check.py"
 )
+symbolic_overload_check = load_module(
+    "symbolic_overload_check", "python/symbolic_overload_check.py"
+)
 
 
 def test_finite_checker_all_targets_match_expectation():
@@ -738,3 +741,37 @@ def test_frame_drift_checker_persisted_conditions_match_runtime():
     path = ROOT / "docs" / "frame_drift_checks" / "conditions.json"
     persisted = json.loads(path.read_text(encoding="utf-8"))
     assert persisted == list(frame_drift_check.REQUIRED_CONDITIONS)
+
+
+def test_symbolic_overload_checker_covers_all_m11_conditions():
+    coverage = symbolic_overload_check.coverage()
+    assert coverage["status"] == "M11C-pass"
+    assert coverage["condition_count"] == 8
+    assert coverage["missing_condition_mentions"] == {}
+    assert coverage["missing_positive_artifacts"] == []
+    assert coverage["missing_blockers"] == []
+    assert coverage["missing_blocked_witnesses"] == []
+
+
+def test_symbolic_overload_checker_has_one_blocker_per_condition():
+    coverage = symbolic_overload_check.coverage()
+    assert coverage["blocker_count"] == coverage["condition_count"]
+    assert coverage["blocked_witness_count"] == coverage["condition_count"]
+    for places in coverage["conditions"].values():
+        assert places == {
+            "in_profile": True,
+            "in_satisfied": True,
+            "in_blocked": True,
+        }
+
+
+def test_symbolic_overload_checker_persisted_coverage_matches_runtime():
+    path = ROOT / "docs" / "symbolic_overload_checks" / "coverage.json"
+    persisted = json.loads(path.read_text(encoding="utf-8"))
+    assert persisted == symbolic_overload_check.coverage()
+
+
+def test_symbolic_overload_checker_persisted_conditions_match_runtime():
+    path = ROOT / "docs" / "symbolic_overload_checks" / "conditions.json"
+    persisted = json.loads(path.read_text(encoding="utf-8"))
+    assert persisted == list(symbolic_overload_check.REQUIRED_CONDITIONS)

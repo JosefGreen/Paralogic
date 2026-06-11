@@ -90,3 +90,6 @@ jobs:
 
       - name: Run M10 frame drift checker
         run: python python/frame_drift_check.py
+
+      - name: Run M11 symbolic overload checker
+        run: python python/symbolic_overload_check.py

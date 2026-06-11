@@ -1,0 +1,10 @@
+[
+  "symbolDeclared",
+  "multipleInterpretationsPresent",
+  "interpretationsConflict",
+  "audienceUptakeMaterial",
+  "claimDependsOnOverloadedSymbol",
+  "disambiguationAbsent",
+  "evaluatorResolutionAbsent",
+  "boundaryGuardAbsent"
+]

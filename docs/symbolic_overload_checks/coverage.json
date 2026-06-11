@@ -1,0 +1,86 @@
+{
+  "blocked_witness_count": 8,
+  "blocked_witnesses": {
+    "symbolicOverloadBoundaryPresentProfile_blocked": true,
+    "symbolicOverloadCompatibleProfile_blocked": true,
+    "symbolicOverloadDisambiguatedProfile_blocked": true,
+    "symbolicOverloadEvaluatorResolvedProfile_blocked": true,
+    "symbolicOverloadImmaterialUptakeProfile_blocked": true,
+    "symbolicOverloadIndependentClaimProfile_blocked": true,
+    "symbolicOverloadNoSymbolProfile_blocked": true,
+    "symbolicOverloadSingleMeaningProfile_blocked": true
+  },
+  "blocker_count": 8,
+  "blockers": {
+    "compatible_interpretations_blocks_profile": true,
+    "immaterial_overload_uptake_blocks_profile": true,
+    "independent_claim_blocks_overload_profile": true,
+    "missing_overload_symbol_blocks_profile": true,
+    "present_disambiguation_blocks_profile": true,
+    "present_evaluator_resolution_blocks_profile": true,
+    "present_overload_boundary_blocks_profile": true,
+    "single_interpretation_blocks_profile": true
+  },
+  "condition_count": 8,
+  "conditions": {
+    "audienceUptakeMaterial": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "boundaryGuardAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "claimDependsOnOverloadedSymbol": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "disambiguationAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "evaluatorResolutionAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "interpretationsConflict": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "multipleInterpretationsPresent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "symbolDeclared": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    }
+  },
+  "missing_blocked_witnesses": [],
+  "missing_blockers": [],
+  "missing_condition_mentions": {},
+  "missing_positive_artifacts": [],
+  "positive_artifacts": {
+    "M11SymbolicOverloadCase": true,
+    "M11SymbolicOverloadCase_to_ISFSem": true,
+    "M11SymbolicOverloadSatisfied": true,
+    "SymbolicOverloadProfile": true,
+    "SymbolicOverloadProfile.toMechanismProfile": true,
+    "SymbolicOverloadProfileSatisfied": true,
+    "SymbolicOverloadProfile_to_mechanism_satisfied": true,
+    "SymbolicOverloadProfile_to_supportDegraded": true,
+    "symbolicOverloadOnlyProfile_satisfied": true,
+    "symbolicOverloadOnly_mechanism_profile_satisfied": true,
+    "symbolicOverloadOnly_supportDegraded": true,
+    "symbolicOverloadOnly_to_ISFSem": true
+  },
+  "status": "M11C-pass"
+}

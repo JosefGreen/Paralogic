@@ -166,6 +166,12 @@ The repository currently contains:
   material drift, absent continuity guard, and absent boundary guard jointly
   warrant support degradation and an ISF projection, while each missing
   condition has a named blocker and concrete blocked witness.
+- A new MC3-Lean M11 symbolic-overload module where declared symbol, multiple
+  interpretations, interpretive conflict, material audience uptake,
+  claim-dependence on the overloaded symbol, absent disambiguation, absent
+  evaluator resolution, and absent boundary guard jointly warrant support
+  degradation and an ISF projection, while each missing condition has a named
+  blocker and concrete blocked witness.
 - A new MC3-Lean warrant-discharge scaffold that enumerates current
   warrant-like assumptions, proves they are not yet source-backed or
   empirically validated, and gives all-false-model countermodels against raw

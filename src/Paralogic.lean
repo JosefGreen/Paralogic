@@ -32,6 +32,7 @@ import Paralogic.RepairFailure
 import Paralogic.TranslationFailure
 import Paralogic.VetoSuppression
 import Paralogic.FrameDrift
+import Paralogic.SymbolicOverload
 import Paralogic.WarrantDischarge
 import Paralogic.ConceptualEssentialization
 import Paralogic.Semantics
