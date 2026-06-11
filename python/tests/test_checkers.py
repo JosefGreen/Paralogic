@@ -39,6 +39,9 @@ warrant_coverage_check = load_module(
 mechanism_coverage_check = load_module(
     "mechanism_coverage_check", "python/mechanism_coverage_check.py"
 )
+metric_proxy_check = load_module(
+    "metric_proxy_check", "python/metric_proxy_check.py"
+)
 
 
 def test_finite_checker_all_targets_match_expectation():
@@ -442,3 +445,37 @@ def test_mechanism_coverage_checker_persisted_mechanisms_match_runtime():
     path = ROOT / "docs" / "mechanism_coverage_checks" / "mechanisms.json"
     persisted = json.loads(path.read_text(encoding="utf-8"))
     assert persisted == mechanism_coverage_check.mechanisms()
+
+
+def test_metric_proxy_checker_covers_all_m2_conditions():
+    coverage = metric_proxy_check.coverage()
+    assert coverage["status"] == "M2C-pass"
+    assert coverage["condition_count"] == 7
+    assert coverage["missing_condition_mentions"] == {}
+    assert coverage["missing_positive_artifacts"] == []
+    assert coverage["missing_blockers"] == []
+    assert coverage["missing_blocked_witnesses"] == []
+
+
+def test_metric_proxy_checker_has_one_blocker_per_condition():
+    coverage = metric_proxy_check.coverage()
+    assert coverage["blocker_count"] == coverage["condition_count"]
+    assert coverage["blocked_witness_count"] == coverage["condition_count"]
+    for places in coverage["conditions"].values():
+        assert places == {
+            "in_profile": True,
+            "in_satisfied": True,
+            "in_blocked": True,
+        }
+
+
+def test_metric_proxy_checker_persisted_coverage_matches_runtime():
+    path = ROOT / "docs" / "metric_proxy_checks" / "coverage.json"
+    persisted = json.loads(path.read_text(encoding="utf-8"))
+    assert persisted == metric_proxy_check.coverage()
+
+
+def test_metric_proxy_checker_persisted_conditions_match_runtime():
+    path = ROOT / "docs" / "metric_proxy_checks" / "conditions.json"
+    persisted = json.loads(path.read_text(encoding="utf-8"))
+    assert persisted == list(metric_proxy_check.REQUIRED_CONDITIONS)

@@ -66,3 +66,6 @@ jobs:
 
       - name: Run mechanism coverage checker
         run: python python/mechanism_coverage_check.py
+
+      - name: Run M2 metric proxy checker
+        run: python python/metric_proxy_check.py

@@ -16,6 +16,7 @@ import Paralogic.InstitutionFragment
 import Paralogic.FormalConcept
 import Paralogic.ConceptualEssentialization
 import Paralogic.MechanismSynthesis
+import Paralogic.MetricProxy
 import Paralogic.WarrantDischarge
 
 /-!
@@ -450,6 +451,58 @@ example (mechanism : ISFTMechanism) :
       ((unitCandidateDefinition mechanism).maturity =
         MechanismSemanticMaturity.empiricallyValidated) :=
   all_candidate_mechanisms_not_empirically_validated mechanism
+
+example :
+    MetricProxyProfileSatisfied metricProxyOnlyProfile :=
+  metricProxyOnlyProfile_satisfied
+
+example :
+    SupportDegradedSem (M := metricProxyOnlyModel) Unit.unit Unit.unit
+      Unit.unit :=
+  metricProxyOnly_supportDegraded
+
+example :
+    ISFSem metricProxyOnlyModel Unit.unit Unit.unit Unit.unit Unit.unit
+      Unit.unit :=
+  metricProxyOnly_to_ISFSem
+
+example :
+    ISFTMechanismProfileSatisfied
+      metricProxyOnlyProfile.toMechanismProfile :=
+  metricProxyOnly_mechanism_profile_satisfied
+
+example :
+    (metricProxyOnlyProfile.toMechanismProfile).mechanism =
+      ISFTMechanism.M2 :=
+  MetricProxyProfile_mechanism_label metricProxyOnlyProfile
+
+example :
+    MetricProxyProfileBlocked metricProxyNoTargetProfile :=
+  metricProxyNoTargetProfile_blocked
+
+example :
+    MetricProxyProfileBlocked metricProxyUnusedProfile :=
+  metricProxyUnusedProfile_blocked
+
+example :
+    MetricProxyProfileBlocked metricProxyNoPressureProfile :=
+  metricProxyNoPressureProfile_blocked
+
+example :
+    MetricProxyProfileBlocked metricProxyAlignedProfile :=
+  metricProxyAlignedProfile_blocked
+
+example :
+    MetricProxyProfileBlocked metricProxyImmaterialProfile :=
+  metricProxyImmaterialProfile_blocked
+
+example :
+    MetricProxyProfileBlocked metricProxyGuardedProfile :=
+  metricProxyGuardedProfile_blocked
+
+example :
+    MetricProxyProfileBlocked metricProxySeparatedProfile :=
+  metricProxySeparatedProfile_blocked
 
 example :
     warrantResolutionStatus WarrantObligation.adequacy =

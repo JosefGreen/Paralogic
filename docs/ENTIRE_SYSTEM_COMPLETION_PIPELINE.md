@@ -147,6 +147,12 @@ axis preserving, and not promoted to source-backed or empirical status.
 `python/mechanism_coverage_check.py` independently checks the source mappings
 and persisted artifacts.  The next Lane D work should deepen mechanism-specific
 semantics rather than rechecking basic coverage.
+Mechanism-specific update: M2 now has `MetricProxy.lean`, a checked
+metric-as-value collapse profile with positive support-degradation/ISF
+projection, seven condition blockers, seven concrete blocked witnesses, and an
+executable checker.  Next Lane D passes should repeat this pattern for M1, M3,
+M4, M5, M6, M9, M10, M11, and M12, while keeping M8's richer power semantics
+linked rather than duplicated.
 
 ## Lane E - Contradiction, Insight, And Delta Dynamics
 

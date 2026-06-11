@@ -100,6 +100,18 @@ The candidate layer now has a dedicated coverage gate:
 - `docs/MECHANISM_COVERAGE_CHECK_REPORT_2026-06-11.md` records the audit
   boundary: this is candidate coverage, not external validation.
 
+## First Mechanism-Specific Deepening
+
+M2 now has a dedicated formal module, `src/Paralogic/MetricProxy.lean`.
+It models metric-as-value collapse through seven conditions: declared target,
+proxy used as target, optimization pressure, proxy-target divergence, material
+replacement, absent boundary guard, and absent evaluator separation.
+
+The module proves positive projection to support degradation and ISF semantics
+when all conditions are satisfied, and it includes one concrete blocked witness
+for each missing condition.  `python/metric_proxy_check.py` persists the
+coverage result in `docs/metric_proxy_checks/`.
+
 ## Pipeline Consequence
 
 Lane D should now proceed by filling each mechanism with:

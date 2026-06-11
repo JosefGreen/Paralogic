@@ -510,6 +510,12 @@ Status: MC3-Lean after successful local build.
 | G6-SYN-9 | every unit candidate preserves its label, lens, and failure-axis mapping | `CandidateMechanismMappingCertified`, `unit_candidate_mapping_certified` |
 | G6-SYN-10 | every unit candidate satisfies the candidate surface and is not promoted to source-backed or empirical status | `CandidateMechanismSurfaceCertified`, `unit_candidate_surface_certified`, `all_candidate_mechanisms_not_source_backed`, `all_candidate_mechanisms_not_empirically_validated` |
 | G6-SYN-11 | candidate mechanism coverage is complete over all M1-M12 mechanisms | `CandidateMechanismCoverageComplete`, `candidate_mechanism_coverage_complete` |
+| G6-M2-1 | M2 has a metric-proxy profile with target, proxy, pressure, divergence, materiality, boundary, and evaluator-separation conditions | `MetricProxyProfile`, `MetricProxyProfileSatisfied` |
+| G6-M2-2 | a satisfied M2 metric-proxy profile warrants support degradation | `MetricProxyProfile_to_supportDegraded` |
+| G6-M2-3 | an M2 metric-proxy profile converts to a generic mechanism profile labelled M2 | `MetricProxyProfile.toMechanismProfile`, `MetricProxyProfile_mechanism_label`, `MetricProxyProfile_to_mechanism_satisfied` |
+| G6-M2-4 | a satisfied M2 collapse case projects to ISF semantics | `M2MetricProxyCollapseCase`, `M2MetricProxyCollapseSatisfied`, `M2MetricProxyCollapseCase_to_ISFSem` |
+| G6-M2-5 | each missing M2 condition blocks the metric-proxy profile | `missing_metric_target_blocks_profile`, `unused_metric_proxy_blocks_profile`, `absent_metric_pressure_blocks_profile`, `aligned_metric_proxy_blocks_profile`, `immaterial_metric_replacement_blocks_profile`, `guarded_metric_boundary_blocks_profile`, `separated_metric_evaluator_blocks_profile` |
+| G6-M2-6 | concrete M2 negative-control profiles witness every blocker | `metricProxyNoTargetProfile_blocked`, `metricProxyUnusedProfile_blocked`, `metricProxyNoPressureProfile_blocked`, `metricProxyAlignedProfile_blocked`, `metricProxyImmaterialProfile_blocked`, `metricProxyGuardedProfile_blocked`, `metricProxySeparatedProfile_blocked` |
 | G6-PROF-1 | satisfied mechanism profile yields mechanism case data | `ISFTMechanismProfile.toCase` |
 | G6-PROF-BLOCK-1 | missing mechanism domain blocks profile | `missing_mechanism_domain_blocks_profile` |
 | G6-PROF-BLOCK-2 | missing mechanism trigger blocks profile | `missing_mechanism_trigger_blocks_profile` |

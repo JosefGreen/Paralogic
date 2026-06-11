@@ -1,0 +1,79 @@
+{
+  "blocked_witness_count": 7,
+  "blocked_witnesses": {
+    "metricProxyAlignedProfile_blocked": true,
+    "metricProxyGuardedProfile_blocked": true,
+    "metricProxyImmaterialProfile_blocked": true,
+    "metricProxyNoPressureProfile_blocked": true,
+    "metricProxyNoTargetProfile_blocked": true,
+    "metricProxySeparatedProfile_blocked": true,
+    "metricProxyUnusedProfile_blocked": true
+  },
+  "blocker_count": 7,
+  "blockers": {
+    "absent_metric_pressure_blocks_profile": true,
+    "aligned_metric_proxy_blocks_profile": true,
+    "guarded_metric_boundary_blocks_profile": true,
+    "immaterial_metric_replacement_blocks_profile": true,
+    "missing_metric_target_blocks_profile": true,
+    "separated_metric_evaluator_blocks_profile": true,
+    "unused_metric_proxy_blocks_profile": true
+  },
+  "condition_count": 7,
+  "conditions": {
+    "boundaryGuardAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "evaluatorSeparationAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "optimizationPressure": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "proxyTargetDivergence": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "proxyUsedAsTarget": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "replacementMaterial": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "targetDeclared": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    }
+  },
+  "missing_blocked_witnesses": [],
+  "missing_blockers": [],
+  "missing_condition_mentions": {},
+  "missing_positive_artifacts": [],
+  "positive_artifacts": {
+    "M2MetricProxyCollapseCase": true,
+    "M2MetricProxyCollapseCase_to_ISFSem": true,
+    "M2MetricProxyCollapseSatisfied": true,
+    "MetricProxyProfile": true,
+    "MetricProxyProfile.toMechanismProfile": true,
+    "MetricProxyProfileSatisfied": true,
+    "MetricProxyProfile_to_mechanism_satisfied": true,
+    "MetricProxyProfile_to_supportDegraded": true,
+    "metricProxyOnlyProfile_satisfied": true,
+    "metricProxyOnly_mechanism_profile_satisfied": true,
+    "metricProxyOnly_supportDegraded": true,
+    "metricProxyOnly_to_ISFSem": true
+  },
+  "status": "M2C-pass"
+}

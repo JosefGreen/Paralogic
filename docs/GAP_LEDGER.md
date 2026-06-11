@@ -138,6 +138,12 @@ notes as well as open gaps.
     listed, uniquely covered by index/name/lens/failure-axis mappings, and
     tied to the required candidate fields. This closes the coverage bookkeeping
     gap for the candidate layer, not the source-backed semantics gap.
+36a.2. M2 now has a mechanism-specific operational profile in
+    `MetricProxy.lean`: proxy use, optimization pressure, proxy-target
+    divergence, material replacement, missing boundary guard, and missing
+    evaluator separation jointly project to support degradation and ISF, while
+    each missing condition has a concrete blocked witness. Source-complete and
+    empirical M2 validation remain open.
 36b. M8 power-condition warrant discharge now has a scoped operational model
     for relevance, validity dependence, and omission, with negative controls
     for unaffected group, immaterial condition, and ordinary output.  Remaining
