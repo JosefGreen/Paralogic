@@ -679,6 +679,51 @@ example :
   suppression_support_degraded_is_operationally_discharged_in_scoped_model
 
 example :
+    RepairObligationBridgeSem (M := operationalRepairModel)
+      OperationalRepairToken.repairNeedBridge
+      OperationalRepairToken.responsibleInstitution
+      OperationalRepairToken.affectedGroup :=
+  operational_repair_obligation
+
+example :
+    Not (RepairObligationBridgeSem (M := operationalRepairModel)
+      OperationalRepairToken.ordinaryBridge
+      OperationalRepairToken.responsibleInstitution
+      OperationalRepairToken.affectedGroup) :=
+  operational_repair_ordinary_bridge_not_obligation
+
+example :
+    Not (RepairObligationBridgeSem (M := operationalRepairModel)
+      OperationalRepairToken.repairNeedBridge
+      OperationalRepairToken.otherInstitution
+      OperationalRepairToken.affectedGroup) :=
+  operational_repair_other_institution_not_obligation
+
+example :
+    Not (RepairObligationBridgeSem (M := operationalRepairModel)
+      OperationalRepairToken.repairNeedBridge
+      OperationalRepairToken.responsibleInstitution
+      OperationalRepairToken.otherGroup) :=
+  operational_repair_other_group_not_obligation
+
+example :
+    RepairDiagnosisSatisfied operationalRepairDiagnosis :=
+  operationalRepairDiagnosis_satisfied
+
+example :
+    RepairObligationBridgeSem (M := operationalRepairModel)
+      operationalRepairDiagnosis.bridge
+      operationalRepairDiagnosis.institution
+      operationalRepairDiagnosis.group :=
+  operationalRepairDiagnosis_to_repairObligation
+
+example :
+    warrantResolutionStatusWithOperationalCore
+      WarrantObligation.repairObligation =
+      WarrantResolutionStatus.operationallyDischarged :=
+  repair_obligation_is_operationally_discharged_in_scoped_model
+
+example :
     adequacy_warrant_countermodel.warrantedConclusionFails :=
   adequacy_warrant_countermodel_blocks_raw_shortcut
 

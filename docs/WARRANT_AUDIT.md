@@ -80,6 +80,14 @@ evidence, mismatched context, and ordinary claim.  This remains a local
 operational suppression rule, not empirical evidence that any real-world
 support relation has degraded.
 
+Additional discharge progress: repair obligation now has a scoped operational
+discharge in `operationalRepairModel`.  In that model, a repair-need bridge,
+responsible institution, and affected group compute
+`RepairObligationBridgeSem`.  Lean also checks negative controls for ordinary
+bridge, other institution, and other group.  This remains a local operational
+repair rule, not an external legal, moral, governance, or empirical
+justification.
+
 `repairBridgeOnlyTargetedRevision_warrants_obligation` is therefore a
 conditional bridge theorem.  The targeted repair action satisfies the local
 finite revision postulates, but the repair-obligation conclusion still depends

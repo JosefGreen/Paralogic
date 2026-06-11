@@ -115,6 +115,10 @@ Additional repair applied: suppression support-degradation now has a scoped
 operational discharge model with negative controls for unsupported evidence,
 mismatched context, and ordinary claim. This is still not empirical evidence
 that suppression has occurred in any concrete case.
+Additional repair applied: repair obligation now has a scoped operational
+discharge model with negative controls for ordinary bridge, other institution,
+and other group. This is still not external legal, moral, governance, or
+empirical justification.
 
 ### F4 - One-Element Witnesses Are Useful But Too Weak
 

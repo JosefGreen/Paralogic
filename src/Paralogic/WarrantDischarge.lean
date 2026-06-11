@@ -99,6 +99,8 @@ def warrantResolutionStatusWithOperationalCore :
       WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.suppressionSupportDegraded =>
       WarrantResolutionStatus.operationallyDischarged
+  | WarrantObligation.repairObligation =>
+      WarrantResolutionStatus.operationallyDischarged
   | obligation => warrantResolutionStatus obligation
 
 def warrantFalseModel : SigmaModel :=
@@ -697,6 +699,108 @@ theorem warrant_false_model_not_repair_obligation :
   intro h
   exact h
 
+inductive OperationalRepairToken where
+  | repairNeedBridge
+  | ordinaryBridge
+  | responsibleInstitution
+  | otherInstitution
+  | affectedGroup
+  | otherGroup
+  | diagnosisClaim
+  | diagnosisEvidence
+  | diagnosisContext
+  | ordinary
+  deriving DecidableEq, Repr
+
+def operationalRepairCarrier (_ : SortTag) : Type :=
+  OperationalRepairToken
+
+def operationalRepairFunctionInterp (_f : FunctionSymbol)
+    (_args : Args operationalRepairCarrier ((functionArity _f).domain)) :
+    operationalRepairCarrier ((functionArity _f).codomain) :=
+  OperationalRepairToken.ordinary
+
+def operationalRepairPredicateInterp :
+    (p : PredicateSymbol) ->
+      Args operationalRepairCarrier ((predicateArity p).domain) -> Prop
+  | PredicateSymbol.repairObligationBridge,
+      Args.cons OperationalRepairToken.repairNeedBridge
+        (Args.cons OperationalRepairToken.responsibleInstitution
+          (Args.cons OperationalRepairToken.affectedGroup Args.nil)) =>
+      True
+  | PredicateSymbol.repairObligationBridge, _ => False
+  | _, _ => False
+
+def operationalRepairModel : SigmaModel :=
+  { Carrier := operationalRepairCarrier
+    interpFunction := operationalRepairFunctionInterp
+    interpPredicate := operationalRepairPredicateInterp }
+
+theorem operational_repair_obligation :
+    RepairObligationBridgeSem (M := operationalRepairModel)
+      OperationalRepairToken.repairNeedBridge
+      OperationalRepairToken.responsibleInstitution
+      OperationalRepairToken.affectedGroup :=
+  True.intro
+
+theorem operational_repair_ordinary_bridge_not_obligation :
+    Not (RepairObligationBridgeSem (M := operationalRepairModel)
+      OperationalRepairToken.ordinaryBridge
+      OperationalRepairToken.responsibleInstitution
+      OperationalRepairToken.affectedGroup) := by
+  intro h
+  exact h
+
+theorem operational_repair_other_institution_not_obligation :
+    Not (RepairObligationBridgeSem (M := operationalRepairModel)
+      OperationalRepairToken.repairNeedBridge
+      OperationalRepairToken.otherInstitution
+      OperationalRepairToken.affectedGroup) := by
+  intro h
+  exact h
+
+theorem operational_repair_other_group_not_obligation :
+    Not (RepairObligationBridgeSem (M := operationalRepairModel)
+      OperationalRepairToken.repairNeedBridge
+      OperationalRepairToken.responsibleInstitution
+      OperationalRepairToken.otherGroup) := by
+  intro h
+  exact h
+
+def operationalRepairDiagnosis :
+    RepairDiagnosisProfile operationalRepairModel :=
+  { bridge := OperationalRepairToken.repairNeedBridge
+    institution := OperationalRepairToken.responsibleInstitution
+    group := OperationalRepairToken.affectedGroup
+    claim := OperationalRepairToken.diagnosisClaim
+    evidence := OperationalRepairToken.diagnosisEvidence
+    context := OperationalRepairToken.diagnosisContext
+    repairNeedIdentified := True
+    standingDeclared := True
+    causalPathDeclared := True
+    scopeBounded := True
+    affectedGroupConsulted := True
+    defeatersAbsent := True
+    warrantRepairObligation := fun _ _ _ _ _ _ =>
+      operational_repair_obligation }
+
+theorem operationalRepairDiagnosis_satisfied :
+    RepairDiagnosisSatisfied operationalRepairDiagnosis :=
+  { need := True.intro
+    standing := True.intro
+    causalPath := True.intro
+    scope := True.intro
+    consulted := True.intro
+    defeaters := True.intro }
+
+theorem operationalRepairDiagnosis_to_repairObligation :
+    RepairObligationBridgeSem (M := operationalRepairModel)
+      operationalRepairDiagnosis.bridge
+      operationalRepairDiagnosis.institution
+      operationalRepairDiagnosis.group :=
+  RepairDiagnosisProfile_to_repairObligation operationalRepairDiagnosis
+    operationalRepairDiagnosis_satisfied
+
 structure WarrantCountermodel where
   obligation : WarrantObligation
   rawConditionsHold : WarrantConditionsHold
@@ -929,6 +1033,27 @@ theorem operational_suppression_not_empirically_validated :
     Not
       (warrantResolutionStatusWithOperationalCore
         WarrantObligation.suppressionSupportDegraded =
+        WarrantResolutionStatus.empiricallyValidated) := by
+  intro h
+  cases h
+
+theorem repair_obligation_is_operationally_discharged_in_scoped_model :
+    warrantResolutionStatusWithOperationalCore
+      WarrantObligation.repairObligation =
+      WarrantResolutionStatus.operationallyDischarged := rfl
+
+theorem operational_repair_not_source_backed :
+    Not
+      (warrantResolutionStatusWithOperationalCore
+        WarrantObligation.repairObligation =
+        WarrantResolutionStatus.sourceBacked) := by
+  intro h
+  cases h
+
+theorem operational_repair_not_empirically_validated :
+    Not
+      (warrantResolutionStatusWithOperationalCore
+        WarrantObligation.repairObligation =
         WarrantResolutionStatus.empiricallyValidated) := by
   intro h
   cases h

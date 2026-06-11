@@ -114,6 +114,9 @@ The repository currently contains:
 - A scoped operational suppression model where supported evidence, matched
   context, and suppressed claim compute support degradation, with negative
   controls for unsupported evidence, mismatched context, and ordinary claim.
+- A scoped operational repair-obligation model where repair-need bridge,
+  responsible institution, and affected group compute repair obligation, with
+  negative controls for ordinary bridge, other institution, and other group.
 - EMP0 empirical protocol artifacts.
 - Internal academic-audit artifacts.
 

@@ -214,7 +214,8 @@ validity dependence, and omission now have a scoped operational model with
 negative controls for unaffected group, immaterial condition, and ordinary
 output.  Suppression support-degradation now has a scoped operational model
 with negative controls for unsupported evidence, mismatched context, and
-ordinary claim.
+ordinary claim.  Repair obligation now has a scoped operational model with
+negative controls for ordinary bridge, other institution, and other group.
 Lane G is not complete until each obligation is promoted by operational rules,
 source-backed rules, empirical validation, or lower-level derivation.
 
