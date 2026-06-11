@@ -15,6 +15,7 @@ import Paralogic.EvaluatorArgumentation
 import Paralogic.InstitutionFragment
 import Paralogic.FormalConcept
 import Paralogic.ConceptualEssentialization
+import Paralogic.MechanismSynthesis
 
 /-!
 Lean examples that serve as regression tests.
@@ -395,6 +396,33 @@ example :
 example :
     Not (SemanticallyEntails [usesAtomFormula] forallInstitutionUsesFormula) :=
   universal_intro_without_freshness_not_semantically_valid
+
+example :
+    mechanismLens ISFTMechanism.M2 = MechanismLens.metricProxy :=
+  M2_lens_is_metric_proxy
+
+example :
+    mechanismFailureAxis ISFTMechanism.M10 =
+      CandidateFailureAxis.contextFrameDrift :=
+  rfl
+
+example :
+    CandidateMechanismDefinitionSatisfied
+      (unitCandidateDefinition ISFTMechanism.M1) :=
+  unit_candidate_definition_satisfied ISFTMechanism.M1
+
+example :
+    ISFTMechanismProfileSatisfied
+      (unitCandidateDefinition ISFTMechanism.M12).toMechanismProfile :=
+  unit_candidate_profile_satisfied ISFTMechanism.M12
+
+example :
+    Not
+      ((unitCandidateDefinition ISFTMechanism.M8).maturity =
+        MechanismSemanticMaturity.sourceBacked) :=
+  candidate_synthesized_not_source_backed
+    (unitCandidateDefinition ISFTMechanism.M8)
+    rfl
 
 example : ContextualObstruction noGlobalFamily :=
   noGlobalFamily_obstructed

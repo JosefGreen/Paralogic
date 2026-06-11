@@ -89,6 +89,10 @@ The repository currently contains:
   to a narrow M7 category-essentialization blocker.
 - A new MC3-Lean institution-style local-logic fragment with satisfaction
   condition and a non-preservation counterexample.
+- A new candidate-synthesized mechanism semantics tier for M1-M12, pairing
+  each mechanism with an academic lens, failure axis, maturity status,
+  operational trigger, boundary guard, empirical coding plan, and non-collapse
+  guard before any source-backed or empirical promotion is allowed.
 - EMP0 empirical protocol artifacts.
 - Internal academic-audit artifacts.
 
@@ -105,6 +109,9 @@ The repository does not yet contain:
 Canonical audit: `docs/FULL_SYSTEM_AUDIT_2026-06-08.md`.
 
 Canonical pipeline: `docs/ENTIRE_SYSTEM_COMPLETION_PIPELINE.md`.
+
+Candidate mechanism synthesis:
+`docs/CANDIDATE_MECHANISM_SYNTHESIS_2026-06-11.md`.
 
 Novelty lanes: `docs/NOVELTY_RESEARCH_LANES.md`.
 

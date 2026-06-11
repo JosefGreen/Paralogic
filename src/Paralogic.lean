@@ -23,6 +23,7 @@ import Paralogic.Argumentation
 import Paralogic.EvaluatorArgumentation
 import Paralogic.M8Power
 import Paralogic.ISFTMechanisms
+import Paralogic.MechanismSynthesis
 import Paralogic.ConceptualEssentialization
 import Paralogic.Semantics
 import Paralogic.ISFT

@@ -107,6 +107,12 @@ notes as well as open gaps.
     M8 power linkage, M12 boundary profile, and suppression algebra now have
     MC3-Lean artifacts. Richer domain semantics for M1-M7 and M9-M11 remain
     source-backed future extensions rather than inferred content.
+36a. Gate 6 now has a candidate-synthesized mechanism semantics tier:
+    `MechanismSynthesis.lean` maps every M1-M12 mechanism to an academic lens
+    and candidate failure axis, gives candidate definitions explicit maturity
+    status, and proves candidate-synthesized status is not source-backed or
+    empirically validated. This is the new priority path for building missing
+    definitions without pretending they are already externally grounded.
 37. Gate 7 has MC3 artifacts for the scoped adequacy, normative bridge, and repair
     fragment: seven normative bridge schema families, repair diagnosis, plan,
     action, verification, closure, regress, externality, bridge-defeater, and

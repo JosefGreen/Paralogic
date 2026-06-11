@@ -145,6 +145,12 @@ and workbook accepted/pending status.  These are now encoded in Lean as
 `mechanismName`, `WorkbookMechanismStatus`, and associated accepted/pending
 theorems.  The audit did not find enough semantic detail to complete
 source-backed formal semantics for all mechanisms without invention.
+Additional repair applied: `MechanismSynthesis.lean` now adds a
+candidate-synthesized semantics tier for M1-M12.  Each candidate definition has
+an explicit maturity status, academic lens, failure axis, operational trigger,
+boundary guard, empirical coding plan, and non-collapse guard.  Lean theorems
+separate candidate-synthesized status from source-backed and empirically
+validated status.
 
 ### F6 - Formula/Model Theory Is Still Thin
 

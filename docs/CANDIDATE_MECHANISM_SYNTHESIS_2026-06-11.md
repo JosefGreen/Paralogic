@@ -1,0 +1,94 @@
+# Candidate Mechanism Synthesis - 2026-06-11
+
+Status: candidate-synthesized formal scaffold.
+
+This document records a deliberate pipeline shift.  Missing M1-M12 mechanism
+definitions should now be developed through a checked candidate tier before
+they are promoted to source-backed or empirically validated semantics.
+
+## Anti-Reward-Hacking Rule
+
+A candidate mechanism definition is not a completed mechanism semantics.  It
+must remain below source-backed status until the project records enough
+source material to justify the mechanism-specific conditions, and below
+empirical status until coded data, reliability checks, and validation exist.
+
+Lean support: `src/Paralogic/MechanismSynthesis.lean`.
+
+## Academic Lenses
+
+The current candidate mapping uses the mechanism names from
+`docs/SOURCE_RESOURCE_AUDIT_2026-06-08.md` and pairs each mechanism with a
+disciplinary lens:
+
+| Mechanism | Candidate lens | Candidate failure axis |
+| --- | --- | --- |
+| M1 Evidence Overclaim | evidential adequacy / Toulmin-style claim-support warranting | evidence-scope mismatch |
+| M2 Metric-as-Value Collapse | Goodhart/Campbell metric-proxy critique | proxy-goal collapse |
+| M3 Formal Access Substitution | access/substitution analysis | formal-access mismatch |
+| M4 Symbolic Substitution | symbolic power and representation theory | symbolic-representation mismatch |
+| M5 Repair Failure | staged repair and revision theory | repair-closure failure |
+| M6 Translation Failure | actor-network / translation-network analysis | translation loss |
+| M7 Category Essentialization | concept lattices and psychological/social essentialism | category-intent overreach |
+| M8 Power Erasure | power-condition omission | power-condition omission |
+| M9 Veto Suppression | participation and governance-veto analysis | participation suppression |
+| M10 Frame Drift | Goffman/framing analysis | context-frame drift |
+| M11 Symbolic Overload | symbolic load / interpretive overload analysis | symbol-interpretation overload |
+| M12 Legitimacy Claim Decay | legitimacy and institutional theory | legitimacy overextension |
+
+## External Pointers Used For Lens Selection
+
+- Goodhart/Campbell metric-proxy critique: Goodhart's law and Campbell's law
+  motivate M2 as a proxy-target collapse risk.
+  Sources: [Goodhart's law](https://en.wikipedia.org/wiki/Goodhart%27s_law),
+  [Campbell's law](https://en.wikipedia.org/wiki/Campbell%27s_law).
+- Toulmin-style argument structure supports M1 as a claim/evidence/warrant
+  adequacy problem.
+  Source: [Toulmin model](https://en.wikipedia.org/wiki/Toulmin_model_of_argumentation).
+- Symbolic power motivates M4 and helps keep symbolic diagnosis separate from
+  legal, moral, or empirical conclusions.
+  Source: [symbolic power](https://en.wikipedia.org/wiki/Symbolic_power).
+- Actor-network translation and obligatory passage points motivate M6 as a
+  translation-loss problem.
+  Sources: [actor-network theory](https://en.wikipedia.org/wiki/Actor%E2%80%93network_theory),
+  [obligatory passage point](https://en.wikipedia.org/wiki/Obligatory_passage_point).
+- Framing analysis motivates M10 as context/frame drift rather than generic
+  contradiction.
+  Source: [frame analysis](https://en.wikipedia.org/wiki/Frame_analysis).
+- Essentialism motivates M7 as category-intent overreach.
+  Source: [essentialism](https://en.wikipedia.org/wiki/Essentialism).
+- Suchman's legitimacy framework motivates M12 as legitimacy overextension or
+  decay.
+  Source: [Mark C. Suchman](https://en.wikipedia.org/wiki/Mark_C._Suchman).
+
+These are starting lenses, not final literature review.  Publication-ready
+use requires primary-source verification and external review.
+
+## Lean Artifacts Added
+
+- `MechanismSemanticMaturity`
+- `MechanismLens`
+- `mechanismLens`
+- `CandidateFailureAxis`
+- `mechanismFailureAxis`
+- `CandidateMechanismDefinition`
+- `CandidateMechanismDefinitionSatisfied`
+- `CandidateMechanismDefinitionBlocked`
+- `CandidateMechanismDefinition.toMechanismProfile`
+- `candidate_satisfied_to_mechanism_profile_satisfied`
+- `candidate_synthesized_not_source_backed`
+- `candidate_synthesized_not_empirically_validated`
+
+## Pipeline Consequence
+
+Lane D should now proceed by filling each mechanism with:
+
+1. a candidate formal trigger;
+2. a failure contrast;
+3. a non-collapse guard;
+4. a source trace;
+5. an empirical coding plan;
+6. positive Lean projection theorems;
+7. negative Lean countermodels;
+8. promotion criteria from candidate to source-backed or empirical status.
+

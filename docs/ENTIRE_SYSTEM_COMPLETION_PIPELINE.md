@@ -134,6 +134,13 @@ Source-resource update: mechanism names and workbook accepted/pending status
 are now encoded in Lean.  Full source-backed semantics remain open because the
 available resources do not provide enough detail to derive them without
 invention.
+Priority update: the pipeline now includes a candidate-synthesized semantics
+tier in `MechanismSynthesis.lean`.  Each M1-M12 mechanism has an academic lens
+and candidate failure axis, plus a checked maturity status that prevents
+candidate definitions from being counted as source-backed or empirical
+validation.  Lane D should now develop candidate definitions first, then
+promote only those that receive source trace, operational trigger, boundary
+guard, empirical coding plan, and non-collapse support.
 
 ## Lane E - Contradiction, Insight, And Delta Dynamics
 
@@ -280,7 +287,10 @@ satisfaction-condition interface and a non-preservation counterexample.
 4. Begin Lane B quantified derivability and completeness boundary work.
 5. Begin Lane K contextual obstruction and other novelty lanes with real
    formal tests.
-6. Begin Lane D mechanism semantics, one mechanism at a time.
+6. Begin Lane D mechanism semantics through the candidate-synthesis tier, one
+   mechanism at a time, prioritizing M1, M2, M6, M7, M10, and M12 because they
+   connect directly to existing adequacy, translation, concept, frame, and
+   legitimacy scaffolds.
 
 ## External Blockers
 

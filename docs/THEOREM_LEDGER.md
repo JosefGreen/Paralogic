@@ -499,6 +499,12 @@ Status: MC3-Lean after successful local build.
 | G6-SRC-1 | source mechanism names are encoded for M1-M12 | `mechanismName` |
 | G6-SRC-2 | workbook marks M1-M7 and M9-M11 accepted | `workbook_M1_accepted`, `workbook_M2_accepted`, `workbook_M3_accepted`, `workbook_M4_accepted`, `workbook_M5_accepted`, `workbook_M6_accepted`, `workbook_M7_accepted`, `workbook_M9_accepted`, `workbook_M10_accepted`, `workbook_M11_accepted` |
 | G6-SRC-3 | workbook marks M8 and M12 pending, not accepted | `workbook_M8_pending`, `workbook_M12_pending`, `workbook_M8_not_accepted`, `workbook_M12_not_accepted` |
+| G6-SYN-1 | mechanism semantics maturity levels separate labels, candidates, source-backed definitions, and empirical validation | `MechanismSemanticMaturity` |
+| G6-SYN-2 | every M1-M12 mechanism has a candidate academic lens | `MechanismLens`, `mechanismLens` |
+| G6-SYN-3 | every M1-M12 mechanism has a candidate failure axis | `CandidateFailureAxis`, `mechanismFailureAxis` |
+| G6-SYN-4 | candidate mechanism definitions require maturity, source trace, lens fit, trigger, failure contrast, boundary guard, empirical plan, and non-collapse guard | `CandidateMechanismDefinition`, `CandidateMechanismDefinitionSatisfied` |
+| G6-SYN-5 | satisfied candidate definitions induce satisfied generic mechanism profiles | `CandidateMechanismDefinition.toMechanismProfile`, `candidate_satisfied_to_mechanism_profile_satisfied` |
+| G6-SYN-6 | candidate-synthesized definitions are not source-backed or empirically validated | `candidate_synthesized_not_source_backed`, `candidate_synthesized_not_empirically_validated` |
 | G6-PROF-1 | satisfied mechanism profile yields mechanism case data | `ISFTMechanismProfile.toCase` |
 | G6-PROF-BLOCK-1 | missing mechanism domain blocks profile | `missing_mechanism_domain_blocks_profile` |
 | G6-PROF-BLOCK-2 | missing mechanism trigger blocks profile | `missing_mechanism_trigger_blocks_profile` |
