@@ -75,3 +75,6 @@ jobs:
 
       - name: Run M3 formal access checker
         run: python python/formal_access_check.py
+
+      - name: Run M4 symbolic substitution checker
+        run: python python/symbolic_substitution_check.py

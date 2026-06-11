@@ -19,6 +19,7 @@ import Paralogic.MechanismSynthesis
 import Paralogic.EvidenceOverclaim
 import Paralogic.MetricProxy
 import Paralogic.FormalAccessSubstitution
+import Paralogic.SymbolicSubstitution
 import Paralogic.WarrantDischarge
 
 /-!
@@ -559,6 +560,67 @@ example :
 example :
     FormalAccessProfileBlocked formalAccessBoundaryPresentProfile :=
   formalAccessBoundaryPresentProfile_blocked
+
+example :
+    SymbolicSubstitutionProfileSatisfied
+      symbolicSubstitutionOnlyProfile :=
+  symbolicSubstitutionOnlyProfile_satisfied
+
+example :
+    SupportDegradedSem (M := symbolicSubstitutionOnlyModel) Unit.unit
+      Unit.unit Unit.unit :=
+  symbolicSubstitutionOnly_supportDegraded
+
+example :
+    ISFSem symbolicSubstitutionOnlyModel Unit.unit Unit.unit Unit.unit
+      Unit.unit Unit.unit :=
+  symbolicSubstitutionOnly_to_ISFSem
+
+example :
+    ISFTMechanismProfileSatisfied
+      symbolicSubstitutionOnlyProfile.toMechanismProfile :=
+  symbolicSubstitutionOnly_mechanism_profile_satisfied
+
+example :
+    (symbolicSubstitutionOnlyProfile.toMechanismProfile).mechanism =
+      ISFTMechanism.M4 :=
+  SymbolicSubstitutionProfile_mechanism_label
+    symbolicSubstitutionOnlyProfile
+
+example :
+    SymbolicSubstitutionProfileBlocked
+      symbolicSubstitutionNoSymbolProfile :=
+  symbolicSubstitutionNoSymbolProfile_blocked
+
+example :
+    SymbolicSubstitutionProfileBlocked
+      symbolicSubstitutionNotSubstantiveProfile :=
+  symbolicSubstitutionNotSubstantiveProfile_blocked
+
+example :
+    SymbolicSubstitutionProfileBlocked
+      symbolicSubstitutionMatchedProfile :=
+  symbolicSubstitutionMatchedProfile_blocked
+
+example :
+    SymbolicSubstitutionProfileBlocked
+      symbolicSubstitutionMaterialPresentProfile :=
+  symbolicSubstitutionMaterialPresentProfile_blocked
+
+example :
+    SymbolicSubstitutionProfileBlocked
+      symbolicSubstitutionImmaterialUptakeProfile :=
+  symbolicSubstitutionImmaterialUptakeProfile_blocked
+
+example :
+    SymbolicSubstitutionProfileBlocked
+      symbolicSubstitutionCorrectionPresentProfile :=
+  symbolicSubstitutionCorrectionPresentProfile_blocked
+
+example :
+    SymbolicSubstitutionProfileBlocked
+      symbolicSubstitutionBoundaryPresentProfile :=
+  symbolicSubstitutionBoundaryPresentProfile_blocked
 
 example :
     MetricProxyProfileSatisfied metricProxyOnlyProfile :=

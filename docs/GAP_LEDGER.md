@@ -156,6 +156,13 @@ notes as well as open gaps.
     barriers, missing remedy path, and missing boundary guard jointly project
     to support degradation and ISF, while each missing condition has a concrete
     blocked witness. Source-complete and empirical M3 validation remain open.
+36a.4. M4 now has a mechanism-specific operational profile in
+    `SymbolicSubstitution.lean`: symbol declaration, symbol-as-substantive
+    treatment, representation mismatch, absent material condition, material
+    audience uptake, missing correction path, and missing boundary guard
+    jointly project to support degradation and ISF, while each missing
+    condition has a concrete blocked witness. Source-complete and empirical M4
+    validation remain open.
 36b. M8 power-condition warrant discharge now has a scoped operational model
     for relevance, validity dependence, and omission, with negative controls
     for unaffected group, immaterial condition, and ordinary output.  Remaining

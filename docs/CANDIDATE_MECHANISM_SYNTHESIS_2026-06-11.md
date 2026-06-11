@@ -125,6 +125,13 @@ access-as-sufficient treatment, material usability and comprehension barriers,
 absent remedy path, and absent boundary guard.  Its checker persists results
 in `docs/formal_access_checks/`.
 
+M4 now has the parallel formal module,
+`src/Paralogic/SymbolicSubstitution.lean`.  It models symbolic substitution
+through symbol declaration, symbol-as-substantive treatment, representation
+mismatch, absent material condition, material audience uptake, absent
+correction path, and absent boundary guard.  Its checker persists results in
+`docs/symbolic_substitution_checks/`.
+
 ## Pipeline Consequence
 
 Lane D should now proceed by filling each mechanism with:
