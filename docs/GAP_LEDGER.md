@@ -64,9 +64,11 @@ notes as well as open gaps.
     fields. `WarrantDischarge.lean` now enumerates the current warrant
     obligations and proves all are only countermodel-guarded, not yet
     source-backed or empirically validated. Adequacy now has a scoped
-    operational discharge model with a negative control. Remaining work:
-    discharge each other obligation through operational rules, source-backed
-    rules, empirical validation, or lower-level derivation.
+    operational discharge model with a negative control. Evaluator accepting
+    decisions now have a scoped operational discharge model tied to high-score
+    acceptance, also with a negative control. Remaining work: discharge each
+    other obligation through operational rules, source-backed rules, empirical
+    validation, or lower-level derivation.
 24. Empirical validation protocols, measurement protocol, coding manual,
     dataset schema, reliability plan, construct-validity plan, pilot protocol,
     and replication plan now exist. No data, reliability statistic, validity

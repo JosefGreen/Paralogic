@@ -580,6 +580,9 @@ Status: MC3-Lean after successful local build.
 | G7-WD-5 | scoped operational adequacy model computes adequate from supported evidence, in-scope context, and matched claim | `operationalAdequacyModel`, `operational_adequacy_supported_in_scope_matched`, `operationalAdequacyProfile_to_adequate` |
 | G7-WD-6 | unsupported evidence is not adequate in the scoped operational adequacy model | `operational_adequacy_unsupported_not_adequate` |
 | G7-WD-7 | adequacy is operationally discharged in the scoped model but not source-backed or empirically validated | `warrantResolutionStatusWithOperationalAdequacy`, `adequacy_is_operationally_discharged_in_scoped_model`, `operational_adequacy_not_source_backed`, `operational_adequacy_not_empirically_validated` |
+| G7-WD-8 | scoped operational evaluator model computes acceptance for an approved evaluator/candidate pair | `operationalEvaluatorModel`, `operational_evaluator_high_pair_accepts` |
+| G7-WD-9 | rejected candidates are not accepted in the scoped operational evaluator model | `operational_evaluator_rejected_candidate_not_accepted` |
+| G7-WD-10 | high-score accepting decision warrants evaluator acceptance in the scoped operational evaluator model | `operationalHighScoreDecision`, `operationalHighScoreDecision_satisfied`, `operationalHighScoreDecision_accepts` |
 | G7-NC-2 | repair-obligation bridge does not imply moral-guilt bridge | `repairBridgeOnly_not_MoralGuiltBridgeSem` |
 | G7-NC-3 | repair-obligation bridge does not imply full empirical validation | `repairBridgeOnly_not_FullEmpiricalValidationSem` |
 | G7-NC-4 | repair-obligation bridge does not imply valid insight | `repairBridgeOnly_not_ValidInsightSem` |

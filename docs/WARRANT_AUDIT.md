@@ -47,6 +47,12 @@ negative control, and a status refinement
 `operationallyDischarged` while still proving it is not `sourceBacked` or
 `empiricallyValidated`.
 
+Additional discharge progress: evaluator accepting decisions now have a scoped
+operational discharge in `operationalEvaluatorModel`.  In that model, the
+`evaluatorAccepts` predicate is computed from an approved evaluator/candidate
+pair.  Lean connects the existing high-score rule to an accepting decision and
+keeps low-score acceptance blocked.
+
 `repairBridgeOnlyTargetedRevision_warrants_obligation` is therefore a
 conditional bridge theorem.  The targeted repair action satisfies the local
 finite revision postulates, but the repair-obligation conclusion still depends

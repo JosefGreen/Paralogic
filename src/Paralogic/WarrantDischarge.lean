@@ -1,6 +1,7 @@
 import Paralogic.Contradiction
 import Paralogic.Adequacy
 import Paralogic.Evaluator
+import Paralogic.EvaluatorCalibration
 import Paralogic.EmpiricalValidation
 import Paralogic.ISFTMechanisms
 import Paralogic.M8Power
@@ -67,6 +68,14 @@ def warrantResolutionStatus : WarrantObligation -> WarrantResolutionStatus
 def warrantResolutionStatusWithOperationalAdequacy :
     WarrantObligation -> WarrantResolutionStatus
   | WarrantObligation.adequacy =>
+      WarrantResolutionStatus.operationallyDischarged
+  | obligation => warrantResolutionStatus obligation
+
+def warrantResolutionStatusWithOperationalAdequacyAndEvaluator :
+    WarrantObligation -> WarrantResolutionStatus
+  | WarrantObligation.adequacy =>
+      WarrantResolutionStatus.operationallyDischarged
+  | WarrantObligation.evaluatorDecisionAccepts =>
       WarrantResolutionStatus.operationallyDischarged
   | obligation => warrantResolutionStatus obligation
 
@@ -181,6 +190,84 @@ theorem warrant_false_model_not_evaluator_accepts :
       Unit.unit Unit.unit) := by
   intro h
   exact h
+
+inductive OperationalEvaluatorToken where
+  | approvedEvaluator
+  | otherEvaluator
+  | approvedCandidate
+  | rejectedCandidate
+  | ordinary
+  deriving DecidableEq, Repr
+
+def operationalEvaluatorCarrier (_ : SortTag) : Type :=
+  OperationalEvaluatorToken
+
+def operationalEvaluatorFunctionInterp (f : FunctionSymbol)
+    (_args : Args operationalEvaluatorCarrier ((functionArity f).domain)) :
+    operationalEvaluatorCarrier ((functionArity f).codomain) :=
+  OperationalEvaluatorToken.ordinary
+
+def operationalEvaluatorPredicateInterp :
+    (p : PredicateSymbol) ->
+      Args operationalEvaluatorCarrier ((predicateArity p).domain) -> Prop
+  | PredicateSymbol.evaluatorAccepts,
+      Args.cons OperationalEvaluatorToken.approvedEvaluator
+        (Args.cons OperationalEvaluatorToken.approvedCandidate Args.nil) =>
+      True
+  | PredicateSymbol.evaluatorAccepts, _ => False
+  | _, _ => False
+
+def operationalEvaluatorModel : SigmaModel :=
+  { Carrier := operationalEvaluatorCarrier
+    interpFunction := operationalEvaluatorFunctionInterp
+    interpPredicate := operationalEvaluatorPredicateInterp }
+
+theorem operational_evaluator_high_pair_accepts :
+    EvaluatorAcceptsSem (M := operationalEvaluatorModel)
+      OperationalEvaluatorToken.approvedEvaluator
+      OperationalEvaluatorToken.approvedCandidate :=
+  True.intro
+
+theorem operational_evaluator_rejected_candidate_not_accepted :
+    Not (EvaluatorAcceptsSem (M := operationalEvaluatorModel)
+      OperationalEvaluatorToken.approvedEvaluator
+      OperationalEvaluatorToken.rejectedCandidate) := by
+  intro h
+  exact h
+
+def operationalHighScoreDecision :
+    EvaluatorDecisionCase operationalEvaluatorModel :=
+  { evaluator := OperationalEvaluatorToken.approvedEvaluator
+    candidate := OperationalEvaluatorToken.approvedCandidate
+    context := OperationalEvaluatorToken.ordinary
+    value := scoreDecision ScoreLevel.high
+    criteriaDeclared := True
+    evidenceInspected := True
+    criteriaApplied := True
+    scopeMatched := True
+    noEvaluationError := True
+    acceptsWarrant := fun _ _ _ _ _ _ =>
+      operational_evaluator_high_pair_accepts }
+
+theorem operationalHighScoreDecision_satisfied :
+    EvaluatorDecisionSatisfied operationalHighScoreDecision :=
+  { declared := True.intro
+    inspected := True.intro
+    applied := True.intro
+    inScope := True.intro
+    noError := True.intro }
+
+theorem operationalHighScoreDecision_accepts :
+    EvaluatorAcceptsSem (M := operationalEvaluatorModel)
+      operationalHighScoreDecision.evaluator
+      operationalHighScoreDecision.candidate :=
+  accepting_decision_to_accepts operationalHighScoreDecision
+    high_score_accepts
+    operationalHighScoreDecision_satisfied
+
+theorem low_score_still_not_accepting_decision :
+    Not (scoreDecision ScoreLevel.low = EvaluationValue.accepts) := by
+  exact low_score_not_accepts
 
 theorem warrant_false_model_not_power_relevant :
     Not (PowerRelevantSem (M := warrantFalseModel)

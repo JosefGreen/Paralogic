@@ -436,6 +436,12 @@ example :
   adequacy_is_operationally_discharged_in_scoped_model
 
 example :
+    warrantResolutionStatusWithOperationalAdequacyAndEvaluator
+      WarrantObligation.evaluatorDecisionAccepts =
+        WarrantResolutionStatus.operationallyDischarged :=
+  rfl
+
+example :
     operationalAdequacyModel.interpPredicate PredicateSymbol.adequate
       (Args.cons OperationalAdequacyToken.supported
         (Args.cons OperationalAdequacyToken.inScope
@@ -459,6 +465,32 @@ example :
         (Args.cons operationalAdequacyProfile.context
           (Args.cons operationalAdequacyProfile.claim Args.nil))) :=
   operationalAdequacyProfile_to_adequate
+
+example :
+    EvaluatorAcceptsSem (M := operationalEvaluatorModel)
+      OperationalEvaluatorToken.approvedEvaluator
+      OperationalEvaluatorToken.approvedCandidate :=
+  operational_evaluator_high_pair_accepts
+
+example :
+    Not (EvaluatorAcceptsSem (M := operationalEvaluatorModel)
+      OperationalEvaluatorToken.approvedEvaluator
+      OperationalEvaluatorToken.rejectedCandidate) :=
+  operational_evaluator_rejected_candidate_not_accepted
+
+example :
+    EvaluatorDecisionSatisfied operationalHighScoreDecision :=
+  operationalHighScoreDecision_satisfied
+
+example :
+    EvaluatorAcceptsSem (M := operationalEvaluatorModel)
+      operationalHighScoreDecision.evaluator
+      operationalHighScoreDecision.candidate :=
+  operationalHighScoreDecision_accepts
+
+example :
+    Not (scoreDecision ScoreLevel.low = EvaluationValue.accepts) :=
+  low_score_still_not_accepting_decision
 
 example :
     adequacy_warrant_countermodel.warrantedConclusionFails :=

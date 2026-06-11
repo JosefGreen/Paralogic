@@ -100,6 +100,9 @@ The repository currently contains:
 - A scoped operational adequacy model where adequacy is computed from
   supported evidence, in-scope context, and matched claim, including a negative
   control for unsupported evidence.
+- A scoped operational evaluator model where high-score accepting decisions
+  compute evaluator acceptance for an approved evaluator/candidate pair, while
+  low-score acceptance remains blocked.
 - EMP0 empirical protocol artifacts.
 - Internal academic-audit artifacts.
 

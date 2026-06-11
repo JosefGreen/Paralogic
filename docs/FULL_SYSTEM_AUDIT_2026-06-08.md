@@ -92,6 +92,10 @@ Additional repair applied: adequacy now has a scoped operational discharge
 model in which `adequate` is computed from supported evidence, in-scope
 context, and matched claim, with an unsupported-evidence negative control. This
 is still not empirical validation or an external source-backed adequacy theory.
+Additional repair applied: evaluator accepting decisions now have a scoped
+operational discharge model connecting high-score acceptance to
+`EvaluatorAcceptsSem` for an approved evaluator/candidate pair, while low-score
+acceptance remains blocked. This is still not empirical evaluator calibration.
 
 ### F4 - One-Element Witnesses Are Useful But Too Weak
 
