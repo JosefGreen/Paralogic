@@ -149,6 +149,12 @@ It models veto suppression through veto right, affected participant, veto
 attempt, suppression, materiality, absent review path, and absent boundary
 guard.  Its checker persists results in `docs/veto_suppression_checks/`.
 
+M10 now has the parallel formal module, `src/Paralogic/FrameDrift.lean`.
+It models frame drift through source frame, target frame, frame shift,
+cross-frame claim carryover, changed context conditions, material drift, absent
+continuity guard, and absent boundary guard.  Its checker persists results in
+`docs/frame_drift_checks/`.
+
 ## Pipeline Consequence
 
 Lane D should now proceed by filling each mechanism with:

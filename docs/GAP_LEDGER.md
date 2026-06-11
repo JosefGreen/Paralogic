@@ -181,6 +181,12 @@ notes as well as open gaps.
     jointly project to support degradation and ISF, while each missing
     condition has a concrete blocked witness. Source-complete and empirical M9
     validation remain open.
+36a.10. M10 now has a mechanism-specific operational profile in
+    `FrameDrift.lean`: source frame, target frame, frame shift, cross-frame
+    claim carryover, changed context conditions, material drift, missing
+    continuity guard, and missing boundary guard jointly project to support
+    degradation and ISF, while each missing condition has a concrete blocked
+    witness. Source-complete and empirical M10 validation remain open.
 36b. M8 power-condition warrant discharge now has a scoped operational model
     for relevance, validity dependence, and omission, with negative controls
     for unaffected group, immaterial condition, and ordinary output.  Remaining

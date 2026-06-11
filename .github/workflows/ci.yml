@@ -87,3 +87,6 @@ jobs:
 
       - name: Run M9 veto suppression checker
         run: python python/veto_suppression_check.py
+
+      - name: Run M10 frame drift checker
+        run: python python/frame_drift_check.py

@@ -1,0 +1,10 @@
+[
+  "sourceFrameDeclared",
+  "targetFrameUsed",
+  "frameShiftPresent",
+  "claimCarriedAcrossFrames",
+  "contextConditionsChanged",
+  "driftMaterial",
+  "continuityGuardAbsent",
+  "boundaryGuardAbsent"
+]

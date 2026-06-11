@@ -1,0 +1,88 @@
+{
+  "blocked_witness_count": 8,
+  "blocked_witnesses": {
+    "frameDriftBoundaryPresentProfile_blocked": true,
+    "frameDriftContinuityPresentProfile_blocked": true,
+    "frameDriftImmaterialProfile_blocked": true,
+    "frameDriftNoCarryProfile_blocked": true,
+    "frameDriftNoShiftProfile_blocked": true,
+    "frameDriftNoSourceProfile_blocked": true,
+    "frameDriftNoTargetProfile_blocked": true,
+    "frameDriftUnchangedContextProfile_blocked": true
+  },
+  "blocker_count": 8,
+  "blockers": {
+    "immaterial_frame_drift_blocks_profile": true,
+    "missing_frame_carry_blocks_profile": true,
+    "missing_frame_shift_blocks_profile": true,
+    "missing_source_frame_blocks_profile": true,
+    "missing_target_frame_blocks_profile": true,
+    "present_continuity_guard_blocks_profile": true,
+    "present_frame_boundary_blocks_profile": true,
+    "unchanged_context_blocks_profile": true
+  },
+  "condition_count": 8,
+  "conditions": {
+    "boundaryGuardAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "claimCarriedAcrossFrames": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "contextConditionsChanged": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "continuityGuardAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "driftMaterial": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "frameShiftPresent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "sourceFrameDeclared": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "targetFrameUsed": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    }
+  },
+  "missing_blocked_witnesses": [],
+  "missing_blockers": [],
+  "missing_condition_mentions": {},
+  "missing_positive_artifacts": [],
+  "positive_artifacts": {
+    "FrameDriftProfile": true,
+    "FrameDriftProfile.toMechanismProfile": true,
+    "FrameDriftProfileSatisfied": true,
+    "FrameDriftProfile_to_mechanism_satisfied": true,
+    "FrameDriftProfile_to_supportDegraded": true,
+    "M10FrameDriftCase": true,
+    "M10FrameDriftCase_directional_change": true,
+    "M10FrameDriftCase_to_ISFSem": true,
+    "M10FrameDriftSatisfied": true,
+    "frameDriftOnlyProfile_satisfied": true,
+    "frameDriftOnly_directional_change": true,
+    "frameDriftOnly_mechanism_profile_satisfied": true,
+    "frameDriftOnly_supportDegraded": true,
+    "frameDriftOnly_to_ISFSem": true
+  },
+  "status": "M10C-pass"
+}

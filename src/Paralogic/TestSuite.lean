@@ -23,6 +23,7 @@ import Paralogic.SymbolicSubstitution
 import Paralogic.RepairFailure
 import Paralogic.TranslationFailure
 import Paralogic.VetoSuppression
+import Paralogic.FrameDrift
 import Paralogic.WarrantDischarge
 
 /-!
@@ -783,6 +784,67 @@ example :
     VetoSuppressionProfileBlocked
       vetoSuppressionBoundaryPresentProfile :=
   vetoSuppressionBoundaryPresentProfile_blocked
+
+example :
+    FrameDriftProfileSatisfied frameDriftOnlyProfile :=
+  frameDriftOnlyProfile_satisfied
+
+example :
+    SupportDegradedSem (M := frameDriftOnlyModel) Unit.unit Unit.unit
+      Unit.unit :=
+  frameDriftOnly_supportDegraded
+
+example :
+    ISFSem frameDriftOnlyModel Unit.unit Unit.unit Unit.unit Unit.unit
+      Unit.unit :=
+  frameDriftOnly_to_ISFSem
+
+example :
+    DirectionalNonEquivalenceSem (M := frameDriftOnlyModel) Unit.unit
+      Unit.unit :=
+  frameDriftOnly_directional_change
+
+example :
+    ISFTMechanismProfileSatisfied
+      frameDriftOnlyProfile.toMechanismProfile :=
+  frameDriftOnly_mechanism_profile_satisfied
+
+example :
+    (frameDriftOnlyProfile.toMechanismProfile).mechanism =
+      ISFTMechanism.M10 :=
+  FrameDriftProfile_mechanism_label frameDriftOnlyProfile
+
+example :
+    FrameDriftProfileBlocked frameDriftNoSourceProfile :=
+  frameDriftNoSourceProfile_blocked
+
+example :
+    FrameDriftProfileBlocked frameDriftNoTargetProfile :=
+  frameDriftNoTargetProfile_blocked
+
+example :
+    FrameDriftProfileBlocked frameDriftNoShiftProfile :=
+  frameDriftNoShiftProfile_blocked
+
+example :
+    FrameDriftProfileBlocked frameDriftNoCarryProfile :=
+  frameDriftNoCarryProfile_blocked
+
+example :
+    FrameDriftProfileBlocked frameDriftUnchangedContextProfile :=
+  frameDriftUnchangedContextProfile_blocked
+
+example :
+    FrameDriftProfileBlocked frameDriftImmaterialProfile :=
+  frameDriftImmaterialProfile_blocked
+
+example :
+    FrameDriftProfileBlocked frameDriftContinuityPresentProfile :=
+  frameDriftContinuityPresentProfile_blocked
+
+example :
+    FrameDriftProfileBlocked frameDriftBoundaryPresentProfile :=
+  frameDriftBoundaryPresentProfile_blocked
 
 example :
     MetricProxyProfileSatisfied metricProxyOnlyProfile :=
