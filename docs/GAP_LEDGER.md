@@ -115,6 +115,12 @@ notes as well as open gaps.
     include richer scoring rubrics, real evaluator datasets, reliability
     statistics, and external validation, but the pipeline now advances to the
     ISFT mechanism system.
+35a. Warrant discharge now includes a scoped operational evaluator-criteria
+    profile: declared, relevant, inspected, applied, and no-error criteria
+    compute evaluator acceptance for an approved evaluator/candidate pair.
+    Rejected candidates and low-score decisions remain negative controls.
+    External evaluator standards, reliability statistics, and empirical
+    calibration remain open.
 36. Gate 6 has MC3 artifacts for the scoped ISFT mechanism fragment: M1-M12 labels,
     mechanism profiles, dependency-graph structure, bounded suite coverage,
     M8 power linkage, M12 boundary profile, and suppression algebra now have

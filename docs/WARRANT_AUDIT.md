@@ -50,8 +50,9 @@ negative control, and a status refinement
 Additional discharge progress: evaluator accepting decisions now have a scoped
 operational discharge in `operationalEvaluatorModel`.  In that model, the
 `evaluatorAccepts` predicate is computed from an approved evaluator/candidate
-pair.  Lean connects the existing high-score rule to an accepting decision and
-keeps low-score acceptance blocked.
+pair.  Lean connects a satisfied `operationalEvaluatorCriteria` profile and
+the existing high-score decision rule to acceptance, while keeping rejected
+candidates and low-score acceptance blocked.
 
 Additional discharge progress: contradiction presence now has a scoped
 operational discharge in `operationalContradictionModel`.  In that model, the

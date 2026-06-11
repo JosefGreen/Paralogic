@@ -100,9 +100,10 @@ The repository currently contains:
 - A scoped operational adequacy model where adequacy is computed from
   supported evidence, in-scope context, and matched claim, including a negative
   control for unsupported evidence.
-- A scoped operational evaluator model where high-score accepting decisions
-  compute evaluator acceptance for an approved evaluator/candidate pair, while
-  low-score acceptance remains blocked.
+- A scoped operational evaluator model where satisfied evaluator criteria and
+  high-score accepting decisions compute evaluator acceptance for an approved
+  evaluator/candidate pair, while rejected candidates and low-score acceptance
+  remain blocked.
 - A scoped operational contradiction model where contradiction presence is
   computed from active frame, active context, and contested claim, with
   negative controls for resolved claim, inactive frame, and inactive context.

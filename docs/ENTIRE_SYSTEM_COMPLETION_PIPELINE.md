@@ -204,11 +204,12 @@ than source-backed or empirically validated.  The module proves all-false-model
 countermodels blocking raw-condition-to-conclusion shortcuts for the major
 warrant families.  Adequacy now has a scoped operational discharge model with
 a positive computed-adequacy case and an unsupported-evidence negative control.
-Evaluator accepting decisions now have a scoped operational discharge model
-connecting high-score acceptance to `EvaluatorAcceptsSem` while preserving the
-low-score negative control.  Contradiction presence now has a scoped
-operational discharge model with positive contested-case detection and
-negative controls for resolved claim, inactive frame, and inactive context.
+Evaluator criteria and accepting decisions now have scoped operational
+discharge models connecting satisfied criteria and high-score acceptance to
+`EvaluatorAcceptsSem` while preserving rejected-candidate and low-score
+negative controls.  Contradiction presence now has a scoped operational
+discharge model with positive contested-case detection and negative controls
+for resolved claim, inactive frame, and inactive context.
 Lane G is not complete until each obligation is promoted by operational rules,
 source-backed rules, empirical validation, or lower-level derivation.
 

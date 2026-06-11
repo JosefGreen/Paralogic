@@ -96,6 +96,11 @@ Additional repair applied: evaluator accepting decisions now have a scoped
 operational discharge model connecting high-score acceptance to
 `EvaluatorAcceptsSem` for an approved evaluator/candidate pair, while low-score
 acceptance remains blocked. This is still not empirical evaluator calibration.
+Additional repair applied: evaluator criteria now have a scoped operational
+discharge profile connecting declared, relevant, inspected, applied, and
+no-error criteria to `EvaluatorAcceptsSem` for the same approved
+evaluator/candidate pair. This is still not source-backed evaluator policy or
+empirical reliability.
 Additional repair applied: contradiction presence now has a scoped operational
 discharge model in which an active frame, active context, and contested claim
 compute `ContradictionPresentSem`, with resolved-claim, inactive-frame, and

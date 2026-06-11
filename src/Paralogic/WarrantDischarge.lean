@@ -75,6 +75,8 @@ def warrantResolutionStatusWithOperationalAdequacyAndEvaluator :
     WarrantObligation -> WarrantResolutionStatus
   | WarrantObligation.adequacy =>
       WarrantResolutionStatus.operationallyDischarged
+  | WarrantObligation.evaluatorCriteriaAccepts =>
+      WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.evaluatorDecisionAccepts =>
       WarrantResolutionStatus.operationallyDischarged
   | obligation => warrantResolutionStatus obligation
@@ -84,6 +86,8 @@ def warrantResolutionStatusWithOperationalCore :
   | WarrantObligation.contradictionPresent =>
       WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.adequacy =>
+      WarrantResolutionStatus.operationallyDischarged
+  | WarrantObligation.evaluatorCriteriaAccepts =>
       WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.evaluatorDecisionAccepts =>
       WarrantResolutionStatus.operationallyDischarged
@@ -340,6 +344,34 @@ theorem operational_evaluator_rejected_candidate_not_accepted :
   intro h
   exact h
 
+def operationalEvaluatorCriteria :
+    EvaluatorCriteria operationalEvaluatorModel :=
+  { evaluator := OperationalEvaluatorToken.approvedEvaluator
+    candidate := OperationalEvaluatorToken.approvedCandidate
+    context := OperationalEvaluatorToken.ordinary
+    criteriaDeclared := True
+    criteriaRelevant := True
+    evidenceInspected := True
+    criteriaApplied := True
+    noEvaluationError := True
+    warrant := fun _ _ _ _ _ =>
+      operational_evaluator_high_pair_accepts }
+
+theorem operationalEvaluatorCriteria_satisfied :
+    EvaluatorCriteriaSatisfied operationalEvaluatorCriteria :=
+  { declared := True.intro
+    relevant := True.intro
+    inspected := True.intro
+    applied := True.intro
+    noError := True.intro }
+
+theorem operationalEvaluatorCriteria_accepts :
+    EvaluatorAcceptsSem (M := operationalEvaluatorModel)
+      operationalEvaluatorCriteria.evaluator
+      operationalEvaluatorCriteria.candidate :=
+  EvaluatorCriteria_to_accepts operationalEvaluatorCriteria
+    operationalEvaluatorCriteria_satisfied
+
 def operationalHighScoreDecision :
     EvaluatorDecisionCase operationalEvaluatorModel :=
   { evaluator := OperationalEvaluatorToken.approvedEvaluator
@@ -571,6 +603,27 @@ theorem operational_contradiction_not_empirically_validated :
     Not
       (warrantResolutionStatusWithOperationalCore
         WarrantObligation.contradictionPresent =
+        WarrantResolutionStatus.empiricallyValidated) := by
+  intro h
+  cases h
+
+theorem evaluator_criteria_is_operationally_discharged_in_scoped_model :
+    warrantResolutionStatusWithOperationalCore
+      WarrantObligation.evaluatorCriteriaAccepts =
+      WarrantResolutionStatus.operationallyDischarged := rfl
+
+theorem operational_evaluator_criteria_not_source_backed :
+    Not
+      (warrantResolutionStatusWithOperationalCore
+        WarrantObligation.evaluatorCriteriaAccepts =
+        WarrantResolutionStatus.sourceBacked) := by
+  intro h
+  cases h
+
+theorem operational_evaluator_criteria_not_empirically_validated :
+    Not
+      (warrantResolutionStatusWithOperationalCore
+        WarrantObligation.evaluatorCriteriaAccepts =
         WarrantResolutionStatus.empiricallyValidated) := by
   intro h
   cases h

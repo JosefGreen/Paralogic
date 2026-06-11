@@ -518,6 +518,22 @@ example :
   operational_evaluator_high_pair_accepts
 
 example :
+    warrantResolutionStatusWithOperationalCore
+      WarrantObligation.evaluatorCriteriaAccepts =
+        WarrantResolutionStatus.operationallyDischarged :=
+  evaluator_criteria_is_operationally_discharged_in_scoped_model
+
+example :
+    EvaluatorCriteriaSatisfied operationalEvaluatorCriteria :=
+  operationalEvaluatorCriteria_satisfied
+
+example :
+    EvaluatorAcceptsSem (M := operationalEvaluatorModel)
+      operationalEvaluatorCriteria.evaluator
+      operationalEvaluatorCriteria.candidate :=
+  operationalEvaluatorCriteria_accepts
+
+example :
     Not (EvaluatorAcceptsSem (M := operationalEvaluatorModel)
       OperationalEvaluatorToken.approvedEvaluator
       OperationalEvaluatorToken.rejectedCandidate) :=
