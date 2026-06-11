@@ -1352,6 +1352,35 @@ theorem repair_obligation_is_operationally_discharged_in_scoped_model :
       WarrantObligation.repairObligation =
       WarrantResolutionStatus.operationallyDischarged := rfl
 
+def OperationalWarrantCoverageComplete : Prop :=
+  forall obligation : WarrantObligation,
+    warrantResolutionStatusWithOperationalCore obligation =
+      WarrantResolutionStatus.operationallyDischarged
+
+theorem all_warrant_obligations_operationally_discharged
+    (obligation : WarrantObligation) :
+    warrantResolutionStatusWithOperationalCore obligation =
+      WarrantResolutionStatus.operationallyDischarged := by
+  cases obligation <;> rfl
+
+theorem operational_warrant_coverage_complete :
+    OperationalWarrantCoverageComplete :=
+  all_warrant_obligations_operationally_discharged
+
+theorem operational_core_ne_source_backed
+    (obligation : WarrantObligation) :
+    Not (warrantResolutionStatusWithOperationalCore obligation =
+      WarrantResolutionStatus.sourceBacked) := by
+  exact operational_power_not_source_backed obligation
+    (all_warrant_obligations_operationally_discharged obligation)
+
+theorem operational_core_ne_empirically_validated
+    (obligation : WarrantObligation) :
+    Not (warrantResolutionStatusWithOperationalCore obligation =
+      WarrantResolutionStatus.empiricallyValidated) := by
+  exact operational_power_not_empirically_validated obligation
+    (all_warrant_obligations_operationally_discharged obligation)
+
 theorem operational_repair_not_source_backed :
     Not
       (warrantResolutionStatusWithOperationalCore

@@ -124,6 +124,10 @@ The repository currently contains:
 - A conclusion-indexed operational normative-bridge model where each normative
   conclusion has a distinct bridge token, with negative controls for ordinary
   bridge, other institution, and group-sensitive harm/repair cases.
+- A universal MC3-Lean warrant-coverage theorem proving every currently
+  enumerated warrant obligation is operationally discharged in the scoped core,
+  plus generic guards separating that status from source-backed or empirical
+  promotion.
 - EMP0 empirical protocol artifacts.
 - Internal academic-audit artifacts.
 

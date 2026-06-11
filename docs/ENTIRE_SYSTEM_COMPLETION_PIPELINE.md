@@ -224,7 +224,10 @@ normative conclusion.
 Lane G's current warrant-discharge layer is operationally complete for the
 enumerated obligations, but it is not source-backed or empirically complete
 until external standards, real data, reliability statistics, and replication
-are supplied where those claims are made.
+are supplied where those claims are made.  The operational-completeness claim
+is now Lean-checked by `OperationalWarrantCoverageComplete`; future additions
+to `WarrantObligation` must extend that coverage theorem and its negative
+source/empirical promotion guards.
 
 ## Lane H - Executable Checking
 

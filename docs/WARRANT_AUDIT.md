@@ -121,3 +121,11 @@ Updated rule: a warrant can now be marked complete only when its
 `operationallyDischarged`, `sourceBacked`, or `empiricallyValidated` by new
 artifacts.  Operational discharge is a formal local semantics, not source or
 empirical validation.
+
+Coverage hardening: `OperationalWarrantCoverageComplete` now states the
+universal coverage condition for every enumerated `WarrantObligation`, and
+`all_warrant_obligations_operationally_discharged` proves the operational core
+classifies each one as `operationallyDischarged`.  Separate generic guards
+`operational_core_ne_source_backed` and
+`operational_core_ne_empirically_validated` keep this universal operational
+coverage distinct from source-backed or empirical promotion.

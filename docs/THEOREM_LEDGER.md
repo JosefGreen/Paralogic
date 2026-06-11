@@ -604,6 +604,8 @@ Status: MC3-Lean after successful local build.
 | G7-WD-29 | conclusion-indexed operational normative model computes each normative conclusion from its own bridge token | `operationalNormativeModel`, `operational_normative_conclusion`, `operationalNormativeSchema_to_conclusion` |
 | G7-WD-30 | conclusion-indexed operational normative model rejects ordinary bridge and other-institution controls, plus group-sensitive harm and repair controls | `operational_normative_ordinary_bridge_not_conclusion`, `operational_normative_other_institution_not_conclusion`, `operational_normative_harm_other_group_not_conclusion`, `operational_normative_repair_other_group_not_conclusion` |
 | G7-WD-31 | normative bridge is operationally discharged in the scoped core status but not source-backed or empirically validated | `normative_bridge_is_operationally_discharged_in_scoped_model`, `operational_normative_not_source_backed`, `operational_normative_not_empirically_validated` |
+| G7-WD-32 | every currently enumerated warrant obligation is operationally discharged in the scoped core status | `OperationalWarrantCoverageComplete`, `all_warrant_obligations_operationally_discharged`, `operational_warrant_coverage_complete` |
+| G7-WD-33 | universal operational warrant coverage remains distinct from source-backed and empirical promotion | `operational_core_ne_source_backed`, `operational_core_ne_empirically_validated` |
 | G7-NC-2 | repair-obligation bridge does not imply moral-guilt bridge | `repairBridgeOnly_not_MoralGuiltBridgeSem` |
 | G7-NC-3 | repair-obligation bridge does not imply full empirical validation | `repairBridgeOnly_not_FullEmpiricalValidationSem` |
 | G7-NC-4 | repair-obligation bridge does not imply valid insight | `repairBridgeOnly_not_ValidInsightSem` |

@@ -130,6 +130,9 @@ operational discharge model with distinct bridge tokens for harm,
 responsibility, repair obligation, accountability, legal illegitimacy,
 governance legitimacy, and moral guilt. This is still not external legal,
 moral, governance, or institutional authority.
+Additional repair applied: operational warrant coverage is now a universal
+Lean theorem over the current `WarrantObligation` type, with generic guards
+showing operational discharge is not source-backed or empirical promotion.
 
 ### F4 - One-Element Witnesses Are Useful But Too Weak
 

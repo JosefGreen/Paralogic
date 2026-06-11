@@ -164,6 +164,11 @@ notes as well as open gaps.
     repair obligation, accountability, legal illegitimacy, governance
     legitimacy, and moral guilt.  External legal, moral, governance, and
     institutional standards remain open wherever those claims are made.
+37d. Operational warrant coverage is now itself a Lean theorem:
+    `OperationalWarrantCoverageComplete` proves every currently enumerated
+    `WarrantObligation` is operationally discharged in the scoped core, while
+    generic guards keep that status distinct from source-backed or empirical
+    promotion.  Future warrant additions must extend this theorem.
 38. Gate 8 has EFC artifacts for the scoped executable finite-checking fragment:
     `python/finite_check.py` produced EFC-bounded coverage and machine-readable
     witness artifacts for 10 target implications/non-entailments. This remains

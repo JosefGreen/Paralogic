@@ -821,6 +821,25 @@ example :
   normative_bridge_is_operationally_discharged_in_scoped_model
 
 example :
+    OperationalWarrantCoverageComplete :=
+  operational_warrant_coverage_complete
+
+example (obligation : WarrantObligation) :
+    warrantResolutionStatusWithOperationalCore obligation =
+      WarrantResolutionStatus.operationallyDischarged :=
+  all_warrant_obligations_operationally_discharged obligation
+
+example (obligation : WarrantObligation) :
+    Not (warrantResolutionStatusWithOperationalCore obligation =
+      WarrantResolutionStatus.sourceBacked) :=
+  operational_core_ne_source_backed obligation
+
+example (obligation : WarrantObligation) :
+    Not (warrantResolutionStatusWithOperationalCore obligation =
+      WarrantResolutionStatus.empiricallyValidated) :=
+  operational_core_ne_empirically_validated obligation
+
+example :
     adequacy_warrant_countermodel.warrantedConclusionFails :=
   adequacy_warrant_countermodel_blocks_raw_shortcut
 
