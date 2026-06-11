@@ -197,6 +197,28 @@ example {M : SigmaModel} (rho sigma : Assignment M)
       · simp [FormulaHasFreeVar, hBinder] at hFree
       · simp [FormulaHasFreeVar, hBinder] at hFree)
 
+example :
+    PremisesClosed [] :=
+  premises_closed_nil
+
+example :
+    PremisesClosed [Formula.truth] :=
+  premises_closed_cons
+    (by
+      intro _ _ hFree
+      cases hFree)
+    premises_closed_nil
+
+example {M : SigmaModel} (rho sigma : Assignment M) :
+    Iff (SatisfiesAll rho [Formula.truth])
+      (SatisfiesAll sigma [Formula.truth]) :=
+  closed_premises_satisfaction_invariant rho sigma [Formula.truth]
+    (premises_closed_cons
+      (by
+        intro _ _ hFree
+        cases hFree)
+      premises_closed_nil)
+
 example (s : SortTag) (idx : Nat) :
     Derives [] (Formula.forallVar s idx Formula.truth) :=
   derives_forall_truth_example s idx

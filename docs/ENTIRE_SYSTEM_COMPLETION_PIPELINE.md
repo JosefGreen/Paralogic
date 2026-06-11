@@ -64,8 +64,8 @@ propositional fragment.  The derivability calculus now has soundness for
 premise use, truth introduction, falsity elimination, conjunction rules,
 disjunction introduction/elimination, and implication introduction/elimination.
 The foundation layer now proves that formula satisfaction depends only on free
-variables and that closed formulas are invariant under arbitrary assignment
-changes.
+variables and that closed formulas and closed premise lists are invariant under
+arbitrary assignment changes.
 Scoped derivability rules and semantic entailment laws now cover universal
 current-value elimination, existential current-value introduction, and
 universal introduction under semantic premise-stability.  Syntactic

@@ -53,7 +53,7 @@ The repository currently contains:
   stability and under syntactic no-free-variable freshness.
 - MC3-Lean free-variable agreement lemmas showing that formula satisfaction
   depends only on free variables, plus assignment-invariance for closed
-  formulas.
+  formulas and closed premise lists.
 - MC3-Lean syntactic freshness lemmas that turn no-free-variable premise facts
   into assignment-update stability for universal introduction, with the older
   quantifier-free bridge retained as a bounded subcase.

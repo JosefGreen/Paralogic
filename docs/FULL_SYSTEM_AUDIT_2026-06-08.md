@@ -163,8 +163,9 @@ Required repair:
 
 Additional foundation repair applied: `FoundationLemmas.lean` now proves that
 agreement on all free variables induces formula agreement, and that closed
-formulas are invariant under arbitrary assignment changes.  This tightens the
-semantic hygiene needed before alpha-equivalence and eigenvariable machinery.
+formulas and closed premise lists are invariant under arbitrary assignment
+changes.  This tightens the semantic hygiene needed before alpha-equivalence
+and eigenvariable machinery.
 
 Partial repair applied: `ProofTheory.lean` now has soundness for a larger
 natural-deduction fragment, including implication introduction, falsity

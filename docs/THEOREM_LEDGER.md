@@ -143,6 +143,7 @@ Status: MC3-Lean after successful local build.
 | G1-AGR-4 | agreement on all free variables implies term and argument agreement | `term_agrees_of_free_var_agreement`, `args_agrees_of_free_var_agreement` |
 | G1-AGR-5 | agreement on all formula free variables implies formula agreement | `FormulaFreeVariablesAgree`, `formula_agrees_of_free_var_agreement` |
 | G1-AGR-6 | closed formulas are assignment-invariant | `FormulaClosed`, `closed_formula_assignments_agree`, `closed_formula_satisfaction_invariant` |
+| G1-AGR-7 | closed premise lists are assignment-invariant | `PremisesClosed`, `premises_closed_nil`, `premises_closed_cons`, `closed_premises_satisfaction_invariant` |
 | G1-CAP-1 | masking identity substitution leaves identity substitution unchanged | `maskSubstitution_identity` |
 | G1-CAP-2 | a universal binder binds its own variable | `quantified_variable_not_free_forall` |
 | G1-CAP-3 | an existential binder binds its own variable | `quantified_variable_not_free_exists` |

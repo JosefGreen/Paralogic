@@ -509,6 +509,48 @@ theorem closed_formula_satisfaction_invariant {M : SigmaModel}
   satisfiesFormula_iff_of_agree formula
     (closed_formula_assignments_agree rho sigma formula hClosed)
 
+def PremisesClosed (premises : List Formula) : Prop :=
+  forall formula, List.Mem formula premises -> FormulaClosed formula
+
+theorem premises_closed_nil : PremisesClosed [] := by
+  intro _ hMem
+  cases hMem
+
+theorem premises_closed_cons {formula : Formula} {rest : List Formula}
+    (hFormula : FormulaClosed formula)
+    (hRest : PremisesClosed rest) :
+    PremisesClosed (formula :: rest) := by
+  intro candidate hMem
+  cases hMem with
+  | head =>
+      exact hFormula
+  | tail _ hTail =>
+      exact hRest candidate hTail
+
+theorem closed_premises_satisfaction_invariant {M : SigmaModel}
+    (rho sigma : Assignment M) :
+    (premises : List Formula) ->
+      PremisesClosed premises ->
+        Iff (SatisfiesAll rho premises) (SatisfiesAll sigma premises)
+  | [], _ => Iff.intro (fun _ => True.intro) (fun _ => True.intro)
+  | formula :: rest, hClosed =>
+      let hHead : FormulaClosed formula :=
+        hClosed formula (List.Mem.head rest)
+      let hTail : PremisesClosed rest :=
+        fun candidate hMem =>
+          hClosed candidate (List.Mem.tail formula hMem)
+      let hFormulaIff :=
+        closed_formula_satisfaction_invariant rho sigma formula hHead
+      let hRestIff :=
+        closed_premises_satisfaction_invariant rho sigma rest hTail
+      Iff.intro
+        (fun hAll => And.intro
+          (hFormulaIff.mp hAll.left)
+          (hRestIff.mp hAll.right))
+        (fun hAll => And.intro
+          (hFormulaIff.mpr hAll.left)
+          (hRestIff.mpr hAll.right))
+
 mutual
 
 theorem term_agrees_update_of_not_free {M : SigmaModel}
