@@ -81,3 +81,6 @@ jobs:
 
       - name: Run M5 repair failure checker
         run: python python/repair_failure_check.py
+
+      - name: Run M6 translation failure checker
+        run: python python/translation_failure_check.py

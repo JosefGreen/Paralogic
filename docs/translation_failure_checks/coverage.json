@@ -1,0 +1,79 @@
+{
+  "blocked_witness_count": 7,
+  "blocked_witnesses": {
+    "translationFailureAbsentProfile_blocked": true,
+    "translationFailureBoundaryPresentProfile_blocked": true,
+    "translationFailureImmaterialLossProfile_blocked": true,
+    "translationFailureLinkIntactProfile_blocked": true,
+    "translationFailureNoSourceProfile_blocked": true,
+    "translationFailureNoTargetProfile_blocked": true,
+    "translationFailureVerifiedProfile_blocked": true
+  },
+  "blocker_count": 7,
+  "blockers": {
+    "absent_translation_blocks_translation": true,
+    "immaterial_semantic_loss_blocks_translation": true,
+    "intact_actor_link_blocks_translation": true,
+    "missing_source_context_blocks_translation": true,
+    "missing_target_context_blocks_translation": true,
+    "present_translation_boundary_blocks_translation": true,
+    "present_translation_verification_blocks_translation": true
+  },
+  "condition_count": 7,
+  "conditions": {
+    "actorLinkBroken": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "boundaryGuardAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "semanticLossMaterial": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "sourceContextDeclared": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "targetContextDeclared": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "translationPerformed": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "verificationAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    }
+  },
+  "missing_blocked_witnesses": [],
+  "missing_blockers": [],
+  "missing_condition_mentions": {},
+  "missing_positive_artifacts": [],
+  "positive_artifacts": {
+    "M6TranslationFailureCase": true,
+    "M6TranslationFailureCase_to_ISFSem": true,
+    "M6TranslationFailureSatisfied": true,
+    "TranslationFailureProfile": true,
+    "TranslationFailureProfile.toMechanismProfile": true,
+    "TranslationFailureProfileSatisfied": true,
+    "TranslationFailureProfile_to_mechanism_satisfied": true,
+    "TranslationFailureProfile_to_supportDegraded": true,
+    "translationFailureOnlyProfile_satisfied": true,
+    "translationFailureOnly_mechanism_profile_satisfied": true,
+    "translationFailureOnly_supportDegraded": true,
+    "translationFailureOnly_to_ISFSem": true
+  },
+  "status": "M6C-pass"
+}

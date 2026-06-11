@@ -138,6 +138,12 @@ absent repair plan, failed repair action, absent verification, material
 recurrence, and maintained closure claim.  Its checker persists results in
 `docs/repair_failure_checks/`.
 
+M6 now has the parallel formal module, `src/Paralogic/TranslationFailure.lean`.
+It models translation failure through source context, target context,
+performed translation, material semantic loss, broken actor link, absent
+verification, and absent boundary guard.  Its checker persists results in
+`docs/translation_failure_checks/`.
+
 ## Pipeline Consequence
 
 Lane D should now proceed by filling each mechanism with:

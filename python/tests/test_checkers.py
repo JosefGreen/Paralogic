@@ -54,6 +54,9 @@ symbolic_substitution_check = load_module(
 repair_failure_check = load_module(
     "repair_failure_check", "python/repair_failure_check.py"
 )
+translation_failure_check = load_module(
+    "translation_failure_check", "python/translation_failure_check.py"
+)
 
 
 def test_finite_checker_all_targets_match_expectation():
@@ -627,3 +630,37 @@ def test_repair_failure_checker_persisted_conditions_match_runtime():
     path = ROOT / "docs" / "repair_failure_checks" / "conditions.json"
     persisted = json.loads(path.read_text(encoding="utf-8"))
     assert persisted == list(repair_failure_check.REQUIRED_CONDITIONS)
+
+
+def test_translation_failure_checker_covers_all_m6_conditions():
+    coverage = translation_failure_check.coverage()
+    assert coverage["status"] == "M6C-pass"
+    assert coverage["condition_count"] == 7
+    assert coverage["missing_condition_mentions"] == {}
+    assert coverage["missing_positive_artifacts"] == []
+    assert coverage["missing_blockers"] == []
+    assert coverage["missing_blocked_witnesses"] == []
+
+
+def test_translation_failure_checker_has_one_blocker_per_condition():
+    coverage = translation_failure_check.coverage()
+    assert coverage["blocker_count"] == coverage["condition_count"]
+    assert coverage["blocked_witness_count"] == coverage["condition_count"]
+    for places in coverage["conditions"].values():
+        assert places == {
+            "in_profile": True,
+            "in_satisfied": True,
+            "in_blocked": True,
+        }
+
+
+def test_translation_failure_checker_persisted_coverage_matches_runtime():
+    path = ROOT / "docs" / "translation_failure_checks" / "coverage.json"
+    persisted = json.loads(path.read_text(encoding="utf-8"))
+    assert persisted == translation_failure_check.coverage()
+
+
+def test_translation_failure_checker_persisted_conditions_match_runtime():
+    path = ROOT / "docs" / "translation_failure_checks" / "conditions.json"
+    persisted = json.loads(path.read_text(encoding="utf-8"))
+    assert persisted == list(translation_failure_check.REQUIRED_CONDITIONS)

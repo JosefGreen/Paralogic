@@ -21,6 +21,7 @@ import Paralogic.MetricProxy
 import Paralogic.FormalAccessSubstitution
 import Paralogic.SymbolicSubstitution
 import Paralogic.RepairFailure
+import Paralogic.TranslationFailure
 import Paralogic.WarrantDischarge
 
 /-!
@@ -674,6 +675,60 @@ example :
 example :
     RepairFailureProfileBlocked repairFailureNoClosureClaimProfile :=
   repairFailureNoClosureClaimProfile_blocked
+
+example :
+    TranslationFailureProfileSatisfied translationFailureOnlyProfile :=
+  translationFailureOnlyProfile_satisfied
+
+example :
+    SupportDegradedSem (M := translationFailureOnlyModel) Unit.unit
+      Unit.unit Unit.unit :=
+  translationFailureOnly_supportDegraded
+
+example :
+    ISFSem translationFailureOnlyModel Unit.unit Unit.unit Unit.unit Unit.unit
+      Unit.unit :=
+  translationFailureOnly_to_ISFSem
+
+example :
+    ISFTMechanismProfileSatisfied
+      translationFailureOnlyProfile.toMechanismProfile :=
+  translationFailureOnly_mechanism_profile_satisfied
+
+example :
+    (translationFailureOnlyProfile.toMechanismProfile).mechanism =
+      ISFTMechanism.M6 :=
+  TranslationFailureProfile_mechanism_label translationFailureOnlyProfile
+
+example :
+    TranslationFailureProfileBlocked translationFailureNoSourceProfile :=
+  translationFailureNoSourceProfile_blocked
+
+example :
+    TranslationFailureProfileBlocked translationFailureNoTargetProfile :=
+  translationFailureNoTargetProfile_blocked
+
+example :
+    TranslationFailureProfileBlocked translationFailureAbsentProfile :=
+  translationFailureAbsentProfile_blocked
+
+example :
+    TranslationFailureProfileBlocked
+      translationFailureImmaterialLossProfile :=
+  translationFailureImmaterialLossProfile_blocked
+
+example :
+    TranslationFailureProfileBlocked translationFailureLinkIntactProfile :=
+  translationFailureLinkIntactProfile_blocked
+
+example :
+    TranslationFailureProfileBlocked translationFailureVerifiedProfile :=
+  translationFailureVerifiedProfile_blocked
+
+example :
+    TranslationFailureProfileBlocked
+      translationFailureBoundaryPresentProfile :=
+  translationFailureBoundaryPresentProfile_blocked
 
 example :
     MetricProxyProfileSatisfied metricProxyOnlyProfile :=

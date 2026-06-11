@@ -153,9 +153,10 @@ seven condition blockers, seven concrete blocked witnesses, and an executable
 checker.  M2 has the parallel `MetricProxy.lean` profile.  M3 has
 `FormalAccessSubstitution.lean` for formal-access substitution.  M4 has
 `SymbolicSubstitution.lean` for symbolic substitution.  M5 has
-`RepairFailure.lean` for repair failure.  Next Lane D passes should repeat this
-pattern for M6, M9, M10, M11, and M12, while keeping M8's richer power
-semantics linked rather than duplicated.
+`RepairFailure.lean` for repair failure.  M6 has `TranslationFailure.lean` for
+translation failure.  Next Lane D passes should repeat this pattern for M9,
+M10, M11, and M12, while keeping M8's richer power semantics linked rather
+than duplicated.
 
 ## Lane E - Contradiction, Insight, And Delta Dynamics
 
