@@ -18,6 +18,7 @@ import Paralogic.ConceptualEssentialization
 import Paralogic.MechanismSynthesis
 import Paralogic.EvidenceOverclaim
 import Paralogic.MetricProxy
+import Paralogic.FormalAccessSubstitution
 import Paralogic.WarrantDischarge
 
 /-!
@@ -506,6 +507,58 @@ example :
     EvidenceOverclaimProfileBlocked
       evidenceOverclaimBoundaryPresentProfile :=
   evidenceOverclaimBoundaryPresentProfile_blocked
+
+example :
+    FormalAccessProfileSatisfied formalAccessOnlyProfile :=
+  formalAccessOnlyProfile_satisfied
+
+example :
+    SupportDegradedSem (M := formalAccessOnlyModel) Unit.unit Unit.unit
+      Unit.unit :=
+  formalAccessOnly_supportDegraded
+
+example :
+    ISFSem formalAccessOnlyModel Unit.unit Unit.unit Unit.unit Unit.unit
+      Unit.unit :=
+  formalAccessOnly_to_ISFSem
+
+example :
+    ISFTMechanismProfileSatisfied
+      formalAccessOnlyProfile.toMechanismProfile :=
+  formalAccessOnly_mechanism_profile_satisfied
+
+example :
+    (formalAccessOnlyProfile.toMechanismProfile).mechanism =
+      ISFTMechanism.M3 :=
+  FormalAccessProfile_mechanism_label formalAccessOnlyProfile
+
+example :
+    FormalAccessProfileBlocked formalAccessNoDeclarationProfile :=
+  formalAccessNoDeclarationProfile_blocked
+
+example :
+    FormalAccessProfileBlocked formalAccessSubstantivePresentProfile :=
+  formalAccessSubstantivePresentProfile_blocked
+
+example :
+    FormalAccessProfileBlocked formalAccessNotSubstitutedProfile :=
+  formalAccessNotSubstitutedProfile_blocked
+
+example :
+    FormalAccessProfileBlocked formalAccessUsableProfile :=
+  formalAccessUsableProfile_blocked
+
+example :
+    FormalAccessProfileBlocked formalAccessComprehensibleProfile :=
+  formalAccessComprehensibleProfile_blocked
+
+example :
+    FormalAccessProfileBlocked formalAccessRemedyPresentProfile :=
+  formalAccessRemedyPresentProfile_blocked
+
+example :
+    FormalAccessProfileBlocked formalAccessBoundaryPresentProfile :=
+  formalAccessBoundaryPresentProfile_blocked
 
 example :
     MetricProxyProfileSatisfied metricProxyOnlyProfile :=

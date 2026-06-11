@@ -150,8 +150,9 @@ semantics rather than rechecking basic coverage.
 Mechanism-specific update: M1 now has `EvidenceOverclaim.lean`, a checked
 evidence-overclaim profile with positive support-degradation/ISF projection,
 seven condition blockers, seven concrete blocked witnesses, and an executable
-checker.  M2 has the parallel `MetricProxy.lean` profile.  Next Lane D passes
-should repeat this pattern for M3, M4, M5, M6, M9, M10, M11, and M12, while
+checker.  M2 has the parallel `MetricProxy.lean` profile.  M3 has
+`FormalAccessSubstitution.lean` for formal-access substitution.  Next Lane D
+passes should repeat this pattern for M4, M5, M6, M9, M10, M11, and M12, while
 keeping M8's richer power semantics linked rather than duplicated.
 
 ## Lane E - Contradiction, Insight, And Delta Dynamics

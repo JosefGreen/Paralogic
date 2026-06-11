@@ -150,6 +150,12 @@ notes as well as open gaps.
     evaluator separation jointly project to support degradation and ISF, while
     each missing condition has a concrete blocked witness. Source-complete and
     empirical M2 validation remain open.
+36a.3. M3 now has a mechanism-specific operational profile in
+    `FormalAccessSubstitution.lean`: formal access, absent substantive access,
+    access-as-sufficient treatment, material usability and comprehension
+    barriers, missing remedy path, and missing boundary guard jointly project
+    to support degradation and ISF, while each missing condition has a concrete
+    blocked witness. Source-complete and empirical M3 validation remain open.
 36b. M8 power-condition warrant discharge now has a scoped operational model
     for relevance, validity dependence, and omission, with negative controls
     for unaffected group, immaterial condition, and ordinary output.  Remaining

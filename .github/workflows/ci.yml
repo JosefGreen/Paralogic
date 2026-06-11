@@ -72,3 +72,6 @@ jobs:
 
       - name: Run M1 evidence overclaim checker
         run: python python/evidence_overclaim_check.py
+
+      - name: Run M3 formal access checker
+        run: python python/formal_access_check.py

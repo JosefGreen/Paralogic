@@ -26,6 +26,7 @@ import Paralogic.ISFTMechanisms
 import Paralogic.MechanismSynthesis
 import Paralogic.EvidenceOverclaim
 import Paralogic.MetricProxy
+import Paralogic.FormalAccessSubstitution
 import Paralogic.WarrantDischarge
 import Paralogic.ConceptualEssentialization
 import Paralogic.Semantics

@@ -118,6 +118,13 @@ optimization pressure, proxy-target divergence, material replacement, absent
 boundary guard, and absent evaluator separation.  Its checker persists results
 in `docs/metric_proxy_checks/`.
 
+M3 now has the parallel formal module,
+`src/Paralogic/FormalAccessSubstitution.lean`.  It models formal-access
+substitution through declared formal access, absent substantive access,
+access-as-sufficient treatment, material usability and comprehension barriers,
+absent remedy path, and absent boundary guard.  Its checker persists results
+in `docs/formal_access_checks/`.
+
 ## Pipeline Consequence
 
 Lane D should now proceed by filling each mechanism with:
