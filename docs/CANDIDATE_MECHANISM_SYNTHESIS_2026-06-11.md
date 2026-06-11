@@ -144,6 +144,11 @@ performed translation, material semantic loss, broken actor link, absent
 verification, and absent boundary guard.  Its checker persists results in
 `docs/translation_failure_checks/`.
 
+M9 now has the parallel formal module, `src/Paralogic/VetoSuppression.lean`.
+It models veto suppression through veto right, affected participant, veto
+attempt, suppression, materiality, absent review path, and absent boundary
+guard.  Its checker persists results in `docs/veto_suppression_checks/`.
+
 ## Pipeline Consequence
 
 Lane D should now proceed by filling each mechanism with:

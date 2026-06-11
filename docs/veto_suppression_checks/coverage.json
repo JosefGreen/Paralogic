@@ -1,0 +1,79 @@
+{
+  "blocked_witness_count": 7,
+  "blocked_witnesses": {
+    "vetoSuppressionBoundaryPresentProfile_blocked": true,
+    "vetoSuppressionImmaterialProfile_blocked": true,
+    "vetoSuppressionNoAttemptProfile_blocked": true,
+    "vetoSuppressionNoParticipantProfile_blocked": true,
+    "vetoSuppressionNoRightProfile_blocked": true,
+    "vetoSuppressionNotSuppressedProfile_blocked": true,
+    "vetoSuppressionReviewPresentProfile_blocked": true
+  },
+  "blocker_count": 7,
+  "blockers": {
+    "absent_veto_attempt_blocks_profile": true,
+    "immaterial_veto_suppression_blocks_profile": true,
+    "missing_affected_participant_blocks_profile": true,
+    "missing_veto_right_blocks_profile": true,
+    "present_veto_boundary_blocks_profile": true,
+    "present_veto_review_blocks_profile": true,
+    "unsuppressed_veto_blocks_profile": true
+  },
+  "condition_count": 7,
+  "conditions": {
+    "affectedParticipantPresent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "boundaryGuardAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "reviewPathAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "suppressionMaterial": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "vetoAttemptMade": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "vetoRightDeclared": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "vetoSuppressed": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    }
+  },
+  "missing_blocked_witnesses": [],
+  "missing_blockers": [],
+  "missing_condition_mentions": {},
+  "missing_positive_artifacts": [],
+  "positive_artifacts": {
+    "M9VetoSuppressionCase": true,
+    "M9VetoSuppressionCase_to_ISFSem": true,
+    "M9VetoSuppressionSatisfied": true,
+    "VetoSuppressionProfile": true,
+    "VetoSuppressionProfile.toMechanismProfile": true,
+    "VetoSuppressionProfileSatisfied": true,
+    "VetoSuppressionProfile_to_mechanism_satisfied": true,
+    "VetoSuppressionProfile_to_supportDegraded": true,
+    "vetoSuppressionOnlyProfile_satisfied": true,
+    "vetoSuppressionOnly_mechanism_profile_satisfied": true,
+    "vetoSuppressionOnly_supportDegraded": true,
+    "vetoSuppressionOnly_to_ISFSem": true
+  },
+  "status": "M9C-pass"
+}

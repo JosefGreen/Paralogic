@@ -30,6 +30,7 @@ import Paralogic.FormalAccessSubstitution
 import Paralogic.SymbolicSubstitution
 import Paralogic.RepairFailure
 import Paralogic.TranslationFailure
+import Paralogic.VetoSuppression
 import Paralogic.WarrantDischarge
 import Paralogic.ConceptualEssentialization
 import Paralogic.Semantics

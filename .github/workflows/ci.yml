@@ -84,3 +84,6 @@ jobs:
 
       - name: Run M6 translation failure checker
         run: python python/translation_failure_check.py
+
+      - name: Run M9 veto suppression checker
+        run: python python/veto_suppression_check.py

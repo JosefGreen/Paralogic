@@ -22,6 +22,7 @@ import Paralogic.FormalAccessSubstitution
 import Paralogic.SymbolicSubstitution
 import Paralogic.RepairFailure
 import Paralogic.TranslationFailure
+import Paralogic.VetoSuppression
 import Paralogic.WarrantDischarge
 
 /-!
@@ -729,6 +730,59 @@ example :
     TranslationFailureProfileBlocked
       translationFailureBoundaryPresentProfile :=
   translationFailureBoundaryPresentProfile_blocked
+
+example :
+    VetoSuppressionProfileSatisfied vetoSuppressionOnlyProfile :=
+  vetoSuppressionOnlyProfile_satisfied
+
+example :
+    SupportDegradedSem (M := vetoSuppressionOnlyModel) Unit.unit Unit.unit
+      Unit.unit :=
+  vetoSuppressionOnly_supportDegraded
+
+example :
+    ISFSem vetoSuppressionOnlyModel Unit.unit Unit.unit Unit.unit Unit.unit
+      Unit.unit :=
+  vetoSuppressionOnly_to_ISFSem
+
+example :
+    ISFTMechanismProfileSatisfied
+      vetoSuppressionOnlyProfile.toMechanismProfile :=
+  vetoSuppressionOnly_mechanism_profile_satisfied
+
+example :
+    (vetoSuppressionOnlyProfile.toMechanismProfile).mechanism =
+      ISFTMechanism.M9 :=
+  VetoSuppressionProfile_mechanism_label vetoSuppressionOnlyProfile
+
+example :
+    VetoSuppressionProfileBlocked vetoSuppressionNoRightProfile :=
+  vetoSuppressionNoRightProfile_blocked
+
+example :
+    VetoSuppressionProfileBlocked vetoSuppressionNoParticipantProfile :=
+  vetoSuppressionNoParticipantProfile_blocked
+
+example :
+    VetoSuppressionProfileBlocked vetoSuppressionNoAttemptProfile :=
+  vetoSuppressionNoAttemptProfile_blocked
+
+example :
+    VetoSuppressionProfileBlocked vetoSuppressionNotSuppressedProfile :=
+  vetoSuppressionNotSuppressedProfile_blocked
+
+example :
+    VetoSuppressionProfileBlocked vetoSuppressionImmaterialProfile :=
+  vetoSuppressionImmaterialProfile_blocked
+
+example :
+    VetoSuppressionProfileBlocked vetoSuppressionReviewPresentProfile :=
+  vetoSuppressionReviewPresentProfile_blocked
+
+example :
+    VetoSuppressionProfileBlocked
+      vetoSuppressionBoundaryPresentProfile :=
+  vetoSuppressionBoundaryPresentProfile_blocked
 
 example :
     MetricProxyProfileSatisfied metricProxyOnlyProfile :=

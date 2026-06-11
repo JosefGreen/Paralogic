@@ -175,6 +175,12 @@ notes as well as open gaps.
     and missing boundary guard jointly project to support degradation and ISF,
     while each missing condition has a concrete blocked witness.
     Source-complete and empirical M6 validation remain open.
+36a.9. M9 now has a mechanism-specific operational profile in
+    `VetoSuppression.lean`: veto right, affected participant, veto attempt,
+    suppression, materiality, absent review path, and missing boundary guard
+    jointly project to support degradation and ISF, while each missing
+    condition has a concrete blocked witness. Source-complete and empirical M9
+    validation remain open.
 36b. M8 power-condition warrant discharge now has a scoped operational model
     for relevance, validity dependence, and omission, with negative controls
     for unaffected group, immaterial condition, and ordinary output.  Remaining
