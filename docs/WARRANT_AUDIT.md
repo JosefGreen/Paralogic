@@ -53,6 +53,15 @@ operational discharge in `operationalEvaluatorModel`.  In that model, the
 pair.  Lean connects the existing high-score rule to an accepting decision and
 keeps low-score acceptance blocked.
 
+Additional discharge progress: contradiction presence now has a scoped
+operational discharge in `operationalContradictionModel`.  In that model, the
+`contradictionPresent` predicate is computed from the triple active frame,
+active context, and contested claim.  Lean proves the positive contested case,
+negative controls for resolved claim, inactive frame, and inactive context,
+and the profile-to-present conversion.  This remains a scoped operational
+rule, not a source-backed or empirically validated theory of every
+contradiction kind.
+
 `repairBridgeOnlyTargetedRevision_warrants_obligation` is therefore a
 conditional bridge theorem.  The targeted repair action satisfies the local
 finite revision postulates, but the repair-obligation conclusion still depends

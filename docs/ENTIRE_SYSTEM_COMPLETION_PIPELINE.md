@@ -157,7 +157,11 @@ Exit condition: contradiction and Delta are operational, not merely taxonomic.
 Current status: MC3-Lean finite transition artifacts now exist in Lane K for
 Delta reachability, non-finality, terminal stability, modal eventuality, and a
 non-resolution loop counterexample.  The full operational Delta classifier
-program above remains open.
+program above remains open.  Warrant-discharge work now adds a scoped
+operational contradiction model: active frame, active context, and contested
+claim compute `contradictionPresent`, while resolved claim, inactive frame,
+and inactive context are negative controls.  Richer kind-specific
+contradiction semantics remain open.
 
 ## Lane F - Evaluator Calculus
 
@@ -202,7 +206,9 @@ warrant families.  Adequacy now has a scoped operational discharge model with
 a positive computed-adequacy case and an unsupported-evidence negative control.
 Evaluator accepting decisions now have a scoped operational discharge model
 connecting high-score acceptance to `EvaluatorAcceptsSem` while preserving the
-low-score negative control.
+low-score negative control.  Contradiction presence now has a scoped
+operational discharge model with positive contested-case detection and
+negative controls for resolved claim, inactive frame, and inactive context.
 Lane G is not complete until each obligation is promoted by operational rules,
 source-backed rules, empirical validation, or lower-level derivation.
 

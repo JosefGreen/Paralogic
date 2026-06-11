@@ -1,6 +1,6 @@
 # Current Status
 
-Last updated: 2026-06-10.
+Last updated: 2026-06-11.
 
 Current status: incomplete.
 
@@ -103,6 +103,9 @@ The repository currently contains:
 - A scoped operational evaluator model where high-score accepting decisions
   compute evaluator acceptance for an approved evaluator/candidate pair, while
   low-score acceptance remains blocked.
+- A scoped operational contradiction model where contradiction presence is
+  computed from active frame, active context, and contested claim, with
+  negative controls for resolved claim, inactive frame, and inactive context.
 - EMP0 empirical protocol artifacts.
 - Internal academic-audit artifacts.
 

@@ -93,6 +93,12 @@ notes as well as open gaps.
     Remaining
     future contradiction extensions include richer domain-specific semantics
     for each kind, but the pipeline now advances to Insight and Delta calculus.
+31a. Warrant discharge now includes a scoped operational contradiction
+    detector: active frame, active context, and contested claim imply
+    contradiction presence, while resolved claim, inactive frame, and inactive
+    context are negative controls.  Remaining contradiction work is
+    kind-specific source grounding, richer domain semantics, and empirical
+    coding/validation where empirical claims are made.
 32. Gate 4 has initial insight and Delta outcome cases with non-collapse
     witnesses, but Delta exclusivity/overlap policy and all Delta outcome
     cases remain to be completed.

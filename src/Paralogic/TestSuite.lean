@@ -442,6 +442,51 @@ example :
   rfl
 
 example :
+    warrantResolutionStatusWithOperationalCore
+      WarrantObligation.contradictionPresent =
+        WarrantResolutionStatus.operationallyDischarged :=
+  contradiction_is_operationally_discharged_in_scoped_model
+
+example :
+    ContradictionPresentSem (M := operationalContradictionModel)
+      OperationalContradictionToken.activeFrame
+      OperationalContradictionToken.activeContext
+      OperationalContradictionToken.contestedClaim :=
+  operational_contradiction_active_contested_present
+
+example :
+    Not (ContradictionPresentSem (M := operationalContradictionModel)
+      OperationalContradictionToken.activeFrame
+      OperationalContradictionToken.activeContext
+      OperationalContradictionToken.resolvedClaim) :=
+  operational_contradiction_resolved_not_present
+
+example :
+    Not (ContradictionPresentSem (M := operationalContradictionModel)
+      OperationalContradictionToken.inactiveFrame
+      OperationalContradictionToken.activeContext
+      OperationalContradictionToken.contestedClaim) :=
+  operational_contradiction_inactive_frame_not_present
+
+example :
+    Not (ContradictionPresentSem (M := operationalContradictionModel)
+      OperationalContradictionToken.activeFrame
+      OperationalContradictionToken.inactiveContext
+      OperationalContradictionToken.contestedClaim) :=
+  operational_contradiction_inactive_context_not_present
+
+example :
+    ContradictionProfileSatisfied operationalContradictionProfile :=
+  operationalContradictionProfile_satisfied
+
+example :
+    ContradictionPresentSem (M := operationalContradictionModel)
+      operationalContradictionProfile.frame
+      operationalContradictionProfile.context
+      operationalContradictionProfile.claim :=
+  operationalContradictionProfile_to_present
+
+example :
     operationalAdequacyModel.interpPredicate PredicateSymbol.adequate
       (Args.cons OperationalAdequacyToken.supported
         (Args.cons OperationalAdequacyToken.inScope

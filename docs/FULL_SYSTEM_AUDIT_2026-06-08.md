@@ -96,6 +96,11 @@ Additional repair applied: evaluator accepting decisions now have a scoped
 operational discharge model connecting high-score acceptance to
 `EvaluatorAcceptsSem` for an approved evaluator/candidate pair, while low-score
 acceptance remains blocked. This is still not empirical evaluator calibration.
+Additional repair applied: contradiction presence now has a scoped operational
+discharge model in which an active frame, active context, and contested claim
+compute `ContradictionPresentSem`, with resolved-claim, inactive-frame, and
+inactive-context negative controls. This is still not a source-backed or
+empirically validated contradiction taxonomy.
 
 ### F4 - One-Element Witnesses Are Useful But Too Weak
 

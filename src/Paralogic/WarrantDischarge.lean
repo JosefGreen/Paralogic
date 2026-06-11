@@ -79,6 +79,16 @@ def warrantResolutionStatusWithOperationalAdequacyAndEvaluator :
       WarrantResolutionStatus.operationallyDischarged
   | obligation => warrantResolutionStatus obligation
 
+def warrantResolutionStatusWithOperationalCore :
+    WarrantObligation -> WarrantResolutionStatus
+  | WarrantObligation.contradictionPresent =>
+      WarrantResolutionStatus.operationallyDischarged
+  | WarrantObligation.adequacy =>
+      WarrantResolutionStatus.operationallyDischarged
+  | WarrantObligation.evaluatorDecisionAccepts =>
+      WarrantResolutionStatus.operationallyDischarged
+  | obligation => warrantResolutionStatus obligation
+
 def warrantFalseModel : SigmaModel :=
   UnitPredicateModel (fun _ => False)
 
@@ -91,6 +101,101 @@ theorem warrant_false_model_not_contradiction_present :
       Unit.unit Unit.unit Unit.unit) := by
   intro h
   exact h
+
+inductive OperationalContradictionToken where
+  | activeFrame
+  | inactiveFrame
+  | activeContext
+  | inactiveContext
+  | contestedClaim
+  | resolvedClaim
+  | ordinary
+  deriving DecidableEq, Repr
+
+def operationalContradictionCarrier (_ : SortTag) : Type :=
+  OperationalContradictionToken
+
+def operationalContradictionFunctionInterp (_f : FunctionSymbol)
+    (_args : Args operationalContradictionCarrier ((functionArity _f).domain)) :
+    operationalContradictionCarrier ((functionArity _f).codomain) :=
+  OperationalContradictionToken.ordinary
+
+def operationalContradictionPredicateInterp :
+    (p : PredicateSymbol) ->
+      Args operationalContradictionCarrier ((predicateArity p).domain) -> Prop
+  | PredicateSymbol.contradictionPresent,
+      Args.cons OperationalContradictionToken.activeFrame
+        (Args.cons OperationalContradictionToken.activeContext
+          (Args.cons OperationalContradictionToken.contestedClaim Args.nil)) =>
+      True
+  | PredicateSymbol.contradictionPresent, _ => False
+  | _, _ => False
+
+def operationalContradictionModel : SigmaModel :=
+  { Carrier := operationalContradictionCarrier
+    interpFunction := operationalContradictionFunctionInterp
+    interpPredicate := operationalContradictionPredicateInterp }
+
+theorem operational_contradiction_active_contested_present :
+    ContradictionPresentSem (M := operationalContradictionModel)
+      OperationalContradictionToken.activeFrame
+      OperationalContradictionToken.activeContext
+      OperationalContradictionToken.contestedClaim :=
+  True.intro
+
+theorem operational_contradiction_resolved_not_present :
+    Not (ContradictionPresentSem (M := operationalContradictionModel)
+      OperationalContradictionToken.activeFrame
+      OperationalContradictionToken.activeContext
+      OperationalContradictionToken.resolvedClaim) := by
+  intro h
+  exact h
+
+theorem operational_contradiction_inactive_frame_not_present :
+    Not (ContradictionPresentSem (M := operationalContradictionModel)
+      OperationalContradictionToken.inactiveFrame
+      OperationalContradictionToken.activeContext
+      OperationalContradictionToken.contestedClaim) := by
+  intro h
+  exact h
+
+theorem operational_contradiction_inactive_context_not_present :
+    Not (ContradictionPresentSem (M := operationalContradictionModel)
+      OperationalContradictionToken.activeFrame
+      OperationalContradictionToken.inactiveContext
+      OperationalContradictionToken.contestedClaim) := by
+  intro h
+  exact h
+
+def operationalContradictionProfile :
+    ContradictionProfile operationalContradictionModel :=
+  { kind := ContradictionKind.semantic
+    frame := OperationalContradictionToken.activeFrame
+    context := OperationalContradictionToken.activeContext
+    claim := OperationalContradictionToken.contestedClaim
+    domainApplies := True
+    incompatibilityDetected := True
+    sameScope := True
+    sameContext := True
+    unresolved := True
+    warrant := fun _ _ _ _ _ =>
+      operational_contradiction_active_contested_present }
+
+theorem operationalContradictionProfile_satisfied :
+    ContradictionProfileSatisfied operationalContradictionProfile :=
+  { domainApplies := True.intro
+    incompatibilityDetected := True.intro
+    sameScope := True.intro
+    sameContext := True.intro
+    unresolved := True.intro }
+
+theorem operationalContradictionProfile_to_present :
+    ContradictionPresentSem (M := operationalContradictionModel)
+      operationalContradictionProfile.frame
+      operationalContradictionProfile.context
+      operationalContradictionProfile.claim :=
+  (operationalContradictionProfile.toCase
+    operationalContradictionProfile_satisfied).present
 
 theorem warrant_false_model_not_adequate :
     Not (warrantFalseModel.interpPredicate PredicateSymbol.adequate
@@ -446,6 +551,26 @@ theorem operational_adequacy_not_source_backed :
 theorem operational_adequacy_not_empirically_validated :
     Not
       (warrantResolutionStatusWithOperationalAdequacy WarrantObligation.adequacy =
+        WarrantResolutionStatus.empiricallyValidated) := by
+  intro h
+  cases h
+
+theorem contradiction_is_operationally_discharged_in_scoped_model :
+    warrantResolutionStatusWithOperationalCore WarrantObligation.contradictionPresent =
+      WarrantResolutionStatus.operationallyDischarged := rfl
+
+theorem operational_contradiction_not_source_backed :
+    Not
+      (warrantResolutionStatusWithOperationalCore
+        WarrantObligation.contradictionPresent =
+        WarrantResolutionStatus.sourceBacked) := by
+  intro h
+  cases h
+
+theorem operational_contradiction_not_empirically_validated :
+    Not
+      (warrantResolutionStatusWithOperationalCore
+        WarrantObligation.contradictionPresent =
         WarrantResolutionStatus.empiricallyValidated) := by
   intro h
   cases h
