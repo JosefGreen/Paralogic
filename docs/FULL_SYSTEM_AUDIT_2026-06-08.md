@@ -82,6 +82,13 @@ Required repair:
   empirically testable, or still unsupported.
 - Do not count warrant-consuming theorems as independent validation.
 
+Partial repair applied: `WarrantDischarge.lean` now enumerates current
+warrant-like obligations, classifies them as countermodel-guarded, proves they
+are not yet source-backed or empirically validated, and gives all-false-model
+countermodels against treating raw profile conditions as sufficient for the
+warranted conclusion.  This accounts for the obligations but does not discharge
+them into source-backed or empirical status.
+
 ### F4 - One-Element Witnesses Are Useful But Too Weak
 
 Many non-collapse theorems use `UnitPredicateModel` or one-object `World`

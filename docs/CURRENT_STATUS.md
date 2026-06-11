@@ -93,6 +93,10 @@ The repository currently contains:
   each mechanism with an academic lens, failure axis, maturity status,
   operational trigger, boundary guard, empirical coding plan, and non-collapse
   guard before any source-backed or empirical promotion is allowed.
+- A new MC3-Lean warrant-discharge scaffold that enumerates current
+  warrant-like assumptions, proves they are not yet source-backed or
+  empirically validated, and gives all-false-model countermodels against raw
+  condition-to-conclusion shortcuts.
 - EMP0 empirical protocol artifacts.
 - Internal academic-audit artifacts.
 
@@ -100,6 +104,8 @@ The repository does not yet contain:
 
 - a complete Paralogic or ISFT mathematical theory;
 - source-backed semantics for all M1-M12 mechanisms;
+- completed discharge of all warrant obligations into source-backed,
+  empirically validated, or lower-level derived theorems;
 - a mature proof theory with full syntactic freshness/eigenvariable rules for
   quantified formulas, alpha-equivalence, and completeness results;
 - global finite-model search;

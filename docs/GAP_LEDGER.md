@@ -60,8 +60,12 @@ notes as well as open gaps.
     finite enumeration algorithms and coverage proofs.
 22. Preservation profiles are data records, not yet tied to partial morphism
     theorems.
-23. Normative bridge schemas include warrants as fields; the project still
-    needs an axiom audit for each concrete warrant.
+23. Normative bridge schemas and several other modules include warrants as
+    fields. `WarrantDischarge.lean` now enumerates the current warrant
+    obligations and proves all are only countermodel-guarded, not yet
+    source-backed or empirically validated. Remaining work: discharge each
+    obligation through source-backed rules, empirical validation, or lower-level
+    derivation.
 24. Empirical validation protocols, measurement protocol, coding manual,
     dataset schema, reliability plan, construct-validity plan, pilot protocol,
     and replication plan now exist. No data, reliability statistic, validity

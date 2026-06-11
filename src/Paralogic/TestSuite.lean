@@ -16,6 +16,7 @@ import Paralogic.InstitutionFragment
 import Paralogic.FormalConcept
 import Paralogic.ConceptualEssentialization
 import Paralogic.MechanismSynthesis
+import Paralogic.WarrantDischarge
 
 /-!
 Lean examples that serve as regression tests.
@@ -423,6 +424,40 @@ example :
   candidate_synthesized_not_source_backed
     (unitCandidateDefinition ISFTMechanism.M8)
     rfl
+
+example :
+    warrantResolutionStatus WarrantObligation.adequacy =
+      WarrantResolutionStatus.countermodelGuarded :=
+  rfl
+
+example :
+    adequacy_warrant_countermodel.warrantedConclusionFails :=
+  adequacy_warrant_countermodel_blocks_raw_shortcut
+
+example :
+    contradiction_warrant_countermodel.warrantedConclusionFails :=
+  contradiction_warrant_countermodel_blocks_raw_shortcut
+
+example :
+    evaluator_criteria_warrant_countermodel.warrantedConclusionFails :=
+  evaluator_warrant_countermodel_blocks_raw_shortcut
+
+example :
+    empirical_validation_warrant_countermodel.warrantedConclusionFails :=
+  empirical_warrant_countermodel_blocks_raw_shortcut
+
+example (conclusion : NormativeConclusion) :
+    (normative_bridge_warrant_countermodel conclusion).warrantedConclusionFails :=
+  normative_warrant_countermodel_blocks_raw_shortcut conclusion
+
+example :
+    repair_obligation_warrant_countermodel.warrantedConclusionFails :=
+  repair_warrant_countermodel_blocks_raw_shortcut
+
+example (obligation : WarrantObligation) :
+    Not (warrantResolutionStatus obligation =
+      WarrantResolutionStatus.sourceBacked) :=
+  no_warrant_obligation_is_source_backed_yet obligation
 
 example : ContextualObstruction noGlobalFamily :=
   noGlobalFamily_obstructed

@@ -194,6 +194,12 @@ non-collapse families.
 5. Bridge independence countermodel families beyond one-element witnesses.
 
 Current status: SCAF.
+Priority update: `WarrantDischarge.lean` now enumerates the current
+warrant-like obligations and classifies them as countermodel-guarded rather
+than source-backed or empirically validated.  The module proves all-false-model
+countermodels blocking raw-condition-to-conclusion shortcuts for the major
+warrant families.  Lane G is not complete until each obligation is promoted by
+source-backed rules, empirical validation, or lower-level derivation.
 
 ## Lane H - Executable Checking
 

@@ -573,6 +573,10 @@ Status: MC3-Lean after successful local build.
 | G7-EXT-1 | repair externality witness is satisfied | `repairBridgeOnlyExternality_satisfied` |
 | G7-DEFEAT-1 | defeated repair bridge schema is blocked | `defeatedRepairSchema_blocked` |
 | G7-NC-1 | repair-obligation bridge does not imply harm bridge | `repairBridgeOnly_not_HarmBridgeSem` |
+| G7-WD-1 | current warrant-like obligations are enumerated as formal objects | `WarrantObligation` |
+| G7-WD-2 | current warrant obligations are classified as countermodel-guarded, not discharged | `WarrantResolutionStatus`, `warrantResolutionStatus` |
+| G7-WD-3 | all-false model blocks contradiction, adequacy, evaluator, empirical, normative, and repair raw-condition shortcuts | `warrantFalseModel`, `contradiction_warrant_countermodel_blocks_raw_shortcut`, `adequacy_warrant_countermodel_blocks_raw_shortcut`, `evaluator_warrant_countermodel_blocks_raw_shortcut`, `empirical_warrant_countermodel_blocks_raw_shortcut`, `normative_warrant_countermodel_blocks_raw_shortcut`, `repair_warrant_countermodel_blocks_raw_shortcut` |
+| G7-WD-4 | no current warrant obligation is source-backed or empirically validated yet | `no_warrant_obligation_is_source_backed_yet`, `no_warrant_obligation_is_empirically_validated_yet` |
 | G7-NC-2 | repair-obligation bridge does not imply moral-guilt bridge | `repairBridgeOnly_not_MoralGuiltBridgeSem` |
 | G7-NC-3 | repair-obligation bridge does not imply full empirical validation | `repairBridgeOnly_not_FullEmpiricalValidationSem` |
 | G7-NC-4 | repair-obligation bridge does not imply valid insight | `repairBridgeOnly_not_ValidInsightSem` |
