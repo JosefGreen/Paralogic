@@ -33,6 +33,9 @@ evaluator_calibration_check = load_module(
 propositional_proof_check = load_module(
     "propositional_proof_check", "python/propositional_proof_check.py"
 )
+warrant_coverage_check = load_module(
+    "warrant_coverage_check", "python/warrant_coverage_check.py"
+)
 
 
 def test_finite_checker_all_targets_match_expectation():
@@ -379,3 +382,25 @@ def test_propositional_proof_checker_persisted_targets_exist():
         )
         persisted = json.loads(path.read_text(encoding="utf-8"))
         assert persisted == row
+
+
+def test_warrant_coverage_checker_proves_all_current_obligations_covered():
+    coverage = warrant_coverage_check.coverage()
+    assert coverage["status"] == "WCC-pass"
+    assert coverage["obligation_count"] == 11
+    assert coverage["operational_case_count"] == coverage["obligation_count"]
+    assert coverage["missing_operational_cases"] == []
+    assert coverage["extra_operational_cases"] == []
+    assert coverage["missing_theorems"] == []
+
+
+def test_warrant_coverage_checker_persisted_coverage_matches_runtime():
+    path = ROOT / "docs" / "warrant_coverage_checks" / "coverage.json"
+    persisted = json.loads(path.read_text(encoding="utf-8"))
+    assert persisted == warrant_coverage_check.coverage()
+
+
+def test_warrant_coverage_checker_persisted_obligations_match_runtime():
+    path = ROOT / "docs" / "warrant_coverage_checks" / "obligations.json"
+    persisted = json.loads(path.read_text(encoding="utf-8"))
+    assert persisted == warrant_coverage_check.warrant_obligations()

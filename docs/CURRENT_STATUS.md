@@ -34,6 +34,9 @@ The repository currently contains:
   repair witnesses.
 - A bounded evaluator-calibration checker sweeping all 27 three-evaluator
   score triples for finite score, disagreement, and majority-decision rules.
+- A warrant-coverage checker that parses the Lean warrant obligation
+  enumeration and confirms every current obligation is covered by the
+  operational core status plus universal guard theorems.
 - A bounded propositional proof checker covering seven positive and negative
   truth-table targets for the strengthened derivability fragment.
 - A tiny PYC proof checker for a Horn-like fragment, with regression tests and

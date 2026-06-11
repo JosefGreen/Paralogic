@@ -657,6 +657,10 @@ Status: EFC-bounded after successful local Python run.
 | G8-PPC-1 | bounded propositional proof checker truth-table checks Lean-named proof-theory examples | `python/propositional_proof_check.py` |
 | G8-PPC-2 | bounded propositional proof checker records seven positive and negative targets | `docs/propositional_proof_checks/coverage.json` |
 | G8-PPC-3 | propositional proof check report records PPC-bounded scope and anti-overclaim guard | `docs/PROPOSITIONAL_PROOF_CHECK_REPORT_2026-06-08.md` |
+| G8-WCC-1 | warrant coverage checker parses the Lean warrant-obligation enumeration | `python/warrant_coverage_check.py` |
+| G8-WCC-2 | warrant coverage checker confirms every current obligation has an operational-core case | `docs/warrant_coverage_checks/coverage.json` |
+| G8-WCC-3 | warrant coverage checker confirms universal coverage and source/empirical guard theorems are present | `docs/warrant_coverage_checks/coverage.json` |
+| G8-WCC-4 | warrant coverage check report records WCC scope and anti-overclaim guard | `docs/WARRANT_COVERAGE_CHECK_REPORT_2026-06-11.md` |
 
 ## Gate 9 Custom Proof Checker
 

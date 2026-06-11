@@ -1,0 +1,41 @@
+{
+  "extra_operational_cases": [],
+  "missing_operational_cases": [],
+  "missing_theorems": [],
+  "obligation_count": 11,
+  "obligations": [
+    "contradictionPresent",
+    "adequacy",
+    "evaluatorCriteriaAccepts",
+    "evaluatorDecisionAccepts",
+    "powerRelevant",
+    "powerValidityDependence",
+    "powerOmitted",
+    "normativeBridge",
+    "empiricalFullValidation",
+    "suppressionSupportDegraded",
+    "repairObligation"
+  ],
+  "operational_case_count": 11,
+  "operational_cases": [
+    "contradictionPresent",
+    "adequacy",
+    "evaluatorCriteriaAccepts",
+    "evaluatorDecisionAccepts",
+    "powerRelevant",
+    "powerValidityDependence",
+    "powerOmitted",
+    "normativeBridge",
+    "empiricalFullValidation",
+    "suppressionSupportDegraded",
+    "repairObligation"
+  ],
+  "required_theorems": {
+    "OperationalWarrantCoverageComplete": true,
+    "all_warrant_obligations_operationally_discharged": true,
+    "operational_core_ne_empirically_validated": true,
+    "operational_core_ne_source_backed": true,
+    "operational_warrant_coverage_complete": true
+  },
+  "status": "WCC-pass"
+}

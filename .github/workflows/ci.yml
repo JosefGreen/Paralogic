@@ -60,3 +60,6 @@ jobs:
 
       - name: Run evaluator calibration checker
         run: python python/evaluator_calibration_check.py
+
+      - name: Run warrant coverage checker
+        run: python python/warrant_coverage_check.py

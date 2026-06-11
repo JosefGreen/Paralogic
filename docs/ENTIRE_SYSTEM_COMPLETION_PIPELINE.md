@@ -245,8 +245,10 @@ Current status: EFC/PYC/GRC/DLC/RRC/ECC/PPC scaffold with pytest regression
 coverage for checker logic and persisted artifacts.  Bounded sweeps now cover
 finite target implications, proof traces, propositional proof targets,
 granularity refinement, Delta transition systems, repair revision, and
-evaluator calibration.  Formal Lean/Python correspondence and larger global
-search remain open.
+evaluator calibration.  WCC now parses the Lean warrant enumeration and
+confirms every current obligation is operationally covered by the scoped core
+status and guard theorems.  Formal Lean/Python correspondence and larger
+global search remain open.
 
 ## Lane I - Empirical Program
 
