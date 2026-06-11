@@ -132,6 +132,11 @@ notes as well as open gaps.
     status, and proves candidate-synthesized status is not source-backed or
     empirically validated. This is the new priority path for building missing
     definitions without pretending they are already externally grounded.
+36b. M8 power-condition warrant discharge now has a scoped operational model
+    for relevance, validity dependence, and omission, with negative controls
+    for unaffected group, immaterial condition, and ordinary output.  Remaining
+    power work is source-backed institutional semantics, external case
+    grounding, and empirical coding where empirical claims are made.
 37. Gate 7 has MC3 artifacts for the scoped adequacy, normative bridge, and repair
     fragment: seven normative bridge schema families, repair diagnosis, plan,
     action, verification, closure, regress, externality, bridge-defeater, and

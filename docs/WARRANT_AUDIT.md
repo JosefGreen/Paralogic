@@ -63,6 +63,15 @@ and the profile-to-present conversion.  This remains a scoped operational
 rule, not a source-backed or empirically validated theory of every
 contradiction kind.
 
+Additional discharge progress: the three M8 power-condition warrants now have
+a scoped operational discharge in `operationalPowerModel`.  In that model,
+power relevance is computed for a review institution and affected group,
+validity dependence is computed for a contested output and material power
+condition, and omission is computed for the same material condition.  Lean
+also checks negative controls for unaffected group, immaterial condition, and
+ordinary output.  This remains local operational semantics, not an externally
+validated institutional power analysis.
+
 `repairBridgeOnlyTargetedRevision_warrants_obligation` is therefore a
 conditional bridge theorem.  The targeted repair action satisfies the local
 finite revision postulates, but the repair-obligation conclusion still depends

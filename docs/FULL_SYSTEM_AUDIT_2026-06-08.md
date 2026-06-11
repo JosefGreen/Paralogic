@@ -106,6 +106,11 @@ discharge model in which an active frame, active context, and contested claim
 compute `ContradictionPresentSem`, with resolved-claim, inactive-frame, and
 inactive-context negative controls. This is still not a source-backed or
 empirically validated contradiction taxonomy.
+Additional repair applied: M8 power-condition relevance, validity dependence,
+and omission now have a scoped operational discharge model with negative
+controls for unaffected group, immaterial power condition, and ordinary output.
+This is still not an external institutional case analysis or empirical power
+study.
 
 ### F4 - One-Element Witnesses Are Useful But Too Weak
 

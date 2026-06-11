@@ -209,7 +209,10 @@ discharge models connecting satisfied criteria and high-score acceptance to
 `EvaluatorAcceptsSem` while preserving rejected-candidate and low-score
 negative controls.  Contradiction presence now has a scoped operational
 discharge model with positive contested-case detection and negative controls
-for resolved claim, inactive frame, and inactive context.
+for resolved claim, inactive frame, and inactive context.  M8 power relevance,
+validity dependence, and omission now have a scoped operational model with
+negative controls for unaffected group, immaterial condition, and ordinary
+output.
 Lane G is not complete until each obligation is promoted by operational rules,
 source-backed rules, empirical validation, or lower-level derivation.
 

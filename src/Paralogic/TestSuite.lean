@@ -554,6 +554,86 @@ example :
   low_score_still_not_accepting_decision
 
 example :
+    PowerRelevantSem (M := operationalPowerModel)
+      OperationalPowerToken.reviewInstitution
+      OperationalPowerToken.affectedGroup :=
+  operational_power_relevant
+
+example :
+    Not (PowerRelevantSem (M := operationalPowerModel)
+      OperationalPowerToken.reviewInstitution
+      OperationalPowerToken.unaffectedGroup) :=
+  operational_power_unaffected_group_not_relevant
+
+example :
+    PowerValidityDependenceSem (M := operationalPowerModel)
+      OperationalPowerToken.reviewInstitution
+      OperationalPowerToken.contestedOutput
+      OperationalPowerToken.materialPowerCondition :=
+  operational_power_validity_dependence
+
+example :
+    Not (PowerValidityDependenceSem (M := operationalPowerModel)
+      OperationalPowerToken.reviewInstitution
+      OperationalPowerToken.contestedOutput
+      OperationalPowerToken.immaterialPowerCondition) :=
+  operational_power_immaterial_condition_not_dependence
+
+example :
+    PowerOmittedSem (M := operationalPowerModel)
+      OperationalPowerToken.reviewInstitution
+      OperationalPowerToken.contestedOutput
+      OperationalPowerToken.materialPowerCondition :=
+  operational_power_omitted
+
+example :
+    Not (PowerOmittedSem (M := operationalPowerModel)
+      OperationalPowerToken.reviewInstitution
+      OperationalPowerToken.ordinaryOutput
+      OperationalPowerToken.materialPowerCondition) :=
+  operational_power_ordinary_output_not_omitted
+
+example :
+    PowerConditionProfileSatisfied operationalPowerConditionProfile :=
+  operationalPowerConditionProfile_satisfied
+
+example :
+    PowerRelevantSem (M := operationalPowerModel)
+      operationalPowerConditionProfile.institution
+      operationalPowerConditionProfile.group :=
+  operationalPowerConditionProfile_to_powerRelevant
+
+example :
+    PowerValidityDependenceSem (M := operationalPowerModel)
+      operationalPowerConditionProfile.institution
+      operationalPowerConditionProfile.output
+      operationalPowerConditionProfile.condition :=
+  operationalPowerConditionProfile_to_powerValidityDependence
+
+example :
+    PowerOmittedSem (M := operationalPowerModel)
+      operationalPowerConditionProfile.institution
+      operationalPowerConditionProfile.output
+      operationalPowerConditionProfile.condition :=
+  operationalPowerConditionProfile_to_powerOmitted
+
+example :
+    warrantResolutionStatusWithOperationalCore WarrantObligation.powerRelevant =
+      WarrantResolutionStatus.operationallyDischarged :=
+  power_relevant_is_operationally_discharged_in_scoped_model
+
+example :
+    warrantResolutionStatusWithOperationalCore
+      WarrantObligation.powerValidityDependence =
+      WarrantResolutionStatus.operationallyDischarged :=
+  power_validity_dependence_is_operationally_discharged_in_scoped_model
+
+example :
+    warrantResolutionStatusWithOperationalCore WarrantObligation.powerOmitted =
+      WarrantResolutionStatus.operationallyDischarged :=
+  power_omitted_is_operationally_discharged_in_scoped_model
+
+example :
     adequacy_warrant_countermodel.warrantedConclusionFails :=
   adequacy_warrant_countermodel_blocks_raw_shortcut
 

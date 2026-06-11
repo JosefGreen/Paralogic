@@ -107,6 +107,10 @@ The repository currently contains:
 - A scoped operational contradiction model where contradiction presence is
   computed from active frame, active context, and contested claim, with
   negative controls for resolved claim, inactive frame, and inactive context.
+- A scoped operational M8 power-condition model where relevance, validity
+  dependence, and omission are computed for a review institution, affected
+  group, contested output, and material power condition, with negative controls
+  for unaffected group, immaterial condition, and ordinary output.
 - EMP0 empirical protocol artifacts.
 - Internal academic-audit artifacts.
 

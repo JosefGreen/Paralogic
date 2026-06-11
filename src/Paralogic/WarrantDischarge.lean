@@ -91,6 +91,12 @@ def warrantResolutionStatusWithOperationalCore :
       WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.evaluatorDecisionAccepts =>
       WarrantResolutionStatus.operationallyDischarged
+  | WarrantObligation.powerRelevant =>
+      WarrantResolutionStatus.operationallyDischarged
+  | WarrantObligation.powerValidityDependence =>
+      WarrantResolutionStatus.operationallyDischarged
+  | WarrantObligation.powerOmitted =>
+      WarrantResolutionStatus.operationallyDischarged
   | obligation => warrantResolutionStatus obligation
 
 def warrantFalseModel : SigmaModel :=
@@ -424,6 +430,153 @@ theorem warrant_false_model_not_power_omitted :
   intro h
   exact h
 
+inductive OperationalPowerToken where
+  | reviewInstitution
+  | otherInstitution
+  | contestedOutput
+  | ordinaryOutput
+  | materialPowerCondition
+  | immaterialPowerCondition
+  | affectedGroup
+  | unaffectedGroup
+  | ordinary
+  deriving DecidableEq, Repr
+
+def operationalPowerCarrier (_ : SortTag) : Type :=
+  OperationalPowerToken
+
+def operationalPowerFunctionInterp (f : FunctionSymbol)
+    (_args : Args operationalPowerCarrier ((functionArity f).domain)) :
+    operationalPowerCarrier ((functionArity f).codomain) :=
+  match f with
+  | FunctionSymbol.outputInstitution => OperationalPowerToken.reviewInstitution
+  | FunctionSymbol.outputContext => OperationalPowerToken.ordinary
+  | FunctionSymbol.claimEvidence => OperationalPowerToken.ordinary
+  | FunctionSymbol.claimContext => OperationalPowerToken.ordinary
+  | FunctionSymbol.evaluatorContext => OperationalPowerToken.ordinary
+  | FunctionSymbol.validationTarget => OperationalPowerToken.ordinary
+  | FunctionSymbol.bridgeTarget => OperationalPowerToken.ordinary
+
+def operationalPowerPredicateInterp :
+    (p : PredicateSymbol) ->
+      Args operationalPowerCarrier ((predicateArity p).domain) -> Prop
+  | PredicateSymbol.powerRelevant,
+      Args.cons OperationalPowerToken.reviewInstitution
+        (Args.cons OperationalPowerToken.affectedGroup Args.nil) =>
+      True
+  | PredicateSymbol.powerValidityDependence,
+      Args.cons OperationalPowerToken.reviewInstitution
+        (Args.cons OperationalPowerToken.contestedOutput
+          (Args.cons OperationalPowerToken.materialPowerCondition Args.nil)) =>
+      True
+  | PredicateSymbol.powerOmitted,
+      Args.cons OperationalPowerToken.reviewInstitution
+        (Args.cons OperationalPowerToken.contestedOutput
+          (Args.cons OperationalPowerToken.materialPowerCondition Args.nil)) =>
+      True
+  | PredicateSymbol.powerRelevant, _ => False
+  | PredicateSymbol.powerValidityDependence, _ => False
+  | PredicateSymbol.powerOmitted, _ => False
+  | _, _ => False
+
+def operationalPowerModel : SigmaModel :=
+  { Carrier := operationalPowerCarrier
+    interpFunction := operationalPowerFunctionInterp
+    interpPredicate := operationalPowerPredicateInterp }
+
+theorem operational_power_relevant :
+    PowerRelevantSem (M := operationalPowerModel)
+      OperationalPowerToken.reviewInstitution
+      OperationalPowerToken.affectedGroup :=
+  True.intro
+
+theorem operational_power_unaffected_group_not_relevant :
+    Not (PowerRelevantSem (M := operationalPowerModel)
+      OperationalPowerToken.reviewInstitution
+      OperationalPowerToken.unaffectedGroup) := by
+  intro h
+  exact h
+
+theorem operational_power_validity_dependence :
+    PowerValidityDependenceSem (M := operationalPowerModel)
+      OperationalPowerToken.reviewInstitution
+      OperationalPowerToken.contestedOutput
+      OperationalPowerToken.materialPowerCondition :=
+  True.intro
+
+theorem operational_power_immaterial_condition_not_dependence :
+    Not (PowerValidityDependenceSem (M := operationalPowerModel)
+      OperationalPowerToken.reviewInstitution
+      OperationalPowerToken.contestedOutput
+      OperationalPowerToken.immaterialPowerCondition) := by
+  intro h
+  exact h
+
+theorem operational_power_omitted :
+    PowerOmittedSem (M := operationalPowerModel)
+      OperationalPowerToken.reviewInstitution
+      OperationalPowerToken.contestedOutput
+      OperationalPowerToken.materialPowerCondition :=
+  True.intro
+
+theorem operational_power_ordinary_output_not_omitted :
+    Not (PowerOmittedSem (M := operationalPowerModel)
+      OperationalPowerToken.reviewInstitution
+      OperationalPowerToken.ordinaryOutput
+      OperationalPowerToken.materialPowerCondition) := by
+  intro h
+  exact h
+
+def operationalPowerConditionProfile :
+    PowerConditionProfile operationalPowerModel :=
+  { institution := OperationalPowerToken.reviewInstitution
+    output := OperationalPowerToken.contestedOutput
+    condition := OperationalPowerToken.materialPowerCondition
+    group := OperationalPowerToken.affectedGroup
+    dimension := PowerDimension.metricControl
+    relevantToClaimValidity := True
+    omittedFromRepresentation := True
+    omissionMaterial := True
+    affectedGroupMaterial := True
+    disclosureAbsent := True
+    mitigationAbsent := True
+    warrantRelevant := fun _ => operational_power_relevant
+    warrantDependence := fun _ => operational_power_validity_dependence
+    warrantOmission := fun _ _ => operational_power_omitted }
+
+theorem operationalPowerConditionProfile_satisfied :
+    PowerConditionProfileSatisfied operationalPowerConditionProfile :=
+  { relevantToClaimValidity := True.intro
+    omittedFromRepresentation := True.intro
+    omissionMaterial := True.intro
+    affectedGroupMaterial := True.intro
+    disclosureAbsent := True.intro
+    mitigationAbsent := True.intro }
+
+theorem operationalPowerConditionProfile_to_powerRelevant :
+    PowerRelevantSem (M := operationalPowerModel)
+      operationalPowerConditionProfile.institution
+      operationalPowerConditionProfile.group :=
+  PowerConditionProfile_to_powerRelevant operationalPowerConditionProfile
+    operationalPowerConditionProfile_satisfied
+
+theorem operationalPowerConditionProfile_to_powerValidityDependence :
+    PowerValidityDependenceSem (M := operationalPowerModel)
+      operationalPowerConditionProfile.institution
+      operationalPowerConditionProfile.output
+      operationalPowerConditionProfile.condition :=
+  PowerConditionProfile_to_powerValidityDependence
+    operationalPowerConditionProfile
+    operationalPowerConditionProfile_satisfied
+
+theorem operationalPowerConditionProfile_to_powerOmitted :
+    PowerOmittedSem (M := operationalPowerModel)
+      operationalPowerConditionProfile.institution
+      operationalPowerConditionProfile.output
+      operationalPowerConditionProfile.condition :=
+  PowerConditionProfile_to_powerOmitted operationalPowerConditionProfile
+    operationalPowerConditionProfile_satisfied
+
 theorem warrant_false_model_not_normative_bridge
     (conclusion : NormativeConclusion) :
     Not (NormativeConclusionSem (M := warrantFalseModel)
@@ -627,5 +780,40 @@ theorem operational_evaluator_criteria_not_empirically_validated :
         WarrantResolutionStatus.empiricallyValidated) := by
   intro h
   cases h
+
+theorem power_relevant_is_operationally_discharged_in_scoped_model :
+    warrantResolutionStatusWithOperationalCore WarrantObligation.powerRelevant =
+      WarrantResolutionStatus.operationallyDischarged := rfl
+
+theorem power_validity_dependence_is_operationally_discharged_in_scoped_model :
+    warrantResolutionStatusWithOperationalCore
+      WarrantObligation.powerValidityDependence =
+      WarrantResolutionStatus.operationallyDischarged := rfl
+
+theorem power_omitted_is_operationally_discharged_in_scoped_model :
+    warrantResolutionStatusWithOperationalCore WarrantObligation.powerOmitted =
+      WarrantResolutionStatus.operationallyDischarged := rfl
+
+theorem operational_power_not_source_backed
+    (obligation : WarrantObligation)
+    (hcore :
+      warrantResolutionStatusWithOperationalCore obligation =
+        WarrantResolutionStatus.operationallyDischarged) :
+    Not (warrantResolutionStatusWithOperationalCore obligation =
+      WarrantResolutionStatus.sourceBacked) := by
+  intro h
+  rw [h] at hcore
+  cases hcore
+
+theorem operational_power_not_empirically_validated
+    (obligation : WarrantObligation)
+    (hcore :
+      warrantResolutionStatusWithOperationalCore obligation =
+        WarrantResolutionStatus.operationallyDischarged) :
+    Not (warrantResolutionStatusWithOperationalCore obligation =
+      WarrantResolutionStatus.empiricallyValidated) := by
+  intro h
+  rw [h] at hcore
+  cases hcore
 
 end Paralogic
