@@ -97,6 +97,13 @@ do not count as full validation.  This remains a formal protocol rule; it does
 not assert that real data, reliability statistics, construct validation, or
 replication have been obtained.
 
+Additional discharge progress: normative bridges now have a conclusion-indexed
+operational discharge in `operationalNormativeModel`.  Each normative
+conclusion has a distinct bridge token, and Lean checks generic negative
+controls for ordinary bridge and other institution, plus group controls for
+harm and repair obligation.  This remains local operational bridge semantics,
+not external legal, moral, governance, or institutional authority.
+
 `repairBridgeOnlyTargetedRevision_warrants_obligation` is therefore a
 conditional bridge theorem.  The targeted repair action satisfies the local
 finite revision postulates, but the repair-obligation conclusion still depends

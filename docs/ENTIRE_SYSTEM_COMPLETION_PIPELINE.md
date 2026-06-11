@@ -218,9 +218,13 @@ ordinary claim.  Repair obligation now has a scoped operational model with
 negative controls for ordinary bridge, other institution, and other group.
 Full empirical validation now has a protocol-level operational model requiring
 validation, construct-validity, reliability, and replication predicates, while
-nominal validation alone is rejected.
-Lane G is not complete until each obligation is promoted by operational rules,
-source-backed rules, empirical validation, or lower-level derivation.
+nominal validation alone is rejected.  Normative bridges now have a
+conclusion-indexed operational model with distinct bridge tokens for each
+normative conclusion.
+Lane G's current warrant-discharge layer is operationally complete for the
+enumerated obligations, but it is not source-backed or empirically complete
+until external standards, real data, reliability statistics, and replication
+are supplied where those claims are made.
 
 ## Lane H - Executable Checking
 

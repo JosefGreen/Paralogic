@@ -763,6 +763,63 @@ example :
       WarrantResolutionStatus.operationallyDischarged :=
   empirical_full_validation_is_operationally_discharged_in_scoped_model
 
+example (conclusion : NormativeConclusion) :
+    NormativeConclusionSem (M := operationalNormativeModel)
+      conclusion
+      (operationalNormativeBridgeToken conclusion)
+      OperationalNormativeToken.responsibleInstitution
+      OperationalNormativeToken.affectedGroup :=
+  operational_normative_conclusion conclusion
+
+example (conclusion : NormativeConclusion) :
+    BridgeApplies (operationalNormativeSchema conclusion) :=
+  operationalNormativeSchema_applies conclusion
+
+example (conclusion : NormativeConclusion) :
+    NormativeConclusionSem (M := operationalNormativeModel)
+      conclusion
+      (operationalNormativeSchema conclusion).bridge
+      (operationalNormativeSchema conclusion).institution
+      (operationalNormativeSchema conclusion).group :=
+  operationalNormativeSchema_to_conclusion conclusion
+
+example (conclusion : NormativeConclusion) :
+    Not (NormativeConclusionSem (M := operationalNormativeModel)
+      conclusion
+      OperationalNormativeToken.ordinaryBridge
+      OperationalNormativeToken.responsibleInstitution
+      OperationalNormativeToken.affectedGroup) :=
+  operational_normative_ordinary_bridge_not_conclusion conclusion
+
+example (conclusion : NormativeConclusion) :
+    Not (NormativeConclusionSem (M := operationalNormativeModel)
+      conclusion
+      (operationalNormativeBridgeToken conclusion)
+      OperationalNormativeToken.otherInstitution
+      OperationalNormativeToken.affectedGroup) :=
+  operational_normative_other_institution_not_conclusion conclusion
+
+example :
+    Not (NormativeConclusionSem (M := operationalNormativeModel)
+      NormativeConclusion.harm
+      (operationalNormativeBridgeToken NormativeConclusion.harm)
+      OperationalNormativeToken.responsibleInstitution
+      OperationalNormativeToken.otherGroup) :=
+  operational_normative_harm_other_group_not_conclusion
+
+example :
+    Not (NormativeConclusionSem (M := operationalNormativeModel)
+      NormativeConclusion.repairObligation
+      (operationalNormativeBridgeToken NormativeConclusion.repairObligation)
+      OperationalNormativeToken.responsibleInstitution
+      OperationalNormativeToken.otherGroup) :=
+  operational_normative_repair_other_group_not_conclusion
+
+example :
+    warrantResolutionStatusWithOperationalCore WarrantObligation.normativeBridge =
+      WarrantResolutionStatus.operationallyDischarged :=
+  normative_bridge_is_operationally_discharged_in_scoped_model
+
 example :
     adequacy_warrant_countermodel.warrantedConclusionFails :=
   adequacy_warrant_countermodel_blocks_raw_shortcut

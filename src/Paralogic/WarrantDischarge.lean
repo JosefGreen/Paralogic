@@ -97,13 +97,14 @@ def warrantResolutionStatusWithOperationalCore :
       WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.powerOmitted =>
       WarrantResolutionStatus.operationallyDischarged
+  | WarrantObligation.normativeBridge =>
+      WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.empiricalFullValidation =>
       WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.suppressionSupportDegraded =>
       WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.repairObligation =>
       WarrantResolutionStatus.operationallyDischarged
-  | obligation => warrantResolutionStatus obligation
 
 def warrantFalseModel : SigmaModel :=
   UnitPredicateModel (fun _ => False)
@@ -588,6 +589,164 @@ theorem warrant_false_model_not_normative_bridge
     Not (NormativeConclusionSem (M := warrantFalseModel)
       conclusion Unit.unit Unit.unit Unit.unit) := by
   cases conclusion <;> intro h <;> exact h
+
+inductive OperationalNormativeToken where
+  | harmBridge
+  | responsibilityBridge
+  | repairBridge
+  | accountabilityBridge
+  | legalBridge
+  | governanceBridge
+  | guiltBridge
+  | ordinaryBridge
+  | responsibleInstitution
+  | otherInstitution
+  | affectedGroup
+  | otherGroup
+  | ordinary
+  deriving DecidableEq, Repr
+
+def operationalNormativeBridgeToken :
+    NormativeConclusion -> OperationalNormativeToken
+  | NormativeConclusion.harm => OperationalNormativeToken.harmBridge
+  | NormativeConclusion.responsibility =>
+      OperationalNormativeToken.responsibilityBridge
+  | NormativeConclusion.repairObligation =>
+      OperationalNormativeToken.repairBridge
+  | NormativeConclusion.accountability =>
+      OperationalNormativeToken.accountabilityBridge
+  | NormativeConclusion.legalIllegitimacy =>
+      OperationalNormativeToken.legalBridge
+  | NormativeConclusion.governanceLegitimacy =>
+      OperationalNormativeToken.governanceBridge
+  | NormativeConclusion.moralGuilt => OperationalNormativeToken.guiltBridge
+
+def operationalNormativeCarrier (_ : SortTag) : Type :=
+  OperationalNormativeToken
+
+def operationalNormativeFunctionInterp (_f : FunctionSymbol)
+    (_args : Args operationalNormativeCarrier ((functionArity _f).domain)) :
+    operationalNormativeCarrier ((functionArity _f).codomain) :=
+  OperationalNormativeToken.ordinary
+
+def operationalNormativePredicateInterp :
+    (p : PredicateSymbol) ->
+      Args operationalNormativeCarrier ((predicateArity p).domain) -> Prop
+  | PredicateSymbol.harmBridge,
+      Args.cons OperationalNormativeToken.harmBridge
+        (Args.cons OperationalNormativeToken.responsibleInstitution
+          (Args.cons OperationalNormativeToken.affectedGroup Args.nil)) =>
+      True
+  | PredicateSymbol.responsibilityBridge,
+      Args.cons OperationalNormativeToken.responsibilityBridge
+        (Args.cons OperationalNormativeToken.responsibleInstitution Args.nil) =>
+      True
+  | PredicateSymbol.repairObligationBridge,
+      Args.cons OperationalNormativeToken.repairBridge
+        (Args.cons OperationalNormativeToken.responsibleInstitution
+          (Args.cons OperationalNormativeToken.affectedGroup Args.nil)) =>
+      True
+  | PredicateSymbol.accountabilityBridge,
+      Args.cons OperationalNormativeToken.accountabilityBridge
+        (Args.cons OperationalNormativeToken.responsibleInstitution Args.nil) =>
+      True
+  | PredicateSymbol.legalIllegitimacyBridge,
+      Args.cons OperationalNormativeToken.legalBridge
+        (Args.cons OperationalNormativeToken.responsibleInstitution Args.nil) =>
+      True
+  | PredicateSymbol.governanceLegitimacyBridge,
+      Args.cons OperationalNormativeToken.governanceBridge
+        (Args.cons OperationalNormativeToken.responsibleInstitution Args.nil) =>
+      True
+  | PredicateSymbol.moralGuiltBridge,
+      Args.cons OperationalNormativeToken.guiltBridge
+        (Args.cons OperationalNormativeToken.responsibleInstitution Args.nil) =>
+      True
+  | PredicateSymbol.harmBridge, _ => False
+  | PredicateSymbol.responsibilityBridge, _ => False
+  | PredicateSymbol.repairObligationBridge, _ => False
+  | PredicateSymbol.accountabilityBridge, _ => False
+  | PredicateSymbol.legalIllegitimacyBridge, _ => False
+  | PredicateSymbol.governanceLegitimacyBridge, _ => False
+  | PredicateSymbol.moralGuiltBridge, _ => False
+  | _, _ => False
+
+def operationalNormativeModel : SigmaModel :=
+  { Carrier := operationalNormativeCarrier
+    interpFunction := operationalNormativeFunctionInterp
+    interpPredicate := operationalNormativePredicateInterp }
+
+theorem operational_normative_conclusion
+    (conclusion : NormativeConclusion) :
+    NormativeConclusionSem (M := operationalNormativeModel)
+      conclusion
+      (operationalNormativeBridgeToken conclusion)
+      OperationalNormativeToken.responsibleInstitution
+      OperationalNormativeToken.affectedGroup := by
+  cases conclusion <;> exact True.intro
+
+theorem operational_normative_ordinary_bridge_not_conclusion
+    (conclusion : NormativeConclusion) :
+    Not (NormativeConclusionSem (M := operationalNormativeModel)
+      conclusion
+      OperationalNormativeToken.ordinaryBridge
+      OperationalNormativeToken.responsibleInstitution
+      OperationalNormativeToken.affectedGroup) := by
+  cases conclusion <;> intro h <;> exact h
+
+theorem operational_normative_other_institution_not_conclusion
+    (conclusion : NormativeConclusion) :
+    Not (NormativeConclusionSem (M := operationalNormativeModel)
+      conclusion
+      (operationalNormativeBridgeToken conclusion)
+      OperationalNormativeToken.otherInstitution
+      OperationalNormativeToken.affectedGroup) := by
+  cases conclusion <;> intro h <;> exact h
+
+theorem operational_normative_harm_other_group_not_conclusion :
+    Not (NormativeConclusionSem (M := operationalNormativeModel)
+      NormativeConclusion.harm
+      (operationalNormativeBridgeToken NormativeConclusion.harm)
+      OperationalNormativeToken.responsibleInstitution
+      OperationalNormativeToken.otherGroup) := by
+  intro h
+  exact h
+
+theorem operational_normative_repair_other_group_not_conclusion :
+    Not (NormativeConclusionSem (M := operationalNormativeModel)
+      NormativeConclusion.repairObligation
+      (operationalNormativeBridgeToken NormativeConclusion.repairObligation)
+      OperationalNormativeToken.responsibleInstitution
+      OperationalNormativeToken.otherGroup) := by
+  intro h
+  exact h
+
+def operationalNormativeSchema
+    (conclusion : NormativeConclusion) :
+    NormativeBridgeSchema operationalNormativeModel :=
+  { conclusion := conclusion
+    bridge := operationalNormativeBridgeToken conclusion
+    institution := OperationalNormativeToken.responsibleInstitution
+    group := OperationalNormativeToken.affectedGroup
+    premisesSatisfied := True
+    scopeApplies := True
+    defeatersAbsent := True
+    warrant := fun _ _ _ => operational_normative_conclusion conclusion }
+
+theorem operationalNormativeSchema_applies
+    (conclusion : NormativeConclusion) :
+    BridgeApplies (operationalNormativeSchema conclusion) :=
+  And.intro True.intro (And.intro True.intro True.intro)
+
+theorem operationalNormativeSchema_to_conclusion
+    (conclusion : NormativeConclusion) :
+    NormativeConclusionSem (M := operationalNormativeModel)
+      conclusion
+      (operationalNormativeSchema conclusion).bridge
+      (operationalNormativeSchema conclusion).institution
+      (operationalNormativeSchema conclusion).group :=
+  NormativeBridgeSchema_to_conclusion (operationalNormativeSchema conclusion)
+    (operationalNormativeSchema_applies conclusion)
 
 theorem warrant_false_model_not_full_empirical_validation :
     Not (FullEmpiricalValidationSem warrantFalseModel
@@ -1103,6 +1262,26 @@ theorem power_validity_dependence_is_operationally_discharged_in_scoped_model :
 theorem power_omitted_is_operationally_discharged_in_scoped_model :
     warrantResolutionStatusWithOperationalCore WarrantObligation.powerOmitted =
       WarrantResolutionStatus.operationallyDischarged := rfl
+
+theorem normative_bridge_is_operationally_discharged_in_scoped_model :
+    warrantResolutionStatusWithOperationalCore WarrantObligation.normativeBridge =
+      WarrantResolutionStatus.operationallyDischarged := rfl
+
+theorem operational_normative_not_source_backed :
+    Not
+      (warrantResolutionStatusWithOperationalCore
+        WarrantObligation.normativeBridge =
+        WarrantResolutionStatus.sourceBacked) := by
+  intro h
+  cases h
+
+theorem operational_normative_not_empirically_validated :
+    Not
+      (warrantResolutionStatusWithOperationalCore
+        WarrantObligation.normativeBridge =
+        WarrantResolutionStatus.empiricallyValidated) := by
+  intro h
+  cases h
 
 theorem empirical_full_validation_is_operationally_discharged_in_scoped_model :
     warrantResolutionStatusWithOperationalCore

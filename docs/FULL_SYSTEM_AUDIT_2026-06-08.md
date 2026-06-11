@@ -125,6 +125,11 @@ reliability, and replication predicates, with negative controls for nominal
 validation, unvalidated objects, and other claims. This is still not real
 empirical data, computed reliability, construct-validation study, or
 replication.
+Additional repair applied: normative bridges now have a conclusion-indexed
+operational discharge model with distinct bridge tokens for harm,
+responsibility, repair obligation, accountability, legal illegitimacy,
+governance legitimacy, and moral guilt. This is still not external legal,
+moral, governance, or institutional authority.
 
 ### F4 - One-Element Witnesses Are Useful But Too Weak
 

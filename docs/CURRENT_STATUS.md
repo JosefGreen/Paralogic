@@ -121,6 +121,9 @@ The repository currently contains:
   validation requires empirical validation, construct validity, reliability
   testing, and external replication predicates, with negative controls for
   nominal validation, unvalidated objects, and other claims.
+- A conclusion-indexed operational normative-bridge model where each normative
+  conclusion has a distinct bridge token, with negative controls for ordinary
+  bridge, other institution, and group-sensitive harm/repair cases.
 - EMP0 empirical protocol artifacts.
 - Internal academic-audit artifacts.
 
