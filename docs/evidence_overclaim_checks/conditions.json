@@ -1,0 +1,9 @@
+[
+  "claimScopeDeclared",
+  "evidenceRelevant",
+  "evidenceInsufficient",
+  "scopeMismatch",
+  "uncertaintyUnbounded",
+  "overclaimMaterial",
+  "adequacyBoundaryAbsent"
+]

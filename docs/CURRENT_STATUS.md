@@ -44,6 +44,9 @@ The repository currently contains:
 - An M2 metric-proxy checker that confirms the metric-as-value collapse module
   has seven required conditions, seven blockers, seven concrete blocked
   witnesses, positive projection artifacts, and persisted coverage.
+- An M1 evidence-overclaim checker that confirms the evidence-overclaim module
+  has seven required conditions, seven blockers, seven concrete blocked
+  witnesses, positive projection artifacts, and persisted coverage.
 - A bounded propositional proof checker covering seven positive and negative
   truth-table targets for the strengthened derivability fragment.
 - A tiny PYC proof checker for a Horn-like fragment, with regression tests and
@@ -110,6 +113,11 @@ The repository currently contains:
 - A new MC3-Lean M2 metric-as-value collapse module where proxy use,
   optimization pressure, proxy-target divergence, material replacement, absent
   boundary guard, and absent evaluator separation jointly warrant support
+  degradation and an ISF projection, while each missing condition has a named
+  blocker and concrete blocked witness.
+- A new MC3-Lean M1 evidence-overclaim module where declared claim scope,
+  relevant but insufficient evidence, scope mismatch, unbounded uncertainty,
+  material overclaim, and absent adequacy boundary jointly warrant support
   degradation and an ISF projection, while each missing condition has a named
   blocker and concrete blocked witness.
 - A new MC3-Lean warrant-discharge scaffold that enumerates current

@@ -16,6 +16,7 @@ import Paralogic.InstitutionFragment
 import Paralogic.FormalConcept
 import Paralogic.ConceptualEssentialization
 import Paralogic.MechanismSynthesis
+import Paralogic.EvidenceOverclaim
 import Paralogic.MetricProxy
 import Paralogic.WarrantDischarge
 
@@ -451,6 +452,60 @@ example (mechanism : ISFTMechanism) :
       ((unitCandidateDefinition mechanism).maturity =
         MechanismSemanticMaturity.empiricallyValidated) :=
   all_candidate_mechanisms_not_empirically_validated mechanism
+
+example :
+    EvidenceOverclaimProfileSatisfied evidenceOverclaimOnlyProfile :=
+  evidenceOverclaimOnlyProfile_satisfied
+
+example :
+    SupportDegradedSem (M := evidenceOverclaimOnlyModel) Unit.unit Unit.unit
+      Unit.unit :=
+  evidenceOverclaimOnly_supportDegraded
+
+example :
+    ISFSem evidenceOverclaimOnlyModel Unit.unit Unit.unit Unit.unit Unit.unit
+      Unit.unit :=
+  evidenceOverclaimOnly_to_ISFSem
+
+example :
+    ISFTMechanismProfileSatisfied
+      evidenceOverclaimOnlyProfile.toMechanismProfile :=
+  evidenceOverclaimOnly_mechanism_profile_satisfied
+
+example :
+    (evidenceOverclaimOnlyProfile.toMechanismProfile).mechanism =
+      ISFTMechanism.M1 :=
+  EvidenceOverclaimProfile_mechanism_label evidenceOverclaimOnlyProfile
+
+example :
+    EvidenceOverclaimProfileBlocked evidenceOverclaimNoScopeProfile :=
+  evidenceOverclaimNoScopeProfile_blocked
+
+example :
+    EvidenceOverclaimProfileBlocked evidenceOverclaimIrrelevantProfile :=
+  evidenceOverclaimIrrelevantProfile_blocked
+
+example :
+    EvidenceOverclaimProfileBlocked evidenceOverclaimSufficientProfile :=
+  evidenceOverclaimSufficientProfile_blocked
+
+example :
+    EvidenceOverclaimProfileBlocked evidenceOverclaimMatchedScopeProfile :=
+  evidenceOverclaimMatchedScopeProfile_blocked
+
+example :
+    EvidenceOverclaimProfileBlocked
+      evidenceOverclaimBoundedUncertaintyProfile :=
+  evidenceOverclaimBoundedUncertaintyProfile_blocked
+
+example :
+    EvidenceOverclaimProfileBlocked evidenceOverclaimImmaterialProfile :=
+  evidenceOverclaimImmaterialProfile_blocked
+
+example :
+    EvidenceOverclaimProfileBlocked
+      evidenceOverclaimBoundaryPresentProfile :=
+  evidenceOverclaimBoundaryPresentProfile_blocked
 
 example :
     MetricProxyProfileSatisfied metricProxyOnlyProfile :=

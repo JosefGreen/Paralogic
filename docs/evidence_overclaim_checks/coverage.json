@@ -1,0 +1,79 @@
+{
+  "blocked_witness_count": 7,
+  "blocked_witnesses": {
+    "evidenceOverclaimBoundaryPresentProfile_blocked": true,
+    "evidenceOverclaimBoundedUncertaintyProfile_blocked": true,
+    "evidenceOverclaimImmaterialProfile_blocked": true,
+    "evidenceOverclaimIrrelevantProfile_blocked": true,
+    "evidenceOverclaimMatchedScopeProfile_blocked": true,
+    "evidenceOverclaimNoScopeProfile_blocked": true,
+    "evidenceOverclaimSufficientProfile_blocked": true
+  },
+  "blocker_count": 7,
+  "blockers": {
+    "bounded_uncertainty_blocks_overclaim": true,
+    "immaterial_overclaim_blocks_overclaim": true,
+    "irrelevant_evidence_blocks_overclaim": true,
+    "matched_scope_blocks_overclaim": true,
+    "missing_claim_scope_blocks_overclaim": true,
+    "present_adequacy_boundary_blocks_overclaim": true,
+    "sufficient_evidence_blocks_overclaim": true
+  },
+  "condition_count": 7,
+  "conditions": {
+    "adequacyBoundaryAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "claimScopeDeclared": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "evidenceInsufficient": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "evidenceRelevant": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "overclaimMaterial": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "scopeMismatch": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "uncertaintyUnbounded": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    }
+  },
+  "missing_blocked_witnesses": [],
+  "missing_blockers": [],
+  "missing_condition_mentions": {},
+  "missing_positive_artifacts": [],
+  "positive_artifacts": {
+    "EvidenceOverclaimProfile": true,
+    "EvidenceOverclaimProfile.toMechanismProfile": true,
+    "EvidenceOverclaimProfileSatisfied": true,
+    "EvidenceOverclaimProfile_to_mechanism_satisfied": true,
+    "EvidenceOverclaimProfile_to_supportDegraded": true,
+    "M1EvidenceOverclaimCase": true,
+    "M1EvidenceOverclaimCase_to_ISFSem": true,
+    "M1EvidenceOverclaimSatisfied": true,
+    "evidenceOverclaimOnlyProfile_satisfied": true,
+    "evidenceOverclaimOnly_mechanism_profile_satisfied": true,
+    "evidenceOverclaimOnly_supportDegraded": true,
+    "evidenceOverclaimOnly_to_ISFSem": true
+  },
+  "status": "M1C-pass"
+}

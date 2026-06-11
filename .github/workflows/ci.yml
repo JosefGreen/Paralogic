@@ -69,3 +69,6 @@ jobs:
 
       - name: Run M2 metric proxy checker
         run: python python/metric_proxy_check.py
+
+      - name: Run M1 evidence overclaim checker
+        run: python python/evidence_overclaim_check.py

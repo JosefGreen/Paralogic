@@ -102,15 +102,21 @@ The candidate layer now has a dedicated coverage gate:
 
 ## First Mechanism-Specific Deepening
 
-M2 now has a dedicated formal module, `src/Paralogic/MetricProxy.lean`.
-It models metric-as-value collapse through seven conditions: declared target,
-proxy used as target, optimization pressure, proxy-target divergence, material
-replacement, absent boundary guard, and absent evaluator separation.
+M1 now has a dedicated formal module, `src/Paralogic/EvidenceOverclaim.lean`.
+It models evidence overclaim through seven conditions: declared claim scope,
+evidence relevance, evidence insufficiency, scope mismatch, unbounded
+uncertainty, material overclaim, and absent adequacy boundary.
 
 The module proves positive projection to support degradation and ISF semantics
 when all conditions are satisfied, and it includes one concrete blocked witness
-for each missing condition.  `python/metric_proxy_check.py` persists the
-coverage result in `docs/metric_proxy_checks/`.
+for each missing condition.  `python/evidence_overclaim_check.py` persists the
+coverage result in `docs/evidence_overclaim_checks/`.
+
+M2 has the parallel formal module, `src/Paralogic/MetricProxy.lean`.
+It models metric-as-value collapse through declared target, proxy use,
+optimization pressure, proxy-target divergence, material replacement, absent
+boundary guard, and absent evaluator separation.  Its checker persists results
+in `docs/metric_proxy_checks/`.
 
 ## Pipeline Consequence
 
