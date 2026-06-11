@@ -72,6 +72,14 @@ also checks negative controls for unaffected group, immaterial condition, and
 ordinary output.  This remains local operational semantics, not an externally
 validated institutional power analysis.
 
+Additional discharge progress: suppression support-degradation now has a
+scoped operational discharge in `operationalSuppressionModel`.  In that model,
+supported evidence, matched context, and suppressed claim compute
+`SupportDegradedSem`.  Lean also checks negative controls for unsupported
+evidence, mismatched context, and ordinary claim.  This remains a local
+operational suppression rule, not empirical evidence that any real-world
+support relation has degraded.
+
 `repairBridgeOnlyTargetedRevision_warrants_obligation` is therefore a
 conditional bridge theorem.  The targeted repair action satisfies the local
 finite revision postulates, but the repair-obligation conclusion still depends

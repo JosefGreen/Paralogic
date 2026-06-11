@@ -212,7 +212,9 @@ discharge model with positive contested-case detection and negative controls
 for resolved claim, inactive frame, and inactive context.  M8 power relevance,
 validity dependence, and omission now have a scoped operational model with
 negative controls for unaffected group, immaterial condition, and ordinary
-output.
+output.  Suppression support-degradation now has a scoped operational model
+with negative controls for unsupported evidence, mismatched context, and
+ordinary claim.
 Lane G is not complete until each obligation is promoted by operational rules,
 source-backed rules, empirical validation, or lower-level derivation.
 

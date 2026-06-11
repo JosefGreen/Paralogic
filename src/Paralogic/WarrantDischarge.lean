@@ -97,6 +97,8 @@ def warrantResolutionStatusWithOperationalCore :
       WarrantResolutionStatus.operationallyDischarged
   | WarrantObligation.powerOmitted =>
       WarrantResolutionStatus.operationallyDischarged
+  | WarrantObligation.suppressionSupportDegraded =>
+      WarrantResolutionStatus.operationallyDischarged
   | obligation => warrantResolutionStatus obligation
 
 def warrantFalseModel : SigmaModel :=
@@ -595,6 +597,100 @@ theorem warrant_false_model_not_support_degraded :
   intro h
   exact h
 
+inductive OperationalSuppressionToken where
+  | supportedEvidence
+  | unsupportedEvidence
+  | matchedContext
+  | mismatchedContext
+  | suppressedClaim
+  | ordinaryClaim
+  | ordinary
+  deriving DecidableEq, Repr
+
+def operationalSuppressionCarrier (_ : SortTag) : Type :=
+  OperationalSuppressionToken
+
+def operationalSuppressionFunctionInterp (_f : FunctionSymbol)
+    (_args : Args operationalSuppressionCarrier ((functionArity _f).domain)) :
+    operationalSuppressionCarrier ((functionArity _f).codomain) :=
+  OperationalSuppressionToken.ordinary
+
+def operationalSuppressionPredicateInterp :
+    (p : PredicateSymbol) ->
+      Args operationalSuppressionCarrier ((predicateArity p).domain) -> Prop
+  | PredicateSymbol.supportDegraded,
+      Args.cons OperationalSuppressionToken.supportedEvidence
+        (Args.cons OperationalSuppressionToken.matchedContext
+          (Args.cons OperationalSuppressionToken.suppressedClaim Args.nil)) =>
+      True
+  | PredicateSymbol.supportDegraded, _ => False
+  | _, _ => False
+
+def operationalSuppressionModel : SigmaModel :=
+  { Carrier := operationalSuppressionCarrier
+    interpFunction := operationalSuppressionFunctionInterp
+    interpPredicate := operationalSuppressionPredicateInterp }
+
+theorem operational_suppression_support_degraded :
+    SupportDegradedSem (M := operationalSuppressionModel)
+      OperationalSuppressionToken.supportedEvidence
+      OperationalSuppressionToken.matchedContext
+      OperationalSuppressionToken.suppressedClaim :=
+  True.intro
+
+theorem operational_suppression_unsupported_not_degraded :
+    Not (SupportDegradedSem (M := operationalSuppressionModel)
+      OperationalSuppressionToken.unsupportedEvidence
+      OperationalSuppressionToken.matchedContext
+      OperationalSuppressionToken.suppressedClaim) := by
+  intro h
+  exact h
+
+theorem operational_suppression_mismatched_context_not_degraded :
+    Not (SupportDegradedSem (M := operationalSuppressionModel)
+      OperationalSuppressionToken.supportedEvidence
+      OperationalSuppressionToken.mismatchedContext
+      OperationalSuppressionToken.suppressedClaim) := by
+  intro h
+  exact h
+
+theorem operational_suppression_ordinary_claim_not_degraded :
+    Not (SupportDegradedSem (M := operationalSuppressionModel)
+      OperationalSuppressionToken.supportedEvidence
+      OperationalSuppressionToken.matchedContext
+      OperationalSuppressionToken.ordinaryClaim) := by
+  intro h
+  exact h
+
+def operationalSuppressionProfile :
+    SuppressionProfile operationalSuppressionModel :=
+  { mechanism := ISFTMechanism.M9
+    evidence := OperationalSuppressionToken.supportedEvidence
+    context := OperationalSuppressionToken.matchedContext
+    claim := OperationalSuppressionToken.suppressedClaim
+    mode := SuppressionMode.omission
+    supportBasisAvailable := True
+    suppressionDetected := True
+    suppressionMaterial := True
+    scopeMatched := True
+    warrantSupportDegraded := fun _ _ _ _ =>
+      operational_suppression_support_degraded }
+
+theorem operationalSuppressionProfile_satisfied :
+    SuppressionProfileSatisfied operationalSuppressionProfile :=
+  { supportBasis := True.intro
+    detected := True.intro
+    material := True.intro
+    scopeMatched := True.intro }
+
+theorem operationalSuppressionProfile_to_supportDegraded :
+    SupportDegradedSem (M := operationalSuppressionModel)
+      operationalSuppressionProfile.evidence
+      operationalSuppressionProfile.context
+      operationalSuppressionProfile.claim :=
+  SuppressionProfile_to_supportDegraded operationalSuppressionProfile
+    operationalSuppressionProfile_satisfied
+
 theorem warrant_false_model_not_repair_obligation :
     Not (RepairObligationBridgeSem (M := warrantFalseModel)
       Unit.unit Unit.unit Unit.unit) := by
@@ -815,5 +911,26 @@ theorem operational_power_not_empirically_validated
   intro h
   rw [h] at hcore
   cases hcore
+
+theorem suppression_support_degraded_is_operationally_discharged_in_scoped_model :
+    warrantResolutionStatusWithOperationalCore
+      WarrantObligation.suppressionSupportDegraded =
+      WarrantResolutionStatus.operationallyDischarged := rfl
+
+theorem operational_suppression_not_source_backed :
+    Not
+      (warrantResolutionStatusWithOperationalCore
+        WarrantObligation.suppressionSupportDegraded =
+        WarrantResolutionStatus.sourceBacked) := by
+  intro h
+  cases h
+
+theorem operational_suppression_not_empirically_validated :
+    Not
+      (warrantResolutionStatusWithOperationalCore
+        WarrantObligation.suppressionSupportDegraded =
+        WarrantResolutionStatus.empiricallyValidated) := by
+  intro h
+  cases h
 
 end Paralogic

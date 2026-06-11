@@ -111,6 +111,9 @@ The repository currently contains:
   dependence, and omission are computed for a review institution, affected
   group, contested output, and material power condition, with negative controls
   for unaffected group, immaterial condition, and ordinary output.
+- A scoped operational suppression model where supported evidence, matched
+  context, and suppressed claim compute support degradation, with negative
+  controls for unsupported evidence, mismatched context, and ordinary claim.
 - EMP0 empirical protocol artifacts.
 - Internal academic-audit artifacts.
 

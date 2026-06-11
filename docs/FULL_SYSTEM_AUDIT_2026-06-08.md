@@ -111,6 +111,10 @@ and omission now have a scoped operational discharge model with negative
 controls for unaffected group, immaterial power condition, and ordinary output.
 This is still not an external institutional case analysis or empirical power
 study.
+Additional repair applied: suppression support-degradation now has a scoped
+operational discharge model with negative controls for unsupported evidence,
+mismatched context, and ordinary claim. This is still not empirical evidence
+that suppression has occurred in any concrete case.
 
 ### F4 - One-Element Witnesses Are Useful But Too Weak
 

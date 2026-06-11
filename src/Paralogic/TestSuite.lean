@@ -634,6 +634,51 @@ example :
   power_omitted_is_operationally_discharged_in_scoped_model
 
 example :
+    SupportDegradedSem (M := operationalSuppressionModel)
+      OperationalSuppressionToken.supportedEvidence
+      OperationalSuppressionToken.matchedContext
+      OperationalSuppressionToken.suppressedClaim :=
+  operational_suppression_support_degraded
+
+example :
+    Not (SupportDegradedSem (M := operationalSuppressionModel)
+      OperationalSuppressionToken.unsupportedEvidence
+      OperationalSuppressionToken.matchedContext
+      OperationalSuppressionToken.suppressedClaim) :=
+  operational_suppression_unsupported_not_degraded
+
+example :
+    Not (SupportDegradedSem (M := operationalSuppressionModel)
+      OperationalSuppressionToken.supportedEvidence
+      OperationalSuppressionToken.mismatchedContext
+      OperationalSuppressionToken.suppressedClaim) :=
+  operational_suppression_mismatched_context_not_degraded
+
+example :
+    Not (SupportDegradedSem (M := operationalSuppressionModel)
+      OperationalSuppressionToken.supportedEvidence
+      OperationalSuppressionToken.matchedContext
+      OperationalSuppressionToken.ordinaryClaim) :=
+  operational_suppression_ordinary_claim_not_degraded
+
+example :
+    SuppressionProfileSatisfied operationalSuppressionProfile :=
+  operationalSuppressionProfile_satisfied
+
+example :
+    SupportDegradedSem (M := operationalSuppressionModel)
+      operationalSuppressionProfile.evidence
+      operationalSuppressionProfile.context
+      operationalSuppressionProfile.claim :=
+  operationalSuppressionProfile_to_supportDegraded
+
+example :
+    warrantResolutionStatusWithOperationalCore
+      WarrantObligation.suppressionSupportDegraded =
+      WarrantResolutionStatus.operationallyDischarged :=
+  suppression_support_degraded_is_operationally_discharged_in_scoped_model
+
+example :
     adequacy_warrant_countermodel.warrantedConclusionFails :=
   adequacy_warrant_countermodel_blocks_raw_shortcut
 

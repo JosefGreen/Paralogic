@@ -137,6 +137,11 @@ notes as well as open gaps.
     for unaffected group, immaterial condition, and ordinary output.  Remaining
     power work is source-backed institutional semantics, external case
     grounding, and empirical coding where empirical claims are made.
+36c. Suppression support-degradation warrant discharge now has a scoped
+    operational model for supported evidence, matched context, and suppressed
+    claim, with negative controls for unsupported evidence, mismatched context,
+    and ordinary claim.  Remaining suppression work is richer mode-specific
+    semantics and empirical coding where empirical claims are made.
 37. Gate 7 has MC3 artifacts for the scoped adequacy, normative bridge, and repair
     fragment: seven normative bridge schema families, repair diagnosis, plan,
     action, verification, closure, regress, externality, bridge-defeater, and
