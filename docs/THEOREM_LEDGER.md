@@ -577,6 +577,9 @@ Status: MC3-Lean after successful local build.
 | G7-WD-2 | current warrant obligations are classified as countermodel-guarded, not discharged | `WarrantResolutionStatus`, `warrantResolutionStatus` |
 | G7-WD-3 | all-false model blocks contradiction, adequacy, evaluator, empirical, normative, and repair raw-condition shortcuts | `warrantFalseModel`, `contradiction_warrant_countermodel_blocks_raw_shortcut`, `adequacy_warrant_countermodel_blocks_raw_shortcut`, `evaluator_warrant_countermodel_blocks_raw_shortcut`, `empirical_warrant_countermodel_blocks_raw_shortcut`, `normative_warrant_countermodel_blocks_raw_shortcut`, `repair_warrant_countermodel_blocks_raw_shortcut` |
 | G7-WD-4 | no current warrant obligation is source-backed or empirically validated yet | `no_warrant_obligation_is_source_backed_yet`, `no_warrant_obligation_is_empirically_validated_yet` |
+| G7-WD-5 | scoped operational adequacy model computes adequate from supported evidence, in-scope context, and matched claim | `operationalAdequacyModel`, `operational_adequacy_supported_in_scope_matched`, `operationalAdequacyProfile_to_adequate` |
+| G7-WD-6 | unsupported evidence is not adequate in the scoped operational adequacy model | `operational_adequacy_unsupported_not_adequate` |
+| G7-WD-7 | adequacy is operationally discharged in the scoped model but not source-backed or empirically validated | `warrantResolutionStatusWithOperationalAdequacy`, `adequacy_is_operationally_discharged_in_scoped_model`, `operational_adequacy_not_source_backed`, `operational_adequacy_not_empirically_validated` |
 | G7-NC-2 | repair-obligation bridge does not imply moral-guilt bridge | `repairBridgeOnly_not_MoralGuiltBridgeSem` |
 | G7-NC-3 | repair-obligation bridge does not imply full empirical validation | `repairBridgeOnly_not_FullEmpiricalValidationSem` |
 | G7-NC-4 | repair-obligation bridge does not imply valid insight | `repairBridgeOnly_not_ValidInsightSem` |

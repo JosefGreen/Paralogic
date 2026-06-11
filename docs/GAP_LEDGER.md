@@ -63,9 +63,10 @@ notes as well as open gaps.
 23. Normative bridge schemas and several other modules include warrants as
     fields. `WarrantDischarge.lean` now enumerates the current warrant
     obligations and proves all are only countermodel-guarded, not yet
-    source-backed or empirically validated. Remaining work: discharge each
-    obligation through source-backed rules, empirical validation, or lower-level
-    derivation.
+    source-backed or empirically validated. Adequacy now has a scoped
+    operational discharge model with a negative control. Remaining work:
+    discharge each other obligation through operational rules, source-backed
+    rules, empirical validation, or lower-level derivation.
 24. Empirical validation protocols, measurement protocol, coding manual,
     dataset schema, reliability plan, construct-validity plan, pilot protocol,
     and replication plan now exist. No data, reliability statistic, validity

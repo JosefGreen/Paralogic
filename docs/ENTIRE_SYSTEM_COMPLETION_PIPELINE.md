@@ -198,7 +198,9 @@ Priority update: `WarrantDischarge.lean` now enumerates the current
 warrant-like obligations and classifies them as countermodel-guarded rather
 than source-backed or empirically validated.  The module proves all-false-model
 countermodels blocking raw-condition-to-conclusion shortcuts for the major
-warrant families.  Lane G is not complete until each obligation is promoted by
+warrant families.  Adequacy now has a scoped operational discharge model with
+a positive computed-adequacy case and an unsupported-evidence negative control.
+Lane G is not complete until each obligation is promoted by operational rules,
 source-backed rules, empirical validation, or lower-level derivation.
 
 ## Lane H - Executable Checking

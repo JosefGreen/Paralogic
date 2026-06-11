@@ -431,6 +431,36 @@ example :
   rfl
 
 example :
+    warrantResolutionStatusWithOperationalAdequacy WarrantObligation.adequacy =
+      WarrantResolutionStatus.operationallyDischarged :=
+  adequacy_is_operationally_discharged_in_scoped_model
+
+example :
+    operationalAdequacyModel.interpPredicate PredicateSymbol.adequate
+      (Args.cons OperationalAdequacyToken.supported
+        (Args.cons OperationalAdequacyToken.inScope
+          (Args.cons OperationalAdequacyToken.matched Args.nil))) :=
+  operational_adequacy_supported_in_scope_matched
+
+example :
+    Not (operationalAdequacyModel.interpPredicate PredicateSymbol.adequate
+      (Args.cons OperationalAdequacyToken.unsupported
+        (Args.cons OperationalAdequacyToken.inScope
+          (Args.cons OperationalAdequacyToken.matched Args.nil)))) :=
+  operational_adequacy_unsupported_not_adequate
+
+example :
+    AdequacyProfileSatisfied operationalAdequacyProfile :=
+  operationalAdequacyProfile_satisfied
+
+example :
+    operationalAdequacyModel.interpPredicate PredicateSymbol.adequate
+      (Args.cons operationalAdequacyProfile.evidence
+        (Args.cons operationalAdequacyProfile.context
+          (Args.cons operationalAdequacyProfile.claim Args.nil))) :=
+  operationalAdequacyProfile_to_adequate
+
+example :
     adequacy_warrant_countermodel.warrantedConclusionFails :=
   adequacy_warrant_countermodel_blocks_raw_shortcut
 

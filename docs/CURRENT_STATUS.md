@@ -97,6 +97,9 @@ The repository currently contains:
   warrant-like assumptions, proves they are not yet source-backed or
   empirically validated, and gives all-false-model countermodels against raw
   condition-to-conclusion shortcuts.
+- A scoped operational adequacy model where adequacy is computed from
+  supported evidence, in-scope context, and matched claim, including a negative
+  control for unsupported evidence.
 - EMP0 empirical protocol artifacts.
 - Internal academic-audit artifacts.
 
@@ -104,8 +107,8 @@ The repository does not yet contain:
 
 - a complete Paralogic or ISFT mathematical theory;
 - source-backed semantics for all M1-M12 mechanisms;
-- completed discharge of all warrant obligations into source-backed,
-  empirically validated, or lower-level derived theorems;
+- completed discharge of all warrant obligations into operational,
+  source-backed, empirically validated, or lower-level derived theorems;
 - a mature proof theory with full syntactic freshness/eigenvariable rules for
   quantified formulas, alpha-equivalence, and completeness results;
 - global finite-model search;

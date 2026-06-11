@@ -35,6 +35,7 @@ inductive WarrantObligation where
 inductive WarrantResolutionStatus where
   | suppliedField
   | countermodelGuarded
+  | operationallyDischarged
   | sourceBacked
   | empiricallyValidated
   deriving DecidableEq, Repr
@@ -63,6 +64,12 @@ def warrantResolutionStatus : WarrantObligation -> WarrantResolutionStatus
   | WarrantObligation.repairObligation =>
       WarrantResolutionStatus.countermodelGuarded
 
+def warrantResolutionStatusWithOperationalAdequacy :
+    WarrantObligation -> WarrantResolutionStatus
+  | WarrantObligation.adequacy =>
+      WarrantResolutionStatus.operationallyDischarged
+  | obligation => warrantResolutionStatus obligation
+
 def warrantFalseModel : SigmaModel :=
   UnitPredicateModel (fun _ => False)
 
@@ -82,6 +89,92 @@ theorem warrant_false_model_not_adequate :
         (Args.cons Unit.unit (Args.cons Unit.unit Args.nil)))) := by
   intro h
   exact h
+
+inductive OperationalAdequacyToken where
+  | unsupported
+  | supported
+  | outOfScope
+  | inScope
+  | mismatched
+  | matched
+  deriving DecidableEq, Repr
+
+def operationalAdequacyCarrier : SortTag -> Type
+  | _ => OperationalAdequacyToken
+
+def operationalAdequacyFunctionInterp (f : FunctionSymbol)
+    (_args : Args operationalAdequacyCarrier ((functionArity f).domain)) :
+    operationalAdequacyCarrier ((functionArity f).codomain) :=
+  match f with
+  | FunctionSymbol.outputInstitution => OperationalAdequacyToken.matched
+  | FunctionSymbol.outputContext => OperationalAdequacyToken.inScope
+  | FunctionSymbol.claimEvidence => OperationalAdequacyToken.supported
+  | FunctionSymbol.claimContext => OperationalAdequacyToken.inScope
+  | FunctionSymbol.evaluatorContext => OperationalAdequacyToken.inScope
+  | FunctionSymbol.validationTarget => OperationalAdequacyToken.matched
+  | FunctionSymbol.bridgeTarget => OperationalAdequacyToken.matched
+
+def operationalAdequacyPredicateInterp :
+    (p : PredicateSymbol) ->
+      Args operationalAdequacyCarrier ((predicateArity p).domain) -> Prop
+  | PredicateSymbol.adequate,
+      Args.cons OperationalAdequacyToken.supported
+        (Args.cons OperationalAdequacyToken.inScope
+          (Args.cons OperationalAdequacyToken.matched Args.nil)) =>
+      True
+  | PredicateSymbol.adequate, _ => False
+  | _, _ => False
+
+def operationalAdequacyModel : SigmaModel :=
+  { Carrier := operationalAdequacyCarrier
+    interpFunction := operationalAdequacyFunctionInterp
+    interpPredicate := operationalAdequacyPredicateInterp }
+
+theorem operational_adequacy_supported_in_scope_matched :
+    operationalAdequacyModel.interpPredicate PredicateSymbol.adequate
+      (Args.cons OperationalAdequacyToken.supported
+        (Args.cons OperationalAdequacyToken.inScope
+          (Args.cons OperationalAdequacyToken.matched Args.nil))) :=
+  True.intro
+
+theorem operational_adequacy_unsupported_not_adequate :
+    Not (operationalAdequacyModel.interpPredicate PredicateSymbol.adequate
+      (Args.cons OperationalAdequacyToken.unsupported
+        (Args.cons OperationalAdequacyToken.inScope
+          (Args.cons OperationalAdequacyToken.matched Args.nil)))) := by
+  intro h
+  exact h
+
+def operationalAdequacyProfile :
+    AdequacyProfile operationalAdequacyModel :=
+  { domain := AdequacyDomain.empirical
+    evidence := OperationalAdequacyToken.supported
+    context := OperationalAdequacyToken.inScope
+    claim := OperationalAdequacyToken.matched
+    relevant := True
+    sufficient := True
+    current := True
+    methodologicallyFit := True
+    uncertaintyBounded := True
+    scopeMatched := True
+    warrant := fun _ _ _ _ _ _ =>
+      operational_adequacy_supported_in_scope_matched }
+
+theorem operationalAdequacyProfile_satisfied :
+    AdequacyProfileSatisfied operationalAdequacyProfile :=
+  And.intro True.intro
+    (And.intro True.intro
+      (And.intro True.intro
+        (And.intro True.intro
+          (And.intro True.intro True.intro))))
+
+theorem operationalAdequacyProfile_to_adequate :
+    operationalAdequacyModel.interpPredicate PredicateSymbol.adequate
+      (Args.cons operationalAdequacyProfile.evidence
+        (Args.cons operationalAdequacyProfile.context
+          (Args.cons operationalAdequacyProfile.claim Args.nil))) :=
+  AdequacyProfile_to_AdequateSem operationalAdequacyProfile
+    operationalAdequacyProfile_satisfied
 
 theorem warrant_false_model_not_evaluator_accepts :
     Not (EvaluatorAcceptsSem (M := warrantFalseModel)
@@ -251,5 +344,23 @@ theorem no_warrant_obligation_is_empirically_validated_yet
     Not (warrantResolutionStatus obligation =
       WarrantResolutionStatus.empiricallyValidated) := by
   cases obligation <;> intro h <;> cases h
+
+theorem adequacy_is_operationally_discharged_in_scoped_model :
+    warrantResolutionStatusWithOperationalAdequacy WarrantObligation.adequacy =
+      WarrantResolutionStatus.operationallyDischarged := rfl
+
+theorem operational_adequacy_not_source_backed :
+    Not
+      (warrantResolutionStatusWithOperationalAdequacy WarrantObligation.adequacy =
+        WarrantResolutionStatus.sourceBacked) := by
+  intro h
+  cases h
+
+theorem operational_adequacy_not_empirically_validated :
+    Not
+      (warrantResolutionStatusWithOperationalAdequacy WarrantObligation.adequacy =
+        WarrantResolutionStatus.empiricallyValidated) := by
+  intro h
+  cases h
 
 end Paralogic

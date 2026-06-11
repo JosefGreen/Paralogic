@@ -88,6 +88,10 @@ are not yet source-backed or empirically validated, and gives all-false-model
 countermodels against treating raw profile conditions as sufficient for the
 warranted conclusion.  This accounts for the obligations but does not discharge
 them into source-backed or empirical status.
+Additional repair applied: adequacy now has a scoped operational discharge
+model in which `adequate` is computed from supported evidence, in-scope
+context, and matched claim, with an unsupported-evidence negative control. This
+is still not empirical validation or an external source-backed adequacy theory.
 
 ### F4 - One-Element Witnesses Are Useful But Too Weak
 

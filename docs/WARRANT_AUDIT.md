@@ -38,6 +38,15 @@ Each current obligation is classified as `countermodelGuarded`, not
 model countermodels showing that raw profile conditions alone do not force
 the warranted conclusions in arbitrary models.
 
+Latest discharge progress: adequacy now has a scoped operational discharge in
+`operationalAdequacyModel`.  In that model, the `adequate` predicate is
+computed from an explicit token triple: supported evidence, in-scope context,
+and matched claim.  Lean proves the positive adequate case, an unsupported
+negative control, and a status refinement
+`warrantResolutionStatusWithOperationalAdequacy` that marks adequacy as
+`operationallyDischarged` while still proving it is not `sourceBacked` or
+`empiricallyValidated`.
+
 `repairBridgeOnlyTargetedRevision_warrants_obligation` is therefore a
 conditional bridge theorem.  The targeted repair action satisfies the local
 finite revision postulates, but the repair-obligation conclusion still depends
@@ -51,6 +60,7 @@ substantive validation until the warrant source is independently supplied or
 derived.
 
 Updated rule: a warrant can now be marked complete only when its
-`WarrantObligation` is promoted from `countermodelGuarded` to `sourceBacked`
-or `empiricallyValidated` by new artifacts.  Until then, it is accounted for
-but not discharged.
+`WarrantObligation` is promoted from `countermodelGuarded` to
+`operationallyDischarged`, `sourceBacked`, or `empiricallyValidated` by new
+artifacts.  Operational discharge is a formal local semantics, not source or
+empirical validation.
