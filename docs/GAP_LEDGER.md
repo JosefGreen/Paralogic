@@ -163,6 +163,12 @@ notes as well as open gaps.
     jointly project to support degradation and ISF, while each missing
     condition has a concrete blocked witness. Source-complete and empirical M4
     validation remain open.
+36a.5. M5 now has a mechanism-specific operational profile in
+    `RepairFailure.lean`: repair need, responsibility, absent plan, failed
+    action, absent verification, material recurrence, and maintained closure
+    claim jointly project to support degradation and ISF, while each missing
+    condition has a concrete blocked witness. Source-complete and empirical M5
+    validation remain open.
 36b. M8 power-condition warrant discharge now has a scoped operational model
     for relevance, validity dependence, and omission, with negative controls
     for unaffected group, immaterial condition, and ordinary output.  Remaining

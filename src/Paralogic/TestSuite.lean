@@ -20,6 +20,7 @@ import Paralogic.EvidenceOverclaim
 import Paralogic.MetricProxy
 import Paralogic.FormalAccessSubstitution
 import Paralogic.SymbolicSubstitution
+import Paralogic.RepairFailure
 import Paralogic.WarrantDischarge
 
 /-!
@@ -621,6 +622,58 @@ example :
     SymbolicSubstitutionProfileBlocked
       symbolicSubstitutionBoundaryPresentProfile :=
   symbolicSubstitutionBoundaryPresentProfile_blocked
+
+example :
+    RepairFailureProfileSatisfied repairFailureOnlyProfile :=
+  repairFailureOnlyProfile_satisfied
+
+example :
+    SupportDegradedSem (M := repairFailureOnlyModel) Unit.unit Unit.unit
+      Unit.unit :=
+  repairFailureOnly_supportDegraded
+
+example :
+    ISFSem repairFailureOnlyModel Unit.unit Unit.unit Unit.unit Unit.unit
+      Unit.unit :=
+  repairFailureOnly_to_ISFSem
+
+example :
+    ISFTMechanismProfileSatisfied
+      repairFailureOnlyProfile.toMechanismProfile :=
+  repairFailureOnly_mechanism_profile_satisfied
+
+example :
+    (repairFailureOnlyProfile.toMechanismProfile).mechanism =
+      ISFTMechanism.M5 :=
+  RepairFailureProfile_mechanism_label repairFailureOnlyProfile
+
+example :
+    RepairFailureProfileBlocked repairFailureNoNeedProfile :=
+  repairFailureNoNeedProfile_blocked
+
+example :
+    RepairFailureProfileBlocked repairFailureNoResponsibilityProfile :=
+  repairFailureNoResponsibilityProfile_blocked
+
+example :
+    RepairFailureProfileBlocked repairFailurePlanPresentProfile :=
+  repairFailurePlanPresentProfile_blocked
+
+example :
+    RepairFailureProfileBlocked repairFailureActionSuccessfulProfile :=
+  repairFailureActionSuccessfulProfile_blocked
+
+example :
+    RepairFailureProfileBlocked repairFailureVerifiedProfile :=
+  repairFailureVerifiedProfile_blocked
+
+example :
+    RepairFailureProfileBlocked repairFailureNoRecurrenceProfile :=
+  repairFailureNoRecurrenceProfile_blocked
+
+example :
+    RepairFailureProfileBlocked repairFailureNoClosureClaimProfile :=
+  repairFailureNoClosureClaimProfile_blocked
 
 example :
     MetricProxyProfileSatisfied metricProxyOnlyProfile :=

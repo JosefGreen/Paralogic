@@ -28,6 +28,7 @@ import Paralogic.EvidenceOverclaim
 import Paralogic.MetricProxy
 import Paralogic.FormalAccessSubstitution
 import Paralogic.SymbolicSubstitution
+import Paralogic.RepairFailure
 import Paralogic.WarrantDischarge
 import Paralogic.ConceptualEssentialization
 import Paralogic.Semantics

@@ -1,0 +1,9 @@
+[
+  "repairNeedDeclared",
+  "responsibleAgentIdentified",
+  "repairPlanAbsent",
+  "repairActionFailed",
+  "verificationAbsent",
+  "recurrenceMaterial",
+  "closureClaimMaintained"
+]

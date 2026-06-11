@@ -1,0 +1,79 @@
+{
+  "blocked_witness_count": 7,
+  "blocked_witnesses": {
+    "repairFailureActionSuccessfulProfile_blocked": true,
+    "repairFailureNoClosureClaimProfile_blocked": true,
+    "repairFailureNoNeedProfile_blocked": true,
+    "repairFailureNoRecurrenceProfile_blocked": true,
+    "repairFailureNoResponsibilityProfile_blocked": true,
+    "repairFailurePlanPresentProfile_blocked": true,
+    "repairFailureVerifiedProfile_blocked": true
+  },
+  "blocker_count": 7,
+  "blockers": {
+    "immaterial_recurrence_blocks_profile": true,
+    "missing_repair_need_blocks_profile": true,
+    "missing_repair_responsibility_blocks_profile": true,
+    "no_repair_closure_claim_blocks_profile": true,
+    "present_repair_plan_blocks_profile": true,
+    "present_repair_verification_blocks_profile": true,
+    "successful_repair_action_blocks_profile": true
+  },
+  "condition_count": 7,
+  "conditions": {
+    "closureClaimMaintained": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "recurrenceMaterial": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "repairActionFailed": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "repairNeedDeclared": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "repairPlanAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "responsibleAgentIdentified": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    },
+    "verificationAbsent": {
+      "in_blocked": true,
+      "in_profile": true,
+      "in_satisfied": true
+    }
+  },
+  "missing_blocked_witnesses": [],
+  "missing_blockers": [],
+  "missing_condition_mentions": {},
+  "missing_positive_artifacts": [],
+  "positive_artifacts": {
+    "M5RepairFailureCase": true,
+    "M5RepairFailureCase_to_ISFSem": true,
+    "M5RepairFailureSatisfied": true,
+    "RepairFailureProfile": true,
+    "RepairFailureProfile.toMechanismProfile": true,
+    "RepairFailureProfileSatisfied": true,
+    "RepairFailureProfile_to_mechanism_satisfied": true,
+    "RepairFailureProfile_to_supportDegraded": true,
+    "repairFailureOnlyProfile_satisfied": true,
+    "repairFailureOnly_mechanism_profile_satisfied": true,
+    "repairFailureOnly_supportDegraded": true,
+    "repairFailureOnly_to_ISFSem": true
+  },
+  "status": "M5C-pass"
+}

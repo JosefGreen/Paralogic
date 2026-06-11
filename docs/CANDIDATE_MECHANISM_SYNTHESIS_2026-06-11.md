@@ -132,6 +132,12 @@ mismatch, absent material condition, material audience uptake, absent
 correction path, and absent boundary guard.  Its checker persists results in
 `docs/symbolic_substitution_checks/`.
 
+M5 now has the parallel formal module, `src/Paralogic/RepairFailure.lean`.
+It models repair failure through repair need, responsible agent identification,
+absent repair plan, failed repair action, absent verification, material
+recurrence, and maintained closure claim.  Its checker persists results in
+`docs/repair_failure_checks/`.
+
 ## Pipeline Consequence
 
 Lane D should now proceed by filling each mechanism with:

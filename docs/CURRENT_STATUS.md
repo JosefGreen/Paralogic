@@ -53,6 +53,9 @@ The repository currently contains:
 - An M4 symbolic-substitution checker that confirms the symbolic-substitution
   module has seven required conditions, seven blockers, seven concrete blocked
   witnesses, positive projection artifacts, and persisted coverage.
+- An M5 repair-failure checker that confirms the repair-failure module has
+  seven required conditions, seven blockers, seven concrete blocked witnesses,
+  positive projection artifacts, and persisted coverage.
 - A bounded propositional proof checker covering seven positive and negative
   truth-table targets for the strengthened derivability fragment.
 - A tiny PYC proof checker for a Horn-like fragment, with regression tests and
@@ -137,6 +140,11 @@ The repository currently contains:
   boundary guard jointly warrant support degradation and an ISF projection,
   while each missing condition has a named blocker and concrete blocked
   witness.
+- A new MC3-Lean M5 repair-failure module where repair need, responsibility,
+  absent plan, failed action, absent verification, material recurrence, and
+  maintained closure claim jointly warrant support degradation and an ISF
+  projection, while each missing condition has a named blocker and concrete
+  blocked witness.
 - A new MC3-Lean warrant-discharge scaffold that enumerates current
   warrant-like assumptions, proves they are not yet source-backed or
   empirically validated, and gives all-false-model countermodels against raw

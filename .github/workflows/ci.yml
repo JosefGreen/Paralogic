@@ -78,3 +78,6 @@ jobs:
 
       - name: Run M4 symbolic substitution checker
         run: python python/symbolic_substitution_check.py
+
+      - name: Run M5 repair failure checker
+        run: python python/repair_failure_check.py
