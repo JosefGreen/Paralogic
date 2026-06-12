@@ -40,6 +40,12 @@ jobs:
       - name: Run Python regression tests
         run: python -m pytest -q
 
+      - name: Run claim discipline checker
+        run: python python/claim_discipline_check.py
+
+      - name: Run usefulness pilot checker
+        run: python python/usefulness_pilot_check.py
+
       - name: Run finite model checker
         run: python python/finite_check.py
 

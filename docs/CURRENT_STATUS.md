@@ -1,8 +1,40 @@
 # Current Status
 
-Last updated: 2026-06-11.
+Last updated: 2026-06-12.
 
 Current status: incomplete.
+
+## Public Claim
+
+"This is a Lean-checked formal research workbench for selected Paralogic/ISFT fragments, not a complete system."
+
+## Mathematical Seriousness Benchmark Status
+
+The current benchmark package is complete for the repository state recorded in
+`docs/REPRODUCIBILITY.md`. It supports public GitHub review, book-appendix
+orientation, technical-white-paper scoping, collaborator outreach, and initial
+grounded usefulness testing. It does not complete Paralogic, ISFT, empirical
+validation, or external review.
+
+Benchmark documents:
+
+- `docs/MATHEMATICAL_SERIOUSNESS_CLAIM.md`
+- `docs/ANTI_REWARD_HACKING_AUDIT.md`
+- `docs/SIMPLIFICATION_LOG.md`
+- `docs/REAL_WORLD_USEFULNESS_PILOTS.md`
+- `docs/PARALOGIC_CLAIM_AUDIT_TEMPLATE.md`
+- `docs/THEOREM_DEPTH_LEDGER.md`
+- `docs/WARRANT_LEDGER.md`
+- `docs/PROOF_THEORY_STATUS.md`
+- `docs/MODEL_THEORY_STATUS.md`
+- `docs/WORKED_EXAMPLE_FORMAL_PIPELINE.md`
+- `docs/REPRODUCIBILITY.md`
+- `docs/CLAIM_DISCIPLINE_AUDIT.md`
+- `docs/FORMAL_WORKBENCH_REVIEW_PACKET.md`
+
+Practical usefulness pilot status: three synthetic pilots completed with
+average usefulness score 4.33 and no pilot below 3. Current practical value is
+claim-boundary discipline, not proven general utility.
 
 The repository currently contains:
 

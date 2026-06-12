@@ -5,6 +5,12 @@ Status: active.
 Purpose: complete Paralogic / ISFT as an academically rigorous system without
 collapsing local artifacts into global completion.
 
+Benchmark note: the practical mathematical-seriousness benchmark is narrower
+than this global roadmap. For the current public benchmark, see
+`docs/MATHEMATICAL_SERIOUSNESS_CLAIM.md`,
+`docs/FORMAL_WORKBENCH_REVIEW_PACKET.md`, and `docs/REPRODUCIBILITY.md`.
+The repository remains incomplete as a full Paralogic/ISFT theory.
+
 ## Status Labels
 
 | Label | Meaning |

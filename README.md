@@ -1,15 +1,26 @@
 # Paralogic
 
+"This is a Lean-checked formal research workbench for selected Paralogic/ISFT fragments, not a complete system."
+
 Paralogic is a Lean-first research program for formalizing frame-relative
 contradiction, evaluator-gated insight, non-collapse reasoning, and ISFT
 (Institutional Symbolic Failure Theory).
 
 This repository has been rebuilt from scratch as a mathematical workbench.
-The current target is rigor, not rhetoric: every major claim must become a
-typed definition, theorem, countermodel, proof obligation, or validation gap.
+The current public benchmark is practical mathematical seriousness: selected
+Lean-checked fragments, reproducible checks, usefulness pilots, and explicit
+claim boundaries.
 
 Current status: incomplete.  See `docs/CURRENT_STATUS.md` and
 `docs/FULL_SYSTEM_AUDIT_2026-06-08.md`.
+
+Safe expanded claim:
+
+The repository contains Lean-checked selected definitions, implications,
+countermodels, operational schemas, bounded executable checks, usefulness
+pilots, and status ledgers for Paralogic/ISFT fragments. It is a formal
+research workbench, not a complete mathematical system, not empirical
+validation, and not an external-review substitute.
 
 ## What Is Encoded Now
 
@@ -41,6 +52,44 @@ lake build
 
 The project intentionally avoids Mathlib for now so the foundational kernel is
 small, auditable, and easy to build.
+
+## Verification
+
+```bash
+lake build
+python -m pytest -q
+```
+
+For the full local verification list, see `docs/REPRODUCIBILITY.md`.
+
+## Practical Mathematical-Seriousness Benchmark
+
+Benchmark entry points:
+
+- `docs/MATHEMATICAL_SERIOUSNESS_CLAIM.md`
+- `docs/ANTI_REWARD_HACKING_AUDIT.md`
+- `docs/SIMPLIFICATION_LOG.md`
+- `docs/REAL_WORLD_USEFULNESS_PILOTS.md`
+- `docs/PARALOGIC_CLAIM_AUDIT_TEMPLATE.md`
+- `docs/THEOREM_DEPTH_LEDGER.md`
+- `docs/ledgers/theorem_depth_ledger.csv`
+- `docs/WARRANT_LEDGER.md`
+- `docs/ledgers/warrant_ledger.csv`
+- `docs/PROOF_THEORY_STATUS.md`
+- `docs/MODEL_THEORY_STATUS.md`
+- `docs/WORKED_EXAMPLE_FORMAL_PIPELINE.md`
+- `docs/REPRODUCIBILITY.md`
+- `docs/CLAIM_DISCIPLINE_AUDIT.md`
+- `docs/FORMAL_WORKBENCH_REVIEW_PACKET.md`
+
+Complete for the current benchmark: public claim boundary, reproducibility
+record, three usefulness pilots, practical audit template, scoped theorem-depth
+ledger, scoped warrant ledger, proof/model status pages, worked example, review
+packet, and claim-discipline audit.
+
+Still globally incomplete: full Paralogic/ISFT theory, source-backed semantics
+for all mechanisms, proof-theory completeness, global finite-model search,
+empirical validation, and external review.
 
 ## Repository Map
 
@@ -81,6 +130,8 @@ Do not claim:
   obligation.
 - ValidInsight proves empirical truth, moral truth, or repair.
 - Evaluator acceptance proves truth.
+- The repository is peer reviewed.
+- The repository is a commercial assurance or compliance product.
 
 Permitted current claim before a recorded successful build:
 
@@ -92,6 +143,12 @@ Permitted current claim after a recorded successful `lake build`:
 The repository contains Lean-checked finite and many-sorted kernel fragments
 for selected definitions, implications, non-entailment witnesses, and
 condition-gated semantic schemas.
+
+Practical-usefulness claim:
+
+The current practical value of Paralogic is claim-boundary discipline:
+identifying missing warrants, blocking unsafe inferences, and producing safer
+conclusions in selected audit scenarios.
 
 ## Next Mathematical Bottlenecks
 
