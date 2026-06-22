@@ -38,6 +38,19 @@ review, and source maturity S5 or stronger.
 | methodology_only_not_case_evidence | 7 |
 | triage_required | 9 |
 
+## Captured Source Packets
+
+Current source packets are verified public anchors, not manuscript-ready page
+extractions:
+
+- `source_packets/s009_future_combat_systems_rand.md`
+- `source_packets/s005_gao_f35_modernization.md`
+- `source_packets/s008_gao_lcs_testing_weight.md`
+- `source_packets/s017_nist_ai_rmf.md`
+- `source_packets/s018_dod_cdao_ai.md`
+- `source_packets/s019_dodd_3000_09_autonomy.md`
+- `source_packets/s044_nist_sp_800_37_rmf.md`
+
 ## Critical Source Queue
 
 | ID | Source Family | Specific Source / Document | Paper Armies Use | CALM Mapping | Next Action |

@@ -87,7 +87,7 @@ def check() -> dict:
         or missing_source_columns
         or forbidden_ready
         or not audit_has_nonready_verdict
-        or source_packet_count < 1
+        or source_packet_count < 7
     ):
         status = "CSD-fail"
 
