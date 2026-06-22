@@ -26,6 +26,7 @@ import Paralogic.VetoSuppression
 import Paralogic.FrameDrift
 import Paralogic.SymbolicOverload
 import Paralogic.WarrantDischarge
+import Paralogic.CALM
 
 /-!
 Lean examples that serve as regression tests.
@@ -34,6 +35,41 @@ If any example fails, `lake build` fails.
 -/
 
 namespace Paralogic
+
+example {receipt : CALM.ClaimReceipt}
+    (h : Not receipt.boundaryDeclared) :
+    Not (CALM.ClaimTravelReady receipt) :=
+  CALM.missing_boundary_blocks_claim_travel h
+
+example :
+    Not (∀ receipt : CALM.ClaimReceipt,
+      CALM.ClaimTravelReady receipt ->
+        receipt.operationalValidityDemonstrated) :=
+  CALM.claim_travel_ready_does_not_prove_operational_validity
+
+example {receipt : CALM.ClaimReceipt}
+    (h : CALM.PaperCapabilityRisk receipt) :
+    Not receipt.operationalValidityDemonstrated :=
+  CALM.paper_capability_risk_not_operational_validity h
+
+example {packet : CALM.LearningPacket}
+    (h : Not packet.receiverIdentified) :
+    Not (CALM.LearningTravelReady packet) :=
+  CALM.missing_receiver_blocks_learning_travel h
+
+example :
+    Not (∀ packet : CALM.LearningPacket,
+      CALM.LearningTravelReady packet ->
+        CALM.InstitutionalLearningObserved packet) :=
+  CALM.learning_travel_ready_does_not_prove_second_valid_use
+
+example (implementation : CALM.CALMImplementation)
+    (hDecision : Not implementation.decisionBoundaryChanged)
+    (hLearning : Not implementation.learningTransferred)
+    (hBurden : Not implementation.legacyBurdenReduced) :
+    Not (CALM.ReflexivityPass implementation) :=
+  CALM.artifacts_alone_do_not_pass_reflexivity implementation
+    hDecision hLearning hBurden
 
 example {w : World} (h : ISF w) : w.uses := ISF_to_Uses h
 example {w : World} (h : ISF w) : w.claims := ISF_to_Claims h

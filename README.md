@@ -150,6 +150,25 @@ The current practical value of Paralogic is claim-boundary discipline:
 identifying missing warrants, blocking unsafe inferences, and producing safer
 conclusions in selected audit scenarios.
 
+## CALM / Paper Armies Workstream
+
+The repository now also contains an early internal workstream for CALM
+(Capability Assurance and Learning Mobility) and the book project Paper Armies.
+These artifacts use Paralogic-style claim-boundary discipline as backend
+method; they do not claim that Paralogic proves CALM or validates any defense
+case.
+
+- `docs/calm/PROJECT_CHARTER.md` - Phase 0 identity, posture, guardrails, and
+  completion criteria.
+- `docs/calm/COMPLETION_PIPELINE.md` - full CALM / Paper Armies completion
+  pipeline.
+- `docs/calm/PAPER_ARMIES_ARCHITECTURE.md` - controlled book architecture.
+- `docs/calm/SOURCE_CASE_DOSSIER_TEMPLATE.md` - source and case packet schema.
+- `docs/calm/CALM_FORMAL_SPEC.md` - map from the initial Lean CALM guard core
+  to doctrine/toolkit use.
+- `src/Paralogic/CALM.lean` - selected checked non-collapse guards for claim
+  travel, learning travel, and Paper CALM reflexivity.
+
 ## Next Mathematical Bottlenecks
 
 1. Prove substitution and satisfaction lemmas for the many-sorted formula layer.

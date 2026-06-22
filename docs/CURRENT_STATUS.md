@@ -36,9 +36,29 @@ Practical usefulness pilot status: three synthetic pilots completed with
 average usefulness score 4.33 and no pilot below 3. Current practical value is
 claim-boundary discipline, not proven general utility.
 
+## CALM / Paper Armies Workstream Status
+
+The repository now contains a Phase 0 CALM / Paper Armies workstream:
+
+- [CALM project charter](calm/PROJECT_CHARTER.md).
+- [CALM / Paper Armies completion pipeline](calm/COMPLETION_PIPELINE.md).
+- [Paper Armies book architecture](calm/PAPER_ARMIES_ARCHITECTURE.md).
+- [Source and case dossier template](calm/SOURCE_CASE_DOSSIER_TEMPLATE.md).
+- [CALM formal guard specification](calm/CALM_FORMAL_SPEC.md).
+- Lean source: `src/Paralogic/CALM.lean`.
+- Checker: `python/calm_pipeline_check.py`.
+
+This is an initial controlled baseline, not a completed manuscript, doctrine
+manual, toolkit, source dossier, method integration system, or empirical
+validation. CALM uses Paralogic-style claim-boundary discipline internally; the
+Paralogic formal workbench does not prove CALM or any defense case.
+
 The repository currently contains:
 
 - Lean-checked scaffold modules and selected theorem families.
+- A Phase 0 CALM / Paper Armies workstream with project charter, completion
+  pipeline, book architecture, source/case dossier template, formal guard
+  specification, and a small Lean-checked CALM guard core.
 - Selected non-collapse countermodels, many of them one-element witnesses.
 - Representative two-element many-sorted finite non-collapse witnesses.
 - Model-homomorphism structure with pointwise composition laws and positive

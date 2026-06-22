@@ -46,6 +46,9 @@ jobs:
       - name: Run usefulness pilot checker
         run: python python/usefulness_pilot_check.py
 
+      - name: Run CALM pipeline checker
+        run: python python/calm_pipeline_check.py
+
       - name: Run finite model checker
         run: python python/finite_check.py
 
