@@ -34,3 +34,5 @@ def test_calm_source_dossier_is_built_and_guarded():
     assert result["forbidden_ready_promotions"] == []
     assert result["audit_has_nonready_verdict"]
     assert result["source_packet_count"] >= 7
+    assert result["page_extraction_count"] >= 2
+    assert result["page_extraction_missing_boundary"] == []

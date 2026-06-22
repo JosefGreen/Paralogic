@@ -51,6 +51,15 @@ extractions:
 - `source_packets/s019_dodd_3000_09_autonomy.md`
 - `source_packets/s044_nist_sp_800_37_rmf.md`
 
+## Initial Page Extractions
+
+Initial page extractions are stronger than source anchors, but still not
+manuscript-ready until counter-evidence, quote selection, and chapter-level
+claim review are complete:
+
+- `page_extractions/s005_gao_f35_modernization.md`
+- `page_extractions/s008_gao_lcs_testing_weight.md`
+
 ## Critical Source Queue
 
 | ID | Source Family | Specific Source / Document | Paper Armies Use | CALM Mapping | Next Action |

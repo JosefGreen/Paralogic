@@ -11,8 +11,8 @@ is complete.
 | Source ID | Source | Capture Level | Packet | Remaining Work |
 | --- | --- | --- | --- | --- |
 | S009 | RAND, `Lessons from the Army's Future Combat Systems Program` | Public web anchor verified | `source_packets/s009_future_combat_systems_rand.md` | Capture PDF, extract page-level evidence, record counter-evidence |
-| S005 | GAO-24-106909, `F-35 Joint Strike Fighter` | Official public web anchor verified | `source_packets/s005_gao_f35_modernization.md` | Capture full report PDF, extract production/modernization/sustainment pages, add counter-evidence |
-| S008 | GAO-14-749, `Littoral Combat Ship` | Official public web anchor verified | `source_packets/s008_gao_lcs_testing_weight.md` | Capture full report PDF, extract testing/weight/concurrency pages, cross-check newer GAO/CRS/DOT&E material |
+| S005 | GAO-24-106909, `F-35 Joint Strike Fighter` | PDF located and initial page extraction complete | `source_packets/s005_gao_f35_modernization.md`; `page_extractions/s005_gao_f35_modernization.md` | Add counter-evidence, newer GAO/DOT&E/CRS comparison, and chapter-level claim review |
+| S008 | GAO-14-749, `Littoral Combat Ship` | PDF located and initial page extraction complete | `source_packets/s008_gao_lcs_testing_weight.md`; `page_extractions/s008_gao_lcs_testing_weight.md` | Cross-check newer GAO/CRS/DOT&E material and add currentness note |
 | S017 | NIST, `Artificial Intelligence Risk Management Framework 1.0` | Official public web anchor verified | `source_packets/s017_nist_ai_rmf.md` | Capture PDF, extract RMF functions/categories, build CALM AI crosswalk |
 | S018 | DoD/CDAO public AI site | Official public web anchor verified | `source_packets/s018_dod_cdao_ai.md` | Capture exact Responsible AI strategy/pathway documents and dates |
 | S019 | DoDD 3000.09, `Autonomy in Weapon Systems` | Official public directive listing verified | `source_packets/s019_dodd_3000_09_autonomy.md` | Capture directive PDF and page-level human-judgment/testing language |

@@ -75,6 +75,12 @@ def check() -> dict:
     )
     audit_has_nonready_verdict = "Not yet manuscript-ready." in audit_text
     source_packet_count = len(list((DOSSIER / "source_packets").glob("*.md")))
+    page_extraction_count = len(list((DOSSIER / "page_extractions").glob("*.md")))
+    page_extraction_missing_boundary = [
+        path.name
+        for path in (DOSSIER / "page_extractions").glob("*.md")
+        if "Manuscript use status: Not manuscript-ready." not in path.read_text(encoding="utf-8")
+    ]
 
     status = "CSD-pass"
     if (
@@ -88,6 +94,8 @@ def check() -> dict:
         or forbidden_ready
         or not audit_has_nonready_verdict
         or source_packet_count < 7
+        or page_extraction_count < 2
+        or page_extraction_missing_boundary
     ):
         status = "CSD-fail"
 
@@ -103,6 +111,8 @@ def check() -> dict:
         "forbidden_ready_promotions": forbidden_ready,
         "audit_has_nonready_verdict": audit_has_nonready_verdict,
         "source_packet_count": source_packet_count,
+        "page_extraction_count": page_extraction_count,
+        "page_extraction_missing_boundary": page_extraction_missing_boundary,
     }
 
 
