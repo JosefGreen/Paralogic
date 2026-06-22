@@ -1,0 +1,5 @@
+Artifact,Type,Status,Role in Effort,Use / Limitation
+CALM Master Baseline v5.0 Hardened,Internal baseline,Current controlling architecture,"Defines five CALM families, hardening rules, Reflexivity Defense",Not external evidence; do not cite as source for factual claims
+Adversarial Audit & Penetration Test Report,Internal red-team,Integrated as hardening input,"Identified Reflexivity Trap, Paper CALM risk, author firewall",Not peer review or external validation
+Paralogic GitHub repository,Internal/public methodology workbench,Inspected selectively,"Supplies claim-boundary discipline, non-collapse, warrant accounting, reward-hacking controls",Not complete; not empirical validation; do not use as defense factual evidence
+Local baseline folder if uploaded later,Potential internal archive,Not accessible yet,May contain further Paralogic/ISFT baseline materials,Must be uploaded or pushed to GitHub before analysis

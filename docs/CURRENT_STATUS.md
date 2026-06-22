@@ -44,14 +44,19 @@ The repository now contains a Phase 0 CALM / Paper Armies workstream:
 - [CALM / Paper Armies completion pipeline](calm/COMPLETION_PIPELINE.md).
 - [Paper Armies book architecture](calm/PAPER_ARMIES_ARCHITECTURE.md).
 - [Source and case dossier template](calm/SOURCE_CASE_DOSSIER_TEMPLATE.md).
+- [Generated source dossier](calm/source_dossier/README.md).
 - [CALM formal guard specification](calm/CALM_FORMAL_SPEC.md).
 - Lean source: `src/Paralogic/CALM.lean`.
 - Checker: `python/calm_pipeline_check.py`.
+- Source-dossier checker: `python/calm_source_dossier_check.py`.
 
 This is an initial controlled baseline, not a completed manuscript, doctrine
 manual, toolkit, source dossier, method integration system, or empirical
-validation. CALM uses Paralogic-style claim-boundary discipline internally; the
-Paralogic formal workbench does not prove CALM or any defense case.
+validation. The generated dossier is a normalized source-control package, but
+it still records the source map as not yet manuscript-ready because page-level
+source capture remains incomplete. CALM uses Paralogic-style claim-boundary
+discipline internally; the Paralogic formal workbench does not prove CALM or
+any defense case.
 
 The repository currently contains:
 

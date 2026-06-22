@@ -164,6 +164,8 @@ case.
   pipeline.
 - `docs/calm/PAPER_ARMIES_ARCHITECTURE.md` - controlled book architecture.
 - `docs/calm/SOURCE_CASE_DOSSIER_TEMPLATE.md` - source and case packet schema.
+- `docs/calm/source_dossier/README.md` - generated source dossier from the
+  attached Paper Armies / CALM source-map workbook.
 - `docs/calm/CALM_FORMAL_SPEC.md` - map from the initial Lean CALM guard core
   to doctrine/toolkit use.
 - `src/Paralogic/CALM.lean` - selected checked non-collapse guards for claim

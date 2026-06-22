@@ -1,0 +1,9 @@
+Level,Name,Meaning,Permitted Use
+S0,Source family identified,"General source category known, no specific verified item",Do not use for factual manuscript claims
+S1,Discovery source found,"Search result, article, secondary reference, or known report title",Use only for research direction
+S2,Direct source page verified,Official page or stable source page found,"Can cite existence of source, not detailed claim unless read"
+S3,PDF or stable primary source captured,Source file captured or stable official document available,Ready for extraction
+S4,Page-level extraction completed,Relevant pages/quotes/findings extracted,Can support draft notes with caution
+S5,Claim-to-source mapping completed,Each claim mapped to exact source/page/quote or finding,Minimum for primary manuscript claim
+S6,Counter-evidence checked,Contradictory or limiting evidence reviewed,Required for major contested claims
+S7,Manuscript-ready,"Source, counter-evidence, wording, limitation, and citation are final",Ready for publication draft

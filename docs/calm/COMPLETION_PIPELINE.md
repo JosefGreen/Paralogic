@@ -14,7 +14,7 @@ and does not validate defense claims.
 | 0 | Control Baseline | Charter, posture, guardrails, ecosystem, source rules, completion criteria | In progress; charter created |
 | 1 | Concept Lock | Terminology, concept map, forbidden language, audience vocabulary | Not complete |
 | 2 | Source Maturity Tracker | Source hierarchy, claim-source template, counter-evidence template | Not complete |
-| 3 | Source Capture | Official/high-value sources, extracted evidence, quote candidates | Not complete |
+| 3 | Source Capture | Official/high-value sources, extracted evidence, quote candidates | Started; generated source dossier preserves open capture gaps |
 | 4 | Prior-Art Defense | Comparison to existing methods and fields | Not complete |
 | 5 | CALM Doctrine Specification | Instruments, owners, triggers, failure modes, attachment points | Not complete |
 | 6 | Learning Mobility System | Escape route, reusable claim, barrier log, second-use plan | Not complete |
@@ -42,6 +42,9 @@ This pass executes the first part of Phase 0:
 4. Adds a Lean-checked CALM guard core for claim travel, learning travel, and
    Paper CALM reflexivity.
 5. Adds a static checker so the new workstream has a verification hook.
+6. Converts the attached source-map workbook into a generated source dossier,
+   with source register, case packets, chapter matrix, capture gaps, and a
+   readiness audit.
 
 ## Gate Rules
 
@@ -64,9 +67,11 @@ No learning claim may be promoted from captured to learned without second valid 
 
 1. Complete Phase 1 concept lock.
 2. Build the source maturity tracker and case role map.
-3. Draft the first method integration profile for project/program management.
-4. Draft the Claim Receipt and Shadow Ledger toolkit templates.
-5. Run a red-team review against the Phase 0 package.
+3. Capture page-level evidence for Critical official sources in the source
+   dossier.
+4. Draft the first method integration profile for project/program management.
+5. Draft the Claim Receipt and Shadow Ledger toolkit templates.
+6. Run a red-team review against the Phase 0/source-dossier package.
 
 ## Usefulness Check
 

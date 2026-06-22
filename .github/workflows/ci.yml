@@ -49,6 +49,9 @@ jobs:
       - name: Run CALM pipeline checker
         run: python python/calm_pipeline_check.py
 
+      - name: Run CALM source dossier checker
+        run: python python/calm_source_dossier_check.py
+
       - name: Run finite model checker
         run: python python/finite_check.py
 

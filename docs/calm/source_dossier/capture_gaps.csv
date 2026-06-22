@@ -1,0 +1,10 @@
+Gap ID,Gap,Affected Chapters / Products,Risk,Priority,Next Action
+G001,Direct PDFs still needed for many official source families,"Book, Source Dossier",Source laundering or reliance on discovery sources,Critical,"Capture official PDFs for SIGAR, SIGIR, GAO, CRS, DOT&E, DoD, NASA, House/FAA/NTSB"
+G002,Page-level extraction not yet complete for most external sources,"Book, Chapter Packets",Claims may become too broad or weakly supported,Critical,Build extraction sheets source-by-source
+G003,Counter-evidence and countercase pairing incomplete,"Book, Red-Team",Book could sound cynical or one-sided,High,"Build MRAP, Ukraine, DIU, and slow-was-correct countercase dossiers"
+G004,Human-cost source packets not built,Human interludes,Ethical/legal/reputational risk,Critical,"Create 507th, Tongo Tongo, Tillman, Wanat packets before drafting narratives"
+G005,Prior-art defense matrix not populated,"Doctrine, Toolkit","Novelty overclaim against project management, systems engineering, RMF, acquisition",Critical,"Populate matrix across PM, SE, ME, RMF, AAF, SAFe, Scrum, DevSecOps"
+G006,Validity Load formula experimental,"Doctrine, Toolkit",False precision or mathematically unstable claims,High,Use only as heuristic; redesign and calibrate later
+G007,Author firewall needs a formal one-page rule set,"Book proposal, public platform",Professional risk and bridge-burning,Critical,Draft professional safety statement and prohibited-claim list
+G008,CALM sources need separation from Paralogic internal methodology,"Book, doctrine",Brand confusion or unsupported formal authority claims,High,Use Paralogic as internal scaffolding unless explicitly deciding otherwise
+G009,Current/event-driven sources require freshness checks before publication,"AI, space, strategic competition, Ukraine",Stale data and credibility loss,High,Run current-source update before proposal/manuscript finalization
